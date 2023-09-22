@@ -1,0 +1,5 @@
+html
+backups
+report
+.DS_Store
+bin/jmeter.log
