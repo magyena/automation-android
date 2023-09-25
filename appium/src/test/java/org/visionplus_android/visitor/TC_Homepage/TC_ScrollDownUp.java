@@ -1,4 +1,4 @@
-package org.visionplus_android.TC_Homepage;
+package org.visionplus_android.visitor.TC_Homepage;
 
 import java.time.Duration;
 import java.util.Collections;
