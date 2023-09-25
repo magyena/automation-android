@@ -1,4 +1,4 @@
-package org.visionplus_android.TC_Login;
+package org.visionplus_android.visitor.TC_Login;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -46,7 +46,7 @@ public class TC_SuccessLoginSignOut extends BaseTest{
 	
 	@DataProvider
 	public Object[][] getData() throws IOException {
-		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/test/java/org/fadhilacademy/TestData/LoginTestdata/login.json");
+		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/test/java/org/visionplus_android/TestData/LoginTestdata/login.json");
 		return new Object[][] {{data.get(0)}};
 		
 	}

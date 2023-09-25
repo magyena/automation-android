@@ -1,4 +1,4 @@
-package org.visionplus_android.TC_Login;
+package org.visionplus_android.visitor.TC_Login;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,33 +10,30 @@ import org.testng.annotations.Test;
 import org.visionplus_android.pageObjects.android.HomePageVisionPlus;
 import org.visionplus_android.pageObjects.android.LoginPageVisionPlus;
 
-public class TC_LoginWrongPhonePassword extends BaseTest {
-
+public class TC_LoginWrongPhoneNumber extends BaseTest {
+	
+	
 	@Test(dataProvider="getData")
-	public void TC_LoginWrongPhonePassword(HashMap<String, String> input) throws InterruptedException {
+	public void TC_LoginWrongPhoneNumber(HashMap<String, String> input) throws InterruptedException {
 		HomePageVisionPlus homepage = new HomePageVisionPlus(android);
 		LoginPageVisionPlus login = new LoginPageVisionPlus(android);
 		homepage.lewatiButton();
-		test.info("User berhasil Klik skip button");
+		test.pass("User berhasil Klik skip button");
 		homepage.lainnyaButton();
-		test.info("User berhasil Klik menu Lainnya");
+		test.pass("User berhasil Klik menu Lainnya");
 		login.clickMasukButton();
-		test.pass("User berhasil Klik Button Masuk");
 		login.inputPhoneNumber(input.get("phone"));
-		test.pass("User berhasil input Phone Number");
+		test.info("User input nomor yang salah");
 		login.clickButtonContinue();
-		login.inputPhonePassword(input.get("password"));
-		login.clickButtonContinue();
-		login.assertWrongPhonePassword();
+		login.assertWrongPhoneNumber();
 		test.pass("hasil Assert sesuai");
-		
 	}
 	
 	@DataProvider
 	public Object[][] getData() throws IOException {
-		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/test/java/org/fadhilacademy/TestData/LoginTestdata/TC_loginWrongPhonePassword.json");
+		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/test/java/org/visionplus_android/TestData/LoginTestdata/TC_loginWrongPhoneNumber.json");
 		return new Object[][] {{data.get(0)}};
 		
 	}
-	
+
 }
