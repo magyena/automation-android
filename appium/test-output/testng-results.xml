@@ -2,31 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-09-25T13:32:01 WIB" name="Default suite" finished-at="2023-09-25T13:32:22 WIB" duration-ms="21629">
+  <suite started-at="2023-09-26T15:22:28 WIB" name="Default suite" finished-at="2023-09-26T15:22:58 WIB" duration-ms="29387">
     <groups>
     </groups>
-    <test started-at="2023-09-25T13:32:01 WIB" name="Default test" finished-at="2023-09-25T13:32:22 WIB" duration-ms="21629">
-      <class name="org.visionplus_android.visitor.TC_Login.TC_LoginWrongPhoneNumber">
-        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:org.visionplus_android.visitor.TC_Login.TC_LoginWrongPhoneNumber@5a9f4771]" started-at="2023-09-25T13:32:01 WIB" name="ConfigureAppium" finished-at="2023-09-25T13:32:10 WIB" duration-ms="9026" status="PASS">
+    <test started-at="2023-09-26T15:22:28 WIB" name="Default test" finished-at="2023-09-26T15:22:58 WIB" duration-ms="29387">
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD">
+        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD@4416d64f]" started-at="2023-09-26T15:22:28 WIB" name="ConfigureAppium" finished-at="2023-09-26T15:22:38 WIB" duration-ms="9992" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ConfigureAppium -->
-        <test-method signature="TC_LoginWrongPhoneNumber(java.util.HashMap)[pri:0, instance:org.visionplus_android.visitor.TC_Login.TC_LoginWrongPhoneNumber@5a9f4771]" started-at="2023-09-25T13:32:10 WIB" name="TC_LoginWrongPhoneNumber" data-provider="getData" finished-at="2023-09-25T13:32:22 WIB" duration-ms="11417" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{phone=999999999999}]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="TC_PlayPremiumVOD()[pri:0, instance:org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD@4416d64f]" started-at="2023-09-26T15:22:38 WIB" name="TC_PlayPremiumVOD" finished-at="2023-09-26T15:22:56 WIB" duration-ms="18101" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_LoginWrongPhoneNumber -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.visionplus_android.visitor.TC_Login.TC_LoginWrongPhoneNumber@5a9f4771]" started-at="2023-09-25T13:32:22 WIB" name="tearDown" finished-at="2023-09-25T13:32:22 WIB" duration-ms="871" status="PASS">
+        </test-method> <!-- TC_PlayPremiumVOD -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD@4416d64f]" started-at="2023-09-26T15:22:56 WIB" name="tearDown" finished-at="2023-09-26T15:22:58 WIB" duration-ms="1182" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- org.visionplus_android.visitor.TC_Login.TC_LoginWrongPhoneNumber -->
+      </class> <!-- org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

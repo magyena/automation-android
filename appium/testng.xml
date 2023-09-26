@@ -3,15 +3,16 @@
 <suite name="Suite">
 
 <listeners>
-<listener class-name="org.fadhilacademy.TestUtils.Listeners"/>
+<listener class-name="org.visionplus_android.TestUtils.Listeners"/>
 </listeners>
 
   <test thread-count="5" name="Test">
     <classes>
-      <class name="org.visionplus_android.TC_Login.TC_SuccessLoginSignOut"/>
-      <class name="org.visionplus_android.TC_Login.TC_LoginWrongPhoneNumber"/>
-      <class name="org.visionplus_android.TC_Login.TC_LoginWrongPhonePassword"/>
-      <class name="org.visionplus_android.TC_Homepage.TC_ScrollDownUp"/>
+      <class name="org.visionplus_android.visitor.TC_Login.TC_SuccessLoginSignOut"/>
+      <class name="org.visionplus_android.visitor.TC_Login.TC_LoginWrongPhoneNumber"/>
+      <class name="org.visionplus_android.visitor.TC_Login.TC_LoginWrongPhonePassword"/>
+      <class name="org.visionplus_android.visitor.TC_Homepage.TC_ScrollDownUp"/>
+      <class name="org.visionplus_android.visitor.TC_Homepage.TC_SwipeBannerAndClick"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -52,6 +52,9 @@ public class HomePageVisionPlus extends AndroidGesture{
 	@AndroidFindBy(xpath="//android.widget.TextView[@text='Vision+ Originals']")
 	private WebElement textVisionPlusOriginal;
 	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/slider_image")
+	private WebElement bannerHomepage;
+	
 	public void assertTextExploreByCategories() {
 		String actual = textExploreByCategories.getText();
 		String expected = "Explore By Categories";
@@ -64,6 +67,7 @@ public class HomePageVisionPlus extends AndroidGesture{
 		Assert.assertEquals(actual, expected);
 	}
 	
+	
 	public void clickBtnShowcaseTvConnect() {
 		btnShowcaseTvConnect.click();
 	}
@@ -72,19 +76,29 @@ public class HomePageVisionPlus extends AndroidGesture{
 		btnSelengkapnya.click();
 	}
 	
+	public void clickBanner() {
+		bannerHomepage.click();
+	}
+	
+	public void swipeBanner() {
+		AndroidGesture gesture = new AndroidGesture(android);
+		gesture.swipeLeftNoParameter();
+	}
+	
+	
 	public void scrollToText(String text) {
 		AndroidGesture gesture = new AndroidGesture(android);
 		gesture.scrollToText(text);
 	}
 	
-	public void scrollDownNoParameter() {
+	public void scrollDown(double value) {
 		AndroidGesture gesture = new AndroidGesture(android);
-		gesture.scrollDownNoParameter();
+		gesture.scrollDownWithParameter(value);
 	}
 	
-	public void scrollUpNoParameter() {
+	public void scrollUpNoParameter(double value) {
 		AndroidGesture gesture = new AndroidGesture(android);
-		gesture.scrollUpNoParameter();
+		gesture.scrollUpWithParameter(1);
 	}
 	
 	public void clickBtnShowcaseOk() {
