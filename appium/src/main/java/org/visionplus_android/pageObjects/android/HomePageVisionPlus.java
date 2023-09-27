@@ -5,6 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.visionplus_android.utils.AndroidGesture;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -55,6 +56,9 @@ public class HomePageVisionPlus extends AndroidGesture{
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/slider_image")
 	private WebElement bannerHomepage;
 	
+	@AndroidFindBy(accessibility="TVku")
+	private WebElement btnTVku;
+	
 	public void assertTextExploreByCategories() {
 		String actual = textExploreByCategories.getText();
 		String expected = "Explore By Categories";
@@ -67,6 +71,9 @@ public class HomePageVisionPlus extends AndroidGesture{
 		Assert.assertEquals(actual, expected);
 	}
 	
+	public void clickBtnTVku() {
+		btnTVku.click();
+	}
 	
 	public void clickBtnShowcaseTvConnect() {
 		btnShowcaseTvConnect.click();

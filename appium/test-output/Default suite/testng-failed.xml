@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD">
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumLinear">
         <methods>
+          <include name="TC_PlayPremiumLinear"/>
           <include name="tearDown"/>
-          <include name="TC_PlayPremiumVOD"/>
           <include name="ConfigureAppium"/>
         </methods>
-      </class> <!-- org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD -->
+      </class> <!-- org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumLinear -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

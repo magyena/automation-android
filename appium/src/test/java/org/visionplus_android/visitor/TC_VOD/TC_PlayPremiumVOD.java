@@ -35,7 +35,7 @@ public class TC_PlayPremiumVOD extends BaseTest {
 		Thread.sleep(2000);
 		homepage.scrollDown(0.18);
 	    vod.clickEps3VOD();
-	    vod.assertErrorSubcription();
+	    vod.assertErrorSubcriptionPremiumVOD();
 	    Thread.sleep(3000);
 		}
 	

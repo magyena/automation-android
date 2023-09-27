@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-09-26T15:22:28 WIB" name="Default suite" finished-at="2023-09-26T15:22:58 WIB" duration-ms="29387">
+  <suite started-at="2023-09-27T14:40:08 WIB" name="Default suite" finished-at="2023-09-27T14:40:36 WIB" duration-ms="28652">
     <groups>
     </groups>
-    <test started-at="2023-09-26T15:22:28 WIB" name="Default test" finished-at="2023-09-26T15:22:58 WIB" duration-ms="29387">
-      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD">
-        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD@4416d64f]" started-at="2023-09-26T15:22:28 WIB" name="ConfigureAppium" finished-at="2023-09-26T15:22:38 WIB" duration-ms="9992" status="PASS">
+    <test started-at="2023-09-27T14:40:08 WIB" name="Default test" finished-at="2023-09-27T14:40:36 WIB" duration-ms="28652">
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumLinear">
+        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumLinear@4416d64f]" started-at="2023-09-27T14:40:08 WIB" name="ConfigureAppium" finished-at="2023-09-27T14:40:21 WIB" duration-ms="13195" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ConfigureAppium -->
-        <test-method signature="TC_PlayPremiumVOD()[pri:0, instance:org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD@4416d64f]" started-at="2023-09-26T15:22:38 WIB" name="TC_PlayPremiumVOD" finished-at="2023-09-26T15:22:56 WIB" duration-ms="18101" status="PASS">
+        <test-method signature="TC_PlayPremiumLinear()[pri:0, instance:org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumLinear@4416d64f]" started-at="2023-09-27T14:40:21 WIB" name="TC_PlayPremiumLinear" finished-at="2023-09-27T14:40:35 WIB" duration-ms="14275" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_PlayPremiumVOD -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD@4416d64f]" started-at="2023-09-26T15:22:56 WIB" name="tearDown" finished-at="2023-09-26T15:22:58 WIB" duration-ms="1182" status="PASS">
+        </test-method> <!-- TC_PlayPremiumLinear -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumLinear@4416d64f]" started-at="2023-09-27T14:40:35 WIB" name="tearDown" finished-at="2023-09-27T14:40:36 WIB" duration-ms="1054" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD -->
+      </class> <!-- org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumLinear -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
