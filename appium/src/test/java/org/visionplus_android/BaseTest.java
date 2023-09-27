@@ -75,7 +75,7 @@ public class BaseTest {
 		
 		UiAutomator2Options options = new UiAutomator2Options();
 		options.setDeviceName(prop.getProperty("AndroidDeviceName"));
-		options.setChromedriverExecutable("/Users/fadhilmg/sellar/chromedriver/chromedriver.exe");
+		options.setChromedriverExecutable(System.getProperty("user.dir") + "/src/test/java/org/visionplus_android/Assets/chromedriver.exe");
 		options.setApp(System.getProperty("user.dir") + "/src/test/java/org/visionplus_android/Assets/visionplus.apk");
 		options.setCapability("autoGrantPermissions","true");
 		options.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");

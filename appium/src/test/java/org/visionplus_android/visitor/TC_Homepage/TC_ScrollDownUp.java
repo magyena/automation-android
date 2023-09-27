@@ -24,18 +24,16 @@ public class TC_ScrollDownUp extends BaseTest{
 	@Test
 	public void TC_ScrollDownUp() throws InterruptedException {
 	HomePageVisionPlus homepage = new HomePageVisionPlus(android);
-	LoginPageVisionPlus login = new LoginPageVisionPlus(android);
 	homepage.lewatiButton();
 	test.pass("User berhasil Klik skip button");
 	homepage.clickBtnShowcaseTvConnect();
 	test.pass("User berhasil Klik Button Showcase TV Connect");
 	homepage.clickBtnShowcaseOk();
 	test.pass("User berhasil Klik Button Showcase OK");
-	homepage.scrollDownNoParameter();
-	homepage.assertTextExploreByCategories();
+	homepage.scrollDown(0.04);
     Thread.sleep(3000);
 	test.pass("user berhasil Scrolldown Homepage");
-	homepage.scrollUpNoParameter();
+	homepage.scrollUpNoParameter(1.0);
 	homepage.assertTextVisionPlusOriginal();
     Thread.sleep(3000);
     test.pass("user berhasil Scrollup Homepage");

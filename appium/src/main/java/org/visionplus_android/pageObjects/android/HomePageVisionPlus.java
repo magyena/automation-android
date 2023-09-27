@@ -5,6 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.visionplus_android.utils.AndroidGesture;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -52,6 +53,12 @@ public class HomePageVisionPlus extends AndroidGesture{
 	@AndroidFindBy(xpath="//android.widget.TextView[@text='Vision+ Originals']")
 	private WebElement textVisionPlusOriginal;
 	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/slider_image")
+	private WebElement bannerHomepage;
+	
+	@AndroidFindBy(accessibility="TVku")
+	private WebElement btnTVku;
+	
 	public void assertTextExploreByCategories() {
 		String actual = textExploreByCategories.getText();
 		String expected = "Explore By Categories";
@@ -64,6 +71,10 @@ public class HomePageVisionPlus extends AndroidGesture{
 		Assert.assertEquals(actual, expected);
 	}
 	
+	public void clickBtnTVku() {
+		btnTVku.click();
+	}
+	
 	public void clickBtnShowcaseTvConnect() {
 		btnShowcaseTvConnect.click();
 	}
@@ -72,19 +83,29 @@ public class HomePageVisionPlus extends AndroidGesture{
 		btnSelengkapnya.click();
 	}
 	
+	public void clickBanner() {
+		bannerHomepage.click();
+	}
+	
+	public void swipeBanner() {
+		AndroidGesture gesture = new AndroidGesture(android);
+		gesture.swipeLeftNoParameter();
+	}
+	
+	
 	public void scrollToText(String text) {
 		AndroidGesture gesture = new AndroidGesture(android);
 		gesture.scrollToText(text);
 	}
 	
-	public void scrollDownNoParameter() {
+	public void scrollDown(double value) {
 		AndroidGesture gesture = new AndroidGesture(android);
-		gesture.scrollDownNoParameter();
+		gesture.scrollDownWithParameter(value);
 	}
 	
-	public void scrollUpNoParameter() {
+	public void scrollUpNoParameter(double value) {
 		AndroidGesture gesture = new AndroidGesture(android);
-		gesture.scrollUpNoParameter();
+		gesture.scrollUpWithParameter(1);
 	}
 	
 	public void clickBtnShowcaseOk() {
