@@ -1,6 +1,7 @@
-html
-backups
-report
+appium/target/
+appium/src/test/java/org/visionplus_android/BaseTest.java
+.metadata
+appium/test-output
 .DS_Store
-bin/jmeter.log
-/.metadata/
+.idea/
+appium/.DS_Store

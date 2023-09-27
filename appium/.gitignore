@@ -1,1 +1,4 @@
 /target/
+/src/test/java/org/visionplus_android/BaseTest.java
+/.metadata
+/test-output

@@ -19,6 +19,7 @@ public class TC_LoginWrongPhoneNumber extends BaseTest {
 		LoginPageVisionPlus login = new LoginPageVisionPlus(android);
 		homepage.lewatiButton();
 		test.pass("User berhasil Klik skip button");
+		Thread.sleep(3000);
 		homepage.lainnyaButton();
 		test.pass("User berhasil Klik menu Lainnya");
 		login.clickMasukButton();

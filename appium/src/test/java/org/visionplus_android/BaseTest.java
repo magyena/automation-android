@@ -92,7 +92,7 @@ public class BaseTest {
 						.usingDriverExecutable(new File("/usr/local/bin/node"))
 						.withAppiumJS(
 								new File(
-										"/usr/local/lib/node_modules/appium//build/lib/main.js"))
+										"/Users/adityoputro/node_modules/appium/build/lib/main.js"))
 						.withIPAddress(ipAddress).usingPort(port));
 		
 		return service;
