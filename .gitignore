@@ -1,7 +1,5 @@
-appium/target/
-appium/src/test/java/org/visionplus_android/BaseTest.java
+target
 .metadata
-appium/test-output
+test-output
+reports
 .DS_Store
-.idea/
-appium/.DS_Store
