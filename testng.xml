@@ -13,6 +13,9 @@
       <class name="org.visionplus_android.visitor.TC_Login.TC_LoginWrongPhonePassword"/>
       <class name="org.visionplus_android.visitor.TC_Homepage.TC_ScrollDownUp"/>
       <class name="org.visionplus_android.visitor.TC_Homepage.TC_SwipeBannerAndClick"/>
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayFreeLinear"/>
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumLinear"/>
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

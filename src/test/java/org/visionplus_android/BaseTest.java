@@ -82,7 +82,7 @@ public class BaseTest {
 			
 		android = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
 		
-		Thread.sleep(3000);
+		//android.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 	}
 	
 	//function agar appium ipAddress dan port tidak hardcode
@@ -92,7 +92,7 @@ public class BaseTest {
 						.usingDriverExecutable(new File("/usr/local/bin/node"))
 						.withAppiumJS(
 								new File(
-										"/Users/adityoputro/node_modules/appium/build/lib/main.js"))
+										"/usr/local/lib/node_modules/appium//build/lib/main.js"))
 						.withIPAddress(ipAddress).usingPort(port));
 		
 		return service;

@@ -38,7 +38,5 @@ public class TC_ScrollDownUp extends BaseTest{
     Thread.sleep(3000);
     test.pass("user berhasil Scrollup Homepage");
 	}
-	
-	
 
 }

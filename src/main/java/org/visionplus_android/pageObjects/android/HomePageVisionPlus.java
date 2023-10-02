@@ -87,9 +87,14 @@ public class HomePageVisionPlus extends AndroidGesture{
 		bannerHomepage.click();
 	}
 	
-	public void swipeBanner() {
+	public void swipeBannerLeft() {
 		AndroidGesture gesture = new AndroidGesture(android);
 		gesture.swipeLeftNoParameter();
+	}
+	
+	public void swipeBannerRight() {
+		AndroidGesture gesture = new AndroidGesture(android);
+		gesture.swipeRightNoParameter();
 	}
 	
 	

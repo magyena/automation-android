@@ -1,7 +1,10 @@
 package org.visionplus_android.pageObjects.android;
 
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.visionplus_android.utils.AndroidGesture;
 
@@ -40,6 +43,18 @@ public class VODPage extends AndroidGesture {
 	@AndroidFindBy(xpath="(//android.widget.ImageView[@content-desc=\"Thumbnail recommendation\"])[6]")
 	private WebElement btnPremiumLinearTransTV;
 	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btnScreenCast")
+	private WebElement btnChromeCast;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/exo_data_saver_off")
+	private WebElement btnDataSaver;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_schedule")
+	private WebElement btnSchedule;
+	
+	@AndroidFindBy(xpath="//android.widget.LinearLayout[1]/android.widget.LinearLayout")
+	private WebElement btnScheduleCatchup;
+	
 	public void assertTitleChannelNationalTV() {
 		String actual = textTitleChannelNationalTV.getText();
 		String expected = "Nasional TV";
@@ -54,11 +69,34 @@ public class VODPage extends AndroidGesture {
 		Assert.assertEquals(actual, expected);
 	}
 	
+	public void assertErrorChooseSchedule() {
+		String actual = textErrorSubcriptionPremiumLinear.getText();
+		String expected = "Silakan login untuk melanjutkan nonton dan nikmati konten di Vision+";
+		
+		Assert.assertEquals(actual, expected);
+	}
+	
 	public void assertErrorSubcriptionPremiumVOD() {
 		String actual = textErrorSubcriptionPremiumVOD.getText();
 		String expected = "Masuk ke akunmu untuk lanjut menonton dan nikmati konten kami di Vision+";
 		
 		Assert.assertEquals(actual, expected);
+	}
+	
+	public void clickBtnScheduleCatchup() {
+		btnScheduleCatchup.click();
+	}
+	
+	public void clickBtnSchedule() {
+		btnSchedule.click();
+	}
+	
+	public void clickBtnDataSaver() {
+		btnDataSaver.click();
+	}
+	
+	public void clickBtnChromeCast() {
+		btnChromeCast.click();
 	}
 	
 	public void clickBtnPremiumLinearTransTV() {

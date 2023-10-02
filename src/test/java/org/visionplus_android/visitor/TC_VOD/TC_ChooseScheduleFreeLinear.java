@@ -5,12 +5,10 @@ import org.visionplus_android.BaseTest;
 import org.visionplus_android.pageObjects.android.HomePageVisionPlus;
 import org.visionplus_android.pageObjects.android.VODPage;
 
-import io.appium.java_client.android.AndroidDriver;
-
-public class TC_PlayFreeLinear extends BaseTest{
-
+public class TC_ChooseScheduleFreeLinear extends BaseTest {
+	
 	@Test
-	public void TC_PlayFreeLinear() throws InterruptedException {
+	public void TC_ChooseScheduleFreeLinear() throws InterruptedException {
 		
 		HomePageVisionPlus homepage = new HomePageVisionPlus(android);
 		homepage.lewatiButton();
@@ -23,7 +21,18 @@ public class TC_PlayFreeLinear extends BaseTest{
 		test.pass("User berhasil Klik Button TV ku");
 		VODPage vod = new VODPage(android);
 		vod.clickBtnFreeLinearAntv();
-		vod.assertTitleChannelNationalTV();
+		test.pass("User berhasil Klik Button ANTV");
+		Thread.sleep(3000);
+		vod.clickBtnChromeCast();
+		test.pass("User berhasil Klik Button Chromecast");
+		Thread.sleep(3000);
+		vod.clickBtnDataSaver();
+		test.pass("User berhasil Klik Button Data Saver");
+		vod.clickBtnSchedule();
+		test.pass("User berhasil Klik Button Schedule");
+		vod.clickBtnScheduleCatchup();
+		test.pass("User berhasil Choose Schedule");
+		vod.assertErrorChooseSchedule();
 	}
-	
+
 }

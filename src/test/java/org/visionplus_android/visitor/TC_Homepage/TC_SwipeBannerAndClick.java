@@ -16,7 +16,8 @@ public class TC_SwipeBannerAndClick extends BaseTest {
 		test.pass("User berhasil Klik Button Showcase TV Connect");
 		homepage.clickBtnShowcaseOk();
 		test.pass("User berhasil Klik Button Showcase OK");
-		homepage.swipeBanner();
+		homepage.swipeBannerRight();
+		homepage.swipeBannerRight();
 		test.pass("User berhasil Swipe Banner");
 		homepage.clickBanner();
 		test.pass("User berhasil Klik Banner");

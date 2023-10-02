@@ -18,8 +18,11 @@ import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class AndroidGesture extends AppiumUtils {
 	
@@ -72,20 +75,31 @@ public class AndroidGesture extends AppiumUtils {
 	}
 	
 	public void swipeLeftNoParameter() {
-		Dimension size = android.manage().window().getSize();
-	    int startX = size.getWidth() / 2;
-	    int startY = size.getHeight() / 2;
-	    int endX = startX;
-	    int endY = (int) (size.getWidth() * 0.1);
-	    PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-	    Sequence sequence = new Sequence(finger1, 1)
-	        .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startY, startX))
-	        .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
-	        .addAction(new Pause(finger1, Duration.ofMillis(200)))
-	        .addAction(finger1.createPointerMove(Duration.ofMillis(5000), PointerInput.Origin.viewport(), endY, endX))
-	        .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+		 Dimension size = android.manage().window().getSize();
+		    int startX = (int) (size.getWidth() * 0.8); // Starting from 80% of the screen width
+		    int endX = (int) (size.getWidth() * 0.2); // Ending at 20% of the screen width
+		    int startY = size.getHeight() / 2; // Center of the screen
 
-	    android.perform(Collections.singletonList(sequence));
+		    TouchAction<?> action = new TouchAction<>(android);
+		    action.press(PointOption.point(startX, startY))
+		          .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500))) // Adjust the duration if needed
+		          .moveTo(PointOption.point(endX, startY))
+		          .release()
+		          .perform();
+	}
+	
+	public void swipeRightNoParameter() {
+		Dimension size = android.manage().window().getSize();
+	    int startX = (int) (size.getWidth() * 0.2); // Starting from 20% of the screen width
+	    int endX = (int) (size.getWidth() * 0.8); // Ending at 80% of the screen width
+	    int startY = size.getHeight() / 2; // Center of the screen
+
+	    TouchAction<?> action = new TouchAction<>(android);
+	    action.press(PointOption.point(startX, startY))
+	          .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500))) // Adjust the duration if needed
+	          .moveTo(PointOption.point(endX, startY))
+	          .release()
+	          .perform();
 	}
 
 	public void LongPress(WebElement peopleNames) {
