@@ -1,5 +1,6 @@
 package org.visionplus_android.pageObjects.android;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -7,6 +8,8 @@ import org.visionplus_android.utils.AndroidGesture;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -19,6 +22,9 @@ public class HomePageVisionPlus extends AndroidGesture{
 		this.android = android;
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/iv_search")
+	private WebElement btnSearch;
 	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/tv_notification")
 	private WebElement removePopupSub;
@@ -56,8 +62,35 @@ public class HomePageVisionPlus extends AndroidGesture{
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/slider_image")
 	private WebElement bannerHomepage;
 	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/lyt_search")
+	private WebElement textviewSearch;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/svSearch")
+	private WebElement textviewSearchInside;
+	
 	@AndroidFindBy(accessibility="TVku")
 	private WebElement btnTVku;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_clear")
+	private WebElement btnClear;
+	
+	@AndroidFindBy(xpath="//android.view.ViewGroup/android.widget.TextView[2]")
+	private WebElement assertPencarianFalse;
+	
+	@AndroidFindBy(xpath="//android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView")
+	private WebElement assertPencarianCorrect;
+	
+	public void assertTextPencarianFalse() {
+		String actual = assertPencarianFalse.getText();
+		String expected = "Pencarian Populer";
+		Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertTextPencarianCorrect() {
+		String actual = assertPencarianCorrect.getText();
+		String expected = "Film & TV";
+		Assert.assertEquals(actual, expected);
+	}
 	
 	public void assertTextExploreByCategories() {
 		String actual = textExploreByCategories.getText();
@@ -69,6 +102,26 @@ public class HomePageVisionPlus extends AndroidGesture{
 		String actual = textVisionPlusOriginal.getText();
 		String expected = "Vision+ Originals";
 		Assert.assertEquals(actual, expected);
+	}
+	
+	public void clickBtnClear() {
+		btnClear.click();
+	}
+	
+	public void clickTextViewSearchCorrect(String input) {
+		textviewSearch.click();
+		textviewSearchInside.sendKeys(input);
+		((AndroidDriver) android).pressKey(new KeyEvent(AndroidKey.ENTER));
+	}
+	
+	public void clickTextViewSearchFalse(String input) {
+		textviewSearch.click();
+		textviewSearchInside.sendKeys(input);
+		((AndroidDriver) android).pressKey(new KeyEvent(AndroidKey.ENTER));
+	}
+	
+	public void clickBtnSearch() {
+		btnSearch.click();
 	}
 	
 	public void clickBtnTVku() {

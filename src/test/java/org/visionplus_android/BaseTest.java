@@ -64,8 +64,9 @@ public class BaseTest {
 		//properties cuma bisa String
 		String ipAddress = prop.getProperty("ipAdress");
 		String port = prop.getProperty("port");
+		String path = prop.getProperty("pathAppium");
 		
-		service = startAppiumServer(ipAddress, Integer.parseInt(port));
+		service = startAppiumServer(ipAddress, Integer.parseInt(port), path);
 		
 		ExtentSparkReporter.config().setReportName("Web Automation Result");
 		ExtentSparkReporter.config().setDocumentTitle("Test Result");
@@ -86,13 +87,13 @@ public class BaseTest {
 	}
 	
 	//function agar appium ipAddress dan port tidak hardcode
-	public AppiumDriverLocalService startAppiumServer(String ipAddress, int port) {
+	public AppiumDriverLocalService startAppiumServer(String ipAddress, int port, String path) {
 		service = AppiumDriverLocalService
 				.buildService(new AppiumServiceBuilder()
 						.usingDriverExecutable(new File("/usr/local/bin/node"))
 						.withAppiumJS(
 								new File(
-										"/usr/local/lib/node_modules/appium//build/lib/main.js"))
+										path))
 						.withIPAddress(ipAddress).usingPort(port));
 		
 		return service;
