@@ -7,13 +7,10 @@ import org.visionplus_android.BaseTest;
 import org.visionplus_android.pageObjects.android.HomePageVisionPlus;
 import org.visionplus_android.pageObjects.android.VODPage;
 
-import io.appium.java_client.android.AndroidDriver;
-
-public class TC_PlayFreeLinear extends BaseTest{
-
+public class TC_PlayFreeVOD extends BaseTest{
+	
 	@Test
-	public void TC_PlayFreeLinear() throws InterruptedException {
-		
+	public void TC_PlayFreeVOD() throws InterruptedException {
 		HomePageVisionPlus homepage = new HomePageVisionPlus(android);
 		homepage.lewatiButton();
 		test.pass("User berhasil Klik skip button");
@@ -21,18 +18,16 @@ public class TC_PlayFreeLinear extends BaseTest{
 		test.pass("User berhasil Klik Button Showcase TV Connect");
 		homepage.clickBtnShowcaseOk();
 		test.pass("User berhasil Klik Button Showcase OK");
-		homepage.clickBtnTVku();
-		test.pass("User berhasil Klik Button TV ku");
+		homepage.scrollDown(0.37);
 		VODPage vod = new VODPage(android);
-		vod.clickBtnFreeLinearAntv();
-		vod.assertTitleChannelNationalTV();
-		Thread.sleep(15000);
+		vod.clickPremiumVOD();
+		Thread.sleep(2000);
+		homepage.scrollDown(0.3);
+		vod.clickEps1VOD();
+		Thread.sleep(5000);
 		vod.clickBtnChromeCast();
 		test.pass("User berhasil Klik Button Chromecast");
 		vod.clickBtnDataSaver();
-		test.pass("User berhasil Klik Button Data Saver");
-		android.manage().timeouts().implicitlyWait(Duration.ofMinutes(7));
-		vod.assertErrorSubcriptionPremiumLinear();
 	}
-	
+
 }

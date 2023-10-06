@@ -25,6 +25,9 @@ public class VODPage extends AndroidGesture {
 	@AndroidFindBy(xpath="//android.view.ViewGroup[3]/android.view.ViewGroup")
 	private WebElement moviePremiumOriginalsEps3;
 	
+	@AndroidFindBy(xpath="//android.view.ViewGroup[1]/android.view.ViewGroup")
+	private WebElement moviePremiumOriginalsEps1;
+	
 	@AndroidFindBy(xpath="//android.view.ViewGroup[1]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]")
 	private WebElement moviePremiumOriginals;
 	
@@ -109,6 +112,10 @@ public class VODPage extends AndroidGesture {
 	
 	public void clickEps3VOD() {
 		moviePremiumOriginalsEps3.click();
+	}
+	
+	public void clickEps1VOD() {
+		moviePremiumOriginalsEps1.click();
 	}
 	
 	public void clickPremiumVOD() {
