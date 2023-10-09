@@ -95,6 +95,7 @@ public class BaseTest {
 								new File(
 										path))
 						.withIPAddress(ipAddress).usingPort(port));
+		service.start();
 		
 		return service;
 	}
