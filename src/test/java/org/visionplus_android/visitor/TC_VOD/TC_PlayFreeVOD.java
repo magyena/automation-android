@@ -28,6 +28,8 @@ public class TC_PlayFreeVOD extends BaseTest{
 		vod.clickBtnChromeCast();
 		test.pass("User berhasil Klik Button Chromecast");
 		vod.clickBtnDataSaver();
+		android.manage().timeouts().implicitlyWait(Duration.ofMinutes(11));
+		vod.assertErrorSubcriptionPremiumLinear();
 	}
 
 }
