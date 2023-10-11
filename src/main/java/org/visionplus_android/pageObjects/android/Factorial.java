@@ -42,65 +42,49 @@ public class Factorial {
 
 	public static void main(String[] args) {
 		
-		System.out.println(compression2("aaabbbccc"));
+		compression("aaabbbccc");
+		int[] test = new int[] {4,5,2,1};
+		urutan(test);
 
 	}
 	
-	public static void compression(String a) {
-		
+	
+	
+	public static void urutan(int[] a) {
+	   int temp = 0;
+	   
+	   for(int i = 0; i < a.length; i++) {
+		   for(int j = i + 1; j < a.length; j++) {
+			   if(a[i] > a[j]) {
+				   temp = a[i];
+				   a[i] = a[j];
+				   a[j] = temp;
+			   }
+		   }
+	   }
+	   
+	   for(int b : a) {
+		   System.out.print(b + " ");
+	   }
+	   
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public static String compression2(String s) {
-	    String ans = "";
-	    for (int i = 0 ; i < s.length(); i++) {
-	      int count = 1;
-	      while (i < s.length() - 1 && s.charAt(i) == s.charAt(i + 1)) {
-	        count++;
-	        i++;
-	      }
-	      ans += s.charAt(i);
-	      if (count > 1) {
-	        ans += count;
-	      }
-	    }
-	    return ans;
-	  }
-	
-	 public static String compression1(String s) {
-		    String ans = "";
-		    for (int i = 0 ; i < s.length(); i++) {
-		      while (i < s.length() - 1 && s.charAt(i) == s.charAt(i + 1)) {
-		        i++;
-		      }
-		      ans += s.charAt(i);
-		    }
-		    return ans;
-		  }
+	public static void compression(String a) {
+		String br = "";
+		
+		for(int i = 0; i < a.length();i++) {
+			int count = 1;
+			while(i < a.length() - 1 && a.charAt(i) == a.charAt(i + 1)) {
+				count++;
+				i++;
+			} 
+			br += a.charAt(i);
+			if(count > 1) {
+				br += count;
+			}
+		}
+		System.out.println(br);
+		}
 
 	public static boolean palindrom(String a) {
 		

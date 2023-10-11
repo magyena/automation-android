@@ -15,6 +15,7 @@ public class TC_ChooseScheduleFreeLinear extends BaseTest {
 		HomePageVisionPlus homepage = new HomePageVisionPlus(android);
 		homepage.lewatiButton();
 		test.pass("User berhasil Klik skip button");
+		Thread.sleep(3000);
 		homepage.clickBtnShowcaseTvConnect();
 		test.pass("User berhasil Klik Button Showcase TV Connect");
 		homepage.clickBtnShowcaseOk();
