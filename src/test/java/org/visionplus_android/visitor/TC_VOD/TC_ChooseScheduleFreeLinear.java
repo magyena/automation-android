@@ -1,5 +1,7 @@
 package org.visionplus_android.visitor.TC_VOD;
 
+import java.time.Duration;
+
 import org.testng.annotations.Test;
 import org.visionplus_android.BaseTest;
 import org.visionplus_android.pageObjects.android.HomePageVisionPlus;
@@ -22,10 +24,9 @@ public class TC_ChooseScheduleFreeLinear extends BaseTest {
 		VODPage vod = new VODPage(android);
 		vod.clickBtnFreeLinearAntv();
 		test.pass("User berhasil Klik Button ANTV");
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		vod.clickBtnChromeCast();
 		test.pass("User berhasil Klik Button Chromecast");
-		Thread.sleep(3000);
 		vod.clickBtnDataSaver();
 		test.pass("User berhasil Klik Button Data Saver");
 		vod.clickBtnSchedule();

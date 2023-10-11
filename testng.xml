@@ -16,6 +16,11 @@
       <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayFreeLinear"/>
       <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumLinear"/>
       <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD"/>
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayFreeVOD"/>
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_ChooseScheduleFreeLinear"/>
+      <class name="org.visionplus_android.general.TC_General.TC_HubungiKami"/>
+      <class name="org.visionplus_android.general.TC_General.TC_Pertanyaan"/>
+      <class name="org.visionplus_android.general.TC_General.TC_SyaratKetentuan"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

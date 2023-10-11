@@ -80,6 +80,11 @@ public class BaseTest {
 		options.setApp(System.getProperty("user.dir") + "/src/test/java/org/visionplus_android/Assets/visionplus.apk");
 		options.setCapability("autoGrantPermissions","true");
 		options.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+		options.setCapability("waitForQuietness", false);
+		options.setCapability("waitForQuiescence", false);
+		options.setCapability("wdaEventloopIdleDelay", 7);
+		options.setCapability("eventLoopIdleDelaySec", 4);
+		options.setCapability("startIWDP", true);
 			
 		android = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
 		
@@ -95,7 +100,6 @@ public class BaseTest {
 								new File(
 										path))
 						.withIPAddress(ipAddress).usingPort(port));
-		service.start();
 		
 		return service;
 	}

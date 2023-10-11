@@ -27,10 +27,13 @@ public class TC_SuccessLoginSignOut extends BaseTest{
 		LoginPageVisionPlus login = new LoginPageVisionPlus(android);
 		homepage.lewatiButton();
 		test.info("User berhasil Klik skip button");
+		Thread.sleep(3000);
 		homepage.lainnyaButton();
 		test.info("User berhasil Klik menu Lainnya");
+		Thread.sleep(3000);
 		login.clickMasukButton();
 		test.info("User berhasil Klik Button Masuk");
+		Thread.sleep(3000);
 		login.LoginVisionPlus(input.get("loginWith"), input.get("username"), input.get("password"));
 		login.clickButtonContinue();
 		test.pass("User memilih login dengan Phone");
