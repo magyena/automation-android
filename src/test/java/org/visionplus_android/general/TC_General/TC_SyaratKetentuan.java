@@ -21,6 +21,7 @@ public class TC_SyaratKetentuan extends BaseTest{
 		LainnyaMenuPage lainnya = new LainnyaMenuPage(android);
 		lainnya.clickBtnLainnya();
 		lainnya.clickBtnSyaratDanKetentuan();
+		Thread.sleep(5000);
 		lainnya.assertTextSyaratDanKetentuan();
 		
 	}

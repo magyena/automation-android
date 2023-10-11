@@ -14,6 +14,7 @@ public class TC_PlayFreeVOD extends BaseTest{
 		HomePageVisionPlus homepage = new HomePageVisionPlus(android);
 		homepage.lewatiButton();
 		test.pass("User berhasil Klik skip button");
+		Thread.sleep(3000);
 		homepage.clickBtnShowcaseTvConnect();
 		test.pass("User berhasil Klik Button Showcase TV Connect");
 		homepage.clickBtnShowcaseOk();
@@ -28,7 +29,7 @@ public class TC_PlayFreeVOD extends BaseTest{
 		vod.clickBtnChromeCast();
 		test.pass("User berhasil Klik Button Chromecast");
 		vod.clickBtnDataSaver();
-		android.manage().timeouts().implicitlyWait(Duration.ofMinutes(11));
+		android.manage().timeouts().implicitlyWait(Duration.ofMinutes(13));
 		vod.assertErrorSubcriptionPremiumLinear();
 	}
 

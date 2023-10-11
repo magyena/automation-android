@@ -13,6 +13,7 @@ public class TC_ChooseScheduleFreeLinear extends BaseTest {
 		HomePageVisionPlus homepage = new HomePageVisionPlus(android);
 		homepage.lewatiButton();
 		test.pass("User berhasil Klik skip button");
+		Thread.sleep(3000);
 		homepage.clickBtnShowcaseTvConnect();
 		test.pass("User berhasil Klik Button Showcase TV Connect");
 		homepage.clickBtnShowcaseOk();
@@ -25,7 +26,6 @@ public class TC_ChooseScheduleFreeLinear extends BaseTest {
 		Thread.sleep(3000);
 		vod.clickBtnChromeCast();
 		test.pass("User berhasil Klik Button Chromecast");
-		Thread.sleep(3000);
 		vod.clickBtnDataSaver();
 		test.pass("User berhasil Klik Button Data Saver");
 		vod.clickBtnSchedule();
