@@ -1,10 +1,21 @@
 package org.visionplus_android.TestUtils;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 
 public class ExtentReporterNG {
 	
@@ -23,5 +34,7 @@ public class ExtentReporterNG {
 		extent.setSystemInfo("Testing", "Fadhil");
 		return extent;
 	}
+	
+	
 
 }

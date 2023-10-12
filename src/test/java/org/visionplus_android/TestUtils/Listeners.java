@@ -17,6 +17,7 @@ public class Listeners extends BaseTest implements ITestListener {
 	
 	AndroidDriver android;
 	ExtentReports extent = ExtentReporterNG.getReporterObject();
+	String path = System.getProperty("user.dir") + "/reports/" + timeStampDate + "/Automation Report"  + ".html";
 	ExtentTest test;
 
     @Override		
@@ -34,9 +35,11 @@ public class Listeners extends BaseTest implements ITestListener {
     
     @Override		
     public void onTestFailure(ITestResult result) {					
-        // TODO Auto-generated method stub				
+        // TODO Auto-generated method stub		
+    	String methodName = result.getMethod().getMethodName();
         test.fail(result.getThrowable());
         test.fail("Script " + result.getMethod().getMethodName() + " Failed Running");
+        linkSend("Script " + methodName + " Failed Running");
         
         try {
         	android = (AndroidDriver) result.getTestClass().getRealClass().getField("android").get(result.getInstance());

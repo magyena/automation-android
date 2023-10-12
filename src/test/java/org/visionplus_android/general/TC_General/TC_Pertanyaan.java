@@ -20,7 +20,6 @@ public class TC_Pertanyaan extends BaseTest{
 		LainnyaMenuPage lainnya = new LainnyaMenuPage(android);
 		lainnya.clickBtnLainnya();
 		lainnya.clickBtnPertanyaan();
-		Thread.sleep(5000);
 		lainnya.assertTextRegistrasi();
 		lainnya.clickPertanyaanEnglish();
 		lainnya.assertTextRegistration();

@@ -8,10 +8,23 @@
 
   <test thread-count="5" name="Test">
     <classes>
+      <class name="org.visionplus_android.visitor.TC_Login.TC_SuccessLoginSignOut"/>
+      <class name="org.visionplus_android.visitor.TC_Login.TC_LoginWrongPhoneNumber"/>
+      <class name="org.visionplus_android.visitor.TC_Login.TC_LoginWrongPhonePassword"/>
+      <class name="org.visionplus_android.visitor.TC_Homepage.TC_ScrollDownUp"/>
+      <class name="org.visionplus_android.visitor.TC_Homepage.TC_SwipeBannerAndClick"/>
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayFreeLinear"/>
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumLinear"/>
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayPremiumVOD"/>
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayFreeVOD"/>
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_ChooseScheduleFreeLinear"/>
+      <class name="org.visionplus_android.general.TC_General.TC_HubungiKami"/>
+      <class name="org.visionplus_android.general.TC_General.TC_Pertanyaan"/>
+      <class name="org.visionplus_android.general.TC_General.TC_SyaratKetentuan"/>
       <class name="org.visionplus_android.general.TC_General.TC_Pertanyaan"/>
       <class name="org.visionplus_android.general.TC_General.TC_SyaratKetentuan"/> 
       <class name="org.visionplus_android.visitor.TC_VOD.TC_ChooseScheduleFreeLinear"/> 
-      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayFreeVOD"/> 
+      <class name="org.visionplus_android.visitor.TC_VOD.TC_PlayFreeVOD"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
