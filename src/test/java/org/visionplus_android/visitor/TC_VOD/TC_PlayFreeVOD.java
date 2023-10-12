@@ -25,7 +25,7 @@ public class TC_PlayFreeVOD extends BaseTest{
 		Thread.sleep(2000);
 		homepage.scrollDown(0.3);
 		vod.clickEps1VOD();
-		Thread.sleep(5000);
+		Thread.sleep(15000);
 		vod.clickBtnChromeCast();
 		test.pass("User berhasil Klik Button Chromecast");
 		vod.clickBtnDataSaver();
