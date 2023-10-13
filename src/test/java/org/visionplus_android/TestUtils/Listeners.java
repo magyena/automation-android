@@ -19,12 +19,16 @@ public class Listeners extends BaseTest implements ITestListener {
 	ExtentReports extent = ExtentReporterNG.getReporterObject();
 	String path = System.getProperty("user.dir") + "/reports/" + timeStampDate + "/Automation Report"  + ".html";
 	ExtentTest test;
+	
+	int totalTestCases = 0;
+    int totalTestCasesFailed = 0;
 
     @Override		
     public void onTestStart(ITestResult result) {					
         // TODO Auto-generated method stub				
         test = extent.createTest(result.getMethod().getMethodName());
         test.info("Script onStart method " + result.getName());
+        totalTestCases++;
     }	
     
     @Override		
@@ -38,8 +42,9 @@ public class Listeners extends BaseTest implements ITestListener {
         // TODO Auto-generated method stub		
     	String methodName = result.getMethod().getMethodName();
         test.fail(result.getThrowable());
-        test.fail("Script " + result.getMethod().getMethodName() + " Failed Running");
-        linkSend("Script " + methodName + " Failed Running");
+        test.fail("Script " + result.getMethod().getMethodName() + " Failed Running");   
+        totalTestCasesFailed++;
+        linkSendFailed(methodName + " Failed Running");
         
         try {
         	android = (AndroidDriver) result.getTestClass().getRealClass().getField("android").get(result.getInstance());
@@ -52,23 +57,24 @@ public class Listeners extends BaseTest implements ITestListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        
     }	
     
 	    @Override		
 	    public void onFinish(ITestContext result) {					
 	        // TODO Auto-generated method stub		
+	    	linkSendFinish(totalTestCases, totalTestCasesFailed);
 	    	test.info("Script onFinish method " + result.getName());
 	        extent.flush();
 	    }		
 
 	    @Override		
-	    public void onStart(ITestContext result) {					
-	    	
+	    public void onStart(ITestContext result) {	
 	    }		
 
 	    @Override		
 	    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {					
-	        test.info("Test failed but it is in defined success ratio " + result.getMethod().getMethodName());		
+	        test.info("Test failed but it is in defined success ratio " + result.getMethod().getMethodName());
 	        		
 	    }			
 

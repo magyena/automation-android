@@ -24,6 +24,7 @@ public class TC_LoginWrongPhonePassword extends BaseTest {
 		test.pass("User berhasil Klik Button Masuk");
 		login.inputPhoneNumber(input.get("phone"));
 		test.pass("User berhasil input Phone Number");
+		Thread.sleep(3000);
 		login.clickButtonContinue();
 		login.inputPhonePassword(input.get("password"));
 		login.clickButtonContinue();

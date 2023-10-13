@@ -25,15 +25,17 @@ public class TC_ChooseScheduleFreeLinear extends BaseTest {
 		VODPage vod = new VODPage(android);
 		vod.clickBtnFreeLinearAntv();
 		test.pass("User berhasil Klik Button ANTV");
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		vod.clickBtnChromeCast();
 		test.pass("User berhasil Klik Button Chromecast");
 		vod.clickBtnDataSaver();
 		test.pass("User berhasil Klik Button Data Saver");
 		vod.clickBtnSchedule();
 		test.pass("User berhasil Klik Button Schedule");
+		Thread.sleep(3000);
 		vod.clickBtnScheduleCatchup();
 		test.pass("User berhasil Choose Schedule");
+		Thread.sleep(3000);
 		vod.assertErrorChooseSchedule();
 	}
 

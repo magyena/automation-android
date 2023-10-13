@@ -19,8 +19,11 @@ public class TC_Pertanyaan extends BaseTest{
 		test.pass("User berhasil Klik menu Lainnya");
 		LainnyaMenuPage lainnya = new LainnyaMenuPage(android);
 		lainnya.clickBtnLainnya();
+		Thread.sleep(3000);
 		lainnya.clickBtnPertanyaan();
+		Thread.sleep(8000);
 		lainnya.assertTextRegistrasi();
+		Thread.sleep(3000);
 		lainnya.clickPertanyaanEnglish();
 		lainnya.assertTextRegistration();
 		Thread.sleep(3000);
