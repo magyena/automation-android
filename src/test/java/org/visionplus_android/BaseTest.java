@@ -138,9 +138,9 @@ public class BaseTest {
 	
 	
 	
-	public static void linkSendFinishTotalTestCaseFailed(int totalTestCasesFailed,int totalTestCases) {
+	public static void linkSendFinishTotalTestCaseFailed(int totalTestCases,int totalTestCasesFailed) {
 		String webhookUrl = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
-		String message = "Total Test Cases Failed: " + totalTestCasesFailed;
+		String message = "Total Test Cases Run: " + totalTestCases;
 
         try {
             URL url = new URL(webhookUrl);
@@ -164,7 +164,7 @@ public class BaseTest {
         }
         
         String webhookUrl2 = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
-		String message2 = "Total Test Cases Run: " + totalTestCases;
+		String message2 = "Total Test Cases Failed: " + totalTestCasesFailed;
 
         try {
             URL url = new URL(webhookUrl2);
