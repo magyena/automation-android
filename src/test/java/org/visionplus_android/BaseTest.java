@@ -136,9 +136,11 @@ public class BaseTest {
 		return destinationFile;
 	}
 	
-	public static void linkSendFinishTotalTestCaseRun(int totalTestCases) {
+	
+	
+	public static void linkSendFinishTotalTestCaseFailed(int totalTestCasesFailed,int totalTestCases) {
 		String webhookUrl = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
-		String message = "Total Test Cases Run: " + totalTestCases;
+		String message = "Total Test Cases Failed: " + totalTestCasesFailed;
 
         try {
             URL url = new URL(webhookUrl);
@@ -160,20 +162,18 @@ public class BaseTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-	}
-	
-	public static void linkSendFinishTotalTestCaseFailed(int totalTestCasesFailed) {
-		String webhookUrl = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
-		String message = "Total Test Cases Failed: " + totalTestCasesFailed;
+        
+        String webhookUrl2 = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
+		String message2 = "Total Test Cases Run: " + totalTestCases;
 
         try {
-            URL url = new URL(webhookUrl);
+            URL url = new URL(webhookUrl2);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setDoOutput(true);
 
-            String jsonMessage = "{\"content\": \"" + message + "\"}";
+            String jsonMessage = "{\"content\": \"" + message2 + "\"}";
 
             try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = jsonMessage.getBytes("utf-8");

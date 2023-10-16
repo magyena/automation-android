@@ -63,8 +63,7 @@ public class Listeners extends BaseTest implements ITestListener {
 	    @Override		
 	    public void onFinish(ITestContext result) {					
 	        // TODO Auto-generated method stub		
-	    	linkSendFinishTotalTestCaseRun(totalTestCases);
-	    	linkSendFinishTotalTestCaseFailed(totalTestCasesFailed);
+	    	linkSendFinishTotalTestCaseFailed(totalTestCases, totalTestCasesFailed);
 	    	test.info("Script onFinish method " + result.getName());
 	        extent.flush();
 	    }		
