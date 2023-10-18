@@ -139,7 +139,7 @@ public class BaseTest {
 	
 	
 	public static void linkSendFinishTotalTestCaseFailed(int totalTestCases,int totalTestCasesFailed) {
-		String webhookUrl = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
+		String webhookUrl = "https://discord.com/api/webhooks/1164099789248532521/pR8xIn9U8aCP_Cb4YM8xwlie2OZ8XWDzI0_mtAX-Bum97ZGud_Qh67lQkgJHugX1vgwD";
 		String message = "Total Test Cases Run: " + totalTestCases;
 
         try {
@@ -186,7 +186,7 @@ public class BaseTest {
             e.printStackTrace();
         }
        
-		String message3 = "<@406362301332193292>";
+		String message3 = "<@1077483182942863470>";
 
         try {
             URL url = new URL(webhookUrl);
@@ -211,7 +211,7 @@ public class BaseTest {
 	}
 	
 	public static void linkSendFailed(String path) {
-		String webhookUrl = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
+		String webhookUrl = "https://discord.com/api/webhooks/1164099789248532521/pR8xIn9U8aCP_Cb4YM8xwlie2OZ8XWDzI0_mtAX-Bum97ZGud_Qh67lQkgJHugX1vgwD";
 		String message = "Your Script for: " + path;
 
         try {
