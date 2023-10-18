@@ -162,18 +162,40 @@ public class BaseTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        String webhookUrl2 = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
+       
 		String message2 = "Total Test Cases Failed: " + totalTestCasesFailed;
 
         try {
-            URL url = new URL(webhookUrl2);
+            URL url = new URL(webhookUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setDoOutput(true);
 
             String jsonMessage = "{\"content\": \"" + message2 + "\"}";
+
+            try (OutputStream os = connection.getOutputStream()) {
+                byte[] input = jsonMessage.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            int responseCode = connection.getResponseCode();
+            System.out.println("Response : " + responseCode);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       
+		String message3 = "<@406362301332193292>";
+
+        try {
+            URL url = new URL(webhookUrl);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setDoOutput(true);
+
+            String jsonMessage = "{\"content\": \"" + message3 + "\"}";
 
             try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = jsonMessage.getBytes("utf-8");
