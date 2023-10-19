@@ -139,7 +139,8 @@ public class BaseTest {
 	
 	
 	public static void linkSendFinishTotalTestCaseFailed(int totalTestCases,int totalTestCasesFailed) {
-		String webhookUrl = "https://discord.com/api/webhooks/1164099789248532521/pR8xIn9U8aCP_Cb4YM8xwlie2OZ8XWDzI0_mtAX-Bum97ZGud_Qh67lQkgJHugX1vgwD";
+		// String webhookUrl = "https://discord.com/api/webhooks/1164099789248532521/pR8xIn9U8aCP_Cb4YM8xwlie2OZ8XWDzI0_mtAX-Bum97ZGud_Qh67lQkgJHugX1vgwD";
+		String webhookUrl = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
 		String message = "Total Test Cases Run: " + totalTestCases;
 
         try {
@@ -186,7 +187,7 @@ public class BaseTest {
             e.printStackTrace();
         }
        
-		String message3 = "<@1077483182942863470>";
+		String message3 = "cc: <@1077483182942863470>";
 
         try {
             URL url = new URL(webhookUrl);
@@ -208,10 +209,41 @@ public class BaseTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        try {
+            URL url = new URL(webhookUrl);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "multipart/form-data;boundary=\"boundary123\"");
+            connection.setDoOutput(true);
+
+            //String path = System.getProperty("user.dir") + "/reports/" + timeStampDate + "/Automation Report"  + ".html";
+            String filePath = "/Users/fadhilmg/eclipse-workspace/visionplus-android/automation-android/reports/2023.10.18-15.44/Automation Report.html";
+
+            File file = new File(filePath);
+
+            try (FileInputStream fis = new FileInputStream(file);
+                 OutputStream os = connection.getOutputStream()) {
+                byte[] buffer = new byte[4096];
+                int bytesRead;
+                while ((bytesRead = fis.read(buffer)) != -1) {
+                    os.write(buffer, 0, bytesRead);
+                }
+            }
+
+            int responseCode = connection.getResponseCode();
+            if (responseCode == 200) {
+                System.out.println("File HTML berhasil dikirim ke Discord.");
+            } else {
+                System.out.println("Gagal mengirim file HTML ke Discord. Response Code: " + responseCode);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 	
 	public static void linkSendFailed(String path) {
-		String webhookUrl = "https://discord.com/api/webhooks/1164099789248532521/pR8xIn9U8aCP_Cb4YM8xwlie2OZ8XWDzI0_mtAX-Bum97ZGud_Qh67lQkgJHugX1vgwD";
+		String webhookUrl = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
 		String message = "Your Script for: " + path;
 
         try {
