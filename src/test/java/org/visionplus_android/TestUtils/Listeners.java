@@ -44,7 +44,7 @@ public class Listeners extends BaseTest implements ITestListener {
         test.fail(result.getThrowable());
         test.fail("Script " + result.getMethod().getMethodName() + " Failed Running");   
         totalTestCasesFailed++;
-        linkSendFailed(methodName + " Failed Running");
+        sendTotalTestCasesFailed(methodName + " Failed Running");
         
         try {
         	android = (AndroidDriver) result.getTestClass().getRealClass().getField("android").get(result.getInstance());
@@ -63,7 +63,9 @@ public class Listeners extends BaseTest implements ITestListener {
 	    @Override		
 	    public void onFinish(ITestContext result) {					
 	        // TODO Auto-generated method stub		
-	    	linkSendFinishTotalTestCaseFailed(totalTestCases, totalTestCasesFailed);
+	    	sendTotalTestCases(totalTestCases);
+	    	sendTotalTestCasesFailed(totalTestCasesFailed);
+	    	sendCcMessage();
 	    	test.info("Script onFinish method " + result.getName());
 	        extent.flush();
 	    }		

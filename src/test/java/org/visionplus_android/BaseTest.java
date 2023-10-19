@@ -64,6 +64,8 @@ public class BaseTest {
 	protected ExtentReports extent = new ExtentReports();
 	protected ExtentTest test = extent.createTest("Automation Test");
 	protected ExtentSparkReporter ExtentSparkReporter = new ExtentSparkReporter(System.getProperty("user.dir") + "/reports/Automation Report.html");
+	String webhookUrl = "https://discord.com/api/webhooks/1164099789248532521/pR8xIn9U8aCP_Cb4YM8xwlie2OZ8XWDzI0_mtAX-Bum97ZGud_Qh67lQkgJHugX1vgwD";
+	//String webhookUrl = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
 
 	@BeforeClass
 	public void ConfigureAppium() throws InterruptedException, IOException {
@@ -136,136 +138,47 @@ public class BaseTest {
 		return destinationFile;
 	}
 	
-	
-	
-	public static void linkSendFinishTotalTestCaseFailed(int totalTestCases,int totalTestCasesFailed) {
-		// String webhookUrl = "https://discord.com/api/webhooks/1164099789248532521/pR8xIn9U8aCP_Cb4YM8xwlie2OZ8XWDzI0_mtAX-Bum97ZGud_Qh67lQkgJHugX1vgwD";
-		String webhookUrl = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
-		String message = "Total Test Cases Run: " + totalTestCases;
+	public static void sendMessageToWebhook(String webhookUrl, String contentType, String message) {
+	    try {
+	        URL url = new URL(webhookUrl);
+	        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+	        connection.setRequestMethod("POST");
+	        connection.setRequestProperty("Content-Type", contentType);
+	        connection.setDoOutput(true);
 
-        try {
-            URL url = new URL(webhookUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setDoOutput(true);
+	        String jsonMessage = "{\"content\": \"" + message + "\"}";
 
-            String jsonMessage = "{\"content\": \"" + message + "\"}";
+	        try (OutputStream os = connection.getOutputStream()) {
+	            byte[] input = jsonMessage.getBytes("utf-8");
+	            os.write(input, 0, input.length);
+	        }
 
-            try (OutputStream os = connection.getOutputStream()) {
-                byte[] input = jsonMessage.getBytes("utf-8");
-                os.write(input, 0, input.length);
-            }
+	        int responseCode = connection.getResponseCode();
+	        System.out.println("Response : " + responseCode);
 
-            int responseCode = connection.getResponseCode();
-            System.out.println("Response : " + responseCode);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-       
-		String message2 = "Total Test Cases Failed: " + totalTestCasesFailed;
+	public void sendTotalTestCases(int totalTestCases) {
+	    String message = "Total Test Cases Run: " + totalTestCases;
+	    sendMessageToWebhook(webhookUrl, "application/json", message);
+	}
 
-        try {
-            URL url = new URL(webhookUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setDoOutput(true);
+	public void sendTotalTestCasesFailed(int totalTestCasesFailed) {
+	    String message = "Total Test Cases Failed: " + totalTestCasesFailed;
+	    sendMessageToWebhook(webhookUrl, "application/json", message);
+	}
 
-            String jsonMessage = "{\"content\": \"" + message2 + "\"}";
-
-            try (OutputStream os = connection.getOutputStream()) {
-                byte[] input = jsonMessage.getBytes("utf-8");
-                os.write(input, 0, input.length);
-            }
-
-            int responseCode = connection.getResponseCode();
-            System.out.println("Response : " + responseCode);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-       
-		String message3 = "cc: <@1077483182942863470>";
-
-        try {
-            URL url = new URL(webhookUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setDoOutput(true);
-
-            String jsonMessage = "{\"content\": \"" + message3 + "\"}";
-
-            try (OutputStream os = connection.getOutputStream()) {
-                byte[] input = jsonMessage.getBytes("utf-8");
-                os.write(input, 0, input.length);
-            }
-
-            int responseCode = connection.getResponseCode();
-            System.out.println("Response : " + responseCode);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        try {
-            URL url = new URL(webhookUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "multipart/form-data;boundary=\"boundary123\"");
-            connection.setDoOutput(true);
-
-            //String path = System.getProperty("user.dir") + "/reports/" + timeStampDate + "/Automation Report"  + ".html";
-            String filePath = "/Users/fadhilmg/eclipse-workspace/visionplus-android/automation-android/reports/2023.10.18-15.44/Automation Report.html";
-
-            File file = new File(filePath);
-
-            try (FileInputStream fis = new FileInputStream(file);
-                 OutputStream os = connection.getOutputStream()) {
-                byte[] buffer = new byte[4096];
-                int bytesRead;
-                while ((bytesRead = fis.read(buffer)) != -1) {
-                    os.write(buffer, 0, bytesRead);
-                }
-            }
-
-            int responseCode = connection.getResponseCode();
-            if (responseCode == 200) {
-                System.out.println("File HTML berhasil dikirim ke Discord.");
-            } else {
-                System.out.println("Gagal mengirim file HTML ke Discord. Response Code: " + responseCode);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+	public void sendCcMessage() {
+	    String message = "cc: <@1077483182942863470>";
+	    sendMessageToWebhook(webhookUrl, "application/json", message);
 	}
 	
-	public static void linkSendFailed(String path) {
-		String webhookUrl = "https://discord.com/api/webhooks/1161592534989033472/i9HteOw7kw7XE_HzJ_tnYGKgN2K4E-6iipoLPbmgaWQ7gJO6qXDrWd8Ksfv60todbUMg";
+	public void sendTotalTestCasesFailed(String path) {
 		String message = "Your Script for: " + path;
-
-        try {
-            URL url = new URL(webhookUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setDoOutput(true);
-
-            String jsonMessage = "{\"content\": \"" + message + "\"}";
-
-            try (OutputStream os = connection.getOutputStream()) {
-                byte[] input = jsonMessage.getBytes("utf-8");
-                os.write(input, 0, input.length);
-            }
-
-            int responseCode = connection.getResponseCode();
-            System.out.println("Response Code: " + responseCode);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+		sendMessageToWebhook(webhookUrl, "application/json", message);
 	}
 	
 	@AfterClass
