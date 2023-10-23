@@ -31,6 +31,7 @@ public class TC_PlayFreeVOD extends BaseTest{
 		vod.clickBtnDataSaver();
 		test.pass("User berhasil Klik Button Data Saver");
 		android.manage().timeouts().implicitlyWait(Duration.ofMinutes(11));
+		Thread.sleep(5000);
 		vod.assertErrorSubcriptionPremiumLinear();
 		test.pass("Assert sesuai");
 	}
