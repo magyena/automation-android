@@ -23,13 +23,15 @@ public class TC_PackageAssert extends BaseTest{
 		test.pass("User berhasil Klik Pengaturan");
 		Thread.sleep(3000);
 		LainnyaMenuPage lainnya = new LainnyaMenuPage(android);
+		Thread.sleep(3000);
 		lainnya.clickPaketButton();
 		test.pass("User berhasil Klik Button Paket");
-		lainnya.assertTextPremiumSport();
+		lainnya.assertTextPremium();
 		test.pass("Assert sesuai");
+		lainnya.assertTextPremiumSport();
 		lainnya.clickBtnTextPremium();
 		test.pass("User berhasil Klik Premium");
-		lainnya.assertTextPremium();
+		lainnya.assertTextPremiumSport();
 		test.pass("Assert sesuai");
 	}
 	

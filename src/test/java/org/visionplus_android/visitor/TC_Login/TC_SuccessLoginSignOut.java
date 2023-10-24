@@ -25,6 +25,7 @@ public class TC_SuccessLoginSignOut extends BaseTest{
 		
 		HomePageVisionPlus homepage = new HomePageVisionPlus(android);
 		LoginPageVisionPlus login = new LoginPageVisionPlus(android);
+		Thread.sleep(3000);	
 		homepage.lewatiButton();
 		test.info("User berhasil Klik skip button");
 		Thread.sleep(3000);
