@@ -26,12 +26,10 @@ public class TC_PackageAssert extends BaseTest{
 		Thread.sleep(3000);
 		lainnya.clickPaketButton();
 		test.pass("User berhasil Klik Button Paket");
-		lainnya.assertTextPremium();
-		test.pass("Assert sesuai");
 		lainnya.assertTextPremiumSport();
 		lainnya.clickBtnTextPremium();
 		test.pass("User berhasil Klik Premium");
-		lainnya.assertTextPremiumSport();
+		lainnya.assertTextPremium();
 		test.pass("Assert sesuai");
 	}
 	
