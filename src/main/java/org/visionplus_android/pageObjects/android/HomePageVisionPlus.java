@@ -1,12 +1,18 @@
 package org.visionplus_android.pageObjects.android;
 
+import java.sql.Time;
+import java.time.Duration;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.visionplus_android.utils.AndroidGesture;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -16,11 +22,14 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 public class HomePageVisionPlus extends AndroidGesture{
 
 	AndroidDriver android;
+	WebDriverWait wait;
+
 	
 	public HomePageVisionPlus(AndroidDriver android) {
 		super(android);
 		this.android = android;
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
+
 	}
 	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/iv_search")
@@ -125,6 +134,7 @@ public class HomePageVisionPlus extends AndroidGesture{
 	}
 	
 	public void clickBtnTVku() {
+		wait =  new WebDriverWait(android, Duration.ofSeconds(60));
 		btnTVku.click();
 	}
 	
@@ -167,6 +177,9 @@ public class HomePageVisionPlus extends AndroidGesture{
 	}
 	
 	public void clickBtnShowcaseOk() {
+		wait =  new WebDriverWait(android, Duration.ofSeconds(60));
+		wait.until(ExpectedConditions.visibilityOfAllElements(btnShowcaseOk));
+
 		btnShowcaseOk.click();
 	}
 	
@@ -175,10 +188,14 @@ public class HomePageVisionPlus extends AndroidGesture{
 	}
 	
 	public void lainnyaButton() {
+		wait =  new WebDriverWait(android, Duration.ofSeconds(60));
+		wait.until(ExpectedConditions.visibilityOfAllElements(lainnyaButton));
 		lainnyaButton.click();
 	}
 	
-	public void lewatiButton() {
+	public void lewatiButton() 
+	{
+		wait =  new WebDriverWait(android, Duration.ofSeconds(60));
 		skipButton.click();
 	}
 	

@@ -1,6 +1,8 @@
 package org.visionplus_android.pageObjects.android;
 
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,6 +17,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 public class VODPage extends AndroidGesture {
 
 	AndroidDriver android;
+	WebDriverWait wait;
 	
 	public VODPage(AndroidDriver android) {
 		super(android);
@@ -57,6 +60,14 @@ public class VODPage extends AndroidGesture {
 	
 	@AndroidFindBy(xpath="//android.widget.LinearLayout[1]/android.widget.LinearLayout")
 	private WebElement btnScheduleCatchup;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_watchlist")
+	private WebElement btnWatchList;
+	
+
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/iv_icon_download")
+	private WebElement btnDownload;
+	
 	
 	public void assertTitleChannelNationalTV() {
 		String actual = textTitleChannelNationalTV.getText();
@@ -120,5 +131,20 @@ public class VODPage extends AndroidGesture {
 	
 	public void clickPremiumVOD() {
 		moviePremiumOriginals.click();
+	}
+	
+	public void clickWatchList() {
+		
+		wait =  new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(btnWatchList));
+        btnWatchList.click();
+	}
+	
+	
+	public void clickDownload() {
+		
+		wait =  new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(btnDownload));
+		btnDownload.click();
 	}
 }

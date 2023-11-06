@@ -181,11 +181,6 @@ public class BaseTest {
 		sendMessageToWebhook(webhookUrl, "application/json", message);
 	}
 	
-	@AfterClass
-	public void tearDown() {
-		extent.flush();
-		android.quit();
-		service.stop();
-	}
+
 
 }

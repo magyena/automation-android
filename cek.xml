@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite">
+	
+	<listeners>
+<listener class-name="org.visionplus_android.TestUtils.Listeners"/>
+</listeners>
+    <test name="MyTest">
+        <classes>
+            <class name="id.visionplus.android.premium.login.LoginPremium" />
+			
+        </classes>
+    </test>
+</suite>
