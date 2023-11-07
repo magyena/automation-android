@@ -1,4 +1,4 @@
-package id.visionplus.android.assertion;
+package org.visionplus_android.assertion;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;

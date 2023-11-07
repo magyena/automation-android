@@ -1,4 +1,4 @@
-package id.visionplus.android.visitor;
+package org.visionplus_android.visitor.TC_Login;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -7,13 +7,12 @@ import java.util.List;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.visionplus_android.BaseTest;
+import org.visionplus_android.assertion.AssertPage;
 import org.visionplus_android.pageObjects.android.HomePageVisionPlus;
 import org.visionplus_android.pageObjects.android.LoginPageVisionPlus;
 import org.visionplus_android.pageObjects.android.MenuFooterPage;
 import org.visionplus_android.pageObjects.android.TvKUPageVisionPlus;
 import org.visionplus_android.pageObjects.android.VODPage;
-
-import id.visionplus.android.assertion.AssertPage;
 
 public class TS_Visitor extends BaseTest
 {

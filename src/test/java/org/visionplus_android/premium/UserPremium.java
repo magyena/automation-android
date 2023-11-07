@@ -1,4 +1,4 @@
-package id.visionplus.android.premium;
+package org.visionplus_android.premium;
 
 import java.io.IOException;
 import java.util.HashMap;
