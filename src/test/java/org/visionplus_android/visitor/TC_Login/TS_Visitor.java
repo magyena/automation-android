@@ -11,8 +11,10 @@ import org.visionplus_android.assertion.AssertPage;
 import org.visionplus_android.pageObjects.android.HomePageVisionPlus;
 import org.visionplus_android.pageObjects.android.LoginPageVisionPlus;
 import org.visionplus_android.pageObjects.android.MenuFooterPage;
+import org.visionplus_android.pageObjects.android.MenuHeaderPage;
 import org.visionplus_android.pageObjects.android.TvKUPageVisionPlus;
 import org.visionplus_android.pageObjects.android.VODPage;
+import org.visionplus_android.pageObjects.android.VplusOriPage;
 
 public class TS_Visitor extends BaseTest
 {
@@ -25,6 +27,8 @@ public class TS_Visitor extends BaseTest
 		LoginPageVisionPlus login = new LoginPageVisionPlus(android);
 		VODPage vodPage = new VODPage(android);
 		MenuFooterPage menuFooterPage = new MenuFooterPage(android);
+		MenuHeaderPage menuHeaderPage = new MenuHeaderPage(android);
+		VplusOriPage menuVplusOriPage =  new VplusOriPage(android);
 		AssertPage assertPage = new AssertPage(android);
 		
 		
@@ -38,11 +42,15 @@ public class TS_Visitor extends BaseTest
 		homepage.clickBtnShowcaseOk();
 		test.pass("sukses lewati button showcase");
 		
-		homepage.lainnyaButton();
+		//homepage.lainnyaButton();
 		
-		menuFooterPage.clickMenuBeranda();
+		menuHeaderPage.clickMenuVplusOriginal();
 		
-		homepage.clickBanner();
+		menuVplusOriPage.clickMenuVplusOriginalSelengkapnya();
+
+		menuVplusOriPage.clickFirstVOD();
+		
+		menuVplusOriPage.scrollDownWithParameter(0.1);
 		
 		vodPage.clickWatchList();
 		
@@ -50,7 +58,7 @@ public class TS_Visitor extends BaseTest
 		
 	}
 	
-	@Test(priority = 2,testName = "User Download VOD Series")
+	@Test(priority = 2,testName = "User visitor Download VOD Series")
 	public void user_Download_VOD_Series() throws InterruptedException 
 	{
 		HomePageVisionPlus homepage = new HomePageVisionPlus(android);
@@ -61,10 +69,8 @@ public class TS_Visitor extends BaseTest
 		
 		android.navigate().back();
 		
-		menuFooterPage.clickMenuBeranda();
-		
-		homepage.clickBanner();
-		
+		homepage.scrollDownWithParameter(0.1);
+				
 		vodPage.clickDownload();
 		
 		assertPage.assert_LoginPageShouldBeDisplayed();

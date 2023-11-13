@@ -65,7 +65,7 @@ public class VODPage extends AndroidGesture {
 	private WebElement btnWatchList;
 	
 
-	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/iv_icon_download")
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_download")
 	private WebElement btnDownload;
 	
 	
