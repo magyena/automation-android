@@ -77,6 +77,29 @@ public class TS_Visitor extends BaseTest
 		
 	}
 	
+	
+	@Test(priority = 3,testName = "User Visitor Watch Sport Channel")
+	public void User_Visitor_Watch_Sport_Channel() throws InterruptedException 
+	{
+		MenuFooterPage menuFooterPage = new MenuFooterPage(android);
+		AssertPage assertPage = new AssertPage(android);
+		TvKUPageVisionPlus tvKUPageVisionPlus = new TvKUPageVisionPlus(android);
+		
+		for (int i=0 ; i<3 ;i++)
+		{
+			android.navigate().back();
+		}
+	
+		menuFooterPage.clickliveTv();
+		
+		tvKUPageVisionPlus.scrollDownWithParameter(0.1);
+		
+		tvKUPageVisionPlus.clickSportStar();
+
+		
+		tvKUPageVisionPlus.assertPopupLogin();
+		tvKUPageVisionPlus.assertLogin();
+	}
 
 	
 	

@@ -31,7 +31,7 @@ public class TvKUPageVisionPlus extends AndroidGesture
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 
-	@AndroidFindBy(xpath="(//android.widget.ImageView[@content-desc=\"Thumbnail recommendation\"])[20]")
+	@AndroidFindBy(xpath="(//android.widget.ImageView[@content-desc=\"Thumbnail recommendation\"])[25]")
 	private WebElement btnChannelSportStar;
 	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/layoutBoxLimited")
@@ -39,6 +39,10 @@ public class TvKUPageVisionPlus extends AndroidGesture
 	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_confirm_oke")
 	private WebElement buttonLogin;
+	
+	
+	@AndroidFindBy(id ="com.zte.iptvclient.android.idmnc:id/btn_confirm_cancel")
+	private WebElement btnCancelOnPopupLogin;
 	
 	public void clickSportStar() {
 		
@@ -72,6 +76,14 @@ public class TvKUPageVisionPlus extends AndroidGesture
 		Boolean isBtnLoginPresent =  buttonLogin.isDisplayed();
 		
 		Assert.assertTrue(isBtnLoginPresent);
+	}
+	
+	
+	public void clickCancelLogin() {
+		
+		wait =  new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(btnChannelSportStar));
+        btnChannelSportStar.click();
 	}
 	
 }

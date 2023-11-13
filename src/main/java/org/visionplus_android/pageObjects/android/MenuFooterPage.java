@@ -23,8 +23,20 @@ public class MenuFooterPage extends AndroidGesture
 	private WebElement menuBeranda;
 	
 	
+	@AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"TVku\"]/android.widget.ImageView")
+	private WebElement TVku;
+	
+	
+	
 	public void clickMenuBeranda() {
 		menuBeranda.click();
 	}
+	
+	public void clickliveTv()
+	{
+		TVku.click();
+	}
+	
+	
 	
 }
