@@ -19,7 +19,8 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class HomePageVisionPlus extends AndroidGesture{
+public class HomePageVisionPlus extends AndroidGesture
+{
 
 	AndroidDriver android;
 	WebDriverWait wait;
@@ -82,6 +83,9 @@ public class HomePageVisionPlus extends AndroidGesture{
 	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_clear")
 	private WebElement btnClear;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_sign_in")
+	private WebElement btnSignin;
 	
 	@AndroidFindBy(xpath="//android.view.ViewGroup/android.widget.TextView[2]")
 	private WebElement assertPencarianFalse;
@@ -198,5 +202,14 @@ public class HomePageVisionPlus extends AndroidGesture{
 		wait =  new WebDriverWait(android, Duration.ofSeconds(60));
 		skipButton.click();
 	}
+	
+	public void clickButtonSignin()
+	{
+		wait =  new WebDriverWait(android, Duration.ofSeconds(60));
+		wait.until(ExpectedConditions.visibilityOfAllElements(btnSignin));
+		btnSignin.click();
+	
+	}
+	
 	
 }

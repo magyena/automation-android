@@ -60,6 +60,14 @@
     <version>8.5.1</version>
 </dependency>
 
+<dependency>
+      <groupId>net.sourceforge.expectj</groupId>
+      <artifactId>expectj</artifactId>
+      <version>2.0.1</version>
+
+      <!-- Optional scope: Use ExpectJ for (unit) tests only -->
+    
+ </dependency>
 <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 <dependency>
     <groupId>com.aventstack</groupId>
@@ -79,6 +87,12 @@
    <artifactId>slf4j-nop</artifactId>
    <version>2.0.7</version>
    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.18</version>
 </dependency>
 
 

@@ -16,6 +16,7 @@ import org.visionplus_android.utils.AndroidGesture;
 public class LoginPageVisionPlus extends AndroidGesture{
 
 	AndroidDriver android;
+	WebDriverWait wait;
 	
 	public LoginPageVisionPlus(AndroidDriver android) {
 		super(android);
@@ -57,6 +58,17 @@ public class LoginPageVisionPlus extends AndroidGesture{
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/tv_msg_popup")
 	private WebElement textWrongPhonePassword;
 	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/edit_text_1")
+	private WebElement inputOtp1;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/edit_text_2")
+	private WebElement inputOtp2;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/edit_text_3")
+	private WebElement inputOtp3;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/edit_text_4")
+	private WebElement inputOtp4;
 	
 	public void clickButtonContinue() {
 		continueButton.click();
@@ -80,6 +92,8 @@ public class LoginPageVisionPlus extends AndroidGesture{
 	}
 	
 	public void inputPhonePassword(String phonePassword) {
+		wait =  new WebDriverWait(android, Duration.ofSeconds(60));
+		wait.until(ExpectedConditions.visibilityOfAllElements(passwordPhoneTextbox));
 		passwordPhoneTextbox.click();
 		passwordPhoneTextbox.sendKeys(phonePassword);
 	}
@@ -90,6 +104,35 @@ public class LoginPageVisionPlus extends AndroidGesture{
 	
 	public void clickMasukButton() {
 		masukButton.click();
+	}
+	
+	public void inputOtp1(String otp1)
+	{
+		wait =  new WebDriverWait(android, Duration.ofSeconds(60));
+		wait.until(ExpectedConditions.visibilityOfAllElements(inputOtp1));
+		inputOtp1.click();
+		inputOtp1.sendKeys(otp1);
+	}
+	
+	public void inputOtp2(String otp2)
+	{
+	
+		inputOtp2.click();
+		inputOtp2.sendKeys(otp2);
+	}
+	
+	public void inputOtp3(String otp3)
+	{
+	
+		inputOtp3.click();
+		inputOtp3.sendKeys(otp3);
+	}
+	
+	public void inputOtp4(String otp4)
+	{
+	
+		inputOtp4.click();
+		inputOtp4.sendKeys(otp4);
 	}
 	
 	public void LoginVisionPlus(String loginWith, String username, String password) throws InterruptedException {
