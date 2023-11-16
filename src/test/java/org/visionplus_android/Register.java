@@ -3,6 +3,10 @@ package org.visionplus_android;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DateFormat;  
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
+import java.util.Calendar;  
 import java.util.Random;
 
 import org.openqa.selenium.WebElement;
@@ -42,8 +46,11 @@ public class Register extends BaseTest
 			homepage.clickButtonSignin();
 			
 			String random = String.valueOf(gen());
+		    Date date = Calendar.getInstance().getTime();  
+            DateFormat dateFormat = new SimpleDateFormat("ddMMyyhhss");  
+            String strDate = dateFormat.format(date); 
 				
-			String prefix = "0815123"+random;
+			String prefix = "08"+strDate+random;
 			 
 		    
 			
@@ -94,13 +101,10 @@ public class Register extends BaseTest
 	}
 	
 	
-	
-
-	
 	public int gen() 
 	{
 	    Random r = new Random( System.currentTimeMillis() );
-	    return 10000 + r.nextInt(20000);
+	    return 00 + r.nextInt(10);
 	}
 	
 	

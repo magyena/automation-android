@@ -143,6 +143,8 @@ public class HomePageVisionPlus extends AndroidGesture
 	}
 	
 	public void clickBtnShowcaseTvConnect() {
+		wait =  new WebDriverWait(android, Duration.ofSeconds(60));
+		wait.until(ExpectedConditions.visibilityOfAllElements(btnShowcaseTvConnect));
 		btnShowcaseTvConnect.click();
 	}
 	
