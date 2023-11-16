@@ -66,22 +66,18 @@ public class Register extends BaseTest
 			while ((otp = reader.readLine()) != null) 
 			{
 			    System.out.println(otp);
-			    char charOtp1 = otp.charAt(0);
-			    String strOtp1 = String.valueOf(charOtp1);
+			    char charOtp1 = otp.charAt(0);			  
 					
 				char charOtp2 = otp.charAt(1);
-				String strOtp2 = String.valueOf(charOtp2);
-
+			
 				char charOtp3 = otp.charAt(2);
-				String strOtp3 = String.valueOf(charOtp3);
-					
+									
 				char charOtp4 = otp.charAt(3);
-				String strOtp4 = String.valueOf(charOtp4);
 					
-				loginPageVisionPlus.inputOtp1(strOtp1);
-				loginPageVisionPlus.inputOtp2(strOtp2);
-				loginPageVisionPlus.inputOtp3(strOtp3);
-				loginPageVisionPlus.inputOtp4(strOtp4);
+				loginPageVisionPlus.inputOtp1(String.valueOf(charOtp1));
+				loginPageVisionPlus.inputOtp2(String.valueOf(charOtp2));
+				loginPageVisionPlus.inputOtp3(String.valueOf(charOtp3));
+				loginPageVisionPlus.inputOtp4(String.valueOf(charOtp4));
 			}
 			
 			
