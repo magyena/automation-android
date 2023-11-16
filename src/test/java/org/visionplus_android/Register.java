@@ -81,7 +81,6 @@ public class Register extends BaseTest
 			}
 			
 			
-			
 		}
 		
 		catch (Exception e) 
