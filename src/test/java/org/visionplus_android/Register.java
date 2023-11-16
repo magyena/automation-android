@@ -4,7 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.DateFormat;  
-import java.text.SimpleDateFormat;  
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;  
 import java.util.Calendar;  
 import java.util.Random;
@@ -45,12 +46,9 @@ public class Register extends BaseTest
 			
 			homepage.clickButtonSignin();
 			
-			String random = String.valueOf(gen());
-		    Date date = Calendar.getInstance().getTime();  
-            DateFormat dateFormat = new SimpleDateFormat("ddMMyyhhss");  
-            String strDate = dateFormat.format(date); 
+            Long currentTimestamp = Instant.now().getEpochSecond();
 				
-			String prefix = "08"+strDate+random;
+			String prefix = "0800"+currentTimestamp;
 			 
 		    
 			
@@ -99,16 +97,6 @@ public class Register extends BaseTest
 		
 		
 	}
-	
-	
-	public int gen() 
-	{
-	    Random r = new Random( System.currentTimeMillis() );
-	    return 00 + r.nextInt(10);
-	}
-	
-	
-	
 	
 
 }
