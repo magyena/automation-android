@@ -25,7 +25,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class Register extends BaseTest
 {
-	@Test(priority = 1)	
+	@Test(priority = 1, testName = "Test case register")	
 	public void register() throws InterruptedException
 	{
 		try

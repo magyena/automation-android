@@ -44,6 +44,10 @@ public class TvKUPageVisionPlus extends AndroidGesture
 	@AndroidFindBy(id ="com.zte.iptvclient.android.idmnc:id/btn_confirm_cancel")
 	private WebElement btnCancelOnPopupLogin;
 	
+	
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_confirm_oke")
+	private WebElement btnMasuk;
+	
 	public void clickSportStar() {
 		
 		wait =  new WebDriverWait(android, Duration.ofSeconds(90));
@@ -84,6 +88,13 @@ public class TvKUPageVisionPlus extends AndroidGesture
 		wait =  new WebDriverWait(android, Duration.ofSeconds(90));
 		wait.until(ExpectedConditions.visibilityOfAllElements(btnChannelSportStar));
         btnChannelSportStar.click();
+	}
+	
+	public void clickMasuk()
+	{
+		wait =  new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(btnMasuk));
+		btnMasuk.click();
 	}
 	
 }

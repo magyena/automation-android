@@ -69,6 +69,7 @@ public class TS_Visitor extends BaseTest
 		
 		android.navigate().back();
 		
+		
 		homepage.scrollDownWithParameter(0.1);
 				
 		vodPage.clickDownload();
@@ -91,6 +92,7 @@ public class TS_Visitor extends BaseTest
 		}
 	
 		menuFooterPage.clickliveTv();
+		Thread.sleep(3000);
 		
 		tvKUPageVisionPlus.scrollDownWithParameter(0.1);
 		
@@ -100,7 +102,53 @@ public class TS_Visitor extends BaseTest
 		tvKUPageVisionPlus.assertPopupLogin();
 		tvKUPageVisionPlus.assertLogin();
 	}
+	
+	@Test(priority = 4,dataProvider = "wrongNumber",testName = "User Visitor Login with Wrong Number")
+	public void UserVisitorLoginWithWrongNumber(HashMap<String, String> input) throws InterruptedException 
+	{
+		
+		HomePageVisionPlus homePageVisionPlus = new HomePageVisionPlus(android);
+		LoginPageVisionPlus login = new LoginPageVisionPlus(android);
+		TvKUPageVisionPlus tkuPageVisionPlus = new TvKUPageVisionPlus(android);
+		
+		tkuPageVisionPlus.clickMasuk();
+		
+		login.inputPhoneNumber(input.get("phone"));
+		test.info("User input nomor yang salah");
+		login.clickButtonContinue();
+		login.assertWrongPhoneNumber();
+		test.pass("hasil Assert sesuai");
+	}
+	
+	
+	@Test(priority = 5,dataProvider = "wrongPassword",testName = "User Visitor Login with Wrong Password")
+	public void UserVisitorLoginWithWrongPassword(HashMap<String, String> input) throws InterruptedException 
+	{
+		LoginPageVisionPlus login = new LoginPageVisionPlus(android);
+		
+		login.inputPhoneNumber(input.get("phone"));
+		login.clickButtonContinue();
+		login.inputPhonePassword(input.get("password"));
+		login.clickButtonContinue();
+		login.assertWrongPhonePassword();
+		test.pass("hasil Assert sesuai");
+	}
+	
+	@DataProvider
+	public Object[][] wrongNumber() throws IOException {
+		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/test/java/org/visionplus_android/TestData/LoginTestdata/TC_loginWrongPhoneNumber.json");
+		return new Object[][] {{data.get(0)}};
+		
+	}
+	
+	@DataProvider
+	public Object[][] wrongPassword() throws IOException {
+		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/test/java/org/visionplus_android/TestData/LoginTestdata/TC_loginWrongPhonePassword.json");
+		return new Object[][] {{data.get(0)}};
+		
+	}
 
+	
 	
 	
 	

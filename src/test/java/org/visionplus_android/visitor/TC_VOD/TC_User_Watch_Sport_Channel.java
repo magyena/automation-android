@@ -48,7 +48,6 @@ public class TC_User_Watch_Sport_Channel extends BaseTest
 		}
 	
 		
-		
 	}
 
 }
