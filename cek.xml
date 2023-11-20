@@ -6,7 +6,7 @@
 </listeners>
     <test name="MyTest">
         <classes>
-            <class name="id.visionplus.android.premium.login.LoginPremium" />
+            <class name="org.visionplus_android.visitor.TC_Login.TS_Visitor" />
 			
         </classes>
     </test>
