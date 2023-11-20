@@ -18,10 +18,11 @@ import org.visionplus_android.pageObjects.android.MenuHeaderPage;
 import org.visionplus_android.pageObjects.android.TvKUPageVisionPlus;
 import org.visionplus_android.pageObjects.android.VODPage;
 import org.visionplus_android.pageObjects.android.VplusOriPage;
+import org.visionplus_android.utils.Report;
 
 public class TS_Visitor extends BaseTest 
 {
-
+	public Report report = new Report();
 	
 	@Test(priority = 1,testName = "User Add Daftarku With Visitor")
 	public void user_Add_Daftarku_With_Visitor() throws InterruptedException 
@@ -125,7 +126,7 @@ public class TS_Visitor extends BaseTest
 	
 	
 	@Test(priority = 5,dataProvider = "wrongPassword",testName = "User Visitor Login with Wrong Password")
-	public void UserVisitorLoginWithWrongPassword(HashMap<String, String> input) throws InterruptedException 
+	public void UserVisitorLoginWithWrongPassword(HashMap<String, String> input) throws InterruptedException, IOException 
 	{
 		LoginPageVisionPlus login = new LoginPageVisionPlus(android);
 		DestroySession destroySession = new DestroySession();
@@ -137,7 +138,7 @@ public class TS_Visitor extends BaseTest
 		login.assertWrongPhonePassword();
 		test.pass("hasil Assert sesuai");
 		
-		destroySession.tearDown();
+		
 	}
 	
 	@DataProvider
@@ -154,6 +155,24 @@ public class TS_Visitor extends BaseTest
 		
 	}
 	
+
+	@AfterClass
+	public void tearDown() {
+		try
+		{
+			extent.flush();
+			android.quit();
+			service.stop();
+			
+			report.genarateReport();
+		}
+		
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 
 
 	

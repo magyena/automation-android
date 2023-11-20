@@ -7,7 +7,6 @@
     <test name="MyTest">
         <classes>
             <class name="org.visionplus_android.visitor.TC_Login.TS_Visitor" />
-			
         </classes>
     </test>
 </suite>
