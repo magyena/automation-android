@@ -34,6 +34,7 @@ public class Report
         String pdfFilePath = "/Users/"+name+"/Desktop/REPORT/REPORT_.PDF";
 
         try {
+        	Thread.sleep(5000);
         	createPDF();
         	Thread.sleep(5000);
             sendPDF(webhookUrl, pdfFilePath);

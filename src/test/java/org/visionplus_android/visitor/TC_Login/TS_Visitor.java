@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import org.testng.ITestListener;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.visionplus_android.BaseTest;
 import org.visionplus_android.DestroySession;
@@ -20,7 +22,8 @@ import org.visionplus_android.pageObjects.android.VODPage;
 import org.visionplus_android.pageObjects.android.VplusOriPage;
 import org.visionplus_android.utils.Report;
 
-public class TS_Visitor extends BaseTest 
+
+public class TS_Visitor extends BaseTest
 {
 	public Report report = new Report();
 	

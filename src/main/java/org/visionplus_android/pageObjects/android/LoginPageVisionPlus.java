@@ -77,8 +77,8 @@ public class LoginPageVisionPlus extends AndroidGesture{
 	public void assertWrongPhonePassword() {
 		String expected = "Invalid password";
 		String actual = textWrongPhonePassword.getText();
-		//Assert.assertEquals(actual, expected);
-		Assert.assertEquals(actual, "AAAA");
+	    Assert.assertEquals(actual, expected);
+		
 	}
 	
 	public void assertWrongPhoneNumber() {
