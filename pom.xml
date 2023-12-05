@@ -132,10 +132,15 @@
 			<artifactId>expectit-core</artifactId>
 			<version>0.9.0</version>
 		</dependency>
-		
-		
 
 
+
+
+		<dependency>
+			<groupId>AutomationIOS</groupId>
+			<artifactId>IOS</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<profiles>

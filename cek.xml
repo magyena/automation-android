@@ -2,11 +2,11 @@
 <suite name="MyTestSuite">
 	
 	<listeners>
-<listener class-name="org.visionplus_android.TestUtils.Listeners"/>
+<listener class-name="id.visionplus.TestUtils.Listeners"/>
 </listeners>
     <test name="MyTest">
         <classes>
-            <class name="org.visionplus_android.visitor.TC_Login.TS_Visitor" />
+            <class name="id.visionplus.TestCase.Visitor.Login.TS_Visitor" />
         </classes>
     </test>
 </suite>
