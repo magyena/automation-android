@@ -1,6 +1,5 @@
 package id.visionplus.PageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -8,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import id.visionplus.Utils.AndroidGesture;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class HomePageVisionPlus extends AndroidGesture
@@ -21,84 +21,68 @@ public class HomePageVisionPlus extends AndroidGesture
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 	
-	public WebElement getTextGayaHidup() {
-        return android.findElement(By.xpath("//android.widget.TextView[@text='Gaya Hidup & Hobi']"));
-    }
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/tv_skip_intro") 
+	 public static WebElement btnSkip;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/tv_connect") 
+	 public static WebElement btnShowcaseTvConnect;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_showcase_category_oke")
+	 public static WebElement btnShowCaseOK;
+		
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/iv_presentation")
+	 public static WebElement btnBanner;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/iv_search")
+	 public static WebElement btnSearch;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/tv_notification")
+	 public static WebElement removePopUpSub;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_see_more")
+	 public static WebElement btnSelengkapnya;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/tv_cluster")
+	 public static WebElement btnRandom;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/slider_image")
+	 public static WebElement btnBannerHomepage;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/lyt_search")
+	 public static WebElement txtViewSearch;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/svSearch")
+	 public static WebElement txtViewSearchInside;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_clear")
+	 public static WebElement btnClear;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_sign_in")
+	 public static WebElement btnSignIn;
+	 
+	 @AndroidFindBy(xpath="//android.widget.FrameLayout[@content-desc=\"Lainnya\"]")
+	 public static WebElement btnMenuLainnya;
+	 
+	 @AndroidFindBy(xpath="//android.widget.LinearLayout[@content-desc=\"V+ Originals\"]/android.widget.TextView")
+	 public static WebElement btnVplusOriginal;
+	 
+	 @AndroidFindBy(xpath="//android.widget.TextView[@text='Gaya Hidup & Hobi']")
+	 public static WebElement txtGayaHidup;
 	
-	public WebElement getBanner() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/iv_presentation"));
-    }
+	 @AndroidFindBy(xpath="//android.widget.TextView[@text='Explore By Categories']")
+	 public static WebElement txtExploredByCategories;
 	
-	public WebElement getTextExploredByCategories() {
-        return android.findElement(By.xpath("//android.widget.TextView[@text='Explore By Categories']"));
-    }
-	
-	public WebElement getTextVisionPlusOriginal() {
-        return android.findElement(By.xpath("//android.widget.TextView[@text='Vision+ Originals']"));
-    }
-	
-	public WebElement getSearchButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/iv_search"));
-    }
-	
-	public WebElement getRemovePopupSub() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/tv_notification"));
-    }
-	
-	public WebElement getLainnyaButton() {
-        return android.findElement(By.xpath("//android.widget.FrameLayout[@content-desc=\\\"Lainnya\\\"]"));
-    }
-	
-	public WebElement getSkipButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/tv_skip_intro"));
-    }
-	
-	public WebElement getShowcaseOkButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_showcase_category_oke"));
-    }
-
-	public WebElement getShowcaseTvConnectButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/tv_connect"));
-    }
-
-	public WebElement getSelengkapnyaButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_see_more"));
-    }
-	
-	public WebElement getClickRandom() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/tv_cluster"));
-    }
-
-	public WebElement getBannerHomepage() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/slider_image"));
-    }
-	
-	public WebElement getTextViewSearch() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/lyt_search"));
-    }
-	
-	public WebElement getTextViewSearchInside() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/svSearch"));
-    }
+	 @AndroidFindBy(xpath="//android.widget.TextView[@text='Vision+ Originals']")
+	 public static WebElement txtVisionPlusOriginal;
+	 
+	 @AndroidFindBy(xpath="//android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView")
+	 public static WebElement txtAssertPencarianCorrect;
+	 
+	 @AndroidFindBy(xpath="//android.view.ViewGroup/android.widget.TextView[2]")
+	 public static WebElement txtAssertPencarianFalse;
 	
 	public WebElement getTvKuButton() {
         return android.findElement(AppiumBy.accessibilityId("TVku"));
-    }
-	
-	public WebElement getClearButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_clear"));
-    }
-	
-	public WebElement getSignInButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_sign_in"));
-    }
-
-	public WebElement getAssertPencarianFalse() {
-        return android.findElement(By.xpath("//android.view.ViewGroup/android.widget.TextView[2]"));
-    }
-	
-	public WebElement getAssertPencarianCorrect() {
-        return android.findElement(By.xpath("//android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView"));
     }
 	
 }

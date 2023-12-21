@@ -1,12 +1,12 @@
 package id.visionplus.PageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import id.visionplus.Utils.AndroidGesture;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class LoginPageVisionPlus extends AndroidGesture{
@@ -20,71 +20,54 @@ public class LoginPageVisionPlus extends AndroidGesture{
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 
-	public WebElement getMasukButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_sign_in"));
-    }
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_sign_in")
+    public static WebElement btnMasuk;
 
-	public WebElement getWithEmail() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_register"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_register")
+    public static WebElement btnWithEmail;
 
-	public WebElement getWithGoogle() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_google"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_google")
+    public static WebElement btnWithGoogle;
 
-	public WebElement getWithFacebook() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_facebook"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_facebook")
+    public static WebElement btnWithFacebook;
 
-	public WebElement getWithPhone() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/et_phone"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/et_phone")
+    public static WebElement btnWithPhone;
 
-	public WebElement getEmailTextBox() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/et_email"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/et_email")
+    public static WebElement txtEmailTextBox;
 
-	public WebElement getPasswordEmailTextBox() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/et_password"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/et_password")
+    public static WebElement txtPasswordEmailTextBox;
 
-	public WebElement getContinueButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_continue"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_continue")
+    public static WebElement btnContinue;
 
-	public WebElement getPasswordPhoneTextBox() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/et_password"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/et_password")
+    public static WebElement txtPasswordPhoneTextBox;
 
-	public WebElement getTextWrongPhoneNumber(){
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/tv_error_message"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/tv_error_message")
+    public static WebElement txtWrongPhoneNumber;
 
-	public WebElement getTextWrongPhonePassword() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/tv_msg_popup"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/tv_msg_popup")
+    public static WebElement txtWrongPhonePassword;
 
-	public WebElement getInputOtp1() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/edit_text_1"));
-    }
-	
-	public WebElement getInputOtp2() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/edit_text_2"));
-    }
-	
-	public WebElement getInputOtp3() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/edit_text_3"));
-    }
-	
-	public WebElement getInputOtp4() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/edit_text_4"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/edit_text_1")
+    public static WebElement txtInputOtp1;
 
-	public WebElement getEditTextPhone() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/et_phone"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/edit_text_2")
+    public static WebElement txtInputOtp2;
 
-	public WebElement getLoginEmailButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_register"));
-    }
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/edit_text_3")
+    public static WebElement txtInputOtp3;
+
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/edit_text_4")
+    public static WebElement txtInputOtp4;
+
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/et_phone")
+    public static WebElement txtEditTextPhone;
+
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_register")
+    public static WebElement btnLoginEmail;
 }

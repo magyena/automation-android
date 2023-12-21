@@ -1,13 +1,13 @@
 package id.visionplus.PageObjects;
 
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import id.visionplus.Utils.AndroidGesture;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class VODPage extends AndroidGesture {
@@ -21,59 +21,46 @@ public class VODPage extends AndroidGesture {
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 	
-	public WebElement getTextErrorSubcriptionPremiumVOD() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/tv_descriptionLimited"));
-    }
-	
-	public WebElement getTextErrorSubcriptionPremiumLinear() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/tv_descriptionLimited"));
-    }
-	
-	public WebElement getTextTitleChannelNationalTV() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/tv_title_channel"));
-    }
-	
-	public WebElement getMoviePremiumOriginalEps3() {
-        return android.findElement(By.xpath("//android.view.ViewGroup[3]/android.view.ViewGroup"));
-    }
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/tv_descriptionLimited")
+	public static WebElement txtErrorSubcriptionPremiumVOD;
 
-	public WebElement getMoviePremiumOriginalEps1() {
-        return android.findElement(By.xpath("//android.view.ViewGroup[1]/android.view.ViewGroup"));
-    }
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/tv_descriptionLimited")
+	public static WebElement txtErrorSubcriptionPremiumLinear;
 
-	public WebElement getMoviePremiumOriginal() {
-        return android.findElement(By.xpath("//android.view.ViewGroup[1]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]"));
-    }
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/tv_title_channel")
+	public static WebElement txtTitleChannelNationalTV;
 
-	public WebElement getFreeLinearAntvButton() {
-        return android.findElement(By.xpath("//android.widget.ImageView[@content-desc=\\\"Thumbnail recommendation\\\"])[5]"));
-    }
+	@AndroidFindBy(xpath = "//android.view.ViewGroup[3]/android.view.ViewGroup")
+	public static WebElement btnMoviePremiumOriginalEps3;
 
-	public WebElement getPremiumLinearTransTvButton() {
-        return android.findElement(By.xpath("//android.widget.ImageView[@content-desc=\\\"Thumbnail recommendation\\\"])[6]"));
-    }
+	@AndroidFindBy(xpath = "//android.view.ViewGroup[1]/android.view.ViewGroup")
+	public static WebElement btnMoviePremiumOriginalEps1;
 
-	public WebElement getChromeCastButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btnScreenCast"));
-    }
+	@AndroidFindBy(xpath = "//android.view.ViewGroup[1]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]")
+	public static WebElement btnMoviePremiumOriginal;
 
-	public WebElement getDataSaverButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btnScreenCast"));
-    }
+	@AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Thumbnail recommendation\"])[5]")
+	public static WebElement btnFreeLinearAntv;
 
-	public WebElement getScheduleButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_schedule"));
-    }
+	@AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Thumbnail recommendation\"])[6]")
+	public static WebElement btnPremiumLinearTransTv;
 
-	public WebElement getScheduleCatchup() {
-        return android.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.LinearLayout"));
-    }
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btnScreenCast")
+	public static WebElement btnChromeCast;
 
-	public WebElement getWatchListButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_watchlist"));
-    }
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btnScreenCast")
+	public static WebElement btnDataSaver;
 
-	public WebElement getDownloadButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_download"));
-    }
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_schedule")
+	public static WebElement btnSchedule;
+
+	@AndroidFindBy(xpath = "//android.widget.LinearLayout[1]/android.widget.LinearLayout")
+	public static WebElement btnScheduleCatchup;
+
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_watchlist")
+	public static WebElement btnWatchList;
+
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_download")
+	public static WebElement btnDownload;
+
 }
