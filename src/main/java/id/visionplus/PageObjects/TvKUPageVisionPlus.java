@@ -1,45 +1,41 @@
 package id.visionplus.PageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import id.visionplus.Utils.AndroidGesture;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class TvKUPageVisionPlus extends AndroidGesture
+public class TvKuPageVisionPlus extends AndroidGesture
 {
 
 	AndroidDriver android;
 	WebDriverWait wait;
 	
-	public TvKUPageVisionPlus(AndroidDriver android) 
+	public TvKuPageVisionPlus(AndroidDriver android) 
 	{
 		super(android);
 		this.android = android;
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 
-	public WebElement getChannelSportStarButton() {
-        return android.findElement(By.xpath("//android.widget.ImageView[@content-desc=\\\"Thumbnail recommendation\\\"])[25]"));
-    }
+	@AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Thumbnail recommendation\"])[25]")
+	public static WebElement btnChannelSportStar;
 
-	public WebElement getPopupLogin() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_confirm_cancel"));
-    }
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_confirm_cancel")
+	public static WebElement btnPopupLogin;
 
-	public WebElement getLoginButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_confirm_oke"));
-    }
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_confirm_oke")
+	public static WebElement btnLogin;
 
-	public WebElement getCancelOnPopupLoginButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_confirm_cancel"));
-    }
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_confirm_cancel")
+	public static WebElement btnCancelOnPopupLogin;
 
-	public WebElement getMasukButton() {
-        return android.findElement(By.id("com.zte.iptvclient.android.idmnc:id/btn_confirm_oke"));
-    }
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_confirm_oke")
+	public static WebElement btnMasuk;
+
 }
 
