@@ -1,4 +1,4 @@
-package id.visionplus.TestCase.Visitor.Login;
+package id.visionplus.TestSuites;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -8,16 +8,16 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import id.visionplus.BaseTest;
+import id.visionplus.MainFunction.BaseTest;
 import id.visionplus.Action.*;
 import id.visionplus.Utils.Report;
 
 public class TS_Visitor extends BaseTest
 {
 	public Report report = new Report();
-	Click click = new Click(android);
-	Assertion assertion = new Assertion(android);
-	Input input_action = new Input(android);
+	Click click = new Click();
+	Assertion assertion = new Assertion();
+	Input input_action = new Input();
 	Scroll scroll = new Scroll(android);
 	
 	@Test(priority = 1,testName = "User Add Daftarku With Visitor")
@@ -45,7 +45,7 @@ public class TS_Visitor extends BaseTest
 		
 		click.clickWatchList();
 		
-		assertion.assert_LoginPageShouldBeDisplayed();
+		assertion.assertLoginPageShouldBeDisplayed();
 		
 	}
 	
@@ -58,7 +58,7 @@ public class TS_Visitor extends BaseTest
 				
 		click.clickDownload();
 		
-		assertion.assert_LoginPageShouldBeDisplayed();
+		assertion.assertLoginPageShouldBeDisplayed();
 		
 	}
 	
@@ -71,7 +71,7 @@ public class TS_Visitor extends BaseTest
 			android.navigate().back();
 		}
 	
-		click.clickliveTv();
+		click.clickLiveTv();
 		Thread.sleep(3000);
 		
 		scroll.scrollDownWithParameter(0.1);
