@@ -18,6 +18,9 @@ public class LainnyaMenuPage extends AndroidGesture{
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btnX")
+	 public static WebElement btnXCCare;
+	
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/tv_privileges")
 	 public static WebElement txtPremiumSportAndPremium;
 	 
@@ -48,7 +51,7 @@ public class LainnyaMenuPage extends AndroidGesture{
 	 @AndroidFindBy(xpath = "//android.widget.TabWidget/android.view.View/android.view.View[1]")
 	 public static WebElement txtRegistrasi;
 
-	 @AndroidFindBy(xpath = "//android.view.View[1]/android.view.View/android.view.View/android.widget.TextView[3]")
+	 @AndroidFindBy(xpath = "//android.webkit.WebView//android.view.View[1]//android.widget.TextView[3]")
 	 public static WebElement txtHubungiKamiEnglish;
 
 	 @AndroidFindBy(xpath = "//android.widget.LinearLayout[@content-desc='Premium']")
