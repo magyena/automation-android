@@ -2,6 +2,7 @@ package id.visionplus.Action;
 
 import java.time.Duration;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -12,8 +13,6 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class Assertion extends BaseTest
 {
-
-	AndroidDriver android;
 	WebDriverWait wait;
 	HomePageVisionPlus homePage;
 	LoginPageVisionPlus loginPage;

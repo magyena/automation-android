@@ -7,15 +7,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import id.visionplus.PageObjects.*;
+import id.visionplus.MainFunction.BaseTest;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
-public class Click
+public class Click extends BaseTest
 {
-
-	AndroidDriver android;
 	WebDriverWait wait;
 	
 	HomePageVisionPlus homePage;
@@ -141,6 +140,8 @@ public class Click
 	}
 
 	public void lewatiButton() {
+		System.out.println(android);
+		
 	    homePage = new HomePageVisionPlus(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    
@@ -168,6 +169,15 @@ public class Click
 	    WebElement hubungiKamiButton = LainnyaMenuPage.btnHubungiKami;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(hubungiKamiButton));
 	    hubungiKamiButton.click();
+	}
+	
+	public void clickExitPopUpCCare() {
+	    LainnyaMenuPage = new LainnyaMenuPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+
+	    WebElement btnXCCare = LainnyaMenuPage.btnXCCare;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btnXCCare));
+	    btnXCCare.click();
 	}
 
 	public void clickPertanyaanEnglish() {
