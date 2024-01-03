@@ -26,7 +26,8 @@ public class Click extends BaseTest
 	MenuHeaderPage menuHeader;
 	VplusOriPage vPlusOriPage;
 	TvKuPageVisionPlus tvKuPage;
-	
+	SportPageVisionPlus sportPage;
+
 	//Search
 	public void clickBtnClear() {
 	    homePage = new HomePageVisionPlus(android);
@@ -158,8 +159,39 @@ public class Click extends BaseTest
 	    wait.until(ExpectedConditions.visibilityOfAllElements(signInButton));
 	    signInButton.click();
 	}
+	
+	public void clickButtonSport() {
+	    homePage = new HomePageVisionPlus(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    
+	    WebElement sportButton = homePage.btnSport;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(sportButton));
+	    sportButton.click();
+	}
 
 	//Homepage END
+	
+	//Sport Section
+	public void clickAiringTodaySportChannel() {
+	    sportPage = new SportPageVisionPlus(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    
+	    WebElement sportAiringTodayContent = sportPage.imgAiringTodayTv;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(sportAiringTodayContent));
+	    sportAiringTodayContent.click();
+	}
+	
+	public void clickAdsSportPage() {
+	    sportPage = new SportPageVisionPlus(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    
+	    if(sportPage.imgSportPageAds.isDisplayed()) {
+		    WebElement exitSportAds = sportPage.exitSportPageAds;
+		    wait.until(ExpectedConditions.visibilityOfAllElements(exitSportAds));
+		    exitSportAds.click();
+	    }
+	}
+	//Sport Section End
 	
 	//Lainnya Menu Page
 	public void clickBtnHubungiKami() {
@@ -169,6 +201,25 @@ public class Click extends BaseTest
 	    WebElement hubungiKamiButton = LainnyaMenuPage.btnHubungiKami;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(hubungiKamiButton));
 	    hubungiKamiButton.click();
+	}
+	
+	//Lainnya Menu Page
+	public void clickBtnEBooks() {
+		LainnyaMenuPage = new LainnyaMenuPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+
+	    WebElement eBookButton = LainnyaMenuPage.btnEBooks;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(eBookButton));
+	    eBookButton.click();
+	}
+	
+	public void clickBtnTvBerlangganan() {
+		LainnyaMenuPage = new LainnyaMenuPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+
+	    WebElement TvBerlanggananButton = LainnyaMenuPage.btnBerlangganan;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(TvBerlanggananButton));
+	    TvBerlanggananButton.click();
 	}
 	
 	public void clickExitPopUpCCare() {
