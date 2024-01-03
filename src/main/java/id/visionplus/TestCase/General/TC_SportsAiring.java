@@ -20,7 +20,7 @@ public class TC_SportsAiring extends BaseTest{
 		Thread.sleep(3000);
 		click.clickButtonSport();
 		test.pass("user berhasil Klik Sport Button");
-		scroll.scrollDown(0.04);
+		scroll.scrollDown(0.05);
 	    Thread.sleep(3000);
 		test.pass("user berhasil Scrolldown SportPage");
 		click.clickAdsSportPage();
