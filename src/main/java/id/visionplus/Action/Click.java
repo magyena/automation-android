@@ -2,21 +2,27 @@ package id.visionplus.Action;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import id.visionplus.PageObjects.*;
 import id.visionplus.MainFunction.BaseTest;
-
+import id.visionplus.Action.*;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.ElementOption;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class Click extends BaseTest
 {
-	WebDriverWait wait;
-	
+	WebDriverWait wait;	
+	Scroll scroll;
 	HomePageVisionPlus homePage;
 	LainnyaMenuPage LainnyaMenuPage;
 	VODPage vodPage;
@@ -172,13 +178,22 @@ public class Click extends BaseTest
 	//Homepage END
 	
 	//Sport Section
+	public void clickBtnPlayAiring() {
+		 	sportPage = new SportPageVisionPlus(android);
+		    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		    
+		    WebElement btnPlayAiring = sportPage.btnPlay;
+		    wait.until(ExpectedConditions.visibilityOfAllElements(btnPlayAiring));
+		    btnPlayAiring.click();
+	}
+	
 	public void clickAiringTodaySportChannel() {
 	    sportPage = new SportPageVisionPlus(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    
-	    WebElement sportAiringTodayContent = sportPage.imgAiringTodayTv;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(sportAiringTodayContent));
-	    sportAiringTodayContent.click();
+	    System.out.println("otw scroll to element");
+	    scrollToElement(sportPage.imgAiringTodayTv);
+	    wait.until(ExpectedConditions.visibilityOfAllElements(sportPage.imgAiringTodayTv));
+	    System.out.println("now click play");
+	    clickBtnPlayAiring();
 	}
 	
 	public void clickAdsSportPage() {
@@ -527,5 +542,14 @@ public class Click extends BaseTest
 	}
 	//TV Ku END
 
+	public void scrollToElement(WebElement element) {
+	    System.out.println("arrive to scroll to element touch");
+		
+	    // Use TouchAction to scroll to the element
+	    TouchAction<?> touchAction = new TouchAction<>(android);
+	    touchAction.longPress(ElementOption.element(element)).moveTo(ElementOption.element(element)).release().perform();
+	    
+	    System.out.println("success touch");
+	}
 	
 }

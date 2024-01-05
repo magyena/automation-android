@@ -30,6 +30,9 @@ public class SportPageVisionPlus extends AndroidGesture
 	
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.widget.Button[1]")
 	public static WebElement exitSportPageAds;
+	
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_play")
+	public static WebElement btnPlay;
 
 }
 

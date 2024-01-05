@@ -6,11 +6,11 @@ import id.visionplus.Action.Assertion;
 import id.visionplus.Action.Click;
 import id.visionplus.MainFunction.BaseTest;
 
-public class TC_TVBerlangganan extends BaseTest{
+public class TC_Access_EBooks extends BaseTest{
 
 	Click click = new Click();
 	@Test
-	public void TC_TVBerlangganan() throws InterruptedException {
+	public void TC_EBooks() throws InterruptedException {
 		Assertion assertion = new Assertion();
 		Thread.sleep(3000);
 		click.lewatiButton();
@@ -18,7 +18,7 @@ public class TC_TVBerlangganan extends BaseTest{
 		Thread.sleep(3000);
 		click.lainnyaButton();
 		test.pass("User berhasil Klik menu Lainnya");
-		click.clickBtnTvBerlangganan();
+		click.clickBtnEBooks();
 	}
 	
 }
