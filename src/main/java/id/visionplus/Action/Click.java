@@ -2,21 +2,27 @@ package id.visionplus.Action;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import id.visionplus.PageObjects.*;
 import id.visionplus.MainFunction.BaseTest;
-
+import id.visionplus.Action.*;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.ElementOption;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class Click extends BaseTest
 {
-	WebDriverWait wait;
-	
+	WebDriverWait wait;	
+	Scroll scroll;
 	HomePageVisionPlus homePage;
 	LainnyaMenuPage LainnyaMenuPage;
 	VODPage vodPage;
@@ -26,7 +32,8 @@ public class Click extends BaseTest
 	MenuHeaderPage menuHeader;
 	VplusOriPage vPlusOriPage;
 	TvKuPageVisionPlus tvKuPage;
-	
+	SportPageVisionPlus sportPage;
+
 	//Search
 	public void clickBtnClear() {
 	    homePage = new HomePageVisionPlus(android);
@@ -158,8 +165,46 @@ public class Click extends BaseTest
 	    wait.until(ExpectedConditions.visibilityOfAllElements(signInButton));
 	    signInButton.click();
 	}
+	
+	public void clickButtonSport() {
+	    homePage = new HomePageVisionPlus(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    
+	    WebElement sportButton = homePage.btnSport;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(sportButton));
+	    sportButton.click();
+	}
 
 	//Homepage END
+	
+	//Sport Section
+	public void clickBtnPlayAiring() {
+		 	sportPage = new SportPageVisionPlus(android);
+		    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		    
+		    WebElement btnPlayAiring = sportPage.btnPlay;
+		    wait.until(ExpectedConditions.visibilityOfAllElements(btnPlayAiring));
+		    btnPlayAiring.click();
+	}
+	
+	public void clickAiringTodaySportChannel() {
+	    sportPage = new SportPageVisionPlus(android);
+	    System.out.println("otw scroll to element");
+	    scrollToElement(sportPage.imgAiringTodayTv);
+	    wait.until(ExpectedConditions.visibilityOfAllElements(sportPage.imgAiringTodayTv));
+	}
+	
+	public void clickAdsSportPage() {
+	    sportPage = new SportPageVisionPlus(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    
+	    if(sportPage.imgSportPageAds.isDisplayed()) {
+		    WebElement exitSportAds = sportPage.exitSportPageAds;
+		    wait.until(ExpectedConditions.visibilityOfAllElements(exitSportAds));
+		    exitSportAds.click();
+	    }
+	}
+	//Sport Section End
 	
 	//Lainnya Menu Page
 	public void clickBtnHubungiKami() {
@@ -169,6 +214,25 @@ public class Click extends BaseTest
 	    WebElement hubungiKamiButton = LainnyaMenuPage.btnHubungiKami;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(hubungiKamiButton));
 	    hubungiKamiButton.click();
+	}
+	
+	//Lainnya Menu Page
+	public void clickBtnEBooks() {
+		LainnyaMenuPage = new LainnyaMenuPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+
+	    WebElement eBookButton = LainnyaMenuPage.btnEBooks;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(eBookButton));
+	    eBookButton.click();
+	}
+	
+	public void clickBtnTvBerlangganan() {
+		LainnyaMenuPage = new LainnyaMenuPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+
+	    WebElement TvBerlanggananButton = LainnyaMenuPage.btnBerlangganan;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(TvBerlanggananButton));
+	    TvBerlanggananButton.click();
 	}
 	
 	public void clickExitPopUpCCare() {
@@ -476,5 +540,14 @@ public class Click extends BaseTest
 	}
 	//TV Ku END
 
+	public void scrollToElement(WebElement element) {
+	    System.out.println("arrive to scroll to element touch");
+		
+	    // Use TouchAction to scroll to the element
+	    TouchAction<?> touchAction = new TouchAction<>(android);
+	    touchAction.longPress(ElementOption.element(element)).moveTo(ElementOption.element(element)).release().perform();
+	    
+	    System.out.println("success touch");
+	}
 	
 }

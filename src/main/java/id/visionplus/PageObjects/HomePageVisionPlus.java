@@ -60,6 +60,9 @@ public class HomePageVisionPlus extends AndroidGesture
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btn_sign_in")
 	 public static WebElement btnSignIn;
 	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/bottom_mylist")
+	 public static WebElement btnSport;
+	 
 	 @AndroidFindBy(xpath="//android.widget.FrameLayout[@content-desc=\"Lainnya\"]")
 	 public static WebElement btnMenuLainnya;
 	 

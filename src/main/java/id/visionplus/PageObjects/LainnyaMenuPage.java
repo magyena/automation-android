@@ -45,6 +45,12 @@ public class LainnyaMenuPage extends AndroidGesture{
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/linear_action_contact_us")
 	 public static WebElement btnHubungiKami;
 	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/linear_action_ebook")
+	 public static WebElement btnEBooks;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/linear_action_paytv")
+	 public static WebElement btnBerlangganan;
+	 
 	 @AndroidFindBy(xpath = "//android.view.View[1]/android.view.View/android.view.View/android.widget.TextView[3]")
 	 public static WebElement txtHubungiKami;
 

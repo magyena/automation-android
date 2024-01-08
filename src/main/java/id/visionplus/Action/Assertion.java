@@ -9,7 +9,6 @@ import org.testng.Assert;
 
 import id.visionplus.MainFunction.BaseTest;
 import id.visionplus.PageObjects.*;
-import io.appium.java_client.android.AndroidDriver;
 
 public class Assertion extends BaseTest
 {
@@ -115,6 +114,36 @@ public class Assertion extends BaseTest
 	}
 
 	// Login
+	public void assertLoginPage() {
+		loginPage = new LoginPageVisionPlus(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(loginPage.txtDaftarMasuk));
+	    System.out.println("Wait initiated");
+	    
+	    Boolean txtDaftarMasukPresent = loginPage.txtDaftarMasuk.isDisplayed();
+	    Boolean txtPhoneEditPresent = loginPage.txtEditTextPhone.isDisplayed();
+	    Boolean btnContinuePresent = loginPage.btnContinue.isDisplayed();
+	    Boolean btnLoginEmailPresent = loginPage.btnLoginEmail.isDisplayed();
+	    Boolean btnWithFacebookPresent = loginPage.btnWithFacebook.isDisplayed();
+	    Boolean btnWithGooglePresent = loginPage.btnWithGoogle.isDisplayed();
+	    
+	    Assert.assertTrue(txtDaftarMasukPresent);
+	    Assert.assertTrue(txtPhoneEditPresent);
+	    Assert.assertTrue(btnContinuePresent);
+	    Assert.assertTrue(btnLoginEmailPresent);
+	    Assert.assertTrue(btnWithFacebookPresent);
+	    Assert.assertTrue(btnWithGooglePresent);
+	}
+	
+	public void assertLoginPopUp() {
+		loginPage = new LoginPageVisionPlus(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(loginPage.txtDaftarMasukPopUp));
+	    
+	    Boolean txtDaftarMasukPresent = loginPage.txtDaftarMasukPopUp.isDisplayed();
+	    Assert.assertTrue(txtDaftarMasukPresent);
+	}
+	
 	public void assertWrongPhonePassword() {
 	    String expected = "Invalid password";
 	    String actual = loginPage.txtWrongPhonePassword.getText();
