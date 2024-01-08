@@ -135,6 +135,15 @@ public class Assertion extends BaseTest
 //	    Assert.assertTrue(btnWithGooglePresent);
 	}
 	
+	public void assertLoginPopUp() {
+		loginPage = new LoginPageVisionPlus(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(loginPage.txtDaftarMasukPopUp));
+	    
+	    Boolean txtDaftarMasukPresent = loginPage.txtDaftarMasukPopUp.isDisplayed();
+	    Assert.assertTrue(txtDaftarMasukPresent);
+	}
+	
 	public void assertWrongPhonePassword() {
 	    String expected = "Invalid password";
 	    String actual = loginPage.txtWrongPhonePassword.getText();

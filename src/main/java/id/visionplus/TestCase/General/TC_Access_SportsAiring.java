@@ -26,7 +26,7 @@ public class TC_Access_SportsAiring extends BaseTest{
 
         //load the element by scroll to random coordinate
 	    Thread.sleep(3000);
-    	scroll.scrollDown(0.04);
+	    scroll.scrollDown(0.2);
         System.out.println("success Scroll dikit");
 
         //scroll to exact element

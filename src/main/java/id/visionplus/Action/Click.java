@@ -192,8 +192,6 @@ public class Click extends BaseTest
 	    System.out.println("otw scroll to element");
 	    scrollToElement(sportPage.imgAiringTodayTv);
 	    wait.until(ExpectedConditions.visibilityOfAllElements(sportPage.imgAiringTodayTv));
-	    System.out.println("now click play");
-	    clickBtnPlayAiring();
 	}
 	
 	public void clickAdsSportPage() {

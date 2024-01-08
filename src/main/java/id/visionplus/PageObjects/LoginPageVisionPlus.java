@@ -20,6 +20,9 @@ public class LoginPageVisionPlus extends AndroidGesture{
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/tv_titleLimited")
+    public static WebElement txtDaftarMasukPopUp;
+	
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]")
     public static WebElement txtDaftarMasuk;
 	
