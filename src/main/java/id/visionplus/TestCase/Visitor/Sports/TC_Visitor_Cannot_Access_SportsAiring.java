@@ -1,4 +1,4 @@
-package id.visionplus.TestCase.Visitor.Lainnya;
+package id.visionplus.TestCase.Visitor.Sports;
 
 import org.testng.annotations.Test;
 
