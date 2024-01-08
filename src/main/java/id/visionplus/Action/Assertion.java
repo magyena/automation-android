@@ -121,18 +121,18 @@ public class Assertion extends BaseTest
 	    System.out.println("Wait initiated");
 	    
 	    Boolean txtDaftarMasukPresent = loginPage.txtDaftarMasuk.isDisplayed();
-//	    Boolean txtPhoneEditPresent = loginPage.txtEditTextPhone.isDisplayed();
-//	    Boolean btnContinuePresent = loginPage.btnContinue.isDisplayed();
-//	    Boolean btnLoginEmailPresent = loginPage.btnLoginEmail.isDisplayed();
-//	    Boolean btnWithFacebookPresent = loginPage.btnWithFacebook.isDisplayed();
-//	    Boolean btnWithGooglePresent = loginPage.btnWithGoogle.isDisplayed();
+	    Boolean txtPhoneEditPresent = loginPage.txtEditTextPhone.isDisplayed();
+	    Boolean btnContinuePresent = loginPage.btnContinue.isDisplayed();
+	    Boolean btnLoginEmailPresent = loginPage.btnLoginEmail.isDisplayed();
+	    Boolean btnWithFacebookPresent = loginPage.btnWithFacebook.isDisplayed();
+	    Boolean btnWithGooglePresent = loginPage.btnWithGoogle.isDisplayed();
 	    
 	    Assert.assertTrue(txtDaftarMasukPresent);
-//	    Assert.assertTrue(txtPhoneEditPresent);
-//	    Assert.assertTrue(btnContinuePresent);
-//	    Assert.assertTrue(btnLoginEmailPresent);
-//	    Assert.assertTrue(btnWithFacebookPresent);
-//	    Assert.assertTrue(btnWithGooglePresent);
+	    Assert.assertTrue(txtPhoneEditPresent);
+	    Assert.assertTrue(btnContinuePresent);
+	    Assert.assertTrue(btnLoginEmailPresent);
+	    Assert.assertTrue(btnWithFacebookPresent);
+	    Assert.assertTrue(btnWithGooglePresent);
 	}
 	
 	public void assertLoginPopUp() {
