@@ -18,7 +18,10 @@ public class LainnyaMenuPage extends AndroidGesture{
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 	
-	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btnX")
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/linear_action_mylist")
+	 public static WebElement btnDaftarKu;
+	
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/btnX")
 	 public static WebElement btnXCCare;
 	
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/tv_privileges")

@@ -26,13 +26,13 @@ import java.text.SimpleDateFormat;
 
 public class Report 
 {
-	public void genarateReport() throws IOException, InterruptedException
+	public void generateReport() throws IOException, InterruptedException
     {
 		String name = System.getProperty("user.name");
 
 		String webhookUrl = "https://discord.com/api/webhooks/1164099789248532521/pR8xIn9U8aCP_Cb4YM8xwlie2OZ8XWDzI0_mtAX-Bum97ZGud_Qh67lQkgJHugX1vgwD";
         String pdfFilePath = "/Users/"+name+"/Desktop/REPORT/REPORT_.PDF";
-
+        
         try {
         	Thread.sleep(5000);
         	createPDF();
@@ -71,7 +71,7 @@ public class Report
         	renderer.setDocumentFromString(doc.html(), baseUrl);
         	renderer.layout();
         	renderer.createPDF(os);
-        	System.out.println("done");
+        	System.out.println("File path: " + baseUrl);
         }
     }
 	

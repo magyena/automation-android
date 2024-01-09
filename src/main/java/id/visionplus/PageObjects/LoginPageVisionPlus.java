@@ -31,6 +31,9 @@ public class LoginPageVisionPlus extends AndroidGesture{
 
     @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_register")
     public static WebElement btnWithEmail;
+    
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/iv_close_intro")
+    public static WebElement btnCloseLogin;
 
     @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/btn_google")
     public static WebElement btnWithGoogle;

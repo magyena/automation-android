@@ -34,7 +34,7 @@ public class TC_SuccessLoginSignOut extends BaseTest{
 		click.removePopupSub();
 		click.lainnyaButton();
 		test.info("User berhasil Klik menu Lainnya");
-		click.pengaturanLainnya();
+		click.clickPengaturanLainnya();
 		click.signOut();;
 		test.info("User berhasil Sign out dari Aplikasi");
 	}

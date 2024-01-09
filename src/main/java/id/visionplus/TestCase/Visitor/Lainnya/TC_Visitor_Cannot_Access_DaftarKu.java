@@ -7,15 +7,15 @@ import id.visionplus.Action.Click;
 import id.visionplus.MainFunction.BaseTest;
 import id.visionplus.TestCase.General.*;
 
-public class TC_Visitor_Cannot_Access_TVBerlangganan extends BaseTest{
+public class TC_Visitor_Cannot_Access_DaftarKu extends BaseTest{
 
 	Click click = new Click();
 	@Test
-	public void TC_Visitor_Cannot_Access_TvBerlangganan() throws InterruptedException {
+	public void TC_Visitor_Cannot_Access_DaftarKu() throws InterruptedException {
 		Assertion assertion = new Assertion();
-		TC_Access_TVBerlangganan access_tv_berlangganan = new TC_Access_TVBerlangganan();
-		//call test case accessing to TV Berlangganan Page
-		access_tv_berlangganan.TC_TVBerlangganan();
+		TC_Access_DaftarKu access_DaftarKu = new TC_Access_DaftarKu();
+		//Call test case accessing to DaftarKu Page
+		access_DaftarKu.TC_Access_DaftarKu();
 		Thread.sleep(3000);
 		assertion.assertLoginPage();
 		
