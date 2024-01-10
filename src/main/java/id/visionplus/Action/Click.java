@@ -46,12 +46,27 @@ public class Click extends BaseTest
 	public void clickCloseAdsButton() throws TimeoutException {
 		homePage = new HomePageVisionPlus(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    try {
-	        WebElement btnCloseAds = homePage.btnCloseAds;
-	        wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseAds));
+	    
+        WebElement btnCloseAds = homePage.btnCloseAds;
+	    Boolean isBtnCloseAdsPresent = btnCloseAds.isDisplayed();
+	    
+	    if(isBtnCloseAdsPresent) {
+	    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseAds));
 	        btnCloseAds.click();
-	    } catch (NoSuchElementException e) {
-	        System.out.println("btnCloseAds is not visible or not found");
+	    }
+	}
+	
+	//PopUp Notif
+	public void clickIgnoreBuyPackageNotif() throws TimeoutException {
+		homePage = new HomePageVisionPlus(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    
+        WebElement imgBuyPkgNotif = homePage.imgBuyPkgNotif;
+	    Boolean istxtPopUpBuyPackagePresent = homePage.imgBuyPkgNotif.isDisplayed();
+	    if(istxtPopUpBuyPackagePresent) {
+	        WebElement layoutPopUpNotif = homePage.layoutPopUpNotif;
+	        wait.until(ExpectedConditions.visibilityOfAllElements(layoutPopUpNotif));
+	        layoutPopUpNotif.click();
 	    }
 	}
 	
@@ -167,9 +182,7 @@ public class Click extends BaseTest
 	    lainnyaButton.click();
 	}
 
-	public void lewatiButton() {
-		System.out.println(android);
-		
+	public void lewatiButton() {		
 	    homePage = new HomePageVisionPlus(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    

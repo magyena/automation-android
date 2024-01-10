@@ -21,47 +21,49 @@ public class TS_Free extends BaseTest
 	Assertion assertion = new Assertion();
 	Input input_action = new Input();
 	Scroll scroll = new Scroll(android);
-	TC_OpenApp openApp = new TC_OpenApp();
 
-	@Test(priority = 1,dataProvider = "freeUser",testName = "User Visitor Login")
+	@Test(dataProvider = "freeUser",testName = "User Visitor Login")
 	public void user_login_with_phone_number(HashMap<String, String> input) throws InterruptedException, IOException, TimeoutException 
-	{		
+	{	
+		TC_OpenApp openApp = new TC_OpenApp();
+		TC_Access_Login_Through_Lainnya access_login = new TC_Access_Login_Through_Lainnya();
+		TC_Ignore_Ads_PopUp ignore_notif = new TC_Ignore_Ads_PopUp();
+		
 		openApp.TC_Open_App();
-		click.lainnyaButton();
-		click.clickMasukButton();
-		Thread.sleep(3000);
-		assertion.assertLoginPage();
+		
+		access_login.TC_Access_Through_Lainnya();
 
-		System.out.println(input.get("username"));
 		input_action.inputPhoneNumber(input.get("username"));
 		click.clickButtonContinue();
 		input_action.inputPhonePassword(input.get("password"));
 		click.clickButtonContinue();
+		
+		ignore_notif.TC_Ignore_Ads_Notif();
 	}
 	
-	@DataProvider
-	public Object[][] freeUser() throws IOException {
-		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/main/java/id/visionplus/TestData/Login/login.json");
-		System.out.println(data.get(0)); // check test data		
-		return new Object[][] {{data.get(0)}};
-	}
-	
-	@Test(priority = 2,testName = "Free User Access Games Plus")
+	@Test(testName = "Free User Access Games Plus", dependsOnMethods = "user_login_with_phone_number")
 	public void free_user_access_games_plus() throws InterruptedException 
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		TC_Access_GamesPlus gamesPlus = new TC_Access_GamesPlus();
 		gamesPlus.TC_Access_GamesPlus();
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority = 3,testName = "Free User Access Games Plus Detail")
+	@Test(testName = "Free User Access Games Plus Detail", dependsOnMethods = "free_user_access_games_plus")
 	public void free_user_access_games_plus_detail() throws InterruptedException 
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		TC_Access_GamesPlus_Detail gamesPlusDetails = new TC_Access_GamesPlus_Detail();
 		gamesPlusDetails.TC_Access_GamesPlus_Detail();
 		Thread.sleep(2000);
+	}
+	
+	@DataProvider
+	public Object[][] freeUser() throws IOException {
+		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/main/java/id/visionplus/TestData/Login/login.json");
+		System.out.println("get User Data: "+data.get(0)); // check test data		
+		return new Object[][] {{data.get(0)}};
 	}
 	
 

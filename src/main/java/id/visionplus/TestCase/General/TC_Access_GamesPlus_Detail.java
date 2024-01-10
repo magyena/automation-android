@@ -18,6 +18,7 @@ public class TC_Access_GamesPlus_Detail extends BaseTest{
 		
 		Assertion assertion = new Assertion();
 		assertion.assertGamesPlusDetailsPage();
+		test.pass("GamesPlus Details Page Berhasil di Assert");
 	}
 	
 }

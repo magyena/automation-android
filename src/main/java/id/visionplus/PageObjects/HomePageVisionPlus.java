@@ -21,6 +21,12 @@ public class HomePageVisionPlus extends AndroidGesture
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 	
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/tv_notification") 
+	 public static WebElement imgBuyPkgNotif;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/layout_popup_notif") 
+	 public static WebElement layoutPopUpNotif;
+	
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/tv_skip_intro") 
 	 public static WebElement btnSkip;
 	 
