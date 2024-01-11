@@ -1,23 +1,30 @@
 package id.visionplus.Action;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import id.visionplus.PageObjects.*;
+import expectj.TimeoutException;
 import id.visionplus.MainFunction.BaseTest;
-import id.visionplus.Action.*;
-import io.appium.java_client.MobileBy;
+import id.visionplus.PageObjects.GamesPlusMenuPage;
+import id.visionplus.PageObjects.HomePageVisionPlus;
+import id.visionplus.PageObjects.LainnyaMenuPage;
+import id.visionplus.PageObjects.LoginPageVisionPlus;
+import id.visionplus.PageObjects.MenuFooterPage;
+import id.visionplus.PageObjects.MenuHeaderPage;
+import id.visionplus.PageObjects.PengaturanPage;
+import id.visionplus.PageObjects.SportPageVisionPlus;
+import id.visionplus.PageObjects.TvKuPageVisionPlus;
+import id.visionplus.PageObjects.VODPage;
+import id.visionplus.PageObjects.VplusOriPage;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
-import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
-import io.appium.java_client.touch.offset.PointOption;
 
 public class Click extends BaseTest
 {
@@ -33,7 +40,36 @@ public class Click extends BaseTest
 	VplusOriPage vPlusOriPage;
 	TvKuPageVisionPlus tvKuPage;
 	SportPageVisionPlus sportPage;
+	GamesPlusMenuPage gamesPlusPage;
 
+	//ads
+	public void clickCloseAdsButton() throws TimeoutException {
+		homePage = new HomePageVisionPlus(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    
+        WebElement btnCloseAds = homePage.btnCloseAds;
+	    Boolean isBtnCloseAdsPresent = btnCloseAds.isDisplayed();
+	    
+	    if(isBtnCloseAdsPresent) {
+	    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseAds));
+	        btnCloseAds.click();
+	    }
+	}
+	
+	//PopUp Notif
+	public void clickIgnoreBuyPackageNotif() throws TimeoutException {
+		homePage = new HomePageVisionPlus(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    
+        WebElement imgBuyPkgNotif = homePage.imgBuyPkgNotif;
+	    Boolean istxtPopUpBuyPackagePresent = homePage.imgBuyPkgNotif.isDisplayed();
+	    if(istxtPopUpBuyPackagePresent) {
+	        WebElement layoutPopUpNotif = homePage.layoutPopUpNotif;
+	        wait.until(ExpectedConditions.visibilityOfAllElements(layoutPopUpNotif));
+	        layoutPopUpNotif.click();
+	    }
+	}
+	
 	//Search
 	public void clickBtnClear() {
 	    homePage = new HomePageVisionPlus(android);
@@ -146,9 +182,7 @@ public class Click extends BaseTest
 	    lainnyaButton.click();
 	}
 
-	public void lewatiButton() {
-		System.out.println(android);
-		
+	public void lewatiButton() {		
 	    homePage = new HomePageVisionPlus(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    
@@ -190,8 +224,9 @@ public class Click extends BaseTest
 	public void clickAiringTodaySportChannel() {
 	    sportPage = new SportPageVisionPlus(android);
 	    System.out.println("otw scroll to element");
-	    scrollToElement(sportPage.imgAiringTodayTv);
 	    wait.until(ExpectedConditions.visibilityOfAllElements(sportPage.imgAiringTodayTv));
+	    scrollToElement(sportPage.imgAiringTodayTv);
+	    
 	}
 	
 	public void clickAdsSportPage() {
@@ -207,6 +242,16 @@ public class Click extends BaseTest
 	//Sport Section End
 	
 	//Lainnya Menu Page
+	
+	public void clickBtnDaftarKu() {
+	    LainnyaMenuPage = new LainnyaMenuPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+
+	    WebElement daftarKuButton = LainnyaMenuPage.btnDaftarKu;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(daftarKuButton));
+	    daftarKuButton.click();
+	}
+	
 	public void clickBtnHubungiKami() {
 	    LainnyaMenuPage = new LainnyaMenuPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -216,7 +261,6 @@ public class Click extends BaseTest
 	    hubungiKamiButton.click();
 	}
 	
-	//Lainnya Menu Page
 	public void clickBtnEBooks() {
 		LainnyaMenuPage = new LainnyaMenuPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -298,7 +342,7 @@ public class Click extends BaseTest
 	    paketButton.click();
 	}
 
-	public void pengaturanLainnya() {
+	public void clickPengaturanLainnya() {
 	    LainnyaMenuPage = new LainnyaMenuPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 
@@ -412,6 +456,15 @@ public class Click extends BaseTest
 	//VOD Page END
 	
 	//Login
+	public void clickBtnCloseLogin() {
+	    loginPage = new LoginPageVisionPlus(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+
+	    WebElement closeLoginButton = loginPage.btnCloseLogin;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(closeLoginButton));
+	    closeLoginButton.click();
+	}
+	
 	public void clickLoginWithEmail() {
 	    loginPage = new LoginPageVisionPlus(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -437,6 +490,7 @@ public class Click extends BaseTest
 	    WebElement continueButton = loginPage.btnContinue;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(continueButton));
 	    continueButton.click();
+	    test.pass("User berhasil klik tombol Selanjutnya");
 	}
 
 	//Login END
@@ -545,9 +599,38 @@ public class Click extends BaseTest
 		
 	    // Use TouchAction to scroll to the element
 	    TouchAction<?> touchAction = new TouchAction<>(android);
+	    
 	    touchAction.longPress(ElementOption.element(element)).moveTo(ElementOption.element(element)).release().perform();
 	    
 	    System.out.println("success touch");
+	}
+	
+	//Games Plus
+	public void clickGamesPlus() {
+		menuFooter = new MenuFooterPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
+
+	    WebElement gamesPlusButton = menuFooter.imgGamesPlus;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(gamesPlusButton));
+	    gamesPlusButton.click();
+	}
+	
+	public void clickGamesPlusDetailsSlider() {
+		gamesPlusPage = new GamesPlusMenuPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
+
+	    WebElement gamesPlusDetails = gamesPlusPage.imgGamesSlider;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(gamesPlusDetails));
+	    gamesPlusDetails.click();
+	}
+	
+	public void clickBackButtonGamesPlus() {
+		gamesPlusPage = new GamesPlusMenuPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
+
+	    WebElement backbutton = gamesPlusPage.btnBackGamesPlus;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(backbutton));
+	    backbutton.click();
 	}
 	
 }

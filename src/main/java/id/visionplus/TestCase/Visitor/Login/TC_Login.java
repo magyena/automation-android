@@ -1,13 +1,15 @@
 package id.visionplus.TestCase.Visitor.Login;
 
+import org.testng.annotations.Test;
+
 import id.visionplus.MainFunction.BaseTest;
 import id.visionplus.PageObjects.LoginPageVisionPlus;
-import io.appium.java_client.android.AndroidDriver;
 
 public class TC_Login extends BaseTest {
 	
 	LoginPageVisionPlus loginpage;
 
+	@Test
 	public void LoginVisionPlus(String loginWith, String username, String password) throws InterruptedException {
 		loginpage = new LoginPageVisionPlus(android);
 		if(loginWith.equalsIgnoreCase("email")) {

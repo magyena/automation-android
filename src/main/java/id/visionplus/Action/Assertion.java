@@ -18,6 +18,7 @@ public class Assertion extends BaseTest
 	VODPage vodPage;
 	LainnyaMenuPage lainnyaPage;
 	TvKuPageVisionPlus tvKuPage;
+	GamesPlusMenuPage gamesPlusPage;
 	
 	//Homepage
 	
@@ -118,7 +119,6 @@ public class Assertion extends BaseTest
 		loginPage = new LoginPageVisionPlus(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(90));
 	    wait.until(ExpectedConditions.visibilityOfAllElements(loginPage.txtDaftarMasuk));
-	    System.out.println("Wait initiated");
 	    
 	    Boolean txtDaftarMasukPresent = loginPage.txtDaftarMasuk.isDisplayed();
 	    Boolean txtPhoneEditPresent = loginPage.txtEditTextPhone.isDisplayed();
@@ -133,6 +133,8 @@ public class Assertion extends BaseTest
 	    Assert.assertTrue(btnLoginEmailPresent);
 	    Assert.assertTrue(btnWithFacebookPresent);
 	    Assert.assertTrue(btnWithGooglePresent);
+	    
+		test.pass("Assertion in Login Page Successful");
 	}
 	
 	public void assertLoginPopUp() {
@@ -148,12 +150,16 @@ public class Assertion extends BaseTest
 	    String expected = "Invalid password";
 	    String actual = loginPage.txtWrongPhonePassword.getText();
 	    Assert.assertEquals(actual, expected);
+	    
+		test.pass("Assertion Wrong Password Number is Expected");
 	}
 
 	public void assertWrongPhoneNumber() {
 	    String expected = "Format nomor handphone salah";
 	    String actual = loginPage.txtWrongPhoneNumber.getText();
 	    Assert.assertEquals(actual, expected);
+	    
+		test.pass("Assertion Wrong Phone Number is Expected");
 	}
 
 	public void assertLoginPageShouldBeDisplayed() throws InterruptedException {
@@ -179,6 +185,23 @@ public class Assertion extends BaseTest
 
 	    Boolean isBtnLoginPresent = tvKuPage.btnLogin.isDisplayed();
 	    Assert.assertTrue(isBtnLoginPresent);
+	}
+	
+	//Games Plus
+	public void assertGamesPlusPage() {
+	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(gamesPlusPage.txtTitleGamesPlus));
+
+	    Boolean istxtTitleGamesPlusPresent = gamesPlusPage.txtTitleGamesPlus.isDisplayed();
+	    Assert.assertTrue(istxtTitleGamesPlusPresent);
+	}
+	
+	public void assertGamesPlusDetailsPage() {
+	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(gamesPlusPage.txtTitleGamesPlusDetails));
+
+	    Boolean istxtTitleGamesPlusDetailsPresent = gamesPlusPage.txtTitleGamesPlusDetails.isDisplayed();
+	    Assert.assertTrue(istxtTitleGamesPlusDetailsPresent);
 	}
 
 }

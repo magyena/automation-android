@@ -24,4 +24,7 @@ public class MenuFooterPage extends AndroidGesture
 
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc='TVku']/android.widget.ImageView")
     public static WebElement imgTvKu;
+    
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"Games+\"]/android.widget.ImageView")
+    public static WebElement imgGamesPlus;
 }
