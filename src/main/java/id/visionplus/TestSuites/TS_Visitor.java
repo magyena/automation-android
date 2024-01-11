@@ -82,46 +82,42 @@ public class TS_Visitor extends BaseTest
 	}
 	
 	@Test(priority = 4,testName = "Visitor Cannot Access Tv Berlangganan")
-	public void visitor_cannot_access_Tv_Berlangganan() throws InterruptedException 
-	{
+	public void visitor_cannot_access_Tv_Berlangganan() throws InterruptedException, TimeoutException 
+	{	
 		Assertion assertion = new Assertion();
 		TC_Access_TVBerlangganan access_tv_berlangganan = new TC_Access_TVBerlangganan();
 		//call test case accessing to TV Berlangganan Page
 		access_tv_berlangganan.TC_TVBerlangganan();
 		Thread.sleep(3000);
 		assertion.assertLoginPage();
-		
-		click.clickBtnCloseLogin();
-		
 	}
 	
-	@Test(priority = 5,dataProvider = "wrongNumber",testName = "User Visitor Login with Wrong Number")
+	@Test(dataProvider = "wrongNumber",testName = "User Visitor Login with Wrong Number",dependsOnMethods = "visitor_cannot_access_Tv_Berlangganan")
 	public void UserVisitorLoginWithWrongNumber(HashMap<String, String> input) throws InterruptedException 
 	{
-
-		click.clickMasuk();
-		
 		input_action.inputPhoneNumber(input.get("phone"));
 		test.info("User input nomor yang salah");
+		
 		click.clickButtonContinue();
+		
 		assertion.assertWrongPhoneNumber();
-		test.pass("hasil Assert sesuai");
 	}
 	
-	@Test(priority = 6,dataProvider = "wrongPassword",testName = "User Visitor Login with Wrong Password")
+	@Test(priority = 6,dataProvider = "wrongPassword",testName = "User Visitor Login with Wrong Password", dependsOnMethods = "UserVisitorLoginWithWrongNumber")
 	public void UserVisitorLoginWithWrongPassword(HashMap<String, String> input) throws InterruptedException, IOException 
 	{		
 		input_action.inputPhoneNumber(input.get("phone"));
 		click.clickButtonContinue();
 		input_action.inputPhonePassword(input.get("password"));
+		test.info("User input password yang salah");
 		click.clickButtonContinue();
 		assertion.assertWrongPhonePassword();
-		test.pass("hasil Assert sesuai");
 	}
 	
 	@DataProvider
 	public Object[][] wrongNumber() throws IOException {
 		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/main/java/id/visionplus/TestData/Login/TC_loginWrongPhoneNumber.json");
+		System.out.println("Wrong Numb: "+data.get(0));
 		return new Object[][] {{data.get(0)}};
 		
 	}
@@ -129,6 +125,7 @@ public class TS_Visitor extends BaseTest
 	@DataProvider
 	public Object[][] wrongPassword() throws IOException {
 		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/main/java/id/visionplus/TestData/Login/TC_loginWrongPhonePassword.json");
+		System.out.println("Wrong Pass: "+data.get(0));
 		return new Object[][] {{data.get(0)}};
 	}
 

@@ -17,18 +17,21 @@ public class Input extends BaseTest
 	
 	Click click = new Click();
 
-	public void inputPhoneNumber(String phoneNumber) {
+	public void inputPhoneNumber(String phoneNumber) throws InterruptedException {
 	    loginPage = new LoginPageVisionPlus(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-
+	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
 	    WebElement phoneButton = loginPage.btnWithPhone;
 	 
 	    wait.until(ExpectedConditions.visibilityOfAllElements(phoneButton));
 	    phoneButton.click();
+		test.pass("User sukses klik field Phone Number");
 	   
 	    WebElement phoneNumberTextBox = loginPage.txtEditTextPhone;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(phoneNumberTextBox));
 	    phoneNumberTextBox.sendKeys(phoneNumber);
+		test.pass("User sukses input field Phone Number");
+		
+		test.pass("Input Phone Number of "+ phoneNumber + " went Sucessfully");
 	}
 
 	public void inputPhonePassword(String phonePassword) {

@@ -31,7 +31,7 @@ public class TS_Free extends BaseTest
 		
 		openApp.TC_Open_App();
 		
-		access_login.TC_Access_Through_Lainnya();
+		access_login.TC_Access_Login_Through_Lainnya();
 
 		input_action.inputPhoneNumber(input.get("username"));
 		click.clickButtonContinue();

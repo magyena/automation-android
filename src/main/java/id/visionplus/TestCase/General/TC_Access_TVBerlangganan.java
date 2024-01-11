@@ -14,6 +14,7 @@ public class TC_Access_TVBerlangganan extends BaseTest{
 		click.lainnyaButton();
 		test.pass("User berhasil Klik menu Lainnya");
 		click.clickBtnTvBerlangganan();
+		test.pass("Accessing Tv Berlangganan Successful");
 	}
 	
 }

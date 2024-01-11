@@ -490,6 +490,7 @@ public class Click extends BaseTest
 	    WebElement continueButton = loginPage.btnContinue;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(continueButton));
 	    continueButton.click();
+	    test.pass("User berhasil klik tombol Selanjutnya");
 	}
 
 	//Login END

@@ -133,6 +133,8 @@ public class Assertion extends BaseTest
 	    Assert.assertTrue(btnLoginEmailPresent);
 	    Assert.assertTrue(btnWithFacebookPresent);
 	    Assert.assertTrue(btnWithGooglePresent);
+	    
+		test.pass("Assertion in Login Page Successful");
 	}
 	
 	public void assertLoginPopUp() {
@@ -148,12 +150,16 @@ public class Assertion extends BaseTest
 	    String expected = "Invalid password";
 	    String actual = loginPage.txtWrongPhonePassword.getText();
 	    Assert.assertEquals(actual, expected);
+	    
+		test.pass("Assertion Wrong Password Number is Expected");
 	}
 
 	public void assertWrongPhoneNumber() {
 	    String expected = "Format nomor handphone salah";
 	    String actual = loginPage.txtWrongPhoneNumber.getText();
 	    Assert.assertEquals(actual, expected);
+	    
+		test.pass("Assertion Wrong Phone Number is Expected");
 	}
 
 	public void assertLoginPageShouldBeDisplayed() throws InterruptedException {
