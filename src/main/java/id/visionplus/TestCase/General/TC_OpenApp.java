@@ -15,6 +15,8 @@ public class TC_OpenApp extends BaseTest{
 		click.lewatiButton();
 		test.pass("User berhasil Klik skip button");
 		
+		Thread.sleep(3000);
+		click.clickCloseAdsButton();
 		test.pass("Open App Success");
 	}
 	

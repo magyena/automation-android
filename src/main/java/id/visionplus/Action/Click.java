@@ -47,12 +47,25 @@ public class Click extends BaseTest
 		homePage = new HomePageVisionPlus(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    
-        WebElement btnCloseAds = homePage.btnCloseAds;
-	    Boolean isBtnCloseAdsPresent = btnCloseAds.isDisplayed();
-	    
-	    if(isBtnCloseAdsPresent) {
-	    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseAds));
-	        btnCloseAds.click();
+	    try {
+		    
+	        WebElement btnCloseBottomAds = HomePageVisionPlus.btnCloseBottomAds;
+		    Boolean isbtnCloseBottomAdsPresent = btnCloseBottomAds.isDisplayed();
+		    
+		    if(isbtnCloseBottomAdsPresent) {
+		    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseBottomAds));
+		    	btnCloseBottomAds.click();
+		    }else {			    
+		        WebElement btnCloseAds = HomePageVisionPlus.btnCloseAds;
+			    Boolean isBtnCloseAdsPresent = HomePageVisionPlus.btnCloseAds.isDisplayed();
+			    
+			    if(isBtnCloseAdsPresent) {
+			    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseAds));
+			        btnCloseAds.click();
+			    }
+		    }
+	    }catch(Exception e) {
+	    	System.out.println(e.getMessage());
 	    }
 	}
 	

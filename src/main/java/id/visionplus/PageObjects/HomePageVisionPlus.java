@@ -92,7 +92,10 @@ public class HomePageVisionPlus extends AndroidGesture
 		
 	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.widget.Button[1]") 
 	 public static WebElement btnCloseAds;
-	
+	 
+	 @AndroidFindBy(xpath="//android.view.View[@content-desc=\"X\"]/android.widget.TextView") 
+	 public static WebElement btnCloseBottomAds;
+	 	
 	public WebElement getTvKuButton() {
         return android.findElement(AppiumBy.accessibilityId("TVku"));
     }
