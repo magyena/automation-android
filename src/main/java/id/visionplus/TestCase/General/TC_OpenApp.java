@@ -11,12 +11,14 @@ public class TC_OpenApp extends BaseTest{
 	Click click = new Click();
 	@Test
 	public void TC_Open_App() throws InterruptedException, TimeoutException {		
+		
 		Thread.sleep(3000);
 		click.lewatiButton();
 		test.pass("User berhasil Klik skip button");
 		
-		Thread.sleep(3000);
+	    Thread.sleep(3000);
 		click.clickCloseAdsButton();
+		
 		test.pass("Open App Success");
 	}
 	

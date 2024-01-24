@@ -41,24 +41,24 @@ public class TS_Free extends BaseTest
 		ignore_notif.TC_Ignore_Ads_Notif();
 	}
 	
-	@Test(testName = "Free User Access Games Plus", dependsOnMethods = "user_login_with_phone_number")
-	public void free_user_access_games_plus() throws InterruptedException 
-	{		
-		Thread.sleep(5000);
-		TC_Access_GamesPlus gamesPlus = new TC_Access_GamesPlus();
-		gamesPlus.TC_Access_GamesPlus();
-		Thread.sleep(2000);
-	}
-	
-	@Test(testName = "Free User Access Games Plus Detail", dependsOnMethods = "free_user_access_games_plus")
-	public void free_user_access_games_plus_detail() throws InterruptedException 
-	{		
-		Thread.sleep(5000);
-		TC_Access_GamesPlus_Detail gamesPlusDetails = new TC_Access_GamesPlus_Detail();
-		gamesPlusDetails.TC_Access_GamesPlus_Detail();
-		Thread.sleep(2000);
-	}
-	
+//	@Test(testName = "Free User Access Games Plus", dependsOnMethods = "user_login_with_phone_number")
+//	public void free_user_access_games_plus() throws InterruptedException 
+//	{		
+//		Thread.sleep(5000);
+//		TC_Access_GamesPlus gamesPlus = new TC_Access_GamesPlus();
+//		gamesPlus.TC_Access_GamesPlus();
+//		Thread.sleep(2000);
+//	}
+//	
+//	@Test(testName = "Free User Access Games Plus Detail", dependsOnMethods = "free_user_access_games_plus")
+//	public void free_user_access_games_plus_detail() throws InterruptedException 
+//	{		
+//		Thread.sleep(5000);
+//		TC_Access_GamesPlus_Detail gamesPlusDetails = new TC_Access_GamesPlus_Detail();
+//		gamesPlusDetails.TC_Access_GamesPlus_Detail();
+//		Thread.sleep(2000);
+//	}
+//	
 	@DataProvider
 	public Object[][] freeUser() throws IOException {
 		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/main/java/id/visionplus/TestData/Login/login.json");

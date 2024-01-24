@@ -43,29 +43,24 @@ public class Click extends BaseTest
 	GamesPlusMenuPage gamesPlusPage;
 
 	//ads
-	public void clickCloseAdsButton() throws TimeoutException {
+	public void clickCloseAdsButton() throws InterruptedException {
 		homePage = new HomePageVisionPlus(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    	    
+        WebElement imgAdsBackground = HomePageVisionPlus.btnCloseBottomAds;
+	    Boolean isbtnCloseBottomAdsPresent = btnCloseBottomAds.isDisplayed();
 	    
-	    try {
+	    if(isbtnCloseBottomAdsPresent) {
+	    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseBottomAds));
+	    	btnCloseBottomAds.click();
+	    }else {			    
+	        WebElement btnCloseAds = HomePageVisionPlus.btnCloseAds;
+		    Boolean isBtnCloseAdsPresent = HomePageVisionPlus.btnCloseAds.isDisplayed();
 		    
-	        WebElement btnCloseBottomAds = HomePageVisionPlus.btnCloseBottomAds;
-		    Boolean isbtnCloseBottomAdsPresent = btnCloseBottomAds.isDisplayed();
-		    
-		    if(isbtnCloseBottomAdsPresent) {
-		    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseBottomAds));
-		    	btnCloseBottomAds.click();
-		    }else {			    
-		        WebElement btnCloseAds = HomePageVisionPlus.btnCloseAds;
-			    Boolean isBtnCloseAdsPresent = HomePageVisionPlus.btnCloseAds.isDisplayed();
-			    
-			    if(isBtnCloseAdsPresent) {
-			    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseAds));
-			        btnCloseAds.click();
-			    }
+		    if(isBtnCloseAdsPresent) {
+		    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseAds));
+		        btnCloseAds.click();
 		    }
-	    }catch(Exception e) {
-	    	System.out.println(e.getMessage());
 	    }
 	}
 	
