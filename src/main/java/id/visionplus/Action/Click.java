@@ -47,7 +47,7 @@ public class Click extends BaseTest
 		homePage = new HomePageVisionPlus(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    	    
-        WebElement imgAdsBackground = HomePageVisionPlus.btnCloseBottomAds;
+        WebElement btnCloseBottomAds = HomePageVisionPlus.btnCloseBottomAds;
 	    Boolean isbtnCloseBottomAdsPresent = btnCloseBottomAds.isDisplayed();
 	    
 	    if(isbtnCloseBottomAdsPresent) {
