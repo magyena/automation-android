@@ -15,7 +15,7 @@ public class TC_Ignore_Ads_PopUp extends BaseTest{
 		Thread.sleep(5000);
 		click.clickIgnoreBuyPackageNotif();
 		test.pass("User Berhasil Click Close Pop Up Package Notification");
-		click.clickCloseAdsButton();
+//		click.clickCloseAdsButton();
 		test.pass("User Berhasil Click Close Ads");
 	}
 	

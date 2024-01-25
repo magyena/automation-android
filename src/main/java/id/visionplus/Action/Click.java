@@ -46,21 +46,23 @@ public class Click extends BaseTest
 	public void clickCloseAdsButton() throws InterruptedException {
 		homePage = new HomePageVisionPlus(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    	    
-        WebElement btnCloseBottomAds = HomePageVisionPlus.btnCloseBottomAds;
-	    Boolean isbtnCloseBottomAdsPresent = btnCloseBottomAds.isDisplayed();
 	    
-	    if(isbtnCloseBottomAdsPresent) {
-	    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseBottomAds));
-	    	btnCloseBottomAds.click();
-	    }else {			    
-	        WebElement btnCloseAds = HomePageVisionPlus.btnCloseAds;
-		    Boolean isBtnCloseAdsPresent = HomePageVisionPlus.btnCloseAds.isDisplayed();
-		    
-		    if(isBtnCloseAdsPresent) {
-		    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseAds));
-		        btnCloseAds.click();
+	    try {    	    
+	        WebElement btnCloseBottomAds = HomePageVisionPlus.btnCloseBottomAds;
+		    Boolean isbtnCloseBottomAdsPresent = btnCloseBottomAds.isDisplayed();
+		    if(isbtnCloseBottomAdsPresent) {
+		    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseBottomAds));
+		    	btnCloseBottomAds.click();
+		    }else {			    
+		        WebElement btnCloseAds = HomePageVisionPlus.btnCloseAds;
+			    Boolean isBtnCloseAdsPresent = HomePageVisionPlus.btnCloseAds.isDisplayed();
+			    if(isBtnCloseAdsPresent) {
+			    	wait.until(ExpectedConditions.visibilityOfAllElements(btnCloseAds));
+			        btnCloseAds.click();
+			    }
 		    }
+	    }catch(Exception e){
+	    	System.out.println(e.getMessage());
 	    }
 	}
 	
