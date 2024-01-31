@@ -39,7 +39,7 @@ public class TS_Visitor extends BaseTest
 		click.clickBtnCloseLogin();
 	}
 	
-	@Test(priority = 2,testName = "Visitor Cannot Access EBooks")
+	@Test(priority = 2,testName = "Visitor Cannot Access EBooks", dependsOnMethods = "visitor_cannot_access_daftarKu")
 	public void visitor_cannot_access_EBooks() throws InterruptedException 
 	{
 		Assertion assertion = new Assertion();
@@ -52,7 +52,7 @@ public class TS_Visitor extends BaseTest
 		click.clickBtnCloseLogin();	
 	}
 
-	@Test(priority = 3,testName = "Visitor Cannot Access Pengaturan")
+	@Test(priority = 3,testName = "Visitor Cannot Access Pengaturan", dependsOnMethods = "visitor_cannot_access_EBooks")
 	public void visitor_cannot_access_pengaturan() throws InterruptedException 
 	{
 		Assertion assertion = new Assertion();
@@ -63,36 +63,20 @@ public class TS_Visitor extends BaseTest
 		assertion.assertLoginPage();
 		
 		click.clickBtnCloseLogin();
-		
-//		for (int i=0 ; i<3 ;i++)
-//		{
-//			android.navigate().back();
-//		}
-//	
-//		click.clickLiveTv();
-//		Thread.sleep(3000);
-//		
-//		scroll.scrollDownWithParameter(0.1);
-//		
-//		click.clickSportStar();
-//
-//		
-//		assertion.assertPopupLogin();
-//		assertion.assertLogin();
 	}
 	
-	@Test(priority = 4,testName = "Visitor Cannot Access Tv Berlangganan")
+	@Test(priority = 4,testName = "Visitor Cannot Access Tv Berlangganan", dependsOnMethods = "visitor_cannot_access_pengaturan")
 	public void visitor_cannot_access_Tv_Berlangganan() throws InterruptedException, TimeoutException 
 	{	
 		Assertion assertion = new Assertion();
 		TC_Access_TVBerlangganan access_tv_berlangganan = new TC_Access_TVBerlangganan();
-		//call test case accessing to TV Berlangganan Page
+	//call test case accessing to TV Berlangganan Page
 		access_tv_berlangganan.TC_TVBerlangganan();
 		Thread.sleep(3000);
 		assertion.assertLoginPage();
 	}
 	
-	@Test(dataProvider = "wrongNumber",testName = "User Visitor Login with Wrong Number",dependsOnMethods = "visitor_cannot_access_Tv_Berlangganan")
+	@Test(priority = 5,dataProvider = "wrongNumber",testName = "User Visitor Login with Wrong Number",dependsOnMethods = "visitor_cannot_access_Tv_Berlangganan")
 	public void UserVisitorLoginWithWrongNumber(HashMap<String, String> input) throws InterruptedException 
 	{
 		input_action.inputPhoneNumber(input.get("phone"));

@@ -25,6 +25,6 @@ public class MenuFooterPage extends AndroidGesture
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc='TVku']/android.widget.ImageView")
     public static WebElement imgTvKu;
     
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"Games+\"]/android.widget.ImageView")
+    @AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/view_game")
     public static WebElement imgGamesPlus;
 }

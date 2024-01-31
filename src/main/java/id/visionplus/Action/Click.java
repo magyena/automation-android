@@ -67,7 +67,7 @@ public class Click extends BaseTest
 	}
 	
 	//PopUp Notif
-	public void clickIgnoreBuyPackageNotif() throws TimeoutException {
+	public void clickIgnoreLayoutNotif() throws TimeoutException {
 		homePage = new HomePageVisionPlus(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    

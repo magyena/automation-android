@@ -13,7 +13,7 @@ public class TC_Ignore_Ads_PopUp extends BaseTest{
 	public void TC_Ignore_Ads_Notif() throws InterruptedException, TimeoutException {
 		//Land on Homepage as Free User
 		Thread.sleep(5000);
-		click.clickIgnoreBuyPackageNotif();
+		click.clickIgnoreLayoutNotif();
 		test.pass("User Berhasil Click Close Pop Up Package Notification");
 //		click.clickCloseAdsButton();
 		test.pass("User Berhasil Click Close Ads");
