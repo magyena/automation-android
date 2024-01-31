@@ -19,8 +19,5 @@ public class HomePageVisionPlus extends AndroidGesture
 		this.android = android;
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
-	 
-	 @AndroidFindBy(xpath="//android.view.View[@content-desc=\"X\"]") 
-	 public static WebElement btnCloseBottomAds;
-	
+
 }
