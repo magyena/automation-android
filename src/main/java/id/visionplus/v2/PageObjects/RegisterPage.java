@@ -20,8 +20,26 @@ public class RegisterPage extends AndroidGesture
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 	
+	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.TextView[5]")
+	 public static WebElement btn_send_otp;
+
+	 @AndroidFindBy(xpath="//android.widget.TextView[2]")
+	 public static WebElement txt_warning_phone_number;
+	 
+	 @AndroidFindBy(xpath="//android.widget.TextView[4]")
+	 public static WebElement txt_warning_password;
+	 
+	 @AndroidFindBy(xpath="//android.widget.TextView[6]")
+	 public static WebElement txt_warning_otp;
+	
+	 @AndroidFindBy(xpath="/hierarchy/android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.widget.TextView")
+	 public static WebElement txt_no_country_found;
+	
 	 @AndroidFindBy(xpath="/hierarchy/android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.widget.EditText")
-	 public static WebElement txt_field_country_code;
+	 public static WebElement txt_fld_country_code;
+	 
+	 @AndroidFindBy(xpath="/hierarchy/android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View[2]") 
+	 public static WebElement btn_close_country_code;
 	 
 	 @AndroidFindBy(xpath="/hierarchy/android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View[1]/android.widget.TextView[1]") 
 	 public static WebElement btn_country_1;
@@ -39,7 +57,7 @@ public class RegisterPage extends AndroidGesture
 	 public static WebElement txt_register_title;
 	 
 	 @AndroidFindBy(xpath="//android.view.View[2]/android.widget.Button") 
-	 public static WebElement btn_register_submit;
+	 public static WebElement btn_register_login_submit;
 	 
 	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[1]") 
 	 public static WebElement txt_fld_phone;
@@ -47,15 +65,15 @@ public class RegisterPage extends AndroidGesture
 	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[2]") 
 	 public static WebElement txt_fld_password;
 	 
-	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[1]") 
+	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[1]") 
 	 public static WebElement txt_fld_otp_1;
 	 
-	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[2]") 
+	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[2]") 
 	 public static WebElement txt_fld_otp_2;
 	 
-	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[3]") 
+	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[3]") 
 	 public static WebElement txt_fld_otp_3;
 	 
-	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[4]") 
+	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[4]") 
 	 public static WebElement txt_fld_otp_4;	 
 }

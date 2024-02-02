@@ -9,15 +9,17 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class HomePageVisionPlus extends AndroidGesture
+public class HomePage extends AndroidGesture
 {
 	AndroidDriver android;
 	WebDriverWait wait;
 	
-	public HomePageVisionPlus(AndroidDriver android) {
+	public HomePage(AndroidDriver android) {
 		super(android);
 		this.android = android;
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/welcomeText")
+	public static WebElement txt_welcome;
 }

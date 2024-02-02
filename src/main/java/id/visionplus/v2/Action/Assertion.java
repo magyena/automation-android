@@ -14,6 +14,7 @@ public class Assertion extends BaseTest
 {
 	WebDriverWait wait;
 	EntryPage entryPage;
+	HomePage homePage = new HomePage(android);
 	RegisterPage registerPage;
 	
 	public void assertTermsOfUsePageInd() {
@@ -44,7 +45,7 @@ public class Assertion extends BaseTest
 		WebElement txt_register_title = registerPage.txt_register_title;
 		WebElement txt_fld_phone = registerPage.txt_fld_phone;
 		WebElement txt_fld_password = registerPage.txt_fld_password;
-		WebElement btn_register_submit = registerPage.btn_register_submit;
+		WebElement btn_register_submit = registerPage.btn_register_login_submit;
 				
 		wait = new WebDriverWait(android, Duration.ofSeconds(90));
 		
@@ -96,6 +97,71 @@ public class Assertion extends BaseTest
 	    
 	    String actual = btn_country_1.getText();
 	    String expected = keyword;
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertInvalidFilteredCountryKeyword() {
+		WebElement txt_no_country_found = registerPage.txt_no_country_found;	
+		String actual = txt_no_country_found.getText();
+	    String expected = "No country code found.";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertPhoneFieldIsEmpty() {
+		WebElement txt_fld_phone = registerPage.txt_fld_phone;	
+		String actual = txt_fld_phone.getText();
+	    String expected = "";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertTextWarningPhoneNumber() {
+		WebElement txt_warning_phone_number = registerPage.txt_warning_phone_number;	
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_phone_number));
+	    
+	    Assert.assertTrue(txt_warning_phone_number.isDisplayed());
+	    
+	    String actual = txt_warning_phone_number.getText();
+	    String expected = "Phone number incorrect.";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertTextWarningPassword() {
+		WebElement txt_warning_password = registerPage.txt_warning_password;	
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_password));
+	    
+	    Assert.assertTrue(txt_warning_password.isDisplayed());
+	    
+	    String actual = txt_warning_password.getText();
+	    String expected = "Your password must be at least 8 characters with a mix of uppercase-lowercase letters and numbers";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertTextWarningOTP() {
+		WebElement txt_warning_otp = registerPage.txt_warning_otp;	
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_otp));
+	    
+	    Assert.assertTrue(txt_warning_otp.isDisplayed());
+	    
+	    String actual = txt_warning_otp.getText();
+	    String expected = "Wrong OTP code";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertWelcomeText() {
+		homePage = new HomePage(android);
+		
+		WebElement txt_welcome = homePage.txt_welcome;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_welcome));
+	    
+	    Assert.assertTrue(txt_welcome.isDisplayed());
+	    
+	    String actual = txt_welcome.getText();
+	    String expected = "Hello!";
 	    Assert.assertEquals(actual, expected);
 	}
 }
