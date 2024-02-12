@@ -22,6 +22,9 @@ public class RegisterPage extends AndroidGesture
 	
 	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.TextView[5]")
 	 public static WebElement btn_send_otp;
+	 
+	 @AndroidFindBy(xpath="//android.widget.EditText[3]")
+	 public static WebElement fld_otp;
 
 	 @AndroidFindBy(xpath="//android.widget.TextView[2]")
 	 public static WebElement txt_warning_phone_number;
@@ -62,18 +65,9 @@ public class RegisterPage extends AndroidGesture
 	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[1]") 
 	 public static WebElement txt_fld_phone;
 
+	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[1]") 
+	 public static WebElement txt_fld_email;
+	 
 	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[2]") 
 	 public static WebElement txt_fld_password;
-	 
-	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[1]") 
-	 public static WebElement txt_fld_otp_1;
-	 
-	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[2]") 
-	 public static WebElement txt_fld_otp_2;
-	 
-	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[3]") 
-	 public static WebElement txt_fld_otp_3;
-	 
-	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[3]/android.widget.TextView[4]") 
-	 public static WebElement txt_fld_otp_4;	 
 }

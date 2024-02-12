@@ -2,6 +2,7 @@ package id.visionplus.v2.Action;
 
 import java.time.Duration;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,7 +16,23 @@ public class Assertion extends BaseTest
 	WebDriverWait wait;
 	EntryPage entryPage;
 	HomePage homePage = new HomePage(android);
+	LoginPage loginPage;
 	RegisterPage registerPage;
+	SettingPage settingPage;
+	VODDetailPage vodDetailPage;
+	VPlusOriginalsPage vplusOriginalPage;
+	LiveTVPage liveTvPage;
+	
+	public void assertEntryPage() {
+		WebElement txt_entry_title = entryPage.txt_entry_title;
+		
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_entry_title));
+	    
+	    String actual = txt_entry_title.getText();
+	    String expected = "All entertainment in one place";
+	    Assert.assertEquals(actual, expected);
+	}
 	
 	public void assertTermsOfUsePageInd() {
 		WebElement txt_widget_title = entryPage.txt_widget_terms_privacy;
@@ -43,23 +60,18 @@ public class Assertion extends BaseTest
 		registerPage = new RegisterPage(android);
 		
 		WebElement txt_register_title = registerPage.txt_register_title;
-		WebElement txt_fld_phone = registerPage.txt_fld_phone;
 		WebElement txt_fld_password = registerPage.txt_fld_password;
 		WebElement btn_register_submit = registerPage.btn_register_login_submit;
 				
 		wait = new WebDriverWait(android, Duration.ofSeconds(90));
 		
 	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_register_title));
-
-	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_phone));
 	    
 	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_password));
 	    
 	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_register_submit));
 	    	    
 	    Assert.assertTrue(txt_register_title.isDisplayed());
-
-	    Assert.assertTrue(txt_fld_phone.isDisplayed());
 
 	    Assert.assertTrue(txt_fld_password.isDisplayed());
 
@@ -163,5 +175,231 @@ public class Assertion extends BaseTest
 	    String actual = txt_welcome.getText();
 	    String expected = "Hello!";
 	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertDiscoverText(){
+		homePage = new HomePage(android);
+		
+		WebElement txt_discover = homePage.txt_discover;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_discover));
+	    
+	    Assert.assertTrue(txt_discover.isDisplayed());
+	    
+	    String actual = txt_discover.getText();
+	    String expected = "Discover profiles";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertArriveHomePage(){
+		homePage = new HomePage(android);
+		
+		WebElement img_visionplus_logo = homePage.img_visionplus_logo;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_visionplus_logo));
+	    
+	    Assert.assertTrue(img_visionplus_logo.isDisplayed());
+	}
+	
+	public void assertUnregisteredAccountText() {	
+		loginPage = new LoginPage(android);
+
+		WebElement txt_unregistered_account = loginPage.txt_unregistered_account;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_unregistered_account));
+	    
+	    Assert.assertTrue(txt_unregistered_account.isDisplayed());
+	    
+	    String actual = txt_unregistered_account.getText();
+	    String expected = "This account has not been registered.";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertWrongEmailPasswordText() {	
+		loginPage = new LoginPage(android);
+
+		WebElement txt_wrong_email_password = loginPage.txt_wrong_email_password;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_wrong_email_password));
+	    
+	    Assert.assertTrue(txt_wrong_email_password.isDisplayed());
+	    
+	    String actual = txt_wrong_email_password.getText();
+	    String expected = "Wrong email or password";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertManageProfile() {	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_settings_section_manage_profile = settingPage.txt_settings_section_title;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_settings_section_manage_profile));
+	    
+	    Assert.assertTrue(txt_settings_section_manage_profile.isDisplayed());
+	    
+	    String actual = txt_settings_section_manage_profile.getText();
+	    String expected = "Manage profiles";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertAccount() {	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_settings_section_account = settingPage.txt_settings_section_title;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_settings_section_account));
+	    
+	    Assert.assertTrue(txt_settings_section_account.isDisplayed());
+	    
+	    String actual = txt_settings_section_account.getText();
+	    String expected = "Account";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertNotificationCentre() {	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_settings_section_notification_centre = settingPage.txt_settings_section_title;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_settings_section_notification_centre));
+	    
+	    Assert.assertTrue(txt_settings_section_notification_centre.isDisplayed());
+	    
+	    String actual = txt_settings_section_notification_centre.getText();
+	    String expected = "Notification centre";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertHelpCentre() {	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_settings_section_help_centre = settingPage.txt_settings_section_help_centre;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_settings_section_help_centre));
+	    
+	    Assert.assertTrue(txt_settings_section_help_centre.isDisplayed());
+	    
+	    String actual = txt_settings_section_help_centre.getText();
+	    String expected = "Help Center";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertAboutUs() {	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_help_section_About_Us = settingPage.txt_help_section_About_Us;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_help_section_About_Us));
+
+	    Assert.assertTrue(txt_help_section_About_Us.isDisplayed());
+
+	    String actual = txt_help_section_About_Us.getText();
+	    String expected = "About Us";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertSubscriptionTransaction() {	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_help_section_Subcription = settingPage.txt_help_section_Subcription;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_help_section_Subcription));
+		
+	    Assert.assertTrue(txt_help_section_Subcription.isDisplayed());
+	    
+	    String actual = txt_help_section_Subcription.getText();
+	    String expected = "Subcription & Transaction";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertVisionPlusOriginalsList() {	
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+
+		WebElement img_cinlock = vplusOriginalPage.img_cinlock;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_cinlock));
+		
+	    Assert.assertTrue(img_cinlock.isDisplayed());
+	}
+	
+	public void assertVODIsNotPlayable() {	
+		vodDetailPage = new VODDetailPage(android);
+
+		WebElement btn_subscribe = vodDetailPage.btn_subscribe;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_subscribe));
+		
+	    Assert.assertTrue(btn_subscribe.isDisplayed());
+	}
+	
+	public void assertLiveTVPlayed() {
+	    liveTvPage = new LiveTVPage(android);
+	    WebElement btn_subscribe = liveTvPage.btn_subscribe;
+	   
+
+	    Assert.assertFalse(isElementPresent(btn_subscribe));
+	}
+
+	public boolean isElementPresent(WebElement element) {
+	    try {
+	        return element.isDisplayed();
+	    } catch (NoSuchElementException e) {
+	        return false;
+	    }
+	}
+
+	
+	public void assertLiveTVNotPlayed(){
+			liveTvPage = new LiveTVPage(android);
+			wait = new WebDriverWait(android, Duration.ofSeconds(90));
+			WebElement btn_subscribe = liveTvPage.btn_subscribe;
+		    wait.until(ExpectedConditions.visibilityOf(btn_subscribe));
+			Assert.assertTrue(btn_subscribe.isDisplayed());
+	}
+	
+	public void assertVODDetails() {	
+		vodDetailPage = new VODDetailPage(android);
+
+		WebElement btn_dislike = vodDetailPage.btn_dislike;
+		WebElement btn_like = vodDetailPage.btn_like;
+		WebElement btn_save = vodDetailPage.btn_save;
+		WebElement btn_share = vodDetailPage.btn_share;
+		WebElement btn_watch = vodDetailPage.btn_watch;
+		WebElement img_rating_bar = vodDetailPage.img_rating_bar;
+		WebElement txt_content_description = vodDetailPage.txt_content_description;
+		WebElement txt_content_title = vodDetailPage.txt_content_title;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_content_title));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_content_description));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_rating_bar));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_watch));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_share));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_save));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_like));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_dislike));
+
+		
+	    Assert.assertTrue(txt_content_title.isDisplayed());
+	    Assert.assertTrue(txt_content_description.isDisplayed());
+	    Assert.assertTrue(img_rating_bar.isDisplayed());
+	    Assert.assertTrue(btn_watch.isDisplayed());
+	    Assert.assertTrue(btn_share.isDisplayed());
+	    Assert.assertTrue(btn_save.isDisplayed());
+	    Assert.assertTrue(btn_like.isDisplayed());
+	    Assert.assertTrue(btn_dislike.isDisplayed());
 	}
 }

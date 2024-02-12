@@ -1,31 +1,49 @@
 package id.visionplus.v2.Action;
 
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import id.visionplus.v2.Utils.AndroidGesture;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class Swipe extends AndroidGesture
-{
+import static io.appium.java_client.touch.offset.ElementOption.element;
+import java.time.Duration;
+import java.util.Arrays;
 
-	AndroidDriver android;
-	WebDriverWait wait;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 
-	public Swipe(AndroidDriver android) {
-		super(android);
-		this.android = android;
-		PageFactory.initElements(new AppiumFieldDecorator(android), this);
-	}
+import id.visionplus.v2.MainFunction.BaseTest;
+
+public class Swipe extends BaseTest{
 	
-	public void swipeBannerLeft() {
-		AndroidGesture gesture = new AndroidGesture(android);
-		gesture.swipeLeftNoParameter();
-	}
-	
-	public void swipeBannerRight() {
-		AndroidGesture gesture = new AndroidGesture(android);
-		gesture.swipeRightNoParameter();
-	}
+	 private AndroidDriver android;
+	 
+    public Swipe(AndroidDriver android) {
+        this.android = android;
+    }
+
+    public void swipeLeft() {
+        final PointerInput FINGER = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Point start = new Point(932, 1637);
+        Point end = new Point (278, 1648);
+        Sequence swipe = new Sequence(FINGER, 1)
+                    .addAction(
+                            FINGER.createPointerMove(
+                                    Duration.ofMillis(0),
+                                    PointerInput.Origin.viewport(),
+                                    start.getX(),
+                                    start.getY()))
+                    .addAction(FINGER.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                    .addAction(
+                            FINGER.createPointerMove(
+                                    Duration.ofMillis(1000),
+                                    PointerInput.Origin.viewport(),
+                                    end.getX(),
+                                    end.getY()))
+                    .addAction(FINGER.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            android.perform(Arrays.asList(swipe));
+    }
+
+    public void swipeRight() {
+
+    }
 }

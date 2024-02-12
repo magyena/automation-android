@@ -2,6 +2,7 @@ package id.visionplus.v2.Action;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,6 +23,13 @@ public class Input extends BaseTest
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    WebElement txt_fld_phone = registerPage.txt_fld_phone;
 	    txt_fld_phone.sendKeys(keyword);
+	}
+	
+	public void inputEmail(String keyword){
+		registerPage = new RegisterPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_email = registerPage.txt_fld_email;
+	    txt_fld_email.sendKeys(keyword);
 	}
 	
 	public void inputPassword(String keyword){
@@ -52,6 +60,13 @@ public class Input extends BaseTest
 	    txt_fld_phone.clear();
 	}
 	
+	public void clearEmailField(){
+		registerPage = new RegisterPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    WebElement txt_fld_email = registerPage.txt_fld_email;
+	    txt_fld_email.clear();
+	}
+	
 	public void clearPasswordField(){
 		registerPage = new RegisterPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
@@ -59,31 +74,33 @@ public class Input extends BaseTest
 	    txt_fld_password.clear();
 	}
 	
-	public void inputOTP1(String otp){
-		registerPage = new RegisterPage(android);
+	public void inputOTP(String otp) throws InterruptedException{
+	    registerPage = new RegisterPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
-	    WebElement txt_fld_otp_1 = registerPage.txt_fld_otp_1;
-	    txt_fld_otp_1.sendKeys(otp);
+	    WebElement fld_otp = registerPage.fld_otp;
+
+	    String existingText = fld_otp.getAttribute("text");
+
+	    // Loop through each character of the OTP string
+	    for (int i = 0; i < 4; i++) {
+	        // Get the digit at position i
+	        char digit = otp.charAt(i);
+
+	        // Append the current digit to the existing text
+	        existingText += digit;	        
+	        fld_otp.sendKeys(existingText);
+	    }
 	}
 	
-	public void inputOTP2(String otp){
+	public void clearOTP(){
 		registerPage = new RegisterPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
-	    WebElement txt_fld_otp_2 = registerPage.txt_fld_otp_2;
-	    txt_fld_otp_2.sendKeys(otp);
+	    WebElement fld_otp = registerPage.fld_otp;
+	    fld_otp.clear();;
 	}
 	
-	public void inputOTP3(String otp){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
-	    WebElement txt_fld_otp_3 = registerPage.txt_fld_otp_3;
-	    txt_fld_otp_3.sendKeys(otp);
-	}
-	
-	public void inputOTP4(String otp){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
-	    WebElement txt_fld_otp_4 = registerPage.txt_fld_otp_4;
-	    txt_fld_otp_4.sendKeys(otp);
-	}
+	private WebElement findKeyboardKeyByDigit(char digit) {
+        String keyId = "key" + digit;
+        return android.findElement(By.id(keyId));
+    }
 }

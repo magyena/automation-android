@@ -30,7 +30,12 @@ public class EntryPage extends AndroidGesture
 	 
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/login_button") 
 	 public static WebElement btn_login;
+
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/title_header") 
+	 public static WebElement txt_entry_title;
 	 
 	 @AndroidFindBy(xpath="//android.widget.Button") 
 	 public static WebElement txt_widget_terms_privacy;
+	 
+
 }

@@ -1,5 +1,9 @@
 package id.visionplus.v2.TestCase.Visitor.Register;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.testng.annotations.Test;
 
 import expectj.TimeoutException;
@@ -7,12 +11,23 @@ import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
 import id.visionplus.v2.Action.Input;
 import id.visionplus.v2.MainFunction.BaseTest;
+import id.visionplus.v2.TestCase.General.*;
 
 public class TC_Register_With_Phone_Number extends BaseTest{
 
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Input input = new Input();
+	TC_Get_OTP get_otp= new TC_Get_OTP();
+	String phone_number=epoch_random();
+	
+	public String epoch_random(){
+		long epochTime = System.currentTimeMillis();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmssSSS");
+        String formattedTime = dateFormat.format(new Date(epochTime));
+        String result = "899" + formattedTime.substring(0, Math.max(0, 13 - "899".length()));
+        return result;
+	}
 	
 	@Test(priority = 1)
 	public void TC_access_register_page() throws InterruptedException, TimeoutException {
@@ -98,12 +113,13 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		test.pass("Successfully Empty Text Field Phone Number");
 	}
 	
-	@Test(priority = 4, dependsOnMethods = "TC_user_filter_country_code_invalid")
+	@Test(priority = 4, dependsOnMethods = "TC_user_cannot_input_number_less_than_6_digit")
 	public void TC_user_cannot_input_password_without_uppercase()throws InterruptedException{
 		click.clickFieldPhoneNumber();
 		test.pass("Successfully Clicked Text Field Phone Number");
 		
-		input.inputPhoneNumber("81112222333");
+		//input based on epoch random phone number
+		input.inputPhoneNumber(phone_number);
 		test.pass("Successfully Input Text Field Phone Number with Valid Numbers");	
 
 		click.clickFieldPassword();
@@ -135,28 +151,53 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
 		
-		android.hideKeyboard();
-		
-		Thread.sleep(3000);
-		
-		click.clickOtpFld1();
-		input.inputOTP1("1");
-		
-		click.clickOtpFld2();
-		input.inputOTP2("1");
-		
-		click.clickOtpFld3();
-		input.inputOTP3("1");
-		
-		click.clickOtpFld4();
-		input.inputOTP4("1");
-		
+		click.clickOtpFld();
+		test.pass("Successfully Click Text Field OTP");
+
+		input.inputOTP("1234");
 		test.pass("Successfully Input Text Field OTP with Invalid Numbers");
+		
+		android.hideKeyboard();
 		
 		click.clickRegisterLoginSubmitButton();
 		test.pass("Successfully Clicked Send Register Submit Button");
 		
 		assertion.assertTextWarningOTP();
 		test.pass("Successfully Assert Text Warning OTP is Displayed");
+	}
+	
+	@Test(priority = 5, dependsOnMethods = "TC_user_cannot_input_wrong_otp")
+	public void TC_user_input_correct_otp()throws InterruptedException, IOException{
+		input.clearOTP();
+		test.pass("Successfully Clear Text Field OTP");
+
+		click.clickOtpFld();
+		test.pass("Successfully Click Text Field OTP");
+
+		//Get OTP from DB
+		String res_otp = get_otp.get_OTP(phone_number);
+	    input.inputOTP(res_otp);
+		test.pass("Successfully Input Text Field OTP with Valid Numbers");
+		
+		Thread.sleep(3000);
+		
+		android.hideKeyboard();
+		
+		click.clickRegisterLoginSubmitButton();
+		test.pass("Successfully Clicked Send Register Submit Button");
+		
+		Thread.sleep(3000);
+	
+		assertion.assertDiscoverText();
+		test.pass("Successfully Assert Discover Profile Text After Login");
+		
+		click.clickSkip();
+		test.pass("Successfully Click Skip Button");
+		
+		click.clickContinue();
+		test.pass("Successfully Click Continue Button");
+		
+		assertion.assertArriveHomePage();
+		test.pass("Successfully Assert Arrived at Homepage");
 	}
 }
