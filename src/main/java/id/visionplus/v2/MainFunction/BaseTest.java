@@ -72,7 +72,8 @@ public class BaseTest {
 		options.setCapability("wdaEventloopIdleDelay", 7);
 		options.setCapability("eventLoopIdleDelaySec", 4);
 		options.setCapability("startIWDP", true);
-			
+		options.setCapability("newCommandTimeout", 600);
+		
 		android = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
 		
 		//android.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));

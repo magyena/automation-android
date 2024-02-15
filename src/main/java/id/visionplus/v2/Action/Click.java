@@ -124,6 +124,14 @@ public class Click extends BaseTest
 	    btn_send_otp.click();
 	}
 	
+	public void clickPasswordVisible(){
+		registerPage = new RegisterPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_password_visible = registerPage.img_password_visible;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_password_visible));
+	    img_password_visible.click();
+	}
+	
 	public void clickOtpFld(){
 		registerPage = new RegisterPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -131,6 +139,14 @@ public class Click extends BaseTest
 	    wait.until(ExpectedConditions.visibilityOfAllElements(fld_otp));
 	    fld_otp.click();
 	 }
+	
+	public void clickLoginPopUp(){
+		registerPage = new RegisterPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_login_pop_up = registerPage.btn_login_pop_up;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_login_pop_up));
+	    btn_login_pop_up.click();
+	}
 	
 	public void clickRegisterLoginSubmitButton(){
 		registerPage = new RegisterPage(android);

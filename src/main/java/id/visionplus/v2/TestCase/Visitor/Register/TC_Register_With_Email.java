@@ -20,6 +20,7 @@ public class TC_Register_With_Email extends BaseTest{
 	Input input = new Input();
 	TC_Get_OTP get_otp= new TC_Get_OTP();
 	String email=email_random();
+	String existing_email="freetest39@visionplus.id";
 	
 	public String email_random(){
 		long epochTime = System.currentTimeMillis();
@@ -43,13 +44,72 @@ public class TC_Register_With_Email extends BaseTest{
 	}
 	
 	@Test(priority = 2, dependsOnMethods = "TC_access_register_by_email_page")
-	public void TC_user_input_valid_email_and_password()throws InterruptedException{	
-		input.inputEmail(email);
-		System.out.println(email);
+	public void TC_user_input_invalid_email()throws InterruptedException{	
+		input.inputEmail("freetest");
+		test.pass("Successfully Input Text Field Email with Invalid Email");
+		
+		assertion.assertEmailIncorrectFormat();
+		test.pass("Successfully Assert Email with invalid Format");
+	}
+	
+	@Test(priority = 3, dependsOnMethods = "TC_user_input_invalid_email")
+	public void TC_user_input_invalid_password()throws InterruptedException{	
+		input.clearEmailField();
+		test.pass("Successfully Empty Text Field Email");
+		
+		input.inputEmail(existing_email);
 		test.pass("Successfully Input Text Field Email with Valid Email");
-
+		
+		click.clickFieldPassword();
+		test.pass("Successfully Clicked Text Field Password");
+		
+		Thread.sleep(3000);
+		input.inputPassword("lupa43");
+		test.pass("Successfully Input Text Field Password with Invalid Password");
+		
+		assertion.assertTextWarningPasswordEmail();
+		test.pass("Successfully Assert Text Warning Password is Displayed");
+	}
+	
+	@Test(priority = 3, dependsOnMethods = "TC_user_input_invalid_password")
+	public void TC_user_input_existing_account()throws InterruptedException{	
 		input.clearPasswordField();
 		test.pass("Successfully Empty Text Field Password");
+		
+		click.clickFieldPassword();
+		test.pass("Successfully Clicked Text Field Password");
+		
+		Thread.sleep(3000);
+		input.inputPassword("4321Lupa");
+		test.pass("Successfully Input Text Field Password with valid Password");
+
+		click.clickSendOTP();
+		test.pass("Successfully Clicked Send OTP");
+		
+		assertion.assertPopUpExistingAccount();
+		test.pass("Successfully Assert Pop Up Existing Account");
+	}
+	
+	@Test(priority = 3, dependsOnMethods = "TC_user_input_existing_account")
+	public void TC_user_redirect_to_login()throws InterruptedException{	
+		click.clickLoginPopUp();
+		test.pass("Successfully Clicked Login Button in Existing Account Pop Up");
+
+		assertion.assertRegisterLoginPage();
+		test.pass("Successfully Assert Login Page");
+		
+		//back to Entry Page
+		click.pressBack();
+		test.pass("Successfully Pressed Back Button");
+	}
+	
+	@Test(priority = 4, dependsOnMethods = "TC_user_redirect_to_login")
+	public void TC_user_input_valid_email_and_password()throws InterruptedException, TimeoutException{
+		//Access Register by Email Page
+		TC_access_register_by_email_page();
+		
+		input.inputEmail(email);
+		test.pass("Successfully Input Text Field Email with Valid Email");
 		
 		click.clickFieldPassword();
 		test.pass("Successfully Clicked Text Field Password");
@@ -59,7 +119,7 @@ public class TC_Register_With_Email extends BaseTest{
 		test.pass("Successfully Input Text Field Password with Valid Password");
 	}
 	
-	@Test(priority = 3, dependsOnMethods = "TC_user_input_valid_email_and_password")
+	@Test(priority = 5, dependsOnMethods = "TC_user_input_valid_email_and_password")
 	public void TC_user_cannot_input_wrong_otp()throws InterruptedException{	
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
@@ -75,11 +135,23 @@ public class TC_Register_With_Email extends BaseTest{
 		click.clickRegisterLoginSubmitButton();
 		test.pass("Successfully Clicked Send Register Submit Button");
 		
-		assertion.assertTextWarningOTP();
+		assertion.assertTextWarningOTPWrong();
 		test.pass("Successfully Assert Text Warning OTP is Displayed");
 	}
 	
-	@Test(priority = 4, dependsOnMethods = "TC_user_cannot_input_wrong_otp")
+	@Test(priority = 6, dependsOnMethods = "TC_user_cannot_input_wrong_otp")
+	public void TC_user_click_send_otp_2nd_time()throws InterruptedException, IOException{
+		//Wait until 2 Minutes
+		Thread.sleep(120000);
+		
+		click.clickSendOTP();
+		test.pass("Successfully Clicked Send OTP");
+		
+		assertion.assertTimer5Minutes();
+		test.pass("Successfully Assert Timer 5 Minutes");
+	}
+	
+	@Test(priority = 7, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
 	public void TC_user_input_correct_otp()throws InterruptedException, IOException{
 		input.clearOTP();
 		test.pass("Successfully Clear Text Field OTP");

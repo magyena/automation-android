@@ -20,6 +20,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 	Input input = new Input();
 	TC_Get_OTP get_otp= new TC_Get_OTP();
 	String phone_number=epoch_random();
+	String existing_phone_number="899012345678";
+	String prev_otp = "";
 	
 	public String epoch_random(){
 		long epochTime = System.currentTimeMillis();
@@ -119,8 +121,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		test.pass("Successfully Clicked Text Field Phone Number");
 		
 		//input based on epoch random phone number
-		input.inputPhoneNumber(phone_number);
-		test.pass("Successfully Input Text Field Phone Number with Valid Numbers");	
+		input.inputPhoneNumber(existing_phone_number);
+		test.pass("Successfully Input Text Field Phone Number with Valid Existing Numbers");	
 
 		click.clickFieldPassword();
 		test.pass("Successfully Clicked Text Field Password");
@@ -129,12 +131,12 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		test.pass("Successfully Input Text Field Password with Valid Password");
 		
 		Thread.sleep(3000);
-		assertion.assertTextWarningPassword();
+		assertion.assertTextWarningPasswordPhone();
 		test.pass("Successfully Assert Text Warning Password is Displayed");
 	}
 	
-	@Test(priority = 4, dependsOnMethods = "TC_user_cannot_input_password_without_uppercase")
-	public void TC_user_input_valid_phone_number_and_password()throws InterruptedException{	
+	@Test(priority = 5, dependsOnMethods = "TC_user_cannot_input_password_without_uppercase")
+	public void TC_user_input_existing_account()throws InterruptedException{	
 		input.clearPasswordField();
 		test.pass("Successfully Empty Text Field Password");
 		
@@ -143,10 +145,54 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		
 		Thread.sleep(3000);
 		input.inputPassword("4321Lupa");
+		test.pass("Successfully Input Text Field Password with valid Password");
+
+		click.clickSendOTP();
+		test.pass("Successfully Clicked Send OTP");
+		
+		assertion.assertPopUpExistingAccount();
+		test.pass("Successfully Assert Pop Up Existing Account");
+	}
+	
+	@Test(priority = 6, dependsOnMethods = "TC_user_input_existing_account")
+	public void TC_user_redirect_to_login()throws InterruptedException{	
+		click.clickLoginPopUp();
+		test.pass("Successfully Clicked Login Button in Existing Account Pop Up");
+
+		assertion.assertRegisterLoginPage();
+		test.pass("Successfully Assert Login Page");
+		
+		//back to Entry Page
+		click.pressBack();
+		test.pass("Successfully Pressed Back Button");
+	}
+	
+	@Test(priority = 7, dependsOnMethods = "TC_user_redirect_to_login")
+	public void TC_user_input_valid_phone_number_and_password()throws InterruptedException, TimeoutException{	
+		//Access Register by Phone Page
+		TC_access_register_page();
+		
+		input.inputPhoneNumber(phone_number);
+		test.pass("Successfully Input Text Field with Valid Phone Number");
+
+		click.clickFieldPassword();
+		test.pass("Successfully Clicked Text Field Password");
+		
+		Thread.sleep(3000);
+		input.inputPassword("4321Lupa");
 		test.pass("Successfully Input Text Field Password with Valid Password");
 	}
 	
-	@Test(priority = 5, dependsOnMethods = "TC_user_input_valid_phone_number_and_password")
+	@Test(priority = 8, dependsOnMethods = "TC_user_input_valid_phone_number_and_password")
+	public void TC_user_can_see_password()throws InterruptedException, TimeoutException{
+		click.clickPasswordVisible();
+		test.pass("Successfully Clicked Visible Password Icon");
+
+		assertion.assertPasswordVisible();
+		test.pass("Successfully Assert Visibility of Password as Text");
+	}
+	
+	@Test(priority = 9, dependsOnMethods = "TC_user_can_see_password")
 	public void TC_user_cannot_input_wrong_otp()throws InterruptedException{	
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
@@ -162,12 +208,15 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		click.clickRegisterLoginSubmitButton();
 		test.pass("Successfully Clicked Send Register Submit Button");
 		
-		assertion.assertTextWarningOTP();
+		assertion.assertTextWarningOTPWrong();
 		test.pass("Successfully Assert Text Warning OTP is Displayed");
 	}
 	
-	@Test(priority = 5, dependsOnMethods = "TC_user_cannot_input_wrong_otp")
-	public void TC_user_input_correct_otp()throws InterruptedException, IOException{
+	@Test(priority = 10, dependsOnMethods = "TC_user_cannot_input_wrong_otp")
+	public void TC_user_cannot_input_same_otp_after_2_minutes()throws InterruptedException, IOException{
+		//Wait until 2 Minutes
+		Thread.sleep(120000);
+		
 		input.clearOTP();
 		test.pass("Successfully Clear Text Field OTP");
 
@@ -176,10 +225,10 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 
 		//Get OTP from DB
 		String res_otp = get_otp.get_OTP(phone_number);
+		prev_otp = res_otp;
+		
 	    input.inputOTP(res_otp);
 		test.pass("Successfully Input Text Field OTP with Valid Numbers");
-		
-		Thread.sleep(3000);
 		
 		android.hideKeyboard();
 		
@@ -187,7 +236,47 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		test.pass("Successfully Clicked Send Register Submit Button");
 		
 		Thread.sleep(3000);
+		
+		assertion.assertTextWarningOTPExpired();
+		test.pass("Successfully Assert OTP Expired");
+	}
 	
+	@Test(priority = 11, dependsOnMethods = "TC_user_cannot_input_same_otp_after_2_minutes")
+	public void TC_user_click_send_otp_2nd_time()throws InterruptedException, IOException{
+		click.clickSendOTP();
+		test.pass("Successfully Clicked Send OTP");
+		
+		assertion.assertTimer5Minutes();
+		test.pass("Successfully Assert Timer 5 Minutes");
+	}
+
+	
+	@Test(priority = 12, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
+	public void TC_user_input_correct_otp()throws InterruptedException, IOException{
+		input.clearOTP();
+		test.pass("Successfully Clear Text Field OTP");
+
+		click.clickOtpFld();
+		test.pass("Successfully Click Text Field OTP");
+		System.out.println("Done Click OTP Field");
+		
+		//Get OTP from DB
+		String res_otp = get_otp.get_OTP(phone_number);
+	    input.inputOTP(res_otp);
+		test.pass("Successfully Input Text Field OTP with Valid Numbers");
+		System.out.println("Done Input OTP");
+
+		Thread.sleep(3000);
+		
+		android.hideKeyboard();
+				
+		click.clickRegisterLoginSubmitButton();
+		test.pass("Successfully Clicked Send Register Submit Button");
+		
+		Thread.sleep(3000);
+		
+		System.out.println("Done Register");
+
 		assertion.assertDiscoverText();
 		test.pass("Successfully Assert Discover Profile Text After Login");
 		
