@@ -8,9 +8,9 @@
 
   <test thread-count="7" name="Test">
     <classes>
-	  <class name="id.visionplus.v2.TestCase.Entry.TC_Privacy_Policy"/>
-	  <class name="id.visionplus.v2.TestCase.Entry.TC_Terms_Of_Use"/>
-	  <class name="id.visionplus.v2.TestCase.Register.TC_Register_With_Phone_Number"/>
+	  <class name="id.visionplus.v2.TestCase.Visitor.Entry.TC_Privacy_Policy"/>
+	  <class name="id.visionplus.v2.TestCase.Visitor.Entry.TC_Terms_Of_Use"/>
+	  <class name="id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Phone_Number"/>
       <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_VOD"/>
       <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_Live_TV"/>
       <class name="id.visionplus.v2.TestCase.General.TC_Homepage"/>
