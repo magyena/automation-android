@@ -22,6 +22,7 @@ public class Assertion extends BaseTest
 	VODDetailPage vodDetailPage;
 	VPlusOriginalsPage vplusOriginalPage;
 	LiveTVPage liveTvPage;
+	OutsideApp outsideApp;
 	
 	public void assertEntryPage() {
 		WebElement txt_entry_title = entryPage.txt_entry_title;
@@ -388,6 +389,118 @@ public class Assertion extends BaseTest
 	    Assert.assertEquals(actual, expected);
 	}
 	
+	public void assertLegalInformation() {	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_settings_section_legal_information = settingPage.txt_settings_section_title;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_settings_section_legal_information));
+	    
+	    Assert.assertTrue(txt_settings_section_legal_information.isDisplayed());
+	    
+	    String actual = txt_settings_section_legal_information.getText();
+	    String expected = "Legal information";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertVoucher() {	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_settings_voucher_section_title = settingPage.txt_settings_voucher_section_title;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_settings_voucher_section_title));
+	    
+	    Assert.assertTrue(txt_settings_voucher_section_title.isDisplayed());
+	    
+	    String actual = txt_settings_voucher_section_title.getText();
+	    String expected = "Voucher";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertVoucherExpired() {	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
+	    
+	    Assert.assertTrue(txt_warning_voucher.isDisplayed());
+	    
+	    String actual = txt_warning_voucher.getText();
+	    String expected = "Voucher code expired";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertVoucherInvalid(){	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
+	    
+	    Assert.assertTrue(txt_warning_voucher.isDisplayed());
+	    
+	    String actual = txt_warning_voucher.getText();
+	    String expected = "Invalid code";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertVoucherReedemed(){	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
+	    
+	    Assert.assertTrue(txt_warning_voucher.isDisplayed());
+	    
+	    String actual = txt_warning_voucher.getText();
+	    String expected = "This code has been redeemed";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertSoftwareLicense() {	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_software_license_title = settingPage.txt_software_license_title;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_software_license_title));
+	    
+	    Assert.assertTrue(txt_software_license_title.isDisplayed());
+	    
+	    String actual = txt_software_license_title.getText();
+	    String expected = "Apache License";
+	    Assert.assertTrue(actual.startsWith(expected));
+	}
+	
+	public void assertDirectToWhatsApp() {	
+		outsideApp = new OutsideApp(android);
+
+		WebElement img_whatsApp_logo_header = outsideApp.img_whatsApp_logo_header;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_whatsApp_logo_header));
+	    
+	    Assert.assertTrue(img_whatsApp_logo_header.isDisplayed());
+	}
+	
+	public void assertDirectToGmail(){	
+		outsideApp = new OutsideApp(android);
+
+		WebElement img_gmail_logo_header = outsideApp.img_gmail_logo_header;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_gmail_logo_header));
+	    
+	    Assert.assertTrue(img_gmail_logo_header.isDisplayed());
+	}
+	
 	public void assertAboutUs() {	
 		settingPage = new SettingPage(android);
 
@@ -427,6 +540,16 @@ public class Assertion extends BaseTest
 	    wait.until(ExpectedConditions.visibilityOfAllElements(img_cinlock));
 		
 	    Assert.assertTrue(img_cinlock.isDisplayed());
+	}
+	
+	public void assertVODEps2Playable(){
+		vodDetailPage = new VODDetailPage(android);
+		
+		WebElement txt_episode_2_vod = vodDetailPage.txt_eps_2_vod;
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_episode_2_vod));
+	    Assert.assertTrue(txt_episode_2_vod.isDisplayed());
 	}
 	
 	public void assertVODIsNotPlayable() {	

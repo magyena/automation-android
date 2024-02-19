@@ -2,19 +2,19 @@ package id.visionplus.v2.Action;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import id.visionplus.v2.MainFunction.BaseTest;
 import id.visionplus.v2.PageObjects.RegisterPage;
-import io.appium.java_client.android.AndroidDriver;
+import id.visionplus.v2.PageObjects.SettingPage;
 
 public class Input extends BaseTest
 {
 	WebDriverWait wait;
 	RegisterPage registerPage;
+	SettingPage settingPage;
 	
 	Click click = new Click();
 
@@ -99,8 +99,19 @@ public class Input extends BaseTest
 	    fld_otp.clear();;
 	}
 	
-	private WebElement findKeyboardKeyByDigit(char digit) {
-        String keyId = "key" + digit;
-        return android.findElement(By.id(keyId));
-    }
+	public void inputVoucher(String voucher){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_voucher = settingPage.txt_fld_voucher;
+	    
+	    wait.until(ExpectedConditions.visibilityOf(txt_fld_voucher));
+	    txt_fld_voucher.sendKeys(voucher);
+	}
+	
+	public void clearVoucherField(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    WebElement txt_fld_voucher = settingPage.txt_fld_voucher;
+	    txt_fld_voucher.clear();
+	}
 }

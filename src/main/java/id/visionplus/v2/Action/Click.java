@@ -2,8 +2,9 @@ package id.visionplus.v2.Action;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
+import java.util.Random;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,6 +13,7 @@ import id.visionplus.v2.PageObjects.EntryPage;
 import id.visionplus.v2.PageObjects.HomePage;
 import id.visionplus.v2.PageObjects.LiveTVPage;
 import id.visionplus.v2.PageObjects.LoginPage;
+import id.visionplus.v2.PageObjects.OutsideApp;
 import id.visionplus.v2.PageObjects.RegisterPage;
 import id.visionplus.v2.PageObjects.SettingPage;
 import id.visionplus.v2.PageObjects.VODDetailPage;
@@ -31,6 +33,33 @@ public class Click extends BaseTest
 	VODDetailPage vodDetailPage;
 	LiveTVPage liveTvPage;
 	VPlusOriginalsPage vplusOriginalPage;
+	OutsideApp outsideApp;
+	
+	public void clickRandom() {
+	    // Get the dimensions of the browser window
+	    long window_width = (long) android.executeScript("return window.innerWidth");
+	    long window_height = (long) android.executeScript("return window.innerHeight");
+
+	    // Create an instance of the Random class
+	    Random random = new Random();
+
+	    // Generate random coordinates within the window boundaries
+	    int x = random.nextInt((int) window_width);
+	    int y = random.nextInt((int) window_height);
+
+	    // Perform a click action at the random coordinates
+	    Actions action = new Actions(android);
+	    action.moveByOffset(x, y).click().perform();
+	}
+	
+	public void clickNextEpisode(){
+		outsideApp = new OutsideApp(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement btn_next_episode = outsideApp.btn_next_episode;
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_next_episode));
+		btn_next_episode.click();
+	}
 
 	public void pressBack(){
         (android).pressKey(new KeyEvent(AndroidKey.BACK));
@@ -228,6 +257,87 @@ public class Click extends BaseTest
 	    
 	    wait.until(ExpectedConditions.visibilityOf(btn_notification_centre));
 	    btn_notification_centre.click();
+	}
+	
+	public void clickLegalInformation(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_legal_information = settingPage.btn_legal_information;
+	    
+	    wait.until(ExpectedConditions.visibilityOf(btn_legal_information));
+	    btn_legal_information.click();
+	}
+	
+	public void clickTermsOfUse(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_terms_of_use = settingPage.btn_terms_of_use;
+	    
+	    wait.until(ExpectedConditions.visibilityOf(btn_terms_of_use));
+	    btn_terms_of_use.click();
+	}
+	
+	public void clickVoucher(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_voucher = settingPage.btn_voucher;
+	    
+	    wait.until(ExpectedConditions.visibilityOf(btn_voucher));
+	    btn_voucher.click();
+	}
+	
+	public void clickVoucherField(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_voucher = settingPage.txt_fld_voucher;
+	    
+	    wait.until(ExpectedConditions.visibilityOf(txt_fld_voucher));
+	    txt_fld_voucher.click();
+	}
+	
+	public void clickRedeemVoucher(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_redeem = settingPage.btn_redeem;
+	    
+	    wait.until(ExpectedConditions.visibilityOf(btn_redeem));
+	    btn_redeem.click();
+	}
+	
+	public void clickPrivacyPolicy(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_privacy_policy = settingPage.btn_privacy_policy;
+	    
+	    wait.until(ExpectedConditions.visibilityOf(btn_privacy_policy));
+	    btn_privacy_policy.click();
+	}
+	
+	public void clickSoftwareLicenses(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_software_licenses = settingPage.btn_software_licenses;
+	    
+	    wait.until(ExpectedConditions.visibilityOf(btn_software_licenses));
+	    btn_software_licenses.click();
+	}
+	
+	public void clickEmailInHelp(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_help_email = settingPage.btn_help_email;
+	    
+	    wait.until(ExpectedConditions.visibilityOf(btn_help_email));
+	    btn_help_email.click();
+	}
+	
+	public void clickWhatsAppInHelp(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_help_whatsApp = settingPage.btn_help_whatsApp;
+	    
+	    wait.until(ExpectedConditions.visibilityOf(btn_help_whatsApp));
+	    btn_help_whatsApp.click();
 	}
 	
 	public void clickSettingsBackButton(){

@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import expectj.TimeoutException;
 import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
+import id.visionplus.v2.Action.Input;
 import id.visionplus.v2.Action.Scroll;
 import id.visionplus.v2.MainFunction.BaseTest;
 
@@ -17,8 +18,9 @@ public class TC_Settings extends BaseTest{
 	
 	Click click = new Click();
 	Assertion assertion = new Assertion();
+	Input input = new Input();
 	
-	@Test(dataProvider = "freeUserEmail")
+	@Test(priority=1, dataProvider = "freeUserEmail")
 	public void TC_Access_Settings(String username, String password) throws IOException, InterruptedException, TimeoutException {
 		TC_OpenApp open_app = new TC_OpenApp();
 		open_app.TC_Open_App_as_Free_User();
@@ -35,7 +37,7 @@ public class TC_Settings extends BaseTest{
 	    
 	}
 	
-	@Test(dependsOnMethods="TC_Access_Settings")
+	@Test(priority=2,dependsOnMethods="TC_Access_Settings")
 	public void TC_Access_Manage_Profile() throws InterruptedException{
 	    Thread.sleep(2000);
 
@@ -49,7 +51,7 @@ public class TC_Settings extends BaseTest{
 	    test.pass("Successfully Clicked Back to Settings Button");
 	}
 	
-	@Test(dependsOnMethods="TC_Access_Manage_Profile")
+	@Test(priority=3,dependsOnMethods="TC_Access_Manage_Profile")
 	public void TC_Access_Notification_Centre() throws InterruptedException{
 	    Thread.sleep(2000);
 
@@ -63,7 +65,7 @@ public class TC_Settings extends BaseTest{
 	    test.pass("Successfully Clicked Back to Settings Button");
 	}
 	
-	@Test(dependsOnMethods="TC_Access_Notification_Centre")
+	@Test(priority=4,dependsOnMethods="TC_Access_Notification_Centre")
 	public void TC_Access_Help_Centre() throws InterruptedException{
 	    Thread.sleep(2000);
 	    
@@ -77,13 +79,13 @@ public class TC_Settings extends BaseTest{
 	    test.pass("Successfully Assert Help Centre Page");
 	}
 	
-	@Test(dependsOnMethods="TC_Access_Help_Centre")
+	@Test(priority=5,dependsOnMethods="TC_Access_Help_Centre")
 	public void TC_Access_About_Us() throws InterruptedException{
-	    Thread.sleep(2000);
-
 	    click.clickAboutUs();
 	    test.pass("Successfully Clicked About Us Button in Help Center Page");
 	    
+	    Thread.sleep(2000);
+
 	    assertion.assertAboutUs();
 	    test.pass("Successfully Assert About Us Page");
 	    
@@ -91,18 +93,161 @@ public class TC_Settings extends BaseTest{
 	    test.pass("Successfully Clicked Back to Help Center Page");
 	}
 	
-	@Test(dependsOnMethods="TC_Access_About_Us")
+	
+	@Test(priority=6,dependsOnMethods="TC_Access_About_Us")
+	public void TC_Access_Email() throws InterruptedException{	  
+	    Thread.sleep(2000);
+
+	    click.clickEmailInHelp();
+	    test.pass("Successfully Clicked Email Button in Help Center Page");
+
+	    Thread.sleep(5000);
+
+	    assertion.assertDirectToGmail();
+	    test.pass("Successfully Assert Gmail Page");
+	    
+	    click.pressBack();
+	    test.pass("Successfully Press Back Button");
+	}
+	
+	@Test(priority=7,dependsOnMethods="TC_Access_Email")
+	public void TC_Access_WhatsApp() throws InterruptedException{	
+	    Thread.sleep(2000);
+
+	    click.clickWhatsAppInHelp();
+	    test.pass("Successfully Clicked WhatsApp Button in Help Center Page");
+
+	    Thread.sleep(5000);
+
+	    assertion.assertDirectToWhatsApp();
+	    test.pass("Successfully Assert WhatsApp Page");
+	    
+	    click.pressBack();
+	    test.pass("Successfully Press Back Button");
+	}
+	
+	@Test(priority=8,dependsOnMethods="TC_Access_WhatsApp")
 	public void TC_Access_Subscription_Transaction() throws InterruptedException{
 	    Thread.sleep(2000);
 
 	    click.clickSubscriptionTransaction();
 	    test.pass("Successfully Clicked Subscription and Transaction Button in Help Center Page");
 	    
+	    Thread.sleep(2000);
+
 	    assertion.assertSubscriptionTransaction();
 	    test.pass("Successfully Assert Subscription and Transaction Page");
 	    
 	    click.clickCloseHelp();
 	    test.pass("Successfully Clicked Close Help Center Page");
+	}
+	
+	@Test(priority=9,dependsOnMethods="TC_Access_Subscription_Transaction")
+	public void TC_Access_Legal_Information() throws InterruptedException{	
+	    Thread.sleep(2000);
+
+	    click.clickLegalInformation();
+	    test.pass("Successfully Clicked Legal Information Button");
+		
+	    Thread.sleep(2000);
+	    
+		assertion.assertLegalInformation();
+	    test.pass("Successfully Assert Legal Information Page");
+	}
+	
+	@Test(priority=10,dependsOnMethods="TC_Access_Legal_Information")
+	public void TC_Access_Software_Licenses() throws InterruptedException{	   
+	    Thread.sleep(2000);
+
+	    click.clickSoftwareLicenses();
+	    test.pass("Successfully Clicked Software License Button");
+		
+	    Thread.sleep(2000);
+
+		assertion.assertSoftwareLicense();
+	    test.pass("Successfully Assert Software License Page");
+	    
+	    click.pressBack();
+	    test.pass("Successfully Press Back Button to Legal Information Page");
+	    
+	    click.pressBack();
+	    test.pass("Successfully Press Back Button to Setting Page");
+	}
+	
+	@Test(priority=11,dependsOnMethods="TC_Access_Software_Licenses")
+	public void TC_Access_Voucher() throws InterruptedException{	   
+	    Thread.sleep(2000);
+
+	    click.clickVoucher();
+	    test.pass("Successfully Clicked Voucher Button");
+		
+	    Thread.sleep(2000);
+
+		assertion.assertVoucher();
+	    test.pass("Successfully Assert Voucher Page");
+	}
+	
+	@Test(priority=12,dependsOnMethods="TC_Access_Voucher")
+	public void TC_User_input_Expired_Voucher() throws InterruptedException{	   
+	    Thread.sleep(2000);
+
+	    click.clickVoucherField();
+	    test.pass("Successfully Clicked Voucher Field");
+		
+		input.inputVoucher("PRODWTF8U8MZ1WEXP");
+	    test.pass("Successfully Input Expired Voucher Code");
+	    
+		android.hideKeyboard();
+	    
+	    click.clickRedeemVoucher();
+	    test.pass("Successfully Clicked Redeem Button");
+
+	    Thread.sleep(2000);
+
+	    assertion.assertVoucherExpired();
+	    test.pass("Successfully Assert Voucher Expired Warning Text");
+	}
+	
+	@Test(priority=13,dependsOnMethods="TC_User_input_Expired_Voucher")
+	public void TC_User_input_Invalid_Voucher() throws InterruptedException{	   
+	    Thread.sleep(2000);
+
+	    input.clearVoucherField();
+	    test.pass("Successfully Clear Voucher Code Field");
+
+		input.inputVoucher("ASDFWKJHWK");
+	    test.pass("Successfully Input Invalid Voucher Code");
+	    
+		android.hideKeyboard();
+	    
+	    click.clickRedeemVoucher();
+	    test.pass("Successfully Clicked Redeem Button");
+
+	    Thread.sleep(2000);
+
+	    assertion.assertVoucherInvalid();
+	    test.pass("Successfully Assert Voucher Invalid Warning Text");
+	}
+	
+	@Test(priority=14,dependsOnMethods="TC_User_input_Invalid_Voucher")
+	public void TC_User_input_Redeemed_Voucher() throws InterruptedException{	   
+	    Thread.sleep(2000);
+
+	    input.clearVoucherField();
+	    test.pass("Successfully Clear Voucher Code Field");
+
+		input.inputVoucher("TP3011165433");
+	    test.pass("Successfully Input Redeemed Voucher Code");
+	    
+		android.hideKeyboard();
+	    
+	    click.clickRedeemVoucher();
+	    test.pass("Successfully Clicked Redeem Button");
+
+	    Thread.sleep(2000);
+
+	    assertion.assertVoucherReedemed();
+	    test.pass("Successfully Assert Voucher Redeemed Warning Text");
 	}
 	
 	@DataProvider

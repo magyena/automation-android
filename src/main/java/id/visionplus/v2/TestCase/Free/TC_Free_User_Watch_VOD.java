@@ -30,9 +30,6 @@ public class TC_Free_User_Watch_VOD extends BaseTest{
 	    test.pass("Successfully Clicked Watch Button");
 	    
 	    Thread.sleep(10000);
-	    
-		click.pressBack();
-	    test.pass("Successfully Pressed Back Button");
 	}
 	
 	@Test(dependsOnMethods="TC_Free_User_Watch_Free_VOD")
