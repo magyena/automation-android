@@ -30,12 +30,15 @@ public class TC_Free_User_Watch_VOD extends BaseTest{
 	    test.pass("Successfully Clicked Watch Button");
 	    
 	    Thread.sleep(10000);
+	    
+		click.pressBack();
+	    test.pass("Successfully Press Back to VOD Details Page");
 	}
 	
 	@Test(dependsOnMethods="TC_Free_User_Watch_Free_VOD")
 	public void TC_Free_User_Cannot_Watch_Premium_VOD_Series() throws IOException, InterruptedException, TimeoutException {
-		click.clickBack();
-	    test.pass("Successfully Clicked Back to VOD Details Page");
+		click.pressBack();
+	    test.pass("Successfully Press Back to VOD Details Page");
 	    
 	    Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//android.view.View[starts-with(@content-desc,'E5')]");
