@@ -436,6 +436,46 @@ public class Click extends BaseTest
 	    img_vod_1.click();
 	}
 	
+	public void clickSubscribe(){
+		vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_subscribe = vodDetailPage.btn_subscribe;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_subscribe));
+	    btn_subscribe.click();
+	}
+	
+	public void clickLikeVOD(){
+		vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_like = vodDetailPage.btn_like;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_like));
+	    btn_like.click();
+	}
+	
+	public void clickDislikeVOD(){
+		vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_dislike = vodDetailPage.btn_dislike;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_dislike));
+	    btn_dislike.click();
+	}
+	
+	public void clickShareVOD(){
+		vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_share = vodDetailPage.btn_share;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_share));
+	    btn_share.click();
+	}
+	
+	public void clickCopyLink(){
+		vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_copy_link = vodDetailPage.btn_copy_link;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_copy_link));
+	    btn_copy_link.click();
+	}
+	
 	public void clickEps1VOD(){
 		vodDetailPage = new VODDetailPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));

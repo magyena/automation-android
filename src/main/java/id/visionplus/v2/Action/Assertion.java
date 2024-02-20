@@ -3,6 +3,7 @@ package id.visionplus.v2.Action;
 import java.time.Duration;
 
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,6 +24,8 @@ public class Assertion extends BaseTest
 	VPlusOriginalsPage vplusOriginalPage;
 	LiveTVPage liveTvPage;
 	OutsideApp outsideApp;
+	PopUpPage popupPage;
+
 	
 	public void assertEntryPage() {
 		WebElement txt_entry_title = entryPage.txt_entry_title;
@@ -587,6 +590,41 @@ public class Assertion extends BaseTest
 		    wait.until(ExpectedConditions.visibilityOf(btn_subscribe));
 			Assert.assertTrue(btn_subscribe.isDisplayed());
 	}
+	
+	public void assertPopUpPackages(){
+		popupPage = new PopUpPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		WebElement txt_pop_up_header_title = popupPage.txt_pop_up_header_title;
+	    wait.until(ExpectedConditions.visibilityOf(txt_pop_up_header_title));
+	    
+	    String actual = txt_pop_up_header_title.getText();
+	    String expected = "Packages";
+	    
+	    Assert.assertEquals(actual, expected);
+}
+	
+	public void assertShareSection(){
+		vodDetailPage = new VODDetailPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		WebElement btn_copy_link = vodDetailPage.btn_copy_link;
+		WebElement txt_share_bluetooth = vodDetailPage.txt_share_bluetooth;
+		WebElement txt_share_drive = vodDetailPage.txt_share_drive;
+		WebElement txt_share_messages = vodDetailPage.txt_share_messages;
+		WebElement txt_share_gmail = vodDetailPage.txt_share_gmail;
+
+		wait.until(ExpectedConditions.visibilityOf(btn_copy_link));
+		wait.until(ExpectedConditions.visibilityOf(txt_share_bluetooth));
+		wait.until(ExpectedConditions.visibilityOf(txt_share_drive));
+		wait.until(ExpectedConditions.visibilityOf(txt_share_messages));
+		wait.until(ExpectedConditions.visibilityOf(txt_share_gmail));
+
+	    Assert.assertTrue(btn_copy_link.isDisplayed());
+	    Assert.assertTrue(txt_share_bluetooth.isDisplayed());
+	    Assert.assertTrue(txt_share_drive.isDisplayed());
+	    Assert.assertTrue(txt_share_messages.isDisplayed());
+	    Assert.assertTrue(txt_share_gmail.isDisplayed());
+	}
+
 	
 	public void assertVODDetails() {	
 		vodDetailPage = new VODDetailPage(android);

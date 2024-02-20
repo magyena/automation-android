@@ -47,6 +47,21 @@ public class VODDetailPage extends AndroidGesture
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/ratingBar")
 	public static WebElement img_rating_bar;
 	
+	@AndroidFindBy(id="android:id/chooser_copy_button")
+	public static WebElement btn_copy_link;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Gmail')]")
+	public static WebElement txt_share_gmail;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Messages')]")
+	public static WebElement txt_share_messages;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Drive')]")
+	public static WebElement txt_share_drive;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Bluetooth')]")
+	public static WebElement txt_share_bluetooth;
+	
 	@AndroidFindBy(xpath="//*[contains(@text,'Share')]")
 	public static WebElement btn_share;
 	

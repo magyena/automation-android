@@ -19,7 +19,7 @@ public class TC_Free_User_Watch_VOD extends BaseTest{
 	@Test
 	public void TC_Free_User_Watch_Free_VOD() throws IOException, InterruptedException, TimeoutException {
 		TC_Homepage tc_homePage = new TC_Homepage();
-		tc_homePage.TC_Access_VOD_VPlus_Detail();
+		tc_homePage.TC_Access_VOD_Detail();
 		
 	    click.clickEps1VOD();
 	    test.pass("Successfully Clicked Episode 1 Button");
@@ -49,5 +49,17 @@ public class TC_Free_User_Watch_VOD extends BaseTest{
 
 	    assertion.assertVODIsNotPlayable();
 	    test.pass("Successfully Assert VOD Episode 5 is Not Playable and Need to Subscribe");
+	}
+	
+	@Test(dependsOnMethods="TC_Free_User_Cannot_Watch_Premium_VOD_Series")
+	public void TC_Free_User_Access_Subscribe_From_VOD() throws IOException, InterruptedException, TimeoutException {
+		click.clickSubscribe();
+	    test.pass("Successfully Clicked Subscribe Button");
+	    
+	    assertion.assertPopUpPackages();
+	    test.pass("Successfully Assert Pop Up Packages");
+	    
+	    click.pressBack();
+	    test.pass("Successfully Press Back Button");
 	}
 }

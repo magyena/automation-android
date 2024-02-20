@@ -21,20 +21,8 @@ public class TC_Homepage extends BaseTest{
 		TC_OpenApp open_app = new TC_OpenApp();
 		open_app.TC_Open_App_as_Free_User();
 		
-	    click.clickVODBanner();
-	    test.pass("Successfully Clicked VOD Banner");
-	    
-	    assertion.assertVODDetails();
-	    test.pass("Successfully Assert VOD Details");
-	}
-	
-	@Test
-	public void TC_Access_VOD_VPlus_Detail() throws IOException, InterruptedException, TimeoutException {
-		TC_OpenApp open_app = new TC_OpenApp();
-		open_app.TC_Open_App_as_Free_User();
-		
-		click.clickVisionPlusOriginalSeriesContent();
-	    test.pass("Successfully Clicked Vision Plus Originals Content");
+	    click.clickVisionPlusOriginalsSeries();
+	    test.pass("Successfully Clicked VOD Vision Plus Originals");
 	    
 	    assertion.assertVODDetails();
 	    test.pass("Successfully Assert VOD Details");
