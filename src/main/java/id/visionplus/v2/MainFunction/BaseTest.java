@@ -121,7 +121,11 @@ public class BaseTest {
 	        connection.setRequestProperty("Content-Type", contentType);
 	        connection.setDoOutput(true);
 
-	        String jsonMessage = "{\"content\": \"" + message + "\"}";
+	        // Escape double quotes in the message to prevent JSON parsing issues
+	        message = message.replace("\"", "\\\"");
+
+	        // Construct the JSON message with newline characters
+	        String jsonMessage = "{\"content\": \"" + message.replace("\n", "\\n") + "\"}";
 
 	        try (OutputStream os = connection.getOutputStream()) {
 	            byte[] input = jsonMessage.getBytes("utf-8");
@@ -129,25 +133,50 @@ public class BaseTest {
 	        }
 
 	        int responseCode = connection.getResponseCode();
-	        System.out.println("Response : " + responseCode);
+	        System.out.println("Response Code: " + responseCode);
+	        
+	        String responseMessage = connection.getResponseMessage();
+	        System.out.println("Response Message: " + responseMessage);
 
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
 	}
-
-	public void sendTotalTestCases(int totalTestCases) {
-	    String message = "Total Test Cases Run: " + totalTestCases;
+	
+	public void sendTestSuitesName(String testSuiteName) {
+	    System.out.println(testSuiteName);
+	    String message = "==================================================================\n" +
+	                     "**Test Suite Name:** **" + testSuiteName + "**\n \n";
+	    System.out.println(message);
+	    sendMessageToWebhook(webhookUrl, "application/json", message);
+	}
+	
+	public void sendCustomMessage(String text){
+		System.out.println(text);
+		String message = "**"+text+"**\n";
+	    System.out.println(message);
 	    sendMessageToWebhook(webhookUrl, "application/json", message);
 	}
 
-	public void sendTotalTestCasesFailed(int totalTestCasesFailed) {
-	    String message = "Total Test Cases Failed: " + totalTestCasesFailed;
+	public void sendSummaryTestCases(int totalTestCases, int totalTestCasesPassed, int totalTestCasesFailed, int totalTestCasesSkipped) {
+	    String message = "**Test Suites Summary:**\n" +
+	    				"Total: " + totalTestCases + ", \n" +
+	    				"Passed: " + totalTestCasesPassed + ", \n" +
+	    				"Failed: " + totalTestCasesFailed + ", \n" +
+	    				"Skipped: " + totalTestCasesSkipped + "\n\n";
+	    
+	    System.out.println(message);
+	    
+	    sendMessageToWebhook(webhookUrl, "application/json", message);
+	}
+	
+	public void sendListFailedTestCases(String testCasesList) {
+	    String message = "**List Of Error and Failed Test Cases** \n" + testCasesList;
 	    sendMessageToWebhook(webhookUrl, "application/json", message);
 	}
 
 	public void sendCcMessage() {
-	    String message = "cc: <@1077483182942863470>";
+	    String message = "cc: <@1161584629011197972> <@1077483182942863470>";
 	    sendMessageToWebhook(webhookUrl, "application/json", message);
 	}
 	

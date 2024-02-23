@@ -60,6 +60,35 @@ public class Click extends BaseTest
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_next_episode));
 		btn_next_episode.click();
 	}
+	
+	public void clickLoginByFacebook(){
+		loginPage = new LoginPage(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement btn_login_by_facebook = loginPage.btn_login_by_facebook;
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_login_by_facebook));
+		btn_login_by_facebook.click();
+	}
+	
+	public void clickFacebookLoginButton(){
+		outsideApp = new OutsideApp(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement btn_login_facebook = outsideApp.btn_login_facebook;
+		
+		if(btn_login_facebook.isDisplayed()){
+			wait.until(ExpectedConditions.visibilityOfAllElements(btn_login_facebook));
+			btn_login_facebook.click();
+		}
+	}
+	
+	public void clickContinueAsAccountFacebook(){
+		outsideApp = new OutsideApp(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement btn_continue_as_facebook = outsideApp.btn_continue_as_facebook;
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_continue_as_facebook));
+		btn_continue_as_facebook.click();
+	}
 
 	public void pressBack(){
         (android).pressKey(new KeyEvent(AndroidKey.BACK));
@@ -71,6 +100,22 @@ public class Click extends BaseTest
 	    WebElement btn_login = entryPage.btn_login;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_login));
 	    btn_login.click();
+	}
+	
+	public void clickGoogleSingleSignOn(){
+		loginPage = new LoginPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_login_by_google = loginPage.btn_login_by_google;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_login_by_google));
+	    btn_login_by_google.click();
+	}
+	
+	public void click_1st_google_account(){
+		loginPage = new LoginPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_google_account_1 = loginPage.btn_google_account_1;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_google_account_1));
+	    btn_google_account_1.click();
 	}
 	
 	public void clickTerms(){

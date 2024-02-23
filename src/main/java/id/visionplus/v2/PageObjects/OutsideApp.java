@@ -28,4 +28,12 @@ public class OutsideApp extends AndroidGesture
 	
 	@AndroidFindBy(id="com.google.android.gm:id/gmail_logo")
 	public static WebElement img_gmail_logo_header;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Log In')]")
+	public static WebElement btn_login_facebook;
+	
+	@AndroidFindBy(xpath="//*/android.widget.Button[1]")
+	public static WebElement btn_continue_as_facebook;
+	
+
 }

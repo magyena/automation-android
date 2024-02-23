@@ -33,6 +33,8 @@ public class TC_Login_As_Free_User_Email extends BaseTest{
 	
 	@Test(dataProvider= "unregisteredEmail")
 	public void TC_user_cannot_login_with_unregistered_email(HashMap<String, String> input_data) throws InterruptedException, TimeoutException {		
+		input.clearEmailField();
+		
 		click.clickFieldEmail();
 		test.pass("Successfully Clicked Text Field Email");
 		
@@ -64,6 +66,8 @@ public class TC_Login_As_Free_User_Email extends BaseTest{
 	
 	@Test(dataProvider= "freeUserEmailWrongPassword",dependsOnMethods="TC_user_cannot_login_with_unregistered_email")
 	public void TC_user_login_using_wrong_password(HashMap<String, String> input_data) throws InterruptedException, TimeoutException {		
+		input.clearEmailField();
+
 		click.clickFieldEmail();
 		test.pass("Successfully Clicked Text Field Email");
 		
@@ -95,6 +99,8 @@ public class TC_Login_As_Free_User_Email extends BaseTest{
 	
 	@Test(dataProvider="freeUserEmail", dependsOnMethods="TC_user_login_using_wrong_password")
 	public void TC_user_can_login_with_free_user_email_account(String username, String password) throws InterruptedException, TimeoutException {		
+		input.clearEmailField();
+
 		click.clickFieldEmail();
 		test.pass("Successfully Clicked Text Field Email");
 		

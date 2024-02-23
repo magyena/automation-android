@@ -80,7 +80,7 @@ public class Input extends BaseTest
 	    WebElement fld_otp = registerPage.fld_otp;
 
 	    String existingText = fld_otp.getAttribute("text");
-
+	   	    
 	    // Loop through each character of the OTP string
 	    for (int i = 0; i < 4; i++) {
 	        // Get the digit at position i

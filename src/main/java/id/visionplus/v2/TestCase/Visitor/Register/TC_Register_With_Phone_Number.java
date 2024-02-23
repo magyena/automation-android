@@ -232,8 +232,6 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		
 		android.hideKeyboard();
 		
-		System.out.println("Already Input");
-		
 		click.clickRegisterLoginSubmitButton();
 		test.pass("Successfully Clicked Send Register Submit Button");
 		

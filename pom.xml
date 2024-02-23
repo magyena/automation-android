@@ -136,29 +136,46 @@
 
 	<profiles>
 
-		<profile>
-			<id>Regression</id>
-			<!-- dapat search di testng xml maven-->
-			<!-- untuk running lewat cmd: mvn test -PRegression -->
-
-			<build>
-				<pluginManagement>
-					<plugins>
-						<plugin>
+        <profile>
+            <id>Regression</id>
+            <!-- Configuration for the Regression profile -->
+            <build>
+                <plugins>
+                    <!-- Other plugins -->
+					<!-- Maven Surefire Plugin -->
+					<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-surefire-plugin</artifactId>
-							<version>3.1.2</version>
-							<configuration>
-								<suiteXmlFiles>
-									<suiteXmlFile>regression.xml</suiteXmlFile>
-								</suiteXmlFiles>
-							</configuration>
-						</plugin>
-					</plugins>
-				</pluginManagement>
-			</build>
-
-		</profile>
+					                <artifactId>maven-surefire-plugin</artifactId>
+					                <version>3.1.2</version>
+					                <configuration>
+					                    <suiteXmlFiles>
+					                        <suiteXmlFile>regression.xml</suiteXmlFile>
+					                    </suiteXmlFiles>
+					                    <documentRoot>${basedir}</documentRoot>
+					                </configuration>
+					</plugin>
+                    <!-- Maven PDF Plugin execution -->
+		            <plugin>
+		                <groupId>org.apache.maven.plugins</groupId>
+		                <artifactId>maven-pdf-plugin</artifactId>
+		                <version>1.4</version>
+		                <executions>
+		                    <execution>
+		                        <id>generate-pdf-report</id>
+		                        <phase>test</phase>
+		                        <goals>
+		                            <goal>pdf</goal>
+		                        </goals>
+		                        <configuration>
+		                            <outputDirectory>target/pdf-reports</outputDirectory>
+		                            <!-- Additional configuration options if needed -->
+		                        </configuration>
+		                    </execution>
+		                </executions>
+		            </plugin>
+                </plugins>
+            </build>
+        </profile>
 
 		<profile>
 			<id>Smoke</id>
@@ -166,6 +183,21 @@
 		</profile>
 
 	</profiles>
+	
+	<reporting>
+    	<plugins>
+	        <!-- Add Maven PDF Plugin -->
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-pdf-plugin</artifactId>
+	            <version>1.4</version>
+	            <configuration>
+					<outputDirectory>target/pdf-reports</outputDirectory>
+	                <!-- Configuration for PDF report generation -->
+	            </configuration>
+	        </plugin>
+	    </plugins>
+	</reporting>
 
 	<build>
 
@@ -215,7 +247,24 @@
 					<artifactId>maven-project-info-reports-plugin</artifactId>
 					<version>3.0.0</version>
 				</plugin>
+				<!-- Add maven-pdf-plugin -->
+		        <plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-pdf-plugin</artifactId>
+		            <version>1.4</version>
+		        </plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
 </project>
+
+<!--
+The pom.xml you provided is a Maven project file that manages dependencies and configurations for your project. Here's an overview of its contents:
+
+Project Information: Specifies the group ID, artifact ID, version, name, and URL of the project.
+Properties: Defines properties such as project encoding and Java compiler versions.
+Dependencies: Lists all the dependencies required for your project, including TestNG, Selenium WebDriver, ExtentReports, Java-Client for Appium, MySQL Connector, jsoup, Flying Saucer PDF, iTextPDF, JSch, and ExpectIt.
+Profiles: Defines Maven profiles for different environments or configurations. It includes a Regression profile that specifies the test suite XML file to be used for regression tests.
+Build: Configures Maven plugins for the build lifecycle. The plugins include those for cleaning, compiling, testing, packaging, and reporting.
+Overall, this pom.xml file manages the project's dependencies, build configurations, and profiles for different testing scenarios. It's a standard setup for a Maven-based automation project in Java. 
+ -->
