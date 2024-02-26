@@ -171,7 +171,7 @@ public class BaseTest {
 	}
 	
 	public void sendListFailedTestCases(String testCasesList) {
-	    String message = "**List Of Error and Failed Test Cases** \n" + testCasesList;
+	    String message = "**List Of Failed and Skipped Test Cases** \n" + testCasesList;
 	    sendMessageToWebhook(webhookUrl, "application/json", message);
 	}
 
