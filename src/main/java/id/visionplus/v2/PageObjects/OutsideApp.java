@@ -26,8 +26,8 @@ public class OutsideApp extends AndroidGesture
 	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"WhatsApp Main Page\"]/android.widget.Image")
 	public static WebElement img_whatsApp_logo_header;
 	
-	@AndroidFindBy(id="com.google.android.gm:id/gmail_logo")
-	public static WebElement img_gmail_logo_header;
+	@AndroidFindBy(id="com.google.android.gm:id/peoplekit_chip")
+	public static WebElement img_gmail_from;
 	
 	@AndroidFindBy(xpath="//*[contains(@text,'Log In')]")
 	public static WebElement btn_login_facebook;

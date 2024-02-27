@@ -496,12 +496,12 @@ public class Assertion extends BaseTest
 	public void assertDirectToGmail(){	
 		outsideApp = new OutsideApp(android);
 
-		WebElement img_gmail_logo_header = outsideApp.img_gmail_logo_header;
+		WebElement img_gmail_from = outsideApp.img_gmail_from;
 				
 		wait = new WebDriverWait(android, Duration.ofSeconds(90));
-	    wait.until(ExpectedConditions.visibilityOfAllElements(img_gmail_logo_header));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_gmail_from));
 	    
-	    Assert.assertTrue(img_gmail_logo_header.isDisplayed());
+	    Assert.assertTrue(img_gmail_from.isDisplayed());
 	}
 	
 	public void assertAboutUs() {	

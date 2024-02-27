@@ -30,6 +30,7 @@ public class Listeners extends BaseTest implements ITestListener {
     int totalTestCasesFailed = 0;
     int totalTestCasesSkipped = 0;
     String failedTestCases ="";
+    String skippedTestCases ="";
     String testSuitesName = "";
 
     @Override		
@@ -84,10 +85,13 @@ public class Listeners extends BaseTest implements ITestListener {
 	    	sendTestSuitesName(testSuitesName);
 	    	sendSummaryTestCases(totalTestCases, totalTestCases - totalTestCasesFailed - totalTestCasesSkipped, totalTestCasesFailed, totalTestCasesSkipped);
 	    	
-	    	if(totalTestCasesFailed==0){
-	    		sendCustomMessage("All Test Case are Passed and Successfully Executed");
-	    	}else{
+	    	if(totalTestCasesFailed>0){
 		    	sendListFailedTestCases(failedTestCases);
+		    	if(totalTestCasesSkipped>0){
+		    		sendListSkippedTestCases(skippedTestCases);
+		    	}
+	    	}else{
+	    		sendCustomMessage("All Test Case are Passed and Successfully Executed");
 	    	}	    	
 	    	sendCcMessage();
 	    	test.info("Script onFinish method " + result.getName());
@@ -105,7 +109,7 @@ public class Listeners extends BaseTest implements ITestListener {
 	    	totalTestCasesSkipped++;
 	        test.info("Script " + methodName + " Skipped");	
 	        test.log(Status.SKIP, "Test Skipped");
-	        failedTestCases += "- [SKIPPED] "+ methodName + " Skipped\n";
+	        skippedTestCases += "- [SKIPPED] "+ methodName + " Skipped\n";
 	    }				
 	
 }
