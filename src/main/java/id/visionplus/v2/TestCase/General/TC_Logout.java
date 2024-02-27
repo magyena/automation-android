@@ -42,7 +42,7 @@ public class TC_Logout extends BaseTest{
 	    
 	}
 	
-	@Test(dependsOnMethods="TC_Access_Settings")
+	@Test
 	public void TC_Access_Logout() throws InterruptedException{
 	    Thread.sleep(2000);
 

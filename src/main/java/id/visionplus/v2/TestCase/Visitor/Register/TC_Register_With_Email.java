@@ -142,47 +142,51 @@ public class TC_Register_With_Email extends BaseTest{
 	@Test(priority = 6, dependsOnMethods = "TC_user_cannot_input_wrong_otp")
 	public void TC_user_click_send_otp_2nd_time()throws InterruptedException, IOException{
 		//Wait until 2 Minutes
-		Thread.sleep(123000);
+		Thread.sleep(120000);
 		
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
+		
+		Thread.sleep(2000);
 		
 		assertion.assertTimer5Minutes();
 		test.pass("Successfully Assert Timer 5 Minutes");
 	}
 	
-//	@Test(priority = 7, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
-//	public void TC_user_input_correct_otp()throws InterruptedException, IOException{
-//		input.clearOTP();
-//		test.pass("Successfully Clear Text Field OTP");
-//
-//		click.clickOtpFld();
-//		test.pass("Successfully Click Text Field OTP");
-//
-//		//Get OTP from DB
-//		String res_otp = get_otp.get_OTP(email);
-//	    input.inputOTP(res_otp);
-//		test.pass("Successfully Input Text Field OTP with Valid Email");
-//		
-//		Thread.sleep(3000);
-//		
-//		android.hideKeyboard();
-//		
-//		click.clickRegisterLoginSubmitButton();
-//		test.pass("Successfully Clicked Send Register Submit Button");
-//		
-//		Thread.sleep(3000);
-//	
-//		assertion.assertDiscoverText();
-//		test.pass("Successfully Assert Discover Profile Text After Login");
-//		
-//		click.clickSkip();
-//		test.pass("Successfully Click Skip Button");
-//		
-//		click.clickContinue();
-//		test.pass("Successfully Click Continue Button");
-//		
-//		assertion.assertArriveHomePage();
-//		test.pass("Successfully Assert Arrived at Homepage");
-//	}
+	@Test(priority = 7, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
+	public void TC_user_input_correct_otp()throws InterruptedException, IOException{
+		Thread.sleep(2000);
+
+		input.clearOTP();
+		test.pass("Successfully Clear Text Field OTP");
+
+		click.clickOtpFld();
+		test.pass("Successfully Click Text Field OTP");
+
+		//Get OTP from DB
+		String res_otp = get_otp.get_OTP(email);
+	    input.inputOTP(res_otp);
+		test.pass("Successfully Input Text Field OTP with Valid Email");
+		
+		Thread.sleep(3000);
+		
+		android.hideKeyboard();
+		
+		click.clickRegisterLoginSubmitButton();
+		test.pass("Successfully Clicked Send Register Submit Button");
+		
+		Thread.sleep(3000);
+	
+		assertion.assertDiscoverText();
+		test.pass("Successfully Assert Discover Profile Text After Login");
+		
+		click.clickSkip();
+		test.pass("Successfully Click Skip Button");
+		
+		click.clickContinue();
+		test.pass("Successfully Click Continue Button");
+		
+		assertion.assertArriveHomePage();
+		test.pass("Successfully Assert Arrived at Homepage");
+	}
 }

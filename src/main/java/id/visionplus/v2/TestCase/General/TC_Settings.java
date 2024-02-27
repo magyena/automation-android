@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -13,12 +15,14 @@ import id.visionplus.v2.Action.Click;
 import id.visionplus.v2.Action.Input;
 import id.visionplus.v2.Action.Scroll;
 import id.visionplus.v2.MainFunction.BaseTest;
+import id.visionplus.v2.PageObjects.SettingPage;
 
 public class TC_Settings extends BaseTest {
 
     Click click = new Click();
     Assertion assertion = new Assertion();
     Input input = new Input();
+    SettingPage settingsPage = new SettingPage(android);
 
     @DataProvider
     public Object[][] freeUserEmail() throws IOException {
@@ -60,12 +64,13 @@ public class TC_Settings extends BaseTest {
             assertion.assertManageProfile();
             test.pass("Successfully Assert Manage Profile Page");
 
-            click.clickSettingsBackButton();
-            test.pass("Successfully Clicked Back to Settings Button");
         } catch (Throwable e) {
             test.fail("Script TC_Access_Manage_Profile Failed: " + e.getMessage());
             throw e;
         }
+    	//Even though the test may failed, its still need to go back to Setting page
+        click.clickSettingsBackButton();
+        test.pass("Successfully Clicked Back to Settings Button");
     }
 
     @Test(priority = 2, dependsOnMethods = "TC_Access_Settings")
@@ -78,13 +83,14 @@ public class TC_Settings extends BaseTest {
 
             assertion.assertNotificationCentre();
             test.pass("Successfully Assert Notification Centre Page");
-
-            click.clickSettingsBackButton();
-            test.pass("Successfully Clicked Back to Settings Button");
         } catch (Throwable e) {
             test.fail("Script TC_Access_Notification_Centre Failed: " + e.getMessage());
             throw e;
         }
+        
+    	//Even though the test may failed, its still need to go back to Setting page
+        click.clickSettingsBackButton();
+        test.pass("Successfully Clicked Back to Settings Button");
     }
 
     @Test(priority = 3, dependsOnMethods = "TC_Access_Settings")
@@ -134,7 +140,7 @@ public class TC_Settings extends BaseTest {
         }
     }
 
-    @Test(priority = 5, dependsOnMethods = "TC_User_input_Expired_Voucher")
+    @Test(priority = 5)
     public void TC_User_input_Invalid_Voucher() throws InterruptedException {
     	try{
 	        Thread.sleep(2000);
@@ -163,7 +169,7 @@ public class TC_Settings extends BaseTest {
 	    }
     }
 
-    @Test(priority = 6, dependsOnMethods = "TC_User_input_Invalid_Voucher")
+    @Test(priority = 6)
     public void TC_User_input_Redeemed_Voucher() throws InterruptedException {
     	try {
 	        Thread.sleep(2000);
@@ -187,22 +193,25 @@ public class TC_Settings extends BaseTest {
 	        Thread.sleep(2000);
 	
 	        assertion.assertVoucherReedemed();
-	        test.pass("Successfully Assert Voucher Redeemed Warning Text");
-	
-	        click.pressBack();
+	        test.pass("Successfully Assert Voucher Redeemed Warning Text");	
         } catch (Throwable e) {
             test.fail("Script TC_User_input_Redeemed_Voucher Failed:" + e.getMessage());
             throw e;
         }
+    	
+    	//Even though the test may failed, its still need to go back to Setting page
+        click.pressBack();
     }
 
-    @Test(priority = 7, dependsOnMethods = "TC_User_input_Redeemed_Voucher")
+    @Test(priority = 7)
     public void TC_Access_Help_Centre() throws InterruptedException {
         try {
             Thread.sleep(2000);
 
             Scroll scroll = new Scroll(android);
-            scroll.scrollDown(0.2);
+            
+    		By locator = By.xpath("//*[contains(@text,'Help')]");
+            scroll.scrollUntilElementFound(locator);
 
             click.clickHelpButton();
             test.pass("Successfully Clicked Help Centre Button");
@@ -211,11 +220,14 @@ public class TC_Settings extends BaseTest {
             test.pass("Successfully Assert Help Centre Page");
         } catch (Throwable e) {
             test.fail("Script TC_Access_Help_Centre Failed: " + e.getMessage());
+        	//If the test its still need to go back to Setting page
+            click.clickCloseHelp();
+            test.pass("Successfully Clicked Close Help Center Page");
             throw e;
         }
     }
 
-    @Test(priority = 8, dependsOnMethods = "TC_Access_Settings")
+    @Test(priority = 8, dependsOnMethods = "TC_Access_Help_Centre")
     public void TC_Access_About_Us() throws InterruptedException {
     	try {
 	        click.clickAboutUs();
@@ -225,16 +237,16 @@ public class TC_Settings extends BaseTest {
 	
 	        assertion.assertAboutUs();
 	        test.pass("Successfully Assert About Us Page");
-	
-	        click.clickBackToHelp();
-	        test.pass("Successfully Clicked Back to Help Center Page");
         } catch (Throwable e) {
             test.fail("Script TC_Access_About_Us Failed: " + e.getMessage());
             throw e;
         }
+    	
+        click.clickBackToHelp();
+        test.pass("Successfully Clicked Back to Help Center Page");
     }
 
-    @Test(priority = 8, dependsOnMethods = "TC_Access_About_Us")
+    @Test(priority = 8, dependsOnMethods = "TC_Access_Help_Centre")
     public void TC_Access_Email() throws InterruptedException {
     	try {
 	        Thread.sleep(2000);
@@ -246,18 +258,18 @@ public class TC_Settings extends BaseTest {
 	
 	        assertion.assertDirectToGmail();
 	        test.pass("Successfully Assert Gmail Page");
-	
-	        android.hideKeyboard();
-	
-	        click.pressBack();
-	        test.pass("Successfully Press Back Button");
         } catch (Throwable e) {
             test.fail("Script TC_Access_Email Failed: " + e.getMessage());
             throw e;
         }
+    	
+        android.hideKeyboard();
+    	
+        click.pressBack();
+        test.pass("Successfully Press Back Button");
     }
 
-    @Test(priority = 8, dependsOnMethods = "TC_Access_Email")
+    @Test(priority = 8, dependsOnMethods = "TC_Access_Help_Centre")
     public void TC_Access_WhatsApp() throws InterruptedException {
     	try {
 	        Thread.sleep(2000);
@@ -269,16 +281,17 @@ public class TC_Settings extends BaseTest {
 	
 	        assertion.assertDirectToWhatsApp();
 	        test.pass("Successfully Assert WhatsApp Page");
-	
-	        click.pressBack();
-	        test.pass("Successfully Press Back Button");
         } catch (Throwable e) {
             test.fail("Script TC_Access_WhatsApp Failed: " + e.getMessage());
             throw e;
         }
+    	
+    	//Even though the test may failed, its still need to go back to help page
+        click.pressBack();
+        test.pass("Successfully Press Back Button");
     }
 
-    @Test(priority = 9, dependsOnMethods = "TC_Access_WhatsApp")
+    @Test(priority = 9, dependsOnMethods = "TC_Access_Help_Centre")
     public void TC_Access_Subscription_Transaction() throws InterruptedException {
     	try {
 	        Thread.sleep(2000);
@@ -290,19 +303,24 @@ public class TC_Settings extends BaseTest {
 	
 	        assertion.assertSubscriptionTransaction();
 	        test.pass("Successfully Assert Subscription and Transaction Page");
-	
-	        click.clickCloseHelp();
-	        test.pass("Successfully Clicked Close Help Center Page");
         } catch (Throwable e) {
             test.fail("Script TC_Access_Subscription_Transaction Failed: " + e.getMessage());
             throw e;
         }
+    	
+        click.clickCloseHelp();
+        test.pass("Successfully Clicked Close Help Center Page");
     }
 
-    @Test(priority = 10, dependsOnMethods = "TC_Access_Settings")
+    @Test(priority = 10)
     public void TC_Access_Legal_Information() throws InterruptedException {
         try {
             Thread.sleep(2000);
+            
+            Scroll scroll = new Scroll(android);
+
+    		By locator = By.xpath("//*[contains(@text,'Legal information')]");
+            scroll.scrollUntilElementFound(locator);
 
             click.clickLegalInformation();
             test.pass("Successfully Clicked Legal Information Button");
@@ -313,6 +331,10 @@ public class TC_Settings extends BaseTest {
             test.pass("Successfully Assert Legal Information Page");
         } catch (Throwable e) {
             test.fail("Script TC_Access_Legal_Information Failed: " + e.getMessage());
+            
+            //if failed, then go back to settings
+            click.pressBack();
+            test.pass("Successfully Press Back Button to Legal Information Page");
             throw e;
         }
     }
@@ -329,15 +351,15 @@ public class TC_Settings extends BaseTest {
 	
 	        assertion.assertSoftwareLicense();
 	        test.pass("Successfully Assert Software License Page");
-	
-	        click.pressBack();
-	        test.pass("Successfully Press Back Button to Legal Information Page");
-	
-	        click.pressBack();
-	        test.pass("Successfully Press Back Button to Setting Page");
         } catch (Throwable e) {
             test.fail("Script TC_Access_Software_Licenses Failed: " + e.getMessage());
             throw e;
         }
+    	
+        click.pressBack();
+        test.pass("Successfully Press Back Button to Legal Information Page");
+        
+        click.pressBack();
+        test.pass("Successfully Press Back Button to Setting Page");
     }
 }

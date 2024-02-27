@@ -41,12 +41,12 @@ public class TC_Free_User_Watch_VOD extends BaseTest{
 	    test.pass("Successfully Press Back to VOD Details Page");
 	    
 	    Scroll scroll = new Scroll(android);
-		By locator = By.xpath("//android.view.View[starts-with(@content-desc,'E5')]");
+		By locator = By.xpath("//android.view.View[starts-with(@content-desc,'E7')]");
 		scroll.scrollUntilElementFound(locator);
-	    test.pass("Successfully Scroll Down Until VOD EP 5 Appear");
+	    test.pass("Successfully Scroll Down Until VOD EP 7 Appear");
 	    
-	    click.clickEps5VOD();
-	    test.pass("Successfully Clicked Episode 5 Button");
+	    click.clickEps7VOD();
+	    test.pass("Successfully Clicked Episode 7 Button");
 	    
 	    Thread.sleep(2000);
 

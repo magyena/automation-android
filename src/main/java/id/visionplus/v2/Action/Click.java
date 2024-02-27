@@ -529,12 +529,12 @@ public class Click extends BaseTest
 	    img_eps_1_vod.click();
 	}
 	
-	public void clickEps5VOD(){
+	public void clickEps7VOD(){
 		vodDetailPage = new VODDetailPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement img_eps_5_vod = vodDetailPage.img_eps_5_vod;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(img_eps_5_vod));
-	    img_eps_5_vod.click();
+	    WebElement img_eps_7_vod = vodDetailPage.img_eps_7_vod;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_eps_7_vod));
+	    img_eps_7_vod.click();
 	}
 	
 	public void clickWatchVOD(){
