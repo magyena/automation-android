@@ -53,6 +53,12 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath="//*[contains(@text,'Help')]")
 	public static WebElement btn_help;
 	
+	@AndroidFindBy(xpath="//*[contains(@text,'Delete profile')]")
+	public static WebElement btn_delete_profile;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Delete')]")
+	public static WebElement btn_delete_confirmation;
+	
 	@AndroidFindBy(xpath="//*[contains(@text,'Voucher')]")
 	public static WebElement btn_voucher;
 	

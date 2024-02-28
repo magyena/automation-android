@@ -3,6 +3,8 @@ package id.visionplus.v2.Action;
 import java.time.Duration;
 
 import java.util.Random;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,6 +17,7 @@ import id.visionplus.v2.PageObjects.LiveTVPage;
 import id.visionplus.v2.PageObjects.LoginPage;
 import id.visionplus.v2.PageObjects.OutsideApp;
 import id.visionplus.v2.PageObjects.RegisterPage;
+import id.visionplus.v2.PageObjects.SearchPage;
 import id.visionplus.v2.PageObjects.SettingPage;
 import id.visionplus.v2.PageObjects.VODDetailPage;
 import id.visionplus.v2.PageObjects.VPlusOriginalsPage;
@@ -34,6 +37,7 @@ public class Click extends BaseTest
 	LiveTVPage liveTvPage;
 	VPlusOriginalsPage vplusOriginalPage;
 	OutsideApp outsideApp;
+	SearchPage searchPage;
 	
 	public void clickRandom() {
 	    // Get the dimensions of the browser window
@@ -50,6 +54,33 @@ public class Click extends BaseTest
 	    // Perform a click action at the random coordinates
 	    Actions action = new Actions(android);
 	    action.moveByOffset(x, y).click().perform();
+	}
+	
+	public void clickSearchField(){
+		searchPage = new SearchPage(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement txt_fld_search = searchPage.txt_fld_search;
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_search));
+		txt_fld_search.click();
+	}
+	
+	public void clickSearchLiveTv(){
+		searchPage = new SearchPage(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement img_search_live_tv_rcti = searchPage.img_search_live_tv_rcti;
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_search_live_tv_rcti));
+		img_search_live_tv_rcti.click();
+	}
+	
+	public void clickSearchVOD(){
+		searchPage = new SearchPage(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement img_search_vod_arab_maklum = searchPage.img_search_vod_arab_maklum;
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_search_vod_arab_maklum));
+		img_search_vod_arab_maklum.click();
 	}
 	
 	public void clickNextEpisode(){
@@ -277,6 +308,102 @@ public class Click extends BaseTest
 	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_settings));
 	    btn_settings.click();
 	}
+	
+	public void clickProfileButton(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_profile = homePage.btn_profile;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_profile));
+	    btn_profile.click();
+	}
+	
+	public void clickAddProfileButton(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_add_profile = homePage.btn_add_profile;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_add_profile));
+	    btn_add_profile.click();
+	}
+	
+	public void clickAddProfileOKButton(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_add_profile_ok = homePage.btn_add_profile_ok;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_add_profile_ok));
+	    btn_add_profile_ok.click();
+	}
+	
+	public void clickAddProfileDoneButton(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_add_profile_done = homePage.btn_add_profile_done;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_add_profile_done));
+	    btn_add_profile_done.click();
+	}
+	
+	public void clickTextFieldProfileName(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_add_profile_name = homePage.txt_fld_add_profile_name;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_add_profile_name));
+	    txt_fld_add_profile_name.click();
+	}
+	
+	public void clickAddProfileCancelButton(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_add_profile_cancel = homePage.btn_add_profile_cancel;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_add_profile_cancel));
+	    btn_add_profile_cancel.click();
+	}
+	
+	public void clickProfileWarningOkButton(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_existing_profile_ok = homePage.btn_existing_profile_ok;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_existing_profile_ok));
+	    btn_existing_profile_ok.click();
+	}
+	
+	public void clickProfileAlmostDoneCancelButton(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_cancel_almost_done = homePage.btn_cancel_almost_done;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_cancel_almost_done));
+	    btn_cancel_almost_done.click();
+	}
+
+	public void clickLatestProfile(String random){
+        String xpathExpression = "//*[contains(text(), '" + random + "')]";
+        WebElement element = android.findElement(By.xpath(xpathExpression));
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(element));
+	    element.click();
+	}
+	
+	public void clickDeleteProfile(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_delete_profile = settingPage.btn_delete_profile;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_delete_profile));
+	    btn_delete_profile.click();
+	}
+	
+	public void clickConfirmationDeleteProfile(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_delete_confirmation = settingPage.btn_delete_confirmation;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_delete_confirmation));
+	    btn_delete_confirmation.click();
+	}
+	
+	public void clickSearchButton(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_search = homePage.btn_search;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_search));
+	    btn_search.click();
+	}	
 	
 	public void clickHelpButton(){
 		settingPage = new SettingPage(android);

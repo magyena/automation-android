@@ -98,32 +98,32 @@ public class TC_Login_As_Free_User_Email extends BaseTest{
 		test.pass("Successfully Clear Email Field");
 	}
 	
-//	@Test(dataProvider="freeUserEmail", dependsOnMethods="TC_user_login_using_wrong_password")
-//	public void TC_user_can_login_with_free_user_email_account(String username, String password) throws InterruptedException, TimeoutException {		
-//		input.clearEmailField();
-//
-//		click.clickFieldEmail();
-//		test.pass("Successfully Clicked Text Field Email");
-//		
-//		input.inputEmail(username);
-//		test.pass("Successfully Input Text Field Email with Valid Registered Email");	
-//
-//		click.clickFieldPassword();
-//		test.pass("Successfully Clicked Text Field Password");
-//		
-//		input.inputPassword(password);
-//		test.pass("Successfully Input Text Field Password with Valid Registered Password");
-//		
-//		android.hideKeyboard();
-//		
-//		click.clickRegisterLoginSubmitButton();
-//		test.pass("Successfully Clicked Login Submit Button");
-//		
-//		Thread.sleep(3000);
-//		
-//		assertion.assertWelcomeText();
-//		test.pass("Successfully Assert Welcome Text After Login");
-//	}
+	@Test(dataProvider="freeUserEmail", dependsOnMethods="TC_user_login_using_wrong_password")
+	public void TC_user_can_login_with_free_user_email_account(String username, String password) throws InterruptedException, TimeoutException {		
+		input.clearEmailField();
+
+		click.clickFieldEmail();
+		test.pass("Successfully Clicked Text Field Email");
+		
+		input.inputEmail(username);
+		test.pass("Successfully Input Text Field Email with Valid Registered Email");	
+
+		click.clickFieldPassword();
+		test.pass("Successfully Clicked Text Field Password");
+		
+		input.inputPassword(password);
+		test.pass("Successfully Input Text Field Password with Valid Registered Password");
+		
+		android.hideKeyboard();
+		
+		click.clickRegisterLoginSubmitButton();
+		test.pass("Successfully Clicked Login Submit Button");
+		
+		Thread.sleep(3000);
+		
+		assertion.assertWelcomeText();
+		test.pass("Successfully Assert Welcome Text After Login");
+	}
 	
 	
 	@DataProvider

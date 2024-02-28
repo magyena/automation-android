@@ -1,5 +1,8 @@
 package id.visionplus.v2.Action;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+
 import java.time.Duration;
 
 import org.openqa.selenium.NoSuchElementException;
@@ -25,7 +28,47 @@ public class Assertion extends BaseTest
 	LiveTVPage liveTvPage;
 	OutsideApp outsideApp;
 	PopUpPage popupPage;
-
+	SearchPage searchPage;
+	
+	public void assertSearchPage(){
+		searchPage = new SearchPage(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement txt_fld_search = searchPage.txt_fld_search;	
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_search));
+	    
+		Assert.assertTrue(txt_fld_search.isDisplayed());
+	}
+	
+	public void assertSearchVOD(){
+		searchPage = new SearchPage(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement img_search_vod_arab_maklum = searchPage.img_search_vod_arab_maklum;	
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_search_vod_arab_maklum));
+	    
+		Assert.assertTrue(img_search_vod_arab_maklum.isDisplayed());
+	}
+	
+	public void assertSearchLiveTv(){
+		searchPage = new SearchPage(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement img_search_live_tv_rcti = searchPage.img_search_live_tv_rcti;	
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_search_live_tv_rcti));
+	    
+		Assert.assertTrue(img_search_live_tv_rcti.isDisplayed());
+	}
+	
+	public void assertSearchNotFound(){
+		searchPage = new SearchPage(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement txt_warning_not_found = searchPage.txt_warning_not_found;	
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_not_found));
+	    
+		Assert.assertTrue(txt_warning_not_found.isDisplayed());
+		
+		String expected="No results";
+		String actual = txt_warning_not_found.getText();
+		assertEquals(actual, expected);
+	}
 	
 	public void assertEntryPage() {
 		WebElement txt_entry_title = entryPage.txt_entry_title;
@@ -259,6 +302,49 @@ public class Assertion extends BaseTest
 	    String actual = txt_warning_otp.getText();
 	    String expected = "err_otp_already_used_message";
 	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertAddProfileSection() {
+		homePage = new HomePage(android);
+		
+		WebElement btn_add_profile_ok = homePage.btn_add_profile_ok;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_add_profile_ok));
+	    
+	    Assert.assertFalse(btn_add_profile_ok.isEnabled());
+	}
+	
+	public void assertAddProfileNameFieldIs15Char() {
+		homePage = new HomePage(android);
+		
+		WebElement txt_fld_add_profile_name = homePage.txt_fld_add_profile_name;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_add_profile_name));
+	    
+	    int actual = (txt_fld_add_profile_name.getText()).length();
+	    int expected = 15;
+	    assertEquals(actual,expected);
+	}
+	
+	public void assertProfile_Already_Exist(){
+		homePage = new HomePage(android);
+		
+		WebElement txt_profile_pop_up_existing_profile = homePage.txt_profile_pop_up_existing_profile;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_profile_pop_up_existing_profile));
+	    
+	    String actual = txt_profile_pop_up_existing_profile.getText();
+	    String expected = "Profile name already in use";
+	    assertEquals(actual,expected);
+	}
+	
+	public void assertAddProfileNotShown(){
+		homePage = new HomePage(android);
+		WebElement btn_add_profile = homePage.btn_add_profile;
+	    assertFalse(isElementPresent(btn_add_profile));
 	}
 	
 	public void assertWelcomeText() {
@@ -569,8 +655,6 @@ public class Assertion extends BaseTest
 	public void assertLiveTVPlayed() {
 	    liveTvPage = new LiveTVPage(android);
 	    WebElement btn_subscribe = liveTvPage.btn_subscribe;
-	   
-
 	    Assert.assertFalse(isElementPresent(btn_subscribe));
 	}
 

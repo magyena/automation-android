@@ -7,7 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import id.visionplus.v2.MainFunction.BaseTest;
+import id.visionplus.v2.PageObjects.HomePage;
 import id.visionplus.v2.PageObjects.RegisterPage;
+import id.visionplus.v2.PageObjects.SearchPage;
 import id.visionplus.v2.PageObjects.SettingPage;
 
 public class Input extends BaseTest
@@ -15,9 +17,41 @@ public class Input extends BaseTest
 	WebDriverWait wait;
 	RegisterPage registerPage;
 	SettingPage settingPage;
+	SearchPage searchPage;
+	HomePage homePage;
 	
 	Click click = new Click();
 
+	public void inputProfileName(String keyword){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_add_profile_name = homePage.txt_fld_add_profile_name;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_add_profile_name));
+	    txt_fld_add_profile_name.sendKeys(keyword);
+	}
+	
+	public void clearProfileName(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_add_profile_name = homePage.txt_fld_add_profile_name;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_add_profile_name));
+	    txt_fld_add_profile_name.clear();
+	}
+	
+	public void inputSearch(String keyword){
+		searchPage = new SearchPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_search = searchPage.txt_fld_search;
+	    txt_fld_search.sendKeys(keyword);
+	}
+	
+	public void clearSearch(){
+		searchPage = new SearchPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_search = searchPage.txt_fld_search;
+	    txt_fld_search.clear();
+	}
+	
 	public void inputPhoneNumber(String keyword){
 		registerPage = new RegisterPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
