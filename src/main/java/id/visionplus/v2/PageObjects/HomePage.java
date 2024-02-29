@@ -83,6 +83,14 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(xpath="//*[contains(@text,'Live TV')]")
 	public static WebElement btn_live_tv;
 	
+	@AndroidFindBy(xpath="//*[contains(@text,'My Downloads')]")
+	public static WebElement btn_my_download;
+	
 	@AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView/android.view.View[1])[2]")
 	public static WebElement img_visionplus_originals_content;
+	
+	@AndroidFindBy(xpath="(/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[4]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View[3]")
+	public static WebElement img_top_10_series;
+	
+
 }

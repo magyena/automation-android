@@ -333,6 +333,14 @@ public class Click extends BaseTest
 	    btn_add_profile_ok.click();
 	}
 	
+	public void clickMyDownloads(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_my_download = homePage.btn_my_download;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_my_download));
+	    btn_my_download.click();
+	}
+	
 	public void clickAddProfileDoneButton(){
 		homePage = new HomePage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -544,7 +552,7 @@ public class Click extends BaseTest
 	    btn_back_to_help.click();
 	}
 	
-	public void clickCloseHelp(){
+	public void clickCloseToSettings(){
 		settingPage = new SettingPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    WebElement btn_help_close = settingPage.btn_help_close;
@@ -558,6 +566,14 @@ public class Click extends BaseTest
 	    WebElement btn_profile = settingPage.btn_profile;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_profile));
 	    btn_profile.click();
+	}
+	
+	public void clickTransactionHistory(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_transaction_history = settingPage.btn_transaction_history;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_transaction_history));
+	    btn_transaction_history.click();
 	}
 	
 	public void clickLogout(){
@@ -590,6 +606,14 @@ public class Click extends BaseTest
 	    WebElement btn_view_all = homePage.btn_view_all;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_view_all));
 	    btn_view_all.click();
+	}
+	
+	public void clickSeriesInTop10(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_top_10_series = homePage.img_top_10_series;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_top_10_series));
+	    img_top_10_series.click();
 	}
 	
 	public void clickVisionPlusOriginalsSeries(){
@@ -640,6 +664,30 @@ public class Click extends BaseTest
 	    btn_share.click();
 	}
 	
+	public void clickWatchTrailer(){
+		vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_trailer = vodDetailPage.btn_trailer;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_trailer));
+	    btn_trailer.click();
+	}
+	
+	public void clickSynopsis(){
+		vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_content_description = vodDetailPage.txt_content_description;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_content_description));
+	    txt_content_description.click();
+	}
+	
+	public void clickSaveToWatchlist(){
+		vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_save = vodDetailPage.btn_save;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_save));
+	    btn_save.click();
+	}
+	
 	public void clickCopyLink(){
 		vodDetailPage = new VODDetailPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -654,6 +702,14 @@ public class Click extends BaseTest
 	    WebElement img_eps_1_vod = vodDetailPage.img_eps_1_vod;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(img_eps_1_vod));
 	    img_eps_1_vod.click();
+	}
+	
+	public void clickEpsDownloadVOD(){
+		vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement btn_download = vodDetailPage.btn_download;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_download));
+	    btn_download.click();
 	}
 	
 	public void clickEps7VOD(){

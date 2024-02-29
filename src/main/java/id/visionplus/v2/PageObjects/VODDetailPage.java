@@ -20,6 +20,9 @@ public class VODDetailPage extends AndroidGesture
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/startDownloadButton")
+	public static WebElement btn_download;
+	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/watchButton")
 	public static WebElement btn_watch;
 	
@@ -49,6 +52,9 @@ public class VODDetailPage extends AndroidGesture
 	
 	@AndroidFindBy(id="android:id/chooser_copy_button")
 	public static WebElement btn_copy_link;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/trailerButton")
+	public static WebElement btn_trailer;
 	
 	@AndroidFindBy(xpath="//*[contains(@text,'Gmail')]")
 	public static WebElement txt_share_gmail;

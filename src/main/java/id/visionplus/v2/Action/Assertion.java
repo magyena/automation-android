@@ -29,6 +29,7 @@ public class Assertion extends BaseTest
 	OutsideApp outsideApp;
 	PopUpPage popupPage;
 	SearchPage searchPage;
+	MyDownloadsPage myDownloadsPage;
 	
 	public void assertSearchPage(){
 		searchPage = new SearchPage(android);
@@ -377,6 +378,17 @@ public class Assertion extends BaseTest
 	    Assert.assertEquals(actual, expected);
 	}
 	
+	public void assertMyDownloadPageFree(){
+		myDownloadsPage = new MyDownloadsPage(android);
+		
+		WebElement icon_upgrade = myDownloadsPage.icon_upgrade;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(icon_upgrade));
+	    
+	    Assert.assertTrue(icon_upgrade.isDisplayed());
+	}
+	
 	public void assertArriveHomePage(){
 		homePage = new HomePage(android);
 		
@@ -386,6 +398,17 @@ public class Assertion extends BaseTest
 	    wait.until(ExpectedConditions.visibilityOfAllElements(img_visionplus_logo));
 	    
 	    Assert.assertTrue(img_visionplus_logo.isDisplayed());
+	}
+	
+	public void assertVODinWatchlist(){
+		homePage = new HomePage(android);
+		
+		WebElement img_visionplus_originals_content = homePage.img_visionplus_originals_content;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_visionplus_originals_content));
+	    
+	    Assert.assertTrue(img_visionplus_originals_content.isDisplayed());
 	}
 	
 	public void assertUnregisteredAccountText() {	
@@ -505,6 +528,21 @@ public class Assertion extends BaseTest
 	    
 	    String actual = txt_settings_voucher_section_title.getText();
 	    String expected = "Voucher";
+	    Assert.assertEquals(actual, expected);
+	}
+	
+	public void assertTransactionHistory() {	
+		settingPage = new SettingPage(android);
+
+		WebElement txt_settings_transaction_history_section_title = settingPage.txt_settings_transaction_history_section_title;
+				
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_settings_transaction_history_section_title));
+	    
+	    Assert.assertTrue(txt_settings_transaction_history_section_title.isDisplayed());
+	    
+	    String actual = txt_settings_transaction_history_section_title.getText();
+	    String expected = "Transaction History";
 	    Assert.assertEquals(actual, expected);
 	}
 	
@@ -666,7 +704,6 @@ public class Assertion extends BaseTest
 	    }
 	}
 
-	
 	public void assertLiveTVNotPlayed(){
 			liveTvPage = new LiveTVPage(android);
 			wait = new WebDriverWait(android, Duration.ofSeconds(90));
@@ -686,6 +723,13 @@ public class Assertion extends BaseTest
 	    
 	    Assert.assertEquals(actual, expected);
 }
+	
+	public void assertDownloadButtonNotShown(){
+		vodDetailPage = new VODDetailPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		WebElement btn_download = vodDetailPage.btn_download;
+	    Assert.assertFalse(isElementPresent(btn_download));
+	}
 	
 	public void assertShareSection(){
 		vodDetailPage = new VODDetailPage(android);

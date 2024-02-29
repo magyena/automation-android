@@ -54,6 +54,26 @@ public class TC_Settings extends BaseTest {
     }
 
     @Test(priority = 2, dependsOnMethods = "TC_Access_Settings")
+    public void TC_Access_Transaction_History() throws InterruptedException {
+        try {
+            Thread.sleep(2000);
+
+            click.clickTransactionHistory();
+            test.pass("Successfully Clicked Transaction History Button");
+
+            assertion.assertTransactionHistory();
+            test.pass("Successfully Assert Transaction History Page");
+
+        } catch (Throwable e) {
+            test.fail("Script TC_Access_Transaction_History Failed: " + e.getMessage());
+            throw e;
+        }
+    	//Even though the test may failed, its still need to go back to Setting page
+        click.clickCloseToSettings();
+        test.pass("Successfully Clicked Close to Settings Button");
+    }
+
+    @Test(priority = 2, dependsOnMethods = "TC_Access_Settings")
     public void TC_Access_Manage_Profile() throws InterruptedException {
         try {
             Thread.sleep(2000);
@@ -221,7 +241,7 @@ public class TC_Settings extends BaseTest {
         } catch (Throwable e) {
             test.fail("Script TC_Access_Help_Centre Failed: " + e.getMessage());
         	//If the test its still need to go back to Setting page
-            click.clickCloseHelp();
+            click.clickCloseToSettings();
             test.pass("Successfully Clicked Close Help Center Page");
             throw e;
         }
@@ -308,7 +328,7 @@ public class TC_Settings extends BaseTest {
             throw e;
         }
     	
-        click.clickCloseHelp();
+        click.clickCloseToSettings();
         test.pass("Successfully Clicked Close Help Center Page");
     }
 

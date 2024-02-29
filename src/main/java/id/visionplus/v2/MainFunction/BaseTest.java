@@ -181,7 +181,7 @@ public class BaseTest {
 	}
 
 	public void sendCcMessage() {
-	    String message = "cc: <@1161584629011197972> <@1077483182942863470>";
+	    String message = "cc:<@1161584629011197972> <@1077483182942863470> <@1055323022334111754>";
 	    sendMessageToWebhook(webhookUrl, "application/json", message);
 	}
 	

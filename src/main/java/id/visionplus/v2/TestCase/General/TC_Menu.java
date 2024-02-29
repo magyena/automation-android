@@ -58,4 +58,22 @@ public class TC_Menu extends BaseTest{
         assertion.assertSearchPage();
         test.pass("Successfully Assert Search Page");
 	}
+	
+	public void TC_Access_My_Download_As_Free_User() throws IOException, InterruptedException, TimeoutException {
+        TC_OpenApp open_app = new TC_OpenApp();
+        open_app.TC_Open_App_as_Free_User();
+
+        Thread.sleep(2000);
+
+        click.clickMenuButton();
+        test.pass("Successfully Clicked Menu Button");
+
+        Thread.sleep(2000);
+        
+        click.clickMyDownloads();
+        test.pass("Successfully Clicked My Downloads Button");
+
+        assertion.assertMyDownloadPageFree();
+        test.pass("Successfully Assert My Downloads Page as Free User");
+	}
 }

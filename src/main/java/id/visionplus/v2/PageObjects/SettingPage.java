@@ -26,6 +26,9 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.TextView")
 	public static WebElement txt_settings_voucher_section_title;
 	
+	@AndroidFindBy(xpath="//*[contains(@text,'Transaction History')]")
+	public static WebElement txt_settings_transaction_history_section_title;
+	
 	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Whatsapp\"]")
 	public static WebElement btn_help_whatsApp;
 	
@@ -64,6 +67,9 @@ public class SettingPage extends AndroidGesture
 	
 	@AndroidFindBy(xpath="//*[contains(@text,'Legal information')]")
 	public static WebElement btn_legal_information;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Transaction history')]")
+	public static WebElement btn_transaction_history;
 	
 	@AndroidFindBy(xpath="//*[contains(@text,'Terms of Use')]")
 	public static WebElement btn_terms_of_use;
