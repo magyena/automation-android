@@ -381,12 +381,12 @@ public class Click extends BaseTest
 	    btn_cancel_almost_done.click();
 	}
 
-	public void clickLatestProfile(String random){
-        String xpathExpression = "//*[contains(text(), '" + random + "')]";
-        WebElement element = android.findElement(By.xpath(xpathExpression));
+	public void clickLatestProfile(){
+		settingPage = new SettingPage(android);
+        WebElement btn_latest_profile = settingPage.btn_latest_profile;
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    wait.until(ExpectedConditions.visibilityOfAllElements(element));
-	    element.click();
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_latest_profile));
+	    btn_latest_profile.click();
 	}
 	
 	public void clickDeleteProfile(){

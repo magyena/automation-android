@@ -8,15 +8,10 @@
 
   <test thread-count="7" name="Test">
     <classes>
-	  <class name="id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Email"/>
-	  <class name="id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Phone_Number"/>
-	  <class name="id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Free_User_Phone"/>
+	  <class name="id.visionplus.v2.TestCase.General.TC_Homepage"/>
+	  <class name="id.visionplus.v2.TestCase.General.TC_Settings"/>
 	  <class name="id.visionplus.v2.TestCase.General.TC_Search"/>
 	  <class name="id.visionplus.v2.TestCase.General.TC_Profile"/>
-	  <class name="id.visionplus.v2.TestCase.General.TC_Settings"/>
-	  <class name="id.visionplus.v2.TestCase.General.TC_Homepage"/>
-	  <class name="id.visionplus.v2.TestCase.General.TC_Menu"/>
-	  <class name="id.visionplus.v2.TestCase.General.TC_VOD_Details"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_Live_TV"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_VOD"/>
 	  <class name="id.visionplus.v2.TestCase.General.TC_Logout"/>

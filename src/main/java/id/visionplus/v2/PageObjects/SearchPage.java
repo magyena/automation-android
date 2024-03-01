@@ -29,7 +29,7 @@ public class SearchPage extends AndroidGesture
 	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Arab Maklum\"]")
 	public static WebElement img_search_vod_arab_maklum;
 	
-	@AndroidFindBy(xpath="(//*[@content-desc=\"RCTI\"])[2]")
+	@AndroidFindBy(xpath="(//*[@content-desc=\"RCTI\"])[1]")
 	public static WebElement img_search_live_tv_rcti;
 
 }

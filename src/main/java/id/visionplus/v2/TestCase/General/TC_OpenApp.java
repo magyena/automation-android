@@ -29,7 +29,7 @@ public class TC_OpenApp extends BaseTest{
 	    click.clickFirstProfile();
 	    test.pass("Successfully Clicked First Profile");
 	    
-	    Thread.sleep(2000);
+	    Thread.sleep(5000);
 	}
 	
 	

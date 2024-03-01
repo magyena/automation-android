@@ -23,6 +23,9 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Email\"]")
 	public static WebElement btn_help_email;
 	
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[8]")
+	public static WebElement btn_latest_profile;
+	
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.TextView")
 	public static WebElement txt_settings_voucher_section_title;
 	
@@ -59,7 +62,7 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath="//*[contains(@text,'Delete profile')]")
 	public static WebElement btn_delete_profile;
 	
-	@AndroidFindBy(xpath="//*[contains(@text,'Delete')]")
+	@AndroidFindBy(xpath="//*[contains(@text,'DELETE')]")
 	public static WebElement btn_delete_confirmation;
 	
 	@AndroidFindBy(xpath="//*[contains(@text,'Voucher')]")

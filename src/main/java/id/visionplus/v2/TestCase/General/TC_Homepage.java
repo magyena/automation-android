@@ -1,19 +1,16 @@
 package id.visionplus.v2.TestCase.General;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 
 import org.openqa.selenium.By;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 import expectj.TimeoutException;
 import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
 import id.visionplus.v2.Action.Scroll;
 import id.visionplus.v2.Action.Swipe;
 import id.visionplus.v2.MainFunction.BaseTest;
-import id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Free_User_Email;
 
 public class TC_Homepage extends BaseTest{
 	Click click = new Click();
