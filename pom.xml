@@ -137,7 +137,48 @@
 	<profiles>
 
         <profile>
-            <id>Regression</id>
+            <id>RegressionFree</id>
+            <!-- Configuration for the Regression profile -->
+            <build>
+                <plugins>
+                    <!-- Other plugins -->
+					<!-- Maven Surefire Plugin -->
+					<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+					                <artifactId>maven-surefire-plugin</artifactId>
+					                <version>3.1.2</version>
+					                <configuration>
+					                    <suiteXmlFiles>
+					                        <suiteXmlFile>regression.xml</suiteXmlFile>
+					                    </suiteXmlFiles>
+					                    <documentRoot>${basedir}</documentRoot>
+					                </configuration>
+					</plugin>
+                    <!-- Maven PDF Plugin execution -->
+		            <plugin>
+		                <groupId>org.apache.maven.plugins</groupId>
+		                <artifactId>maven-pdf-plugin</artifactId>
+		                <version>1.4</version>
+		                <executions>
+		                    <execution>
+		                        <id>generate-pdf-report</id>
+		                        <phase>test</phase>
+		                        <goals>
+		                            <goal>pdf</goal>
+		                        </goals>
+		                        <configuration>
+		                            <outputDirectory>target/pdf-reports</outputDirectory>
+		                            <!-- Additional configuration options if needed -->
+		                        </configuration>
+		                    </execution>
+		                </executions>
+		            </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+		<profile>
+			<id>RegressionPremiumSport</id>
             <!-- Configuration for the Regression profile -->
             <build>
                 <plugins>
@@ -175,10 +216,6 @@
 		            </plugin>
                 </plugins>
             </build>
-        </profile>
-
-		<profile>
-			<id>Smoke</id>
 
 		</profile>
 

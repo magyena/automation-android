@@ -10,6 +10,8 @@
 	<parameter name="testCaseType" value="PREMIUM_SPORT"/> <!-- Add a parameter for the test case type -->
     <classes>
 		<class name="id.visionplus.v2.TestCase.General.TC_Settings"/>
+		<class name="id.visionplus.v2.TestCase.General.TC_Homepage"/>
+		<class name="id.visionplus.v2.TestCase.General.TC_Search"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
