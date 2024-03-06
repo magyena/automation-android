@@ -2,22 +2,56 @@ package id.visionplus.v2.Action;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import id.visionplus.v2.MainFunction.BaseTest;
+import id.visionplus.v2.PageObjects.HomePage;
 import id.visionplus.v2.PageObjects.RegisterPage;
-import io.appium.java_client.android.AndroidDriver;
+import id.visionplus.v2.PageObjects.SearchPage;
+import id.visionplus.v2.PageObjects.SettingPage;
 
 public class Input extends BaseTest
 {
 	WebDriverWait wait;
 	RegisterPage registerPage;
+	SettingPage settingPage;
+	SearchPage searchPage;
+	HomePage homePage;
 	
 	Click click = new Click();
 
+	public void inputProfileName(String keyword){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_add_profile_name = homePage.txt_fld_add_profile_name;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_add_profile_name));
+	    txt_fld_add_profile_name.sendKeys(keyword);
+	}
+	
+	public void clearProfileName(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_add_profile_name = homePage.txt_fld_add_profile_name;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_add_profile_name));
+	    txt_fld_add_profile_name.clear();
+	}
+	
+	public void inputSearch(String keyword){
+		searchPage = new SearchPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_search = searchPage.txt_fld_search;
+	    txt_fld_search.sendKeys(keyword);
+	}
+	
+	public void clearSearch(){
+		searchPage = new SearchPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_search = searchPage.txt_fld_search;
+	    txt_fld_search.clear();
+	}
+	
 	public void inputPhoneNumber(String keyword){
 		registerPage = new RegisterPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -80,7 +114,7 @@ public class Input extends BaseTest
 	    WebElement fld_otp = registerPage.fld_otp;
 
 	    String existingText = fld_otp.getAttribute("text");
-
+	   	    
 	    // Loop through each character of the OTP string
 	    for (int i = 0; i < 4; i++) {
 	        // Get the digit at position i
@@ -99,8 +133,19 @@ public class Input extends BaseTest
 	    fld_otp.clear();;
 	}
 	
-	private WebElement findKeyboardKeyByDigit(char digit) {
-        String keyId = "key" + digit;
-        return android.findElement(By.id(keyId));
-    }
+	public void inputVoucher(String voucher){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_fld_voucher = settingPage.txt_fld_voucher;
+	    
+	    wait.until(ExpectedConditions.visibilityOf(txt_fld_voucher));
+	    txt_fld_voucher.sendKeys(voucher);
+	}
+	
+	public void clearVoucherField(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    WebElement txt_fld_voucher = settingPage.txt_fld_voucher;
+	    txt_fld_voucher.clear();
+	}
 }

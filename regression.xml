@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Free User Test Suites">
 
 <listeners>
-<listener class-name="id.visionplus.TestUtils.Listeners"/>
+<listener class-name="id.visionplus.v2.TestUtils.Listeners"/>
 </listeners>
 
-  <test thread-count="5" name="Test">
+  <test thread-count="7" name="Test">
     <classes>
-      <class name="id.visionplus.TestCase.General.TC_HubungiKami"/>
-      <class name="id.visionplus.TestCase.General.TC_Pertanyaan"/>
-      <class name="id.visionplus.TestCase.General.TC_SyaratKetentuan"/>
-	  <class name="id.visionplus.TestCase.Visitor.Homepage.TC_ScrollDownUp"/>
-      <class name="id.visionplus.TestCase.Visitor.Homepage.TC_SearchFilm"/>
-      <class name="id.visionplus.TestCase.Visitor.Homepage.TC_SwipeBannerAndClick"/>
-      <class name="id.visionplus.TestCase.Visitor.Login.TC_LoginWrongPhoneNumber"/>
-      <class name="id.visionplus.TestCase.Visitor.Login.TC_LoginWrongPhonePassword"/>
-      <class name="id.visionplus.TestCase.Visitor.Login.TC_SuccessLoginSignOut"/>
-      <class name="id.visionplus.TestCase.Visitor.Package.TC_PackageAssert"/>
-      <class name="id.visionplus.TestCase.Visitor.VOD.TC_ChooseScheduleFreeLinear"/>
-      <class name="id.visionplus.TestCase.Visitor.VOD.TC_PlayFreeLinear"/>
-      <class name="id.visionplus.TestCase.Visitor.VOD.TC_PlayFreeVOD"/>
-      <class name="id.visionplus.TestCase.Visitor.VOD.TC_PlayPremiumLinear"/>
-      <class name="id.visionplus.TestCase.Visitor.VOD.TC_PlayPremiumVOD"/>
+	  <class name="id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Email"/>
+	  <class name="id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Phone_Number"/>
+	  <class name="id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Free_User_Phone"/>
+ 	  <class name="id.visionplus.v2.TestCase.General.TC_Homepage"/>
+	  <class name="id.visionplus.v2.TestCase.General.TC_Settings"/>
+	  <class name="id.visionplus.v2.TestCase.General.TC_Search"/>
+	  <class name="id.visionplus.v2.TestCase.General.TC_Profile"/>
+	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_Live_TV"/>
+	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_VOD"/>
+	  <class name="id.visionplus.v2.TestCase.General.TC_Logout"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

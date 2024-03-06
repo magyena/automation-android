@@ -42,8 +42,4 @@ public class Swipe extends BaseTest{
                     .addAction(FINGER.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
             android.perform(Arrays.asList(swipe));
     }
-
-    public void swipeRight() {
-
-    }
 }

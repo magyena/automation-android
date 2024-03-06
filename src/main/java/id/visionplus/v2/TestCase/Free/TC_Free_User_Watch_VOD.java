@@ -19,7 +19,7 @@ public class TC_Free_User_Watch_VOD extends BaseTest{
 	@Test
 	public void TC_Free_User_Watch_Free_VOD() throws IOException, InterruptedException, TimeoutException {
 		TC_Homepage tc_homePage = new TC_Homepage();
-		tc_homePage.TC_Access_VOD_VPlus_Detail();
+		tc_homePage.TC_Access_VOD_Detail();
 		
 	    click.clickEps1VOD();
 	    test.pass("Successfully Clicked Episode 1 Button");
@@ -32,25 +32,37 @@ public class TC_Free_User_Watch_VOD extends BaseTest{
 	    Thread.sleep(10000);
 	    
 		click.pressBack();
-	    test.pass("Successfully Pressed Back Button");
+	    test.pass("Successfully Press Back to VOD Details Page");
 	}
 	
 	@Test(dependsOnMethods="TC_Free_User_Watch_Free_VOD")
 	public void TC_Free_User_Cannot_Watch_Premium_VOD_Series() throws IOException, InterruptedException, TimeoutException {
-		click.clickBack();
-	    test.pass("Successfully Clicked Back to VOD Details Page");
+		click.pressBack();
+	    test.pass("Successfully Press Back to VOD Details Page");
 	    
 	    Scroll scroll = new Scroll(android);
-		By locator = By.xpath("//android.view.View[starts-with(@content-desc,'E5')]");
+		By locator = By.xpath("//android.view.View[starts-with(@content-desc,'E7')]");
 		scroll.scrollUntilElementFound(locator);
-	    test.pass("Successfully Scroll Down Until VOD EP 5 Appear");
+	    test.pass("Successfully Scroll Down Until VOD EP 7 Appear");
 	    
-	    click.clickEps5VOD();
-	    test.pass("Successfully Clicked Episode 5 Button");
+	    click.clickEps7VOD();
+	    test.pass("Successfully Clicked Episode 7 Button");
 	    
 	    Thread.sleep(2000);
 
 	    assertion.assertVODIsNotPlayable();
 	    test.pass("Successfully Assert VOD Episode 5 is Not Playable and Need to Subscribe");
+	}
+	
+	@Test(dependsOnMethods="TC_Free_User_Cannot_Watch_Premium_VOD_Series")
+	public void TC_Free_User_Access_Subscribe_From_VOD() throws IOException, InterruptedException, TimeoutException {
+		click.clickSubscribe();
+	    test.pass("Successfully Clicked Subscribe Button");
+	    
+	    assertion.assertPopUpPackages();
+	    test.pass("Successfully Assert Pop Up Packages");
+	    
+	    click.pressBack();
+	    test.pass("Successfully Press Back Button");
 	}
 }

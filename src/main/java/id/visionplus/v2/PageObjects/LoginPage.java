@@ -28,4 +28,14 @@ public class LoginPage extends AndroidGesture
 	 
 	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[1]/android.view.View[2]/android.widget.TextView")
 	 public static WebElement btn_login_by_email_section;
+	 
+	 @AndroidFindBy(xpath="//android.view.View[@content-desc=\"GOOGLE\"]")
+	 public static WebElement btn_login_by_google;
+	 
+	 @AndroidFindBy(xpath="//android.view.View[@content-desc=\"FACEBOOK\"]")
+	 public static WebElement btn_login_by_facebook;
+	 
+	 @AndroidFindBy(id="com.google.android.gms:id/account_display_name")
+	 public static WebElement btn_google_account_1;	 
+
 }

@@ -50,7 +50,7 @@ public class RegisterPage extends AndroidGesture
 	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[2]/android.view.View/android.view.View/android.widget.Button")
 	 public static WebElement img_password_visible;
 	 
-	 @AndroidFindBy(xpath = "//*[starts-with(@text,'Resend in')]")
+	 @AndroidFindBy(xpath ="//*[starts-with(@text,'Resend in')]")
 	 public static WebElement txt_timer;
 	
 	 @AndroidFindBy(xpath="/hierarchy/android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.widget.TextView")
@@ -77,7 +77,7 @@ public class RegisterPage extends AndroidGesture
 	 @AndroidFindBy(xpath="//android.view.View[1]/android.widget.TextView[1]")
 	 public static WebElement txt_register_title;
 	 
-	 @AndroidFindBy(xpath="//android.view.View[2]/android.widget.Button") 
+	 @AndroidFindBy(xpath="//*/android.view.View[2]/android.widget.Button") 
 	 public static WebElement btn_register_login_submit;
 	 
 	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[1]") 

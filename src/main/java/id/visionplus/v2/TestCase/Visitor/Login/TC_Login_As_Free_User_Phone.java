@@ -33,6 +33,8 @@ public class TC_Login_As_Free_User_Phone extends BaseTest{
 		click.clickFieldPhoneNumber();
 		test.pass("Successfully Clicked Text Field Phone Number");
 		
+		input.clearPhoneNumberField();
+		
 		input.inputPhoneNumber(input_data.get("username"));
 		test.pass("Successfully Input Text Field Phone Number with Valid Unegistered Numbers");	
 
@@ -61,11 +63,15 @@ public class TC_Login_As_Free_User_Phone extends BaseTest{
 		click.clickFieldPhoneNumber();
 		test.pass("Successfully Clicked Text Field Phone Number");
 		
+		input.clearPhoneNumberField();
+		
 		input.inputPhoneNumber(input_data.get("username"));
 		test.pass("Successfully Input Text Field Phone Number with Valid Registered Numbers");	
 
 		click.clickFieldPassword();
 		test.pass("Successfully Clicked Text Field Password");
+		
+		input.clearPasswordField();
 		
 		input.inputPassword(input_data.get("password"));
 		test.pass("Successfully Input Text Field Password with Valid Registered Password");

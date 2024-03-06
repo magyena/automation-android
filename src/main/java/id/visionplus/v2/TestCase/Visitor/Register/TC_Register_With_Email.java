@@ -147,12 +147,16 @@ public class TC_Register_With_Email extends BaseTest{
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
 		
+		Thread.sleep(2000);
+		
 		assertion.assertTimer5Minutes();
 		test.pass("Successfully Assert Timer 5 Minutes");
 	}
 	
 	@Test(priority = 7, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
 	public void TC_user_input_correct_otp()throws InterruptedException, IOException{
+		Thread.sleep(2000);
+
 		input.clearOTP();
 		test.pass("Successfully Clear Text Field OTP");
 
