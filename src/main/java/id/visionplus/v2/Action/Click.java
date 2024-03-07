@@ -736,6 +736,14 @@ public class Click extends BaseTest
 	    btn_live_tv.click();
 	}
 	
+	public void clickLinearChannelCluster(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_live_tv = homePage.img_live_tv;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_live_tv));
+	    img_live_tv.click();
+	}
+	
 	public void clickFreeLinear(){
 		liveTvPage = new LiveTVPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Premium Sport User Test Suites">
+
+<listeners>
+<listener class-name="id.visionplus.v2.TestUtils.Listeners"/>
+</listeners>
+
+  <test thread-count="7" name="Test">
+	<parameter name="testCaseType" value="PREMIUM_SPORT"/> <!-- Add a parameter for the test case type -->
+    <classes>
+		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_Sport_User_Watch_Live_TV"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

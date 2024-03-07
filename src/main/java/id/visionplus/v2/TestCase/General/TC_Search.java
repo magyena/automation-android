@@ -15,12 +15,42 @@ public class TC_Search extends BaseTest{
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Input input = new Input();
+<<<<<<< HEAD
+    // Get the test case type from TestNG parameters
+    String testCaseType = System.getProperty("testCaseType");
+	
+	@Test(priority=1)
+	public void TC_Access_Search() throws IOException, InterruptedException, TimeoutException {
+        TC_OpenApp open_app = new TC_OpenApp();
+        if ("PREMIUM_SPORT".equals(testCaseType)) {
+            open_app.Choose_Login_As("PREMIUM_SPORT");
+        } else if ("FREE".equals(testCaseType)) {
+            open_app.Choose_Login_As("FREE");
+        }
+        Thread.sleep(2000);
+
+        click.clickMenuButton();
+        test.pass("Successfully Clicked Menu Button");
+
+        Thread.sleep(2000);
+
+        click.clickSearchButton();
+        test.pass("Successfully Clicked Search Button");
+        
+        assertion.assertSearchPage();
+        test.pass("Successfully Assert Search Page");
+	}
+	
+	@Test(priority=2,dependsOnMethods="TC_Access_Search()")
+	public void TC_user_can_search_VOD() throws IOException, InterruptedException, TimeoutException {
+=======
 	
 	@Test(priority=1)
 	public void TC_user_can_search_VOD() throws IOException, InterruptedException, TimeoutException {
 		TC_Menu menu = new TC_Menu();
 		menu.TC_Access_Search();
 		
+>>>>>>> master
 		input.clearSearch();
 
 		click.clickSearchField();
@@ -41,7 +71,11 @@ public class TC_Search extends BaseTest{
 		click.pressBack();
 	}
 	
+<<<<<<< HEAD
+	@Test(priority=3,dependsOnMethods="TC_user_can_search_VOD")
+=======
 	@Test(priority=2,dependsOnMethods="TC_user_can_search_VOD")
+>>>>>>> master
 	public void TC_user_can_search_LiveTv() throws IOException, InterruptedException, TimeoutException {
 		input.clearSearch();
 		
@@ -67,7 +101,11 @@ public class TC_Search extends BaseTest{
 		click.pressBack();
 	}
 	
+<<<<<<< HEAD
+	@Test(priority=3,dependsOnMethods="TC_user_can_search_VOD")
+=======
 	@Test(priority=2,dependsOnMethods="TC_user_can_search_VOD")
+>>>>>>> master
 	public void TC_user_cannot_search_with_invalid_keyword() throws IOException, InterruptedException, TimeoutException {
 		input.clearSearch();
 		

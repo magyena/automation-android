@@ -1,12 +1,13 @@
 package id.visionplus.v2.TestCase.General;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 
 import org.openqa.selenium.By;
+<<<<<<< HEAD
+=======
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
+>>>>>>> master
 import org.testng.annotations.Test;
 
 import expectj.TimeoutException;
@@ -23,6 +24,42 @@ public class TC_Settings extends BaseTest {
     Assertion assertion = new Assertion();
     Input input = new Input();
     SettingPage settingsPage = new SettingPage(android);
+<<<<<<< HEAD
+    
+    // Get the test case type from TestNG parameters
+//    String testCaseType = System.getProperty("testCaseType");
+    
+    String testCaseType = "PREMIUM_SPORT";
+
+    
+    @Test(priority = 1)
+    public void TC_Access_Settings() throws IOException, InterruptedException, TimeoutException {
+        TC_OpenApp open_app = new TC_OpenApp();
+        
+        if ("PREMIUM_SPORT".equals(testCaseType)) {
+            open_app.Choose_Login_As("PREMIUM_SPORT");
+        } else if ("FREE".equals(testCaseType)) {
+            open_app.Choose_Login_As("FREE");
+        }
+        
+        click.clickMenuButton();
+        test.pass("Successfully Clicked Menu Button");
+
+        Thread.sleep(2000);
+
+        click.clickSettingsButton();
+        test.pass("Successfully Clicked Settings Button");
+    }
+
+    @Test(priority = 2, dependsOnMethods = "TC_Access_Settings")
+    public void TC_Access_Transaction_History() throws InterruptedException {
+        try {
+            Thread.sleep(2000);
+
+            click.clickTransactionHistory();
+            test.pass("Successfully Clicked Transaction History Button");
+
+=======
 
     @DataProvider
     public Object[][] freeUserEmail() throws IOException {
@@ -61,6 +98,7 @@ public class TC_Settings extends BaseTest {
             click.clickTransactionHistory();
             test.pass("Successfully Clicked Transaction History Button");
 
+>>>>>>> master
             assertion.assertTransactionHistory();
             test.pass("Successfully Assert Transaction History Page");
 
@@ -218,12 +256,19 @@ public class TC_Settings extends BaseTest {
             test.fail("Script TC_User_input_Redeemed_Voucher Failed:" + e.getMessage());
             throw e;
         }
+<<<<<<< HEAD
+=======
     	
+>>>>>>> master
     	//Even though the test may failed, its still need to go back to Setting page
         click.pressBack();
     }
 
+<<<<<<< HEAD
+    @Test(priority = 7, dependsOnMethods = "TC_User_input_Redeemed_Voucher")
+=======
     @Test(priority = 7)
+>>>>>>> master
     public void TC_Access_Help_Centre() throws InterruptedException {
         try {
             Thread.sleep(2000);
@@ -232,6 +277,11 @@ public class TC_Settings extends BaseTest {
             
     		By locator = By.xpath("//*[contains(@text,'Help')]");
             scroll.scrollUntilElementFound(locator);
+<<<<<<< HEAD
+            
+            scroll.scrollDown(0.2);
+=======
+>>>>>>> master
 
             click.clickHelpButton();
             test.pass("Successfully Clicked Help Centre Button");
@@ -262,11 +312,63 @@ public class TC_Settings extends BaseTest {
             throw e;
         }
     	
+<<<<<<< HEAD
+    	//Even though the test may failed, its still need to go back to help page
+        click.pressBack();
+        test.pass("Successfully Press Back Button");
+    }
+
+    @Test(priority = 9, dependsOnMethods = "TC_Access_About_Us()")
+    public void TC_Access_WhatsApp() throws InterruptedException {
+    	try {
+	        Thread.sleep(2000);
+	
+	        click.clickWhatsAppInHelp();
+	        test.pass("Successfully Clicked WhatsApp Button in Help Center Page");
+	
+	        Thread.sleep(5000);
+	
+	        assertion.assertDirectToWhatsApp();
+	        test.pass("Successfully Assert WhatsApp Page");
+        } catch (Throwable e) {
+            test.fail("Script TC_Access_WhatsApp Failed: " + e.getMessage());
+            throw e;
+        }
+    	
+    	//Even though the test may failed, its still need to go back to help page
+        click.pressBack();
+        test.pass("Successfully Press Back Button");
+    }
+    
+    @Test(priority = 10, dependsOnMethods = "TC_Access_WhatsApp()")
+    public void TC_Access_Subscription_Transaction() throws InterruptedException {
+    	try {
+	        Thread.sleep(2000);
+	
+	        click.clickSubscriptionTransaction();
+	        test.pass("Successfully Clicked Subscription and Transaction Button in Help Center Page");
+	
+	        Thread.sleep(2000);
+	
+	        assertion.assertSubscriptionTransaction();
+	        test.pass("Successfully Assert Subscription and Transaction Page");
+        } catch (Throwable e) {
+            test.fail("Script TC_Access_Subscription_Transaction Failed: " + e.getMessage());
+            throw e;
+        }
+    	
+        click.pressBack();
+        test.pass("Successfully Press Back Button");
+    }
+
+    @Test(priority = 11, dependsOnMethods = "TC_Access_Subscription_Transaction()")
+=======
         click.clickBackToHelp();
         test.pass("Successfully Clicked Back to Help Center Page");
     }
 
     @Test(priority = 8, dependsOnMethods = "TC_Access_Help_Centre")
+>>>>>>> master
     public void TC_Access_Email() throws InterruptedException {
     	try {
 	        Thread.sleep(2000);
@@ -289,6 +391,9 @@ public class TC_Settings extends BaseTest {
         test.pass("Successfully Press Back Button");
     }
 
+<<<<<<< HEAD
+    @Test(priority = 12, dependsOnMethods = "TC_Access_Subscription_Transaction()")
+=======
     @Test(priority = 8, dependsOnMethods = "TC_Access_Help_Centre")
     public void TC_Access_WhatsApp() throws InterruptedException {
     	try {
@@ -333,6 +438,7 @@ public class TC_Settings extends BaseTest {
     }
 
     @Test(priority = 10)
+>>>>>>> master
     public void TC_Access_Legal_Information() throws InterruptedException {
         try {
             Thread.sleep(2000);
@@ -359,7 +465,11 @@ public class TC_Settings extends BaseTest {
         }
     }
 
+<<<<<<< HEAD
+    @Test(priority = 13, dependsOnMethods = "TC_Access_Legal_Information")
+=======
     @Test(priority = 11, dependsOnMethods = "TC_Access_Legal_Information")
+>>>>>>> master
     public void TC_Access_Software_Licenses() throws InterruptedException {
     	try {
 	        Thread.sleep(2000);

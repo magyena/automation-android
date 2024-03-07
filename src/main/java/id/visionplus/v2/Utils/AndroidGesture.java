@@ -42,7 +42,10 @@ public class AndroidGesture extends AppiumUtils {
 	public void scrollDownWithParameter(double value) {
 		Dimension size = android.manage().window().getSize();
 	    int startX = size.getWidth() / 2;
+	    
+		//semakin kecil double value scroll semakin jauh
 	    int startY = size.getHeight() / 2;
+	    
 	    int endX = startX;
 	    int endY = (int) (size.getHeight() * value);
 	    PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");

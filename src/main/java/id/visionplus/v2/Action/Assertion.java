@@ -786,4 +786,31 @@ public class Assertion extends BaseTest
 	    Assert.assertTrue(btn_like.isDisplayed());
 	    Assert.assertTrue(btn_dislike.isDisplayed());
 	}
+	
+	public void assertContentDetails() {	
+		vodDetailPage = new VODDetailPage(android);
+
+		WebElement btn_dislike = vodDetailPage.btn_dislike;
+		WebElement btn_like = vodDetailPage.btn_like;
+		WebElement btn_share = vodDetailPage.btn_share;
+		WebElement img_rating_bar = vodDetailPage.img_rating_bar;
+		WebElement txt_content_description = vodDetailPage.txt_content_description;
+		WebElement txt_content_title = vodDetailPage.txt_content_title;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_content_title));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_content_description));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_rating_bar));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_share));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_like));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_dislike));
+
+		
+	    Assert.assertTrue(txt_content_title.isDisplayed());
+	    Assert.assertTrue(txt_content_description.isDisplayed());
+	    Assert.assertTrue(img_rating_bar.isDisplayed());
+	    Assert.assertTrue(btn_share.isDisplayed());
+	    Assert.assertTrue(btn_like.isDisplayed());
+	    Assert.assertTrue(btn_dislike.isDisplayed());
+	}
 }

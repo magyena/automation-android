@@ -12,7 +12,7 @@ import id.visionplus.v2.Action.Click;
 import id.visionplus.v2.Action.Input;
 import id.visionplus.v2.MainFunction.BaseTest;
 
-public class TC_Login_As_Free_User_Email extends BaseTest{
+public class TC_Login_As_Premium_Sport_User_Email extends BaseTest{
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Input input = new Input();
@@ -98,8 +98,8 @@ public class TC_Login_As_Free_User_Email extends BaseTest{
 		test.pass("Successfully Clear Email Field");
 	}
 	
-	@Test(dataProvider="freeUserEmail", dependsOnMethods="TC_user_login_using_wrong_password")
-	public void TC_user_can_login_with_free_user_email_account(String username, String password) throws InterruptedException, TimeoutException {		
+	@Test(dependsOnMethods="TC_user_login_using_wrong_password")
+	public void TC_user_can_login(String username, String password) throws InterruptedException, TimeoutException {		
 		input.clearEmailField();
 
 		click.clickFieldEmail();
@@ -124,7 +124,17 @@ public class TC_Login_As_Free_User_Email extends BaseTest{
 		assertion.assertWelcomeText();
 		test.pass("Successfully Assert Welcome Text After Login");
 	}
-	
+	@DataProvider
+	public Object[][] freeUserEmail() throws IOException {
+		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/main/java/id/visionplus/v2/TestData/Login/free_email.json");
+		System.out.println("get User Data: "+data.get(0)); // check test data		
+		Object[][] testData = new Object[data.size()][2];
+	    for (int i = 0; i < data.size(); i++) {
+	        testData[i][0] = data.get(i).get("username");
+	        testData[i][1] = data.get(i).get("password");
+	    }
+	    return testData;
+	}
 	
 	@DataProvider
 	public Object[][] freeUserEmailWrongPassword() throws IOException {
@@ -138,17 +148,5 @@ public class TC_Login_As_Free_User_Email extends BaseTest{
 		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/main/java/id/visionplus/v2/TestData/Login/unregistered_email.json");
 		System.out.println("get User Data: "+data.get(0)); // check test data		
 		return new Object[][] {{data.get(0)}};
-	}
-	
-	@DataProvider
-	public Object[][] freeUserEmail() throws IOException {
-		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/main/java/id/visionplus/v2/TestData/Login/free_email.json");
-		System.out.println("get User Data: "+data.get(0)); // check test data		
-		Object[][] testData = new Object[data.size()][2];
-	    for (int i = 0; i < data.size(); i++) {
-	        testData[i][0] = data.get(i).get("username");
-	        testData[i][1] = data.get(i).get("password");
-	    }
-	    return testData;
 	}
 }
