@@ -15,6 +15,7 @@ public class TC_Search extends BaseTest{
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Input input = new Input();
+<<<<<<< HEAD
     // Get the test case type from TestNG parameters
     String testCaseType = System.getProperty("testCaseType");
 	
@@ -42,6 +43,14 @@ public class TC_Search extends BaseTest{
 	
 	@Test(priority=2,dependsOnMethods="TC_Access_Search()")
 	public void TC_user_can_search_VOD() throws IOException, InterruptedException, TimeoutException {
+=======
+	
+	@Test(priority=1)
+	public void TC_user_can_search_VOD() throws IOException, InterruptedException, TimeoutException {
+		TC_Menu menu = new TC_Menu();
+		menu.TC_Access_Search();
+		
+>>>>>>> master
 		input.clearSearch();
 
 		click.clickSearchField();
@@ -62,7 +71,11 @@ public class TC_Search extends BaseTest{
 		click.pressBack();
 	}
 	
+<<<<<<< HEAD
 	@Test(priority=3,dependsOnMethods="TC_user_can_search_VOD")
+=======
+	@Test(priority=2,dependsOnMethods="TC_user_can_search_VOD")
+>>>>>>> master
 	public void TC_user_can_search_LiveTv() throws IOException, InterruptedException, TimeoutException {
 		input.clearSearch();
 		
@@ -88,7 +101,11 @@ public class TC_Search extends BaseTest{
 		click.pressBack();
 	}
 	
+<<<<<<< HEAD
 	@Test(priority=3,dependsOnMethods="TC_user_can_search_VOD")
+=======
+	@Test(priority=2,dependsOnMethods="TC_user_can_search_VOD")
+>>>>>>> master
 	public void TC_user_cannot_search_with_invalid_keyword() throws IOException, InterruptedException, TimeoutException {
 		input.clearSearch();
 		

@@ -137,7 +137,11 @@
 	<profiles>
 
         <profile>
+<<<<<<< HEAD
             <id>RegressionFree</id>
+=======
+            <id>Regression</id>
+>>>>>>> master
             <!-- Configuration for the Regression profile -->
             <build>
                 <plugins>

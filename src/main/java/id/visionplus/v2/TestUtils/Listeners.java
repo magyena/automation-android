@@ -40,8 +40,11 @@ public class Listeners extends BaseTest implements ITestListener {
         test.info("Script onStart method " + result.getName());
         totalTestCases++;
         
+<<<<<<< HEAD
         System.out.println("Running Test Class: " + result.getTestClass().getName() + ", Method: " + result.getMethod().getMethodName());
         
+=======
+>>>>>>> master
         // Extract the test suite name from the result's ITestContext
         ITestContext context = result.getTestContext();
         XmlSuite xmlSuite = context.getSuite().getXmlSuite();
@@ -86,6 +89,7 @@ public class Listeners extends BaseTest implements ITestListener {
 	        // TODO Auto-generated method stub	
 	    	sendTestSuitesName(testSuitesName);
 	    	sendSummaryTestCases(totalTestCases, totalTestCases - totalTestCasesFailed - totalTestCasesSkipped, totalTestCasesFailed, totalTestCasesSkipped);
+<<<<<<< HEAD
 	    	
 	    	if(totalTestCasesFailed>0){
 		    	sendListFailedTestCases(failedTestCases);
@@ -98,7 +102,17 @@ public class Listeners extends BaseTest implements ITestListener {
 	    	if(totalTestCasesFailed==0 && totalTestCasesSkipped==0){
 	    		sendCustomMessage("All Test Case are Passed and Successfully Executed");
 	    	}
+=======
+>>>>>>> master
 	    	
+	    	if(totalTestCasesFailed>0){
+		    	sendListFailedTestCases(failedTestCases);
+		    	if(totalTestCasesSkipped>0){
+		    		sendListSkippedTestCases(skippedTestCases);
+		    	}
+	    	}else{
+	    		sendCustomMessage("All Test Case are Passed and Successfully Executed");
+	    	}	    	
 	    	sendCcMessage();
 	    	test.info("Script onFinish method " + result.getName());
 	        extent.flush();

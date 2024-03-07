@@ -32,9 +32,12 @@ public class TC_Homepage extends BaseTest{
 		
 	    click.clickVisionPlusOriginalsSeries();
 	    test.pass("Successfully Clicked VOD Vision Plus Originals");
+<<<<<<< HEAD
 	    
 	    assertion.assertVODDetails();
 	    test.pass("Successfully Assert VOD Details");
+=======
+>>>>>>> master
 	    
 	    click.clickBack();
 	    test.pass("Successfully Clicked Back to Homepage");
@@ -67,8 +70,54 @@ public class TC_Homepage extends BaseTest{
 	    
 	    assertion.assertVODDetails();
 	    test.pass("Successfully Assert VOD Details");
+<<<<<<< HEAD
 	    
 	    click.pressBack();
+=======
+	}
+	
+	@Test(dependsOnMethods="TC_Access_VisionPlusOriginals")
+	public void TC_Swipe_Live_TV() throws IOException, InterruptedException, TimeoutException {
+	    click.clickBack();
+	    test.pass("Successfully Clicked Back to Homepage");
+	    
+	    Thread.sleep(1000);
+
+		Scroll scroll = new Scroll(android);
+		By locator = By.xpath("//*[contains(@text,'Your Favorite TV Channel')]");
+	    scroll.scrollUntilElementFound(locator);
+	    
+	    click.clickViewAll();
+	    
+		Swipe swipe = new Swipe(android);
+		
+		swipe.swipeLeft();
+	    test.pass("Successfully Swiped Live Tv");
+	    
+	    click.pressBack();
+	}
+	
+	@Test(dependsOnMethods="TC_Swipe_Live_TV")
+	public void TC_Swipe_Top_10() throws IOException, InterruptedException, TimeoutException {   
+		Scroll scroll = new Scroll(android);
+		By locator = By.xpath("//*[contains(@text,'Top 10 This Week')]");
+	    scroll.scrollUntilElementFound(locator);
+	    	    	    
+		Swipe swipe = new Swipe(android);
+		
+		swipe.swipeLeft();
+	    test.pass("Successfully Swiped Top 10"); 
+	    
+	}
+	
+	@Test(dependsOnMethods="TC_Swipe_Top_10")
+	public void TC_Click_Top_10() throws IOException, InterruptedException, TimeoutException {
+	    click.clickVisionPlusOriginalsSeries();
+		test.pass("Successfully Clicked VOD in Top 10");
+		
+	    assertion.assertVODDetails();
+	    test.pass("Successfully Assert VOD Details");
+>>>>>>> master
 	}
 	
 	@Test(dependsOnMethods="TC_Access_VisionPlusOriginals")
