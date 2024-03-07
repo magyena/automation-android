@@ -38,7 +38,6 @@ public class TC_OpenApp extends BaseTest{
 	    test.pass("Successfully Clicked First Profile");
 	    
 	    Thread.sleep(5000);
-<<<<<<< HEAD
 	}
 	
 	@Test
@@ -57,8 +56,6 @@ public class TC_OpenApp extends BaseTest{
 	    test.pass("Successfully Clicked First Profile");
 	    
 	    Thread.sleep(5000);
-=======
->>>>>>> master
 	}
 	
 	

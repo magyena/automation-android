@@ -98,13 +98,8 @@ public class TC_Login_Email extends BaseTest{
 		test.pass("Successfully Clear Email Field");
 	}
 	
-<<<<<<< HEAD:src/main/java/id/visionplus/v2/TestCase/Visitor/Login/TC_Login_Email.java
 	@Test(dependsOnMethods="TC_user_login_using_wrong_password")
 	public void TC_user_can_login(String username, String password) throws InterruptedException, TimeoutException {		
-=======
-	@Test(dataProvider="freeUserEmail", dependsOnMethods="TC_user_login_using_wrong_password")
-	public void TC_user_can_login_with_free_user_email_account(String username, String password) throws InterruptedException, TimeoutException {		
->>>>>>> master:src/main/java/id/visionplus/v2/TestCase/Visitor/Login/TC_Login_As_Free_User_Email.java
 		input.clearEmailField();
 
 		click.clickFieldEmail();
