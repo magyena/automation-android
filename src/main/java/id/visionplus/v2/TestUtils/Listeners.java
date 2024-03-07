@@ -40,6 +40,8 @@ public class Listeners extends BaseTest implements ITestListener {
         test.info("Script onStart method " + result.getName());
         totalTestCases++;
         
+        System.out.println("Running Test Class: " + result.getTestClass().getName() + ", Method: " + result.getMethod().getMethodName());
+        
         // Extract the test suite name from the result's ITestContext
         ITestContext context = result.getTestContext();
         XmlSuite xmlSuite = context.getSuite().getXmlSuite();

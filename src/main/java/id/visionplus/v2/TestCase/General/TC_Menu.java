@@ -12,10 +12,13 @@ import id.visionplus.v2.MainFunction.BaseTest;
 public class TC_Menu extends BaseTest{
 	Click click = new Click();
 	Assertion assertion = new Assertion();
+	
+	String testCaseType = System.getProperty("testCaseType");
+
 	@Test
 	public void TC_Access_Live_Tv() throws IOException, InterruptedException, TimeoutException {
 		TC_OpenApp open_app = new TC_OpenApp();
-		open_app.TC_Open_App_as_Free_User();
+		open_app.Choose_Login_As(testCaseType);
 		
 		click.clickMenuButton();
 	    test.pass("Successfully Clicked Menu Button");

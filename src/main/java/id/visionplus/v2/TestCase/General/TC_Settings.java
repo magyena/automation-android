@@ -1,12 +1,8 @@
 package id.visionplus.v2.TestCase.General;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import expectj.TimeoutException;
@@ -33,7 +29,7 @@ public class TC_Settings extends BaseTest {
     @Test(priority = 1)
     public void TC_Access_Settings() throws IOException, InterruptedException, TimeoutException {
         TC_OpenApp open_app = new TC_OpenApp();
-
+        
         if ("PREMIUM_SPORT".equals(testCaseType)) {
             open_app.Choose_Login_As("PREMIUM_SPORT");
         } else if ("FREE".equals(testCaseType)) {

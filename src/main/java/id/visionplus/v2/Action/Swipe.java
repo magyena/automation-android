@@ -23,8 +23,8 @@ public class Swipe extends BaseTest{
 
     public void swipeLeft() {
         final PointerInput FINGER = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        Point start = new Point(932, 1637);
-        Point end = new Point (278, 1648);
+        Point start = new Point(932, 1650);
+        Point end = new Point (932, 1630);
         Sequence swipe = new Sequence(FINGER, 1)
                     .addAction(
                             FINGER.createPointerMove(
