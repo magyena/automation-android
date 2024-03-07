@@ -17,11 +17,12 @@ public class TC_Menu extends BaseTest{
 	
 	String testCaseType = "PREMIUM_SPORT";
 
-
 	@Test
 	public void TC_Access_Live_Tv() throws IOException, InterruptedException, TimeoutException {
 		TC_OpenApp open_app = new TC_OpenApp();
 		open_app.Choose_Login_As(testCaseType);
+		
+		System.out.println("Done LOGIN");
 		
 		click.clickMenuButton();
 	    test.pass("Successfully Clicked Menu Button");

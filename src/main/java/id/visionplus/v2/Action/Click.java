@@ -297,6 +297,7 @@ public class Click extends BaseTest
 		homePage = new HomePage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    WebElement btn_menu = homePage.btn_menu;
+	    
 	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_menu));
 	    btn_menu.click();
 	}
