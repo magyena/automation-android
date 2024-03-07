@@ -13,7 +13,10 @@ public class TC_Menu extends BaseTest{
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	
-	String testCaseType = System.getProperty("testCaseType");
+//	String testCaseType = System.getProperty("testCaseType");
+	
+	String testCaseType = "PREMIUM_SPORT";
+
 
 	@Test
 	public void TC_Access_Live_Tv() throws IOException, InterruptedException, TimeoutException {

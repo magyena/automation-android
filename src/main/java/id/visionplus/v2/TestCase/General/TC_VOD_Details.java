@@ -10,7 +10,6 @@ import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
 import id.visionplus.v2.Action.Scroll;
 import id.visionplus.v2.MainFunction.BaseTest;
-import id.visionplus.v2.TestCase.General.TC_Homepage;
 
 public class TC_VOD_Details extends BaseTest{
 	
