@@ -47,9 +47,6 @@ public class TC_Menu extends BaseTest{
 	
 	@Test
 	public void TC_Access_Search() throws IOException, InterruptedException, TimeoutException {
-        TC_OpenApp open_app = new TC_OpenApp();
-        open_app.TC_Open_App_as_Free_User();
-
         Thread.sleep(2000);
 
         click.clickMenuButton();
