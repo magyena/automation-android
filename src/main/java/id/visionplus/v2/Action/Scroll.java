@@ -42,7 +42,6 @@ public class Scroll extends AndroidGesture
             } catch (org.openqa.selenium.NoSuchElementException e) {
         		System.out.println("Element Not Found, initiate scroll down");
                 scrollDown(0.2);
-                scrollUpNoParameter(0.2);
             }
         }
 	}

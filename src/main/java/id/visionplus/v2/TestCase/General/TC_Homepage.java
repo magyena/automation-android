@@ -33,11 +33,8 @@ public class TC_Homepage extends BaseTest{
 	    click.clickVisionPlusOriginalsSeries();
 	    test.pass("Successfully Clicked VOD Vision Plus Originals");
 
-	    assertion.assertVODDetails();
-	    test.pass("Successfully Assert VOD Details");
-	    
-	    click.clickBack();
-	    test.pass("Successfully Clicked Back to Homepage");
+	    assertion.assertContentDetails();
+	    test.pass("Successfully Assert Contenty Details");
 	}
 	
 	@Test(priority=2,dependsOnMethods="TC_Access_VOD_Detail")
@@ -70,15 +67,17 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(dependsOnMethods="TC_Access_VisionPlusOriginals")
+	@Test(priority=5,dependsOnMethods="TC_Access_VisionPlusOriginals")
 	public void TC_Swipe_Live_TV() throws IOException, InterruptedException, TimeoutException {
-	    
 	    Thread.sleep(1000);
 
 		Scroll scroll = new Scroll(android);
-		By locator = By.xpath("//*[contains(@text,'Your Favorite TV Channel')]");
-	    scroll.scrollUntilElementFound(locator);
+//		By locator = By.xpath("//*[contains(@text,'Your Favorite TV Channel')]");
+//	    scroll.scrollUntilElementFound(locator);
 	    
+	    scroll.scrollDown(0.2);
+	    scroll.scrollDown(0.3);
+
 	    click.clickViewAll();
 	    
 		Swipe swipe = new Swipe(android);
@@ -89,7 +88,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(dependsOnMethods="TC_Access_VisionPlusOriginals")
+	@Test(priority=6,dependsOnMethods="TC_Access_VisionPlusOriginals")
 	public void TC_Click_Live_TV() throws IOException, InterruptedException, TimeoutException {
 	    click.clickLinearChannelCluster();
 	    test.pass("Successfully Clicked Live TV in Cluster Live TV");
@@ -100,7 +99,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(dependsOnMethods="TC_Click_Live_TV")
+	@Test(priority=7,dependsOnMethods="TC_Click_Live_TV")
 	public void TC_Swipe_Top_10() throws IOException, InterruptedException, TimeoutException {   
 		Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//*[contains(@text,'Top 10 This Week')]");
@@ -112,11 +111,23 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Swiped Top 10"); 
 	}
 	
-	@Test(dependsOnMethods="TC_Swipe_Top_10")
+	@Test(priority=8,dependsOnMethods="TC_Swipe_Top_10")
 	public void TC_Click_Top_10() throws IOException, InterruptedException, TimeoutException {
 	    click.clickVisionPlusOriginalsSeries();
 		test.pass("Successfully Clicked VOD in Top 10");
 	    assertion.assertVODDetails();
 	    test.pass("Successfully Assert VOD Details");
+	    
+	    click.pressBack();
+	}
+	
+	@Test(priority=9,dependsOnMethods="TC_Click_Top_10")
+	public void TC_Popular_Actors() throws IOException, InterruptedException, TimeoutException {   
+		Scroll scroll = new Scroll(android);
+		By locator = By.xpath("//*[contains(@text,'Popular Actors')]");
+	    scroll.scrollUntilElementFound(locator);
+	    	    	    
+	    click.clickPopularActors();
+		test.pass("Successfully Clicked Popular Actors");
 	}
 }

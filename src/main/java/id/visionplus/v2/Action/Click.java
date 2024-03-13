@@ -609,6 +609,16 @@ public class Click extends BaseTest
 	    btn_view_all.click();
 	}
 	
+	public void clickPopularActors(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_popular_actors_1 = homePage.img_popular_actors_1;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_popular_actors_1));
+	    img_popular_actors_1.click();
+	}
+	
+	
+	
 	public void clickSeriesInTop10(){
 		homePage = new HomePage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -618,11 +628,13 @@ public class Click extends BaseTest
 	}
 	
 	public void clickVisionPlusOriginalsSeries(){
+		System.out.println("Arrived at Method Click");
 		homePage = new HomePage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    WebElement img_visionplus_originals_content = homePage.img_visionplus_originals_content;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(img_visionplus_originals_content));
 	    img_visionplus_originals_content.click();
+		System.out.println("Done CLick");
 	}
 	
 	public void clickVisionPlusOriginalSeriesContent(){

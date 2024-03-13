@@ -11,8 +11,8 @@
     <classes>
 	  	<class name="id.visionplus.v2.TestCase.General.TC_Search"/>
 	  	<class name="id.visionplus.v2.TestCase.General.TC_Profile"/>
-		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_Sport_User_Watch_Live_TV"/>
-		<class name="id.visionplus.v2.TestCase.General.TC_Logout"/>
+		<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_Live_TV"/>
+		<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_VOD"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
