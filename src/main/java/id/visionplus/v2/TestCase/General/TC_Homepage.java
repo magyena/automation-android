@@ -17,9 +17,9 @@ public class TC_Homepage extends BaseTest{
 	Assertion assertion = new Assertion();
 	
 // 	  Get the test case type from TestNG parameters
-//    String testCaseType = System.getProperty("testCaseType");
+    String testCaseType = System.getProperty("testCaseType");
     
-    String testCaseType = "PREMIUM_SPORT";
+//    String testCaseType = "PREMIUM_SPORT";
 
 	@Test(priority=1)
 	public void TC_Access_VOD_Detail() throws IOException, InterruptedException, TimeoutException {
@@ -39,6 +39,8 @@ public class TC_Homepage extends BaseTest{
 	
 	@Test(priority=2,dependsOnMethods="TC_Access_VOD_Detail")
 	public void TC_Click_Banner() throws IOException, InterruptedException, TimeoutException {
+	    click.pressBack();
+
 		click.clickVODBanner();	    
 		test.pass("Successfully Clicked Banner");
 	    
@@ -122,12 +124,29 @@ public class TC_Homepage extends BaseTest{
 	}
 	
 	@Test(priority=9,dependsOnMethods="TC_Click_Top_10")
-	public void TC_Popular_Actors() throws IOException, InterruptedException, TimeoutException {   
+	public void TC_Click_Popular_Actors() throws IOException, InterruptedException, TimeoutException {   
 		Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//*[contains(@text,'Popular Actors')]");
 	    scroll.scrollUntilElementFound(locator);
 	    	    	    
 	    click.clickPopularActors();
 		test.pass("Successfully Clicked Popular Actors");
+	}
+	
+	@Test(priority=10,dependsOnMethods="TC_Click_Popular_Actors")
+	public void TC_Click_Popular_Actors_Series() throws IOException, InterruptedException, TimeoutException {   	    
+	    click.clickPopularActorsSeries();
+		test.pass("Successfully Clicked Popular Actors Series");
+		
+	    assertion.assertVODDetails();
+	    test.pass("Successfully Assert VOD Details");
+	    
+	    click.clickWatchVOD();
+		test.pass("Successfully Clicked Watch VOD");
+		
+		//wait for watch
+		Thread.sleep(10000);
+		
+	    click.pressBack();
 	}
 }
