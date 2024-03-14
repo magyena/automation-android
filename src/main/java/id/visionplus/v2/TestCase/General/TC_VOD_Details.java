@@ -17,9 +17,6 @@ public class TC_VOD_Details extends BaseTest{
 	Assertion assertion = new Assertion();	
 	@Test(priority=1)
 	public void TC_User_Like_VOD() throws IOException, InterruptedException, TimeoutException {
-		TC_Homepage tc_homePage = new TC_Homepage();
-		tc_homePage.TC_Access_VOD_Detail();
-		
 	    click.clickLikeVOD();
 	    test.pass("Successfully Clicked Like Button");
 	    
