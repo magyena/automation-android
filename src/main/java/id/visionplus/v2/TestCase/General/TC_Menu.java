@@ -13,17 +13,13 @@ public class TC_Menu extends BaseTest{
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	
-//	String testCaseType = System.getProperty("testCaseType");
+	String testCaseType = System.getProperty("testCaseType");
 	
-	String testCaseType = "PREMIUM_SPORT";
-
 	@Test
 	public void TC_Access_Live_Tv() throws IOException, InterruptedException, TimeoutException {
 		TC_OpenApp open_app = new TC_OpenApp();
 		open_app.Choose_Login_As(testCaseType);
-		
-		System.out.println("Done LOGIN");
-		
+				
 		click.clickMenuButton();
 	    test.pass("Successfully Clicked Menu Button");
 	    
@@ -49,9 +45,6 @@ public class TC_Menu extends BaseTest{
 	
 	@Test
 	public void TC_Access_Search() throws IOException, InterruptedException, TimeoutException {
-        TC_OpenApp open_app = new TC_OpenApp();
-        open_app.TC_Open_App_as_Free_User();
-
         Thread.sleep(2000);
 
         click.clickMenuButton();

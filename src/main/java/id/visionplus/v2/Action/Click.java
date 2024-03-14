@@ -609,6 +609,38 @@ public class Click extends BaseTest
 	    btn_view_all.click();
 	}
 	
+	public void clickPopularActors(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_popular_actors_1 = homePage.img_popular_actors_1;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_popular_actors_1));
+	    img_popular_actors_1.click();
+	}
+	
+	public void clickAsianActionMoviesContent(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_asian_action_movies = homePage.img_asian_action_movies;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_asian_action_movies));
+	    img_asian_action_movies.click();
+	}
+	
+	public void clickComedyContent(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_comedy_content = homePage.img_comedy_content;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_comedy_content));
+	    img_comedy_content.click();
+	}
+
+	public void clickPopularActorsSeries(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_popular_actors_series = homePage.img_popular_actors_series;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_popular_actors_series));
+	    img_popular_actors_series.click();
+	}
+	
 	public void clickSeriesInTop10(){
 		homePage = new HomePage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -631,6 +663,14 @@ public class Click extends BaseTest
 	    WebElement img_vod_1 = vplusOriginalPage.img_vod_1;
 	    wait.until(ExpectedConditions.visibilityOfAllElements(img_vod_1));
 	    img_vod_1.click();
+	}
+	
+	public void clickTvLoveCinemaContent(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_tv_love_cinema_content = homePage.img_tv_love_cinema_content;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_tv_love_cinema_content));
+	    img_tv_love_cinema_content.click();
 	}
 	
 	public void clickSubscribe(){
