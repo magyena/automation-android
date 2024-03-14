@@ -86,13 +86,27 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(xpath="//*[contains(@text,'My Downloads')]")
 	public static WebElement btn_my_download;
 	
-	@AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView/android.view.View[1])[2]")
+	@AndroidFindBy(xpath="//android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[3]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View[1]")
 	public static WebElement img_visionplus_originals_content;
 	
-	@AndroidFindBy(xpath="(/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[4]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View[3]")
+	@AndroidFindBy(xpath="//android.widget.TextView[contains(@text, 'TV, Love, Cinema')]/following::android.view.View[1]")
+	public static WebElement img_tv_love_cinema_content;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Indonesian Comedy Series')]/following::android.view.View[1]")
+	public static WebElement img_comedy_content;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Asian Action Movies')]/following::android.view.View[1]")
+	public static WebElement img_asian_action_movies;
+	
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[4]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View[3]")
 	public static WebElement img_top_10_series;
 	
-	@AndroidFindBy(xpath="(/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View[1]")
 	public static WebElement img_live_tv;
-
+	
+	@AndroidFindBy(xpath="//android.widget.TextView[contains(@text, 'Popular Actors')]/following::android.view.View[1]")
+	public static WebElement img_popular_actors_1;
+		
+	@AndroidFindBy(xpath="(//android.view.View[1])[1]")
+	public static WebElement img_popular_actors_series;
 }

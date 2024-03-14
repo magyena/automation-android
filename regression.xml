@@ -7,8 +7,9 @@
 </listeners>
 
   <test thread-count="7" name="Test">
-	  	<parameter name="testCaseType" value="FREE"/> <!-- Add a parameter for the test case type -->
+	<parameter name="testCaseType" value="FREE"/>
     <classes>
+    <class name="id.visionplus.v2.TestCase.General.TC_Homepage"/>
 	  <class name="id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Email"/>
 	  <class name="id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Phone_Number"/>
 	  <class name="id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Free_User_Phone"/>

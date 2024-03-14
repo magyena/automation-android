@@ -1,4 +1,4 @@
-package id.visionplus.v2.TestCase.Premium;
+package id.visionplus.v2.TestCase.PremiumSport;
 
 import java.io.IOException;
 
