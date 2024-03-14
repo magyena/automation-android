@@ -19,6 +19,8 @@ public class TC_OpenApp extends BaseTest{
 			TC_Open_App_as_Free_User();
 		}else if(type.equals("PREMIUM_SPORT")){
 			TC_Open_App_as_Premium_Sport_User();
+		}else  if (type.equals("PREMIUM_USER")){
+			TC_Open_app_as_Premium_User();
 		}
 	}
 	
@@ -59,6 +61,22 @@ public class TC_OpenApp extends BaseTest{
 	    
 	}
 	
+	@Test 
+	public void TC_Open_app_as_Premium_User () throws InterruptedException, TimeoutException , IOException {
+		Object [] []  testData = premiumUser();
+		// Assuming there is only one set of username and password in the data provider
+	    String email = (String) testData[0][0];
+	    String password = (String) testData[0][1];
+	    
+	    TC_Login_Email login_email = new TC_Login_Email();
+	    login_email.TC_Access_to_Login_By_Email_Page();
+	    login_email.TC_user_can_login(email, password);
+	    
+	    click.clickFirstProfile();
+	    test.pass("Successfully Clicked First Profile");
+	    
+	    Thread.sleep(5000);
+	}
 	
 	@DataProvider
 	public Object[][] freeUserEmail() throws IOException {
@@ -83,4 +101,17 @@ public class TC_OpenApp extends BaseTest{
 	    }
 	    return testData;
 	}
+	@DataProvider
+	public Object[][] premiumUser() throws IOException {
+		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/main/java/id/visionplus/v2/TestData/Login/loginPremium.json");
+		System.out.println("get User Data: "+data.get(0)); // check test data		
+		Object[][] testData = new Object[data.size()][2];
+	    for (int i = 0; i < data.size(); i++) {
+	        testData[i][0] = data.get(i).get("email");
+	        testData[i][1] = data.get(i).get("password");
+	    }
+	    return testData;
+	}
+	
+	
 }
