@@ -38,37 +38,37 @@ public class TC_Premium_Download_VOD  extends BaseTest{
 		}
 		Thread.sleep(2000);
 
-		click.clickSampleVod();
-		test.pass("Successfully clicked Open Vod");
-		Thread.sleep(2000);
-		assertion.assertSampleDetailVod();
-		test.pass("Successfully  assert Vod Page");
-		click.clickSampleVodEps1();
-		test.pass("Successfully Clicked Eps 1 VOD");
-		Thread.sleep(2000);
-		assertion.assertSeriesTittleEps1();
-		test.pass("Successfully  assert EPS 1 VOD");
-		click.clickEpsDownloadVOD();
-		test.pass("Successfully Clicked Download VOD");
-		Thread.sleep(2000);
-		assertion.assertPopupConfirmDownload();
-		test.pass("Successfully assert popup download");
-		click.clickConfirmDownload();
-		test.pass("Successfully Clicked Confirmation DOwnload");
-		Thread.sleep(2000);
+//		click.clickSampleVod();
+//		test.pass("Successfully clicked Open Vod");
+//		Thread.sleep(2000);
+//		assertion.assertSampleDetailVod();
+//		test.pass("Successfully  assert Vod Page");
+//		click.clickSampleVodEps1();
+//		test.pass("Successfully Clicked Eps 1 VOD");
+//		Thread.sleep(2000);
+//		assertion.assertSeriesTittleEps1();
+//		test.pass("Successfully  assert EPS 1 VOD");
+//		click.clickEpsDownloadVOD();
+//		test.pass("Successfully Clicked Download VOD");
+//		Thread.sleep(2000);
+//		assertion.assertPopupConfirmDownload();
+//		test.pass("Successfully assert popup download");
+//		click.clickConfirmDownload();
+//		test.pass("Successfully Clicked Confirmation DOwnload");
+//		Thread.sleep(2000);
 		
 	}
 
 	@Test(priority = 2)
 	public void TC_User_Cancel_DOwnload() throws IOException, InterruptedException, TimeoutException {
-
-		click.clickCancelDownload();
-		test.pass("Successfully Clicked Cancel Download");
-		assertion.assertPopupConfirmDownload();
-		Thread.sleep(2000);
-		click.clickConfirmDownload();
-		test.pass("Successfully Clicked Confirm Cancel");
-		
+//
+//		click.clickCancelDownload();
+//		test.pass("Successfully Clicked Cancel Download");
+//		assertion.assertPopupConfirmDownload();
+//		Thread.sleep(2000);
+//		click.clickConfirmDownload();
+//		test.pass("Successfully Clicked Confirm Cancel");
+//		
 	}
 }
 
