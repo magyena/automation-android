@@ -196,6 +196,8 @@ public class TC_Homepage extends BaseTest{
 	    vod_details.TC_User_Like_VOD();
 	    
 	    vod_details.TC_User_Can_See_Synopsis();
+	    
+	    click.clickBack();
 	}
 	
 	@Test(priority=15,dependsOnMethods="TC_Interact_in_VOD_Details")
