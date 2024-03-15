@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Premium Sport User Test Suites">
+<suite name="Premium  User Test Suites">
 
 <listeners>
 <listener class-name="id.visionplus.v2.TestUtils.Listeners"/>
