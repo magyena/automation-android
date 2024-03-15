@@ -112,12 +112,11 @@ public class TC_Homepage extends BaseTest{
 	    Thread.sleep(10000);
 	    
 	    click.pressBack();
+	    click.clickBack();
 	}
 	
 	@Test(priority=8,dependsOnMethods="TC_Play_VOD_WatchList")
 	public void TC_Swipe_Live_TV() throws IOException, InterruptedException, TimeoutException {
-	    click.pressBack();
-
 		Thread.sleep(1000);
 
 		Scroll scroll = new Scroll(android);
