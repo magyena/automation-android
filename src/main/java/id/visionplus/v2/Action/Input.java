@@ -124,6 +124,8 @@ public class Input extends BaseTest
 	        existingText += digit;	        
 	        fld_otp.sendKeys(existingText);
 	    }
+	    
+	    System.out.println("Inputed: "+otp);
 	}
 	
 	public void clearOTP(){

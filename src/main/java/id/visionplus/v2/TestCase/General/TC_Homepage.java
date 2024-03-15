@@ -50,6 +50,8 @@ public class TC_Homepage extends BaseTest{
 	
 	@Test(priority=3,dependsOnMethods="TC_Click_Banner")
 	public void TC_Play_Banner() throws IOException, InterruptedException, TimeoutException {
+		int flag=0;
+		
 		try {
 		    click.clickWatchVOD();
 		    test.pass("Successfully Clicked Watch VOD");
@@ -61,13 +63,15 @@ public class TC_Homepage extends BaseTest{
 		    } catch (Exception ex) {
 		        System.out.println("Failed to click Subscribe: " + ex.getMessage());
 		        test.fail("Failed to Click Subscribe");
+		        flag=1;
 		    }
 		}
-	    
 		Thread.sleep(10000);
-		
-	    click.pressBack();
-	    test.pass("Successfully Press Back");
+
+		if(flag==0){
+		    click.pressBack();
+		    test.pass("Successfully Press Back");
+		}
 	}
 	
 	@Test(priority=4,dependsOnMethods="TC_Play_Banner")

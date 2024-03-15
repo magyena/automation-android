@@ -101,6 +101,15 @@ public class Click extends BaseTest
 		btn_login_by_facebook.click();
 	}
 	
+	public void clickForgotPassword(){
+		loginPage = new LoginPage(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement btn_forgot_password = loginPage.btn_forgot_password;
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_forgot_password));
+		btn_forgot_password.click();
+	}
+	
 	public void clickFacebookLoginButton(){
 		outsideApp = new OutsideApp(android);
 		wait =new WebDriverWait(android,Duration.ofSeconds(60));
@@ -198,10 +207,10 @@ public class Click extends BaseTest
 	}
 	
 	public void clickFieldPhoneNumber(){
-		registerPage = new RegisterPage(android);
+	    registerPage = new RegisterPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    WebElement txt_fld_phone = registerPage.txt_fld_phone;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_phone));
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ScrollView/android.widget.EditText[1]")));
 	    txt_fld_phone.click();
 	}
 	

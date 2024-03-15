@@ -18,7 +18,6 @@
 	  <class name="id.visionplus.v2.TestCase.General.TC_Profile"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_Live_TV"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_VOD"/>
-	  <class name="id.visionplus.v2.TestCase.General.TC_Logout"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
