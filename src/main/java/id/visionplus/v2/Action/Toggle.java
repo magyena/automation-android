@@ -6,11 +6,10 @@ import java.io.InputStreamReader;
 import id.visionplus.v2.MainFunction.BaseTest;
 
 public class Toggle extends BaseTest {
-	
+	//String adbPath = "/Users/fatahalim/Library/Android/sdk/platform-tools/adb";
 
+	 String adbPath = "/users/visionplus/Library/Android/sdk/platform-tools/adb";
 	public void disable_data_connection() {
-		String adbPath = "/Users/fatahalim/Library/Android/sdk/platform-tools/adb";
-
 
 		try {
 			Process process = Runtime.getRuntime().exec(adbPath + " shell svc data disable");
@@ -22,8 +21,6 @@ public class Toggle extends BaseTest {
 	}
 
 	public void disable_wifi_connection() {
-		String adbPath = "/Users/fatahalim/Library/Android/sdk/platform-tools/adb";
-
 
 		try {
 			Process process = Runtime.getRuntime().exec(adbPath + " shell svc wifi disable");
@@ -33,9 +30,8 @@ public class Toggle extends BaseTest {
 			System.out.println("Error disabling Wifi data: " + e.getMessage());
 		}
 	}
-	public void enable_wifi_connection() {
-		String adbPath = "/Users/fatahalim/Library/Android/sdk/platform-tools/adb";
 
+	public void enable_wifi_connection() {
 
 		try {
 			Process process = Runtime.getRuntime().exec(adbPath + " shell svc wifi enable");
