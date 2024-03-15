@@ -68,8 +68,8 @@ public class TC_Premium_Download_VOD  extends BaseTest{
 		Thread.sleep(2000);
 		click.clickConfirmDownload();
 		test.pass("Successfully Clicked Confirm Cancel");
-		
-	}
+		Thread.sleep(2000);
+		}
 }
 
 

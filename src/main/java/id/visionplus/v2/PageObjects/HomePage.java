@@ -33,6 +33,7 @@ public class HomePage extends AndroidGesture
 	public static WebElement btn_view_all;
 	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/welcomeText")
+	
 	public static WebElement txt_welcome;
 	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/profiles_discover")
@@ -95,4 +96,12 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(xpath="(/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View")
 	public static WebElement img_live_tv;
 
+	@AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripRecyclerView\"])[1]/android.view.View[1]")
+	public static WebElement img_originals; //inno
+	
+	@AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/title\" and @text=\"Home\"]" )
+	public static WebElement img_home; //inno
+
+	
+	
 }
