@@ -18,6 +18,11 @@
 	  <class name="id.visionplus.v2.TestCase.General.TC_Profile"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_Live_TV"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_VOD"/>
+<<<<<<< HEAD
+=======
+	  <class name="id.visionplus.v2.TestCase.General.TC_Logout"/>
+	  <class name="id.visionplus.v2.TestCase.General.TC_Transaction_History"/> 
+>>>>>>> a2faab1 (First Push to New Branch)
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

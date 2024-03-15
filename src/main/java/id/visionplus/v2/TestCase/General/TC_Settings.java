@@ -21,11 +21,16 @@ public class TC_Settings extends BaseTest {
     SettingPage settingsPage = new SettingPage(android);
     
     // Get the test case type from TestNG parameters
+<<<<<<< HEAD
 //    String testCaseType = System.getProperty("testCaseType");
     
     String testCaseType = "PREMIUM_SPORT";
 
     
+=======
+   String testCaseType = System.getProperty("testCaseType");
+//    String testCaseType = "PREMIUM_SPORT";
+>>>>>>> a2faab1 (First Push to New Branch)
     @Test(priority = 1)
     public void TC_Access_Settings() throws IOException, InterruptedException, TimeoutException {
         TC_OpenApp open_app = new TC_OpenApp();
@@ -35,7 +40,7 @@ public class TC_Settings extends BaseTest {
         } else if ("FREE".equals(testCaseType)) {
             open_app.Choose_Login_As("FREE");
         }
-        
+         
         click.clickMenuButton();
         test.pass("Successfully Clicked Menu Button");
 
