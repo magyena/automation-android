@@ -104,6 +104,7 @@ public class HomePage extends AndroidGesture
 	
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View[1]")
 	public static WebElement img_live_tv;
+	
 	@AndroidFindBy(xpath="//android.widget.TextView[contains(@text, 'Popular Actors')]/following::android.view.View[1]")
 	public static WebElement img_popular_actors_1;
 		

@@ -80,7 +80,7 @@ public class RegisterPage extends AndroidGesture
 	 @AndroidFindBy(xpath="//*/android.view.View[2]/android.widget.Button") 
 	 public static WebElement btn_register_login_submit;
 	 
-	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[1]") 
+	 @AndroidFindBy(xpath="//android.widget.TextView[contains(@text, 'Phone Number')]/following::android.widget.EditText[1]") 
 	 public static WebElement txt_fld_phone;
 
 	 @AndroidFindBy(xpath="//android.widget.ScrollView/android.widget.EditText[1]") 

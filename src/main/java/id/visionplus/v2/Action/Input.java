@@ -2,6 +2,7 @@ package id.visionplus.v2.Action;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -57,6 +58,12 @@ public class Input extends BaseTest
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    WebElement txt_fld_phone = registerPage.txt_fld_phone;
 	    txt_fld_phone.sendKeys(keyword);
+	}
+	
+	public void inputPhoneNumberForgot(String keyword){
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement phoneNumberElement = android.findElement(By.xpath("//android.widget.TextView[@text='Phone Number']/following::android.widget.EditText[1]"));
+		phoneNumberElement.sendKeys(keyword);
 	}
 	
 	public void inputEmail(String keyword){

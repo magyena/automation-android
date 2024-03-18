@@ -3,6 +3,8 @@ package id.visionplus.v2.Action;
 import java.time.Duration;
 import java.util.Random;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -112,6 +114,23 @@ public class Click extends BaseTest {
 
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_forgot_password));
 		btn_forgot_password.click();
+	}
+	
+	public void clickPhoneNumberFieldForgot(){
+		WebDriverWait wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    
+	    int attempts = 0;
+	    while (attempts < 3) {
+	        try {
+	            WebElement phoneNumberElement = android.findElement(By.xpath("//android.widget.TextView[@text='Phone Number']/following::android.widget.EditText[1]"));
+	            wait.until(ExpectedConditions.visibilityOf(phoneNumberElement));
+	            phoneNumberElement.click();
+	            break; // If successfully clicked, exit the loop
+	        } catch (StaleElementReferenceException e) {
+	            // Element is stale, retry locating it
+	            attempts++;
+	        }
+	    }
 	}
 	
 	public void clickFacebookLoginButton(){

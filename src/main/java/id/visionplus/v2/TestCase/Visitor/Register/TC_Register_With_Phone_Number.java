@@ -296,7 +296,7 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		test.pass("Successfully Assert Arrived at Homepage");
 	}
 	
-	@Test(priority = 13, dependsOnMethods="TC_user_input_correct_otp")
+	@Test(priority = 13, dependsOnMethods = "TC_user_input_correct_otp")
 	public void TC_Access_Forgot_Password()throws InterruptedException, IOException, TimeoutException{
 		TC_Logout logout = new TC_Logout();
 		logout.TC_Access_Settings();
@@ -311,10 +311,10 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 	
 	@Test(priority = 14, dependsOnMethods = "TC_Access_Forgot_Password")
 	public void TC_Forgot_Password_Invalid_Password()throws InterruptedException, IOException, TimeoutException{
-		click.clickFieldPhoneNumber();
+		click.clickPhoneNumberFieldForgot();
 		test.pass("Successfully Clicked Text Field Phone Number");
 		
-		input.inputPhoneNumber(phone_number);
+		input.inputPhoneNumberForgot(phone_number);
 		test.pass("Successfully Input Text Field with Valid Phone Number");
 
 		click.clickFieldPassword();
@@ -366,7 +366,7 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		test.pass("Successfully Click Text Field OTP");
 
 		//Get OTP from DB
-		String otp_forgot = get_otp.get_OTP(phone_number);
+		String otp_forgot = get_otp.get_OTP("8992403181545");
 		
 		input.inputOTP(otp_forgot);
 		test.pass("Successfully Input Text Field OTP with Valid Numbers");
@@ -380,12 +380,12 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 	
 	@Test(priority = 16, dependsOnMethods = "TC_Forgot_Password_Valid_OTP")
 	public void TC_Login_After_Forgot()throws InterruptedException, IOException, TimeoutException{
-		click.clickFieldPhoneNumber();
+		click.clickPhoneNumberFieldForgot();
 		test.pass("Successfully Clicked Text Field Phone Number");
 		
 		input.clearPhoneNumberField();
 		
-		input.inputPhoneNumber("8992403151451");
+		input.inputPhoneNumber(phone_number);
 		test.pass("Successfully Input Text Field Phone Number with Valid Registered Numbers");	
 
 		click.clickFieldPassword();
