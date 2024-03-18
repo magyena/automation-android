@@ -32,7 +32,7 @@ public class Scroll extends AndroidGesture
 		gesture.scrollToText(text);
 	}
 	
-	public void scrollUntilElementFound(WebDriver android, By locator) {
+	public void scrollUntilElementFound(By locator) {
 	    int flag = 0;
 	    long startTime = System.currentTimeMillis();
 	    long timeoutInMillis = TimeUnit.SECONDS.toMillis(180);
