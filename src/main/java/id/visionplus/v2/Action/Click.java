@@ -1,12 +1,8 @@
 package id.visionplus.v2.Action;
 
-import static org.testng.Assert.fail;
-
 import java.time.Duration;
-
 import java.util.Random;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -41,6 +37,10 @@ public class Click extends BaseTest {
 	OutsideApp outsideApp;
 	SearchPage searchPage;
 	TransactionHistoryPage transactionhistoryPage;
+	
+	public void pressBack(){
+        (android).pressKey(new KeyEvent(AndroidKey.BACK));
+	}
 
 	public void clickRandom() {
 		// Get the dimensions of the browser window
@@ -103,7 +103,7 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_login_by_facebook));
 		btn_login_by_facebook.click();
 	}
-<<<<<<< HEAD
+	
 	
 	public void clickForgotPassword(){
 		loginPage = new LoginPage(android);
@@ -115,10 +115,6 @@ public class Click extends BaseTest {
 	}
 	
 	public void clickFacebookLoginButton(){
-=======
-
-	public void clickFacebookLoginButton() {
->>>>>>> a2faab1 (First Push to New Branch)
 		outsideApp = new OutsideApp(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement btn_login_facebook = outsideApp.btn_login_facebook;
@@ -136,272 +132,6 @@ public class Click extends BaseTest {
 
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_continue_as_facebook));
 		btn_continue_as_facebook.click();
-	}
-
-<<<<<<< HEAD
-	public void pressBack(){
-        (android).pressKey(new KeyEvent(AndroidKey.BACK));
-	}
-	
-	public void clickLogin(){
-		entryPage = new EntryPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_login = entryPage.btn_login;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_login));
-	    btn_login.click();
-	}
-	
-	public void clickGoogleSingleSignOn(){
-		loginPage = new LoginPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_login_by_google = loginPage.btn_login_by_google;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_login_by_google));
-	    btn_login_by_google.click();
-	}
-	
-	public void click_1st_google_account(){
-		loginPage = new LoginPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_google_account_1 = loginPage.btn_google_account_1;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_google_account_1));
-	    btn_google_account_1.click();
-	}
-	
-	public void clickTerms(){
-		entryPage = new EntryPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_terms_of_use = entryPage.btn_terms_of_use;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_terms_of_use));
-	    btn_terms_of_use.click();
-	}
-	
-	public void clickPrivacy(){
-		entryPage = new EntryPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_privacy_policy = entryPage.btn_privacy_policy;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_privacy_policy));
-	    btn_privacy_policy.click();
-	}
-	
-	public void clickRegister(){
-		entryPage = new EntryPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_register = entryPage.btn_register;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_register));
-	    btn_register.click();
-	}
-	
-	public void clickCountry(){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement icon_country_code = registerPage.icon_country_code;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(icon_country_code));
-	    icon_country_code.click();
-	}
-	
-	public void clickFieldCountry(){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement txt_fld_country_code = registerPage.txt_fld_country_code;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_country_code));
-	    txt_fld_country_code.click();
-	}
-	
-	public void clickCloseCountry(){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_close_country = registerPage.btn_close_country_code;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_close_country));
-	    btn_close_country.click();
-	}
-	
-	public void clickFieldPhoneNumber(){
-	    registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement txt_fld_phone = registerPage.txt_fld_phone;
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ScrollView/android.widget.EditText[1]")));
-	    txt_fld_phone.click();
-	}
-	
-	public void clickFieldEmail(){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement txt_fld_email = registerPage.txt_fld_email;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_email));
-	    txt_fld_email.click();
-	}
-	
-	public void clickFieldPassword(){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement txt_fld_password = registerPage.txt_fld_password;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_password));
-	    txt_fld_password.click();
-	}
-	
-	public void clickSendOTP(){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_send_otp = registerPage.btn_send_otp;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_send_otp));
-	    btn_send_otp.click();
-	}
-	
-	public void clickPasswordVisible(){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement img_password_visible = registerPage.img_password_visible;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(img_password_visible));
-	    img_password_visible.click();
-	}
-	
-	public void clickOtpFld(){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement fld_otp = registerPage.fld_otp;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(fld_otp));
-	    fld_otp.click();
-	 }
-	
-	public void clickLoginPopUp(){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_login_pop_up = registerPage.btn_login_pop_up;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_login_pop_up));
-	    btn_login_pop_up.click();
-	}
-	
-	public void clickRegisterLoginSubmitButton(){
-		registerPage = new RegisterPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_register_login_submit = registerPage.btn_register_login_submit;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_register_login_submit));
-	    btn_register_login_submit.click();
-	}
-	
-	public void clickRegisterLoginByEmailSection(){
-		loginPage = new LoginPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_login_by_email_section = loginPage.btn_login_by_email_section;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_login_by_email_section));
-	    btn_login_by_email_section.click();
-	}
-	
-	public void clickFirstProfile(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement img_1st_profile = homePage.img_1st_profile;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(img_1st_profile));
-	    img_1st_profile.click();
-	}
-	
-	public void clickSkip(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_skip = homePage.btn_skip;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_skip));
-	    btn_skip.click();
-	}
-	
-	public void clickContinue(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_continue = homePage.btn_continue;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_continue));
-	    btn_continue.click();
-	}
-	
-	public void clickMenuButton(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_menu = homePage.btn_menu;
-	    
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_menu));
-	    btn_menu.click();
-	}
-	
-	public void clickSettingsButton(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_settings = homePage.btn_settings;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_settings));
-	    btn_settings.click();
-	}
-	
-	public void clickProfileButton(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_profile = homePage.btn_profile;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_profile));
-	    btn_profile.click();
-	}
-	
-	public void clickAddProfileButton(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_add_profile = homePage.btn_add_profile;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_add_profile));
-	    btn_add_profile.click();
-	}
-	
-	public void clickAddProfileOKButton(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_add_profile_ok = homePage.btn_add_profile_ok;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_add_profile_ok));
-	    btn_add_profile_ok.click();
-	}
-	
-	public void clickMyDownloads(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_my_download = homePage.btn_my_download;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_my_download));
-	    btn_my_download.click();
-	}
-	
-	public void clickAddProfileDoneButton(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_add_profile_done = homePage.btn_add_profile_done;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_add_profile_done));
-	    btn_add_profile_done.click();
-	}
-	
-	public void clickTextFieldProfileName(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement txt_fld_add_profile_name = homePage.txt_fld_add_profile_name;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_add_profile_name));
-	    txt_fld_add_profile_name.click();
-	}
-	
-	public void clickAddProfileCancelButton(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_add_profile_cancel = homePage.btn_add_profile_cancel;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_add_profile_cancel));
-	    btn_add_profile_cancel.click();
-	}
-	
-	public void clickProfileWarningOkButton(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_existing_profile_ok = homePage.btn_existing_profile_ok;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_existing_profile_ok));
-	    btn_existing_profile_ok.click();
-	}
-	
-	public void clickProfileAlmostDoneCancelButton(){
-		homePage = new HomePage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    WebElement btn_cancel_almost_done = homePage.btn_cancel_almost_done;
-	    wait.until(ExpectedConditions.visibilityOfAllElements(btn_cancel_almost_done));
-	    btn_cancel_almost_done.click();
-=======
-	public void pressBack() {
-		(android).pressKey(new KeyEvent(AndroidKey.BACK));
->>>>>>> a2faab1 (First Push to New Branch)
 	}
 
 	public void clickLogin() {
@@ -886,9 +616,7 @@ public class Click extends BaseTest {
 		WebElement btn_view_all = homePage.btn_view_all;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_view_all));
 		btn_view_all.click();
-	}
-<<<<<<< HEAD
-	
+	}	
 	public void clickPopularActors(){
 		homePage = new HomePage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -922,10 +650,6 @@ public class Click extends BaseTest {
 	}
 	
 	public void clickSeriesInTop10(){
-=======
-
-	public void clickSeriesInTop10() {
->>>>>>> a2faab1 (First Push to New Branch)
 		homePage = new HomePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement img_top_10_series = homePage.img_top_10_series;
@@ -947,9 +671,7 @@ public class Click extends BaseTest {
 		WebElement img_vod_1 = vplusOriginalPage.img_vod_1;
 		wait.until(ExpectedConditions.visibilityOfAllElements(img_vod_1));
 		img_vod_1.click();
-	}
-<<<<<<< HEAD
-	
+	}	
 	public void clickTvLoveCinemaContent(){
 		homePage = new HomePage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -959,10 +681,6 @@ public class Click extends BaseTest {
 	}
 	
 	public void clickSubscribe(){
-=======
-
-	public void clickSubscribe() {
->>>>>>> a2faab1 (First Push to New Branch)
 		vodDetailPage = new VODDetailPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement btn_subscribe = vodDetailPage.btn_subscribe;
