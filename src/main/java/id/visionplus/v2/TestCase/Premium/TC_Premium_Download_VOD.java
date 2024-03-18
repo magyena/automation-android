@@ -61,15 +61,15 @@ public class TC_Premium_Download_VOD  extends BaseTest{
 
 	@Test(priority = 2)
 	public void TC_User_Cancel_DOwnload() throws IOException, InterruptedException, TimeoutException {
-//
-//		click.clickCancelDownload();
-//		test.pass("Successfully Clicked Cancel Download");
-//		assertion.assertPopupConfirmDownload();
-//		Thread.sleep(2000);
-//		click.clickConfirmDownload();
-//		test.pass("Successfully Clicked Confirm Cancel");
-//		
-	}
+
+		click.clickCancelDownload();
+		test.pass("Successfully Clicked Cancel Download");
+		assertion.assertPopupConfirmDownload();
+		Thread.sleep(2000);
+		click.clickConfirmDownload();
+		test.pass("Successfully Clicked Confirm Cancel");
+		Thread.sleep(2000);
+		}
 }
 
 

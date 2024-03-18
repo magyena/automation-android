@@ -1,5 +1,6 @@
 package id.visionplus.v1.PageObjects;
 
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -96,6 +97,8 @@ public class HomePageVisionPlus extends AndroidGesture
 	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.widget.Button[1]") 
 	 public static WebElement btnCloseAds;
 	 	
+
+	 
 	public WebElement getTvKuButton() {
         return android.findElement(AppiumBy.accessibilityId("TVku"));
     }

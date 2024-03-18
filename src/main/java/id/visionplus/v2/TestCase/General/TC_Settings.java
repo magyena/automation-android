@@ -24,8 +24,6 @@ public class TC_Settings extends BaseTest {
 //    String testCaseType = System.getProperty("testCaseType");
     
     String testCaseType = "PREMIUM_SPORT";
-
-    
     @Test(priority = 1)
     public void TC_Access_Settings() throws IOException, InterruptedException, TimeoutException {
         TC_OpenApp open_app = new TC_OpenApp();
@@ -35,7 +33,7 @@ public class TC_Settings extends BaseTest {
         } else if ("FREE".equals(testCaseType)) {
             open_app.Choose_Login_As("FREE");
         }
-        
+         
         click.clickMenuButton();
         test.pass("Successfully Clicked Menu Button");
 

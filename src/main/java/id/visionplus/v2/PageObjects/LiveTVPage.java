@@ -34,4 +34,20 @@ public class LiveTVPage extends AndroidGesture
 	
 	@AndroidFindBy(xpath="//*[contains(@text,'SUBSCRIBE')]")
 	public static WebElement btn_subscribe;
+	
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/live_tv_phone_channel_list_element_channel_info_info_button\"])[5]")
+	public  static WebElement btn_detail_channel; //inno
+	 
+	@AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"com.zte.iptvclient.android.idmnc:id/exo_subtitles\"]/android.view.View")
+	public static WebElement detail_channel; //inno
+
+	@AndroidFindBy(xpath="//*[contains(@text,'007')]")
+	public static WebElement img_trans_7;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'004')]")
+	public static WebElement img_inews_tv;
+	
+	@AndroidFindBy(xpath="//android.widget.ImageView[@content-desc=\"It seems that you are not connected to the Internet. Check your device's network connection and try again.\"]")
+	public static WebElement img_error_connection;
 }
+

@@ -17,8 +17,7 @@ public class TC_Search extends BaseTest{
 	Input input = new Input();
     // Get the test case type from TestNG parameters
     String testCaseType = System.getProperty("testCaseType");
- 
-	
+
 	@Test(priority=1)
 	public void TC_Access_Search() throws IOException, InterruptedException, TimeoutException {
         TC_OpenApp open_app = new TC_OpenApp();
