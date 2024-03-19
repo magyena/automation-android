@@ -118,7 +118,6 @@ public class Click extends BaseTest {
 	
 	public void clickPhoneNumberFieldForgot(){
 		WebDriverWait wait = new WebDriverWait(android, Duration.ofSeconds(60));
-	    
 	    int attempts = 0;
 	    while (attempts < 3) {
 	        try {
@@ -127,7 +126,6 @@ public class Click extends BaseTest {
 	            phoneNumberElement.click();
 	            break; // If successfully clicked, exit the loop
 	        } catch (StaleElementReferenceException e) {
-	            // Element is stale, retry locating it
 	            attempts++;
 	        }
 	    }
