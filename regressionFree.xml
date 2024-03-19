@@ -12,7 +12,6 @@
 	  <class name="id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Email"/>
 	  <class name="id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Phone_Number"/>
 	  <class name="id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Free_User_Phone"/>
-	  <class name="id.visionplus.v2.TestCase.Visitor.Login.TC_Login_as_Free_User_Google"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_Live_TV"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_VOD"/>
     </classes>
