@@ -98,7 +98,7 @@ public class TC_Login_As_Premium_Sport_User_Email extends BaseTest{
 		test.pass("Successfully Clear Email Field");
 	}
 	
-	@Test(dependsOnMethods="TC_user_login_using_wrong_password")
+	@Test(dataProvider= "PremiumUserEmail",dependsOnMethods="TC_user_login_using_wrong_password")
 	public void TC_user_can_login(String username, String password) throws InterruptedException, TimeoutException {		
 		input.clearEmailField();
 
@@ -125,8 +125,8 @@ public class TC_Login_As_Premium_Sport_User_Email extends BaseTest{
 		test.pass("Successfully Assert Welcome Text After Login");
 	}
 	@DataProvider
-	public Object[][] freeUserEmail() throws IOException {
-		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/main/java/id/visionplus/v2/TestData/Login/free_email.json");
+	public Object[][] PremiumUserEmail() throws IOException {
+		List<HashMap<String, String>> data = getJsonData(System.getProperty("user.dir")+"/src/main/java/id/visionplus/v2/TestData/Login/premiumSport_email.json");
 		System.out.println("get User Data: "+data.get(0)); // check test data		
 		Object[][] testData = new Object[data.size()][2];
 	    for (int i = 0; i < data.size(); i++) {
