@@ -16,9 +16,11 @@ dbPort="5432"
 dbPassword="4321lupa"
 SQLQuery="select otp from otps s where recipient like '%$phoneNumber' and verified=false order by created_at desc limit 1;"
 
+chmod 600 p-kp-jumphost-db.pem 
+
 # Connect to the jumphost with the private key and get the OTP value
-otpValue=$(/opt/homebrew/Cellar/sshpass/1.06/bin/sshpass -p "$jumphostPassword" ssh -T -i "$privateKey" "$jumphostUser@$jumphostHost" << EOF
-  PGPASSWORD="$dbPassword" psql -U $dbUsername -d $dbName -h $dbHost -p $dbPort -t -c "$SQLQuery" | grep -oP '\b\d+\b'
+otpValue=$(/opt/homebrew/Cellar/sshpass/1.09/bin/sshpass -p "$jumphostPassword" ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i "$privateKey" "$jumphostUser@$jumphostHost" << EOF
+  PGPASSWORD="$dbPassword" psql -U $dbUsername -d $dbName -h $dbHost -p $dbPort -t -c "$SQLQuery" | grep -oP '\b\d+\b' || echo "Error executing SQL query"
 EOF
 )
 
