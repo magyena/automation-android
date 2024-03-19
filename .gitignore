@@ -5,3 +5,4 @@ reports
 .DS_Store
 testng.xml
 connect_DB_BSS_OTP.sh
+*.sh
