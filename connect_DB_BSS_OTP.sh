@@ -17,7 +17,7 @@ dbPassword="4321lupa"
 SQLQuery="select otp from otps s where recipient like '%$phoneNumber' and verified=false order by created_at desc limit 1;"
 
 # Suppress warning message and connect to the jumphost with the private key to get the OTP value
-otpValue=$(/opt/homebrew/Cellar/sshpass/1.06/bin/sshpass -p "$jumphostPassword" ssh -T -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i "$privateKey" "$jumphostUser@$jumphostHost" 2>/dev/null << EOF
+otpValue=$(/opt/homebrew/Cellar/sshpass/1.09/bin/sshpass -p "$jumphostPassword" ssh -T -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i "$privateKey" "$jumphostUser@$jumphostHost" 2>/dev/null << EOF
   PGPASSWORD="$dbPassword" psql -U $dbUsername -d $dbName -h $dbHost -p $dbPort -t -c "$SQLQuery" | grep -oP '\b\d+\b'
 EOF
 )
