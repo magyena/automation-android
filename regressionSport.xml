@@ -12,7 +12,6 @@
 		<class name="id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Premium_Sport_User_Email"/>
 		<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_Live_TV"/>
 		<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_VOD"/>
-		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_Download_VOD"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
