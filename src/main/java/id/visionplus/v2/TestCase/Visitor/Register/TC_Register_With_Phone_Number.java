@@ -362,7 +362,7 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		test.pass("Successfully Click Text Field OTP");
 
 		//Get OTP from DB
-		String otp_forgot = get_otp.get_OTP("8992403181545");
+		String otp_forgot = get_otp.get_OTP(phone_number);
 		
 		input.inputOTP(otp_forgot);
 		test.pass("Successfully Input Text Field OTP with Valid Numbers");
