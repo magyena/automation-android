@@ -39,6 +39,8 @@ public class TC_Get_OTP{
             
             result_otp=output.toString();
             
+            System.out.println(result_otp);
+            
             return result_otp;
 	}
 	
