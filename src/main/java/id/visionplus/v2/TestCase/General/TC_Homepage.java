@@ -17,9 +17,9 @@ public class TC_Homepage extends BaseTest{
 	Assertion assertion = new Assertion();
 	
 // 	  Get the test case type from TestNG parameters
-//    String testCaseType = System.getProperty("testCaseType");
+    String testCaseType = System.getProperty("testCaseType");
     
-    String testCaseType = "PREMIUM_SPORT";
+//    String testCaseType = "PREMIUM_SPORT";
 
 	@Test(priority=1)
 	public void TC_Access_VOD_Detail() throws IOException, InterruptedException, TimeoutException {
@@ -133,7 +133,9 @@ public class TC_Homepage extends BaseTest{
 		Swipe swipe = new Swipe(android);
 		
 		swipe.swipeLeft();
-	    test.pass("Successfully Swiped Live Tv");	    
+	    test.pass("Successfully Swiped Live Tv");
+	    
+	    click.pressBack();
 	}
 	
 	@Test(priority=9,dependsOnMethods="TC_Swipe_Live_TV")
