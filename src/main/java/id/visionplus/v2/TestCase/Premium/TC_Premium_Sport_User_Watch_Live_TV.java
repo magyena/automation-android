@@ -70,7 +70,6 @@ public class TC_Premium_Sport_User_Watch_Live_TV extends BaseTest {
 	public void TC_Detail_Channel_Sport() throws IOException, InterruptedException, TimeoutException {
 		Thread.sleep(2000);
 
-		 
         click.clickMenuButton();
         Thread.sleep(2000);
         assertion.assertMenu();

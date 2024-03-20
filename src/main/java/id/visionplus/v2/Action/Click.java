@@ -18,6 +18,7 @@ import id.visionplus.v2.PageObjects.HomePage;
 import id.visionplus.v2.PageObjects.LiveTVPage;
 import id.visionplus.v2.PageObjects.LoginPage;
 import id.visionplus.v2.PageObjects.OutsideApp;
+import id.visionplus.v2.PageObjects.ProgramGuidePage;
 import id.visionplus.v2.PageObjects.RegisterPage;
 import id.visionplus.v2.PageObjects.SearchPage;
 import id.visionplus.v2.PageObjects.SettingPage;
@@ -41,7 +42,7 @@ public class Click extends BaseTest {
 	OutsideApp outsideApp;
 	SearchPage searchPage;
 	TransactionHistoryPage transactionhistoryPage;
-
+	ProgramGuidePage programguidepage;
 	public void clickRandom() {
 		// Get the dimensions of the browser window
 		long window_width = (long) android.executeScript("return window.innerWidth");
@@ -859,6 +860,49 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOf(img_inews));
 		img_inews.click();
 	}
+
+	public void clickBtnPlayBanner() { // inno
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(3));
+		WebElement btn_play = homePage.btn_play_lastBanner;
+		wait.until(ExpectedConditions.visibilityOf(btn_play));
+		btn_play.click();
+	}
+
+	public void clickBtnProgramGuide() { // inno
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(3));
+		WebElement btn_program_guide = homePage.btn_program_guide;
+		wait.until(ExpectedConditions.visibilityOf(btn_program_guide));
+		btn_program_guide.click();
+	}
+	
+	public void clickguide3() { // inno
+		programguidepage = new ProgramGuidePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(3));
+		WebElement disable_guide3 = programguidepage.disable_guide3;
+		wait.until(ExpectedConditions.visibilityOf(disable_guide3));
+		disable_guide3.click();
+	}
+
+	public void clickbtnBackGuide() { // inno
+		programguidepage = new ProgramGuidePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(3));
+		WebElement btn_back = programguidepage.btn_back;
+		wait.until(ExpectedConditions.visibilityOf(btn_back));
+		btn_back.click();
+	}
+
+	public void clickBtnWatchGuide() { // inno
+		programguidepage = new ProgramGuidePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(3));
+		WebElement btn_watch = programguidepage.btn_watch;
+		wait.until(ExpectedConditions.visibilityOf(btn_watch));
+		btn_watch.click();
+	}
+
+
+
 
 	public void clickLinearChannelCluster() {
 		homePage = new HomePage(android);

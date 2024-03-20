@@ -102,6 +102,13 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/title\" and @text=\"Home\"]" )
 	public static WebElement img_home; //inno
 
+	@AndroidFindBy(id ="com.zte.iptvclient.android.idmnc:id/container_banner_info" )
+	public static WebElement btn_play_lastBanner; //inno
+	
+	@AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/title\" and @text=\"Program Guide\"]" )
+	public static WebElement btn_program_guide; //inno
+
+
 	
 	
 }

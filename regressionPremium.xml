@@ -10,6 +10,8 @@
 	<parameter name="testCaseType" value="PREMIUM_USER"/> <!-- Add a parameter for the test case type -->
     <classes>
 		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_User_Watch_Live_TV"/> 
+		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_Watch_guide"/>
+		
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
