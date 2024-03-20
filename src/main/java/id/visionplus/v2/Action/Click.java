@@ -106,7 +106,6 @@ public class Click extends BaseTest {
 		btn_login_by_facebook.click();
 	}
 	
-	
 	public void clickForgotPassword(){
 		loginPage = new LoginPage(android);
 		wait =new WebDriverWait(android,Duration.ofSeconds(60));
