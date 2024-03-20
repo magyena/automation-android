@@ -99,6 +99,9 @@ public class HomePage extends AndroidGesture
 
 =======
 	
+	@AndroidFindBy(xpath="//android.widget.TextView[contains(@text, 'Your Favorite TV Channel')]/following::android.view.View[1]")
+	public static WebElement img_live_tv_cluster;
+	
 	@AndroidFindBy(xpath="//android.widget.TextView[contains(@text, 'Popular Actors')]/following::android.view.View[1]")
 	public static WebElement img_popular_actors_1;
 		
