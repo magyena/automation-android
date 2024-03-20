@@ -7,10 +7,7 @@ import java.time.Duration;
 import java.util.Random;
 
 import org.openqa.selenium.By;
-<<<<<<< HEAD
-=======
 import org.openqa.selenium.StaleElementReferenceException;
->>>>>>> a0fa5b1 (Change Structure)
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -108,13 +105,6 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_login_by_facebook));
 		btn_login_by_facebook.click();
 	}
-
-<<<<<<< HEAD
-	public void clickFacebookLoginButton() {
-=======
-		wait.until(ExpectedConditions.visibilityOfAllElements(btn_forgot_password));
-		btn_forgot_password.click();
-	}
 	
 	public void clickPhoneNumberFieldForgot(){
 		WebDriverWait wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -132,7 +122,6 @@ public class Click extends BaseTest {
 	}
 	
 	public void clickFacebookLoginButton(){
->>>>>>> a0fa5b1 (Change Structure)
 		outsideApp = new OutsideApp(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement btn_login_facebook = outsideApp.btn_login_facebook;
@@ -655,6 +644,14 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(img_visionplus_originals_content));
 		img_visionplus_originals_content.click();
 	}
+	
+	public void clickVisionPlusTop1Series() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement img_visionplus_originials_top_1_content = homePage.img_visionplus_originials_top_1_content;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_visionplus_originials_top_1_content));
+		img_visionplus_originials_top_1_content.click();
+	}
 
 	public void clickVisionPlusOriginalSeriesContent() {
 		vplusOriginalPage = new VPlusOriginalsPage(android);
@@ -927,9 +924,6 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOf(btn_watch));
 		btn_watch.click();
 	}
-
-
-
 
 	public void clickLinearChannelCluster() {
 		homePage = new HomePage(android);

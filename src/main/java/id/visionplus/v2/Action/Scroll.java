@@ -1,5 +1,7 @@
 package id.visionplus.v2.Action;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -26,10 +28,11 @@ public class Scroll extends AndroidGesture
 		gesture.scrollToText(text);
 	}
 	
-	public void scrollUntilElementFound(By locator){
-		System.out.println("Arrive at scroll until method");
-		int flag=0;
-
+	public void scrollUntilElementFound(By locator) {
+	    int flag = 0;
+	    long startTime = System.currentTimeMillis();
+	    long timeoutInMillis = TimeUnit.SECONDS.toMillis(120);
+	    
 		System.out.println("Initiate While Loop");
         while (flag==0) {
             try {

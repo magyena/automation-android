@@ -12,6 +12,7 @@ import id.visionplus.v2.Action.Click;
 import id.visionplus.v2.Action.Input;
 import id.visionplus.v2.MainFunction.BaseTest;
 import id.visionplus.v2.TestCase.General.*;
+import id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Free_User_Phone;
 
 public class TC_Register_With_Phone_Number extends BaseTest{
 
@@ -22,6 +23,7 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 	String phone_number=epoch_random();
 	String existing_phone_number="899012345678";
 	String prev_otp = "";
+	String new_pass = "Lupa4321";
 	
 	public String epoch_random(){
 		long epochTime = System.currentTimeMillis();
@@ -289,8 +291,6 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		assertion.assertArriveHomePage();
 		test.pass("Successfully Assert Arrived at Homepage");
 	}
-<<<<<<< HEAD
-=======
 	
 	@Test(priority = 13, dependsOnMethods = "TC_user_input_correct_otp")
 	public void TC_Access_Forgot_Password()throws InterruptedException, IOException, TimeoutException{
@@ -402,5 +402,4 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		assertion.assertWelcomeText();
 		test.pass("Successfully Assert Welcome Text After Login");
 	}
->>>>>>> a0fa5b1 (Change Structure)
 }

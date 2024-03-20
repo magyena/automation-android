@@ -90,14 +90,23 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView/android.view.View[1])[2]")
 	public static WebElement img_visionplus_originals_content;
 	
-	@AndroidFindBy(xpath="(/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[4]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View[3]")
+	@AndroidFindBy(xpath="//android.widget.TextView[contains(@text, 'Top 10 This Week')]/following::android.view.View[1]")
+	public static WebElement img_visionplus_originials_top_1_content;
+	
+	@AndroidFindBy(xpath="//android.widget.TextView[contains(@text, 'TV, Love, Cinema')]/following::android.view.View[1]")
+	public static WebElement img_tv_love_cinema_content;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Indonesian Comedy Series')]/following::android.view.View[1]")
+	public static WebElement img_comedy_content;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Asian Action Movies')]/following::android.view.View[1]")
+	public static WebElement img_asian_action_movies;
+	
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[4]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View[3]")
 	public static WebElement img_top_10_series;
 	
 	@AndroidFindBy(xpath="(/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View")
 	public static WebElement img_live_tv;
-<<<<<<< HEAD
-
-=======
 	
 	@AndroidFindBy(xpath="//android.widget.TextView[contains(@text, 'Your Favorite TV Channel')]/following::android.view.View[1]")
 	public static WebElement img_live_tv_cluster;
@@ -108,7 +117,6 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(xpath="(//android.view.View[1])[1]")
 	public static WebElement img_popular_actors_series;
 	
->>>>>>> a0fa5b1 (Change Structure)
 	@AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripRecyclerView\"])[1]/android.view.View[1]")
 	public static WebElement img_originals; //inno
 	

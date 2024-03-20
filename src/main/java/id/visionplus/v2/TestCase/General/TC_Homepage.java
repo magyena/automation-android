@@ -100,6 +100,7 @@ public class TC_Homepage extends BaseTest{
 	
 	@Test(dependsOnMethods="TC_Click_Live_TV")
 	public void TC_Swipe_Top_10() throws IOException, InterruptedException, TimeoutException {   
+		click.clickBack();
 		Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//*[contains(@text,'Top 10 This Week')]");
 	    scroll.scrollUntilElementFound(locator);
@@ -112,9 +113,83 @@ public class TC_Homepage extends BaseTest{
 	
 	@Test(dependsOnMethods="TC_Swipe_Top_10")
 	public void TC_Click_Top_10() throws IOException, InterruptedException, TimeoutException {
-	    click.clickVisionPlusOriginalsSeries();
+	    click.clickVisionPlusTop1Series();
 		test.pass("Successfully Clicked VOD in Top 10");
 	    assertion.assertVODDetails();
 	    test.pass("Successfully Assert VOD Details");
 	}
+	
+	@Test(priority=14,dependsOnMethods="TC_Click_Top_10")
+	public void TC_Interact_in_VOD_Details() throws IOException, InterruptedException, TimeoutException {
+	    TC_VOD_Details vod_details = new TC_VOD_Details();
+	    vod_details.TC_User_Like_VOD();
+	    
+	    vod_details.TC_User_Can_See_Synopsis();
+	    
+	    click.clickBack();
+	}
+	
+	@Test(priority=15,dependsOnMethods="TC_Interact_in_VOD_Details")
+	public void TC_Click_Popular_Actors() throws IOException, InterruptedException, TimeoutException { 
+		Scroll scroll = new Scroll(android);
+		By locator = By.xpath("//*[contains(@text,'Popular Actors')]");
+	    scroll.scrollUntilElementFound(locator);
+	    	    	    
+	    click.clickPopularActors();
+		test.pass("Successfully Clicked Popular Actors");
+		
+		Thread.sleep(2000);
+	}
+	
+	@Test(priority=16,dependsOnMethods="TC_Click_Popular_Actors")
+	public void TC_Click_Watch_Popular_Actors_Series() throws IOException, InterruptedException, TimeoutException {  
+		Thread.sleep(2000);
+
+	    click.clickPopularActorsSeries();
+		test.pass("Successfully Clicked Popular Actors Series");
+		
+	    assertion.assertVODDetails();
+	    test.pass("Successfully Assert VOD Details");
+	    
+	    click.clickWatchVOD();
+		test.pass("Successfully Clicked Watch VOD");
+		
+		//wait for watch
+		Thread.sleep(10000);
+		
+	    click.pressBack();
+	    click.pressBack();
+	}
+	
+	@Test(priority=17,dependsOnMethods="TC_Click_Watch_Popular_Actors_Series")
+	public void TC_Click_Comedy() throws IOException, InterruptedException, TimeoutException {  
+	    click.pressBack();
+
+		Scroll scroll = new Scroll(android);
+		By locator = By.xpath("//*[contains(@text,'Indonesian Comedy Series')]/following::android.view.View[1]");
+	    scroll.scrollUntilElementFound(locator);
+	    	    	    
+		Thread.sleep(2000);
+
+	    click.clickComedyContent();
+		test.pass("Successfully Clicked Indonesian Comedy Series");
+		
+		System.out.println("Already Clicked");
+		
+		assertion.assertVODDetails();
+		test.pass("Successfully Assert VOD Details Indonesian Comedy Series");
+	}
+	
+	@Test(priority=18,dependsOnMethods="TC_Click_Comedy")
+	public void TC_Watch_Comedy_Content() throws IOException, InterruptedException, TimeoutException {
+		Thread.sleep(2000);
+
+		click.clickWatchVOD();
+	    test.pass("Successfully Clicked Watch in VOD Details");
+
+	    Thread.sleep(10000);
+	    
+	    click.pressBack();
+	}
+
 }

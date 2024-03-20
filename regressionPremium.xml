@@ -9,14 +9,8 @@
   <test thread-count="7" name="Test">
 	<parameter name="testCaseType" value="PREMIUM_USER"/> <!-- Add a parameter for the test case type -->
     <classes>
-<<<<<<< HEAD
 		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_User_Watch_Live_TV"/> 
 		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_Watch_guide"/>
-		
-=======
-		<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_Live_TV"/> 
-		<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_VOD"/> 
->>>>>>> a0fa5b1 (Change Structure)
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

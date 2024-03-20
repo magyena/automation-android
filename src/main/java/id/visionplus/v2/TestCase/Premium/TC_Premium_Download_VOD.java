@@ -26,7 +26,6 @@ public class TC_Premium_Download_VOD  extends BaseTest{
 	Assertion assertion = new Assertion();
 	Input input = new Input();
   String testCaseType = System.getProperty("testCaseType");
-//	String testCaseType = "PREMIUM_SPORT";
 
 	@Test(priority = 1)
 	public void TC_User_Can_Download_VOD() throws IOException, InterruptedException, TimeoutException {
@@ -56,12 +55,10 @@ public class TC_Premium_Download_VOD  extends BaseTest{
 		click.clickConfirmDownload();
 		test.pass("Successfully Clicked Confirmation DOwnload");
 		Thread.sleep(2000);
-		
 	}
 
 	@Test(priority = 2)
 	public void TC_User_Cancel_DOwnload() throws IOException, InterruptedException, TimeoutException {
-
 		click.clickCancelDownload();
 		test.pass("Successfully Clicked Cancel Download");
 		assertion.assertPopupConfirmDownload();
@@ -69,7 +66,7 @@ public class TC_Premium_Download_VOD  extends BaseTest{
 		click.clickConfirmDownload();
 		test.pass("Successfully Clicked Confirm Cancel");
 		Thread.sleep(2000);
-		}
+	}
 }
 
 
