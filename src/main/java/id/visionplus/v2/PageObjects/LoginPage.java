@@ -37,5 +37,8 @@ public class LoginPage extends AndroidGesture
 	 
 	 @AndroidFindBy(id="com.google.android.gms:id/account_display_name")
 	 public static WebElement btn_google_account_1;	 
+	 
+	 @AndroidFindBy(xpath="//*[contains(@text,'Forgot Password?')]")
+	 public static WebElement btn_forgot_password;
 
 }

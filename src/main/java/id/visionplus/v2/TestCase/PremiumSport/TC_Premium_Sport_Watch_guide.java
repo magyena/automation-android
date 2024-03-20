@@ -1,4 +1,4 @@
-package id.visionplus.v2.TestCase.Premium;
+package id.visionplus.v2.TestCase.PremiumSport;
 
 import java.awt.Point;
 import java.io.IOException;
@@ -19,8 +19,7 @@ public class TC_Premium_Sport_Watch_guide extends BaseTest {
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Tap tap = new Tap();
-String testCaseType = System.getProperty("testCaseType");
-//	String testCaseType = "PREMIUM_SPORT";
+	String testCaseType = "PREMIUM_SPORT";
 
 	@Test(priority = 1) // T338
 

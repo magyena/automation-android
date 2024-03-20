@@ -19,8 +19,7 @@ public class TC_Premium_Watch_guide extends BaseTest {
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Tap tap = new Tap();
-	String testCaseType = System.getProperty("testCaseType");
-//	String testCaseType = "PREMIUM_USER";
+	String testCaseType = "PREMIUM_USER";
 
 	@Test(priority = 1) // T335
 

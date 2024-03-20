@@ -957,4 +957,37 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(img_soccer_channel));
 		img_soccer_channel.click();
 	}
+	
+	public void clickForgotPassword(){
+		loginPage = new LoginPage(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement btn_forgot_password = loginPage.btn_forgot_password;
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_forgot_password));
+		btn_forgot_password.click();
+	}
+	
+	public void clickComedyContent(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_comedy_content = homePage.img_comedy_content;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_comedy_content));
+	    img_comedy_content.click();
+	}
+	
+	public void clickPopularActorsSeries(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_popular_actors_series = homePage.img_popular_actors_series;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_popular_actors_series));
+	    img_popular_actors_series.click();
+	}
+	
+	public void clickPopularActors(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_popular_actors_1 = homePage.img_popular_actors_1;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_popular_actors_1));
+	    img_popular_actors_1.click();
+	}
 }
