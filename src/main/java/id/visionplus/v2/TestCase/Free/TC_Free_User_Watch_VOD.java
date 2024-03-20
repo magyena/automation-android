@@ -39,7 +39,6 @@ public class TC_Free_User_Watch_VOD extends BaseTest{
 	public void TC_Free_User_Cannot_Watch_Premium_VOD_Series() throws IOException, InterruptedException, TimeoutException {
 		click.pressBack();
 	    test.pass("Successfully Press Back to VOD Details Page");
-	    
 	    Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//android.view.View[starts-with(@content-desc,'E7')]");
 		scroll.scrollUntilElementFound(locator);
