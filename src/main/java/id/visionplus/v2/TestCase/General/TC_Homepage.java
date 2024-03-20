@@ -17,9 +17,9 @@ public class TC_Homepage extends BaseTest{
 	Assertion assertion = new Assertion();
 	
 // 	  Get the test case type from TestNG parameters
-    String testCaseType = System.getProperty("testCaseType");
+//    String testCaseType = System.getProperty("testCaseType");
     
-//    String testCaseType = "PREMIUM_SPORT";
+    String testCaseType = "PREMIUM_SPORT";
 
 	@Test(priority=1)
 	public void TC_Access_VOD_Detail() throws IOException, InterruptedException, TimeoutException {
@@ -202,6 +202,7 @@ public class TC_Homepage extends BaseTest{
 	    vod_details.TC_User_Can_See_Synopsis();
 	    
 	    click.clickBack();
+	    click.pressBack();
 	}
 	
 	@Test(priority=15,dependsOnMethods="TC_Interact_in_VOD_Details")

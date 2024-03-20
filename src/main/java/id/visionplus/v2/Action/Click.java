@@ -924,7 +924,7 @@ public class Click extends BaseTest {
 	public void clickLinearChannelCluster() {
 		homePage = new HomePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
-		WebElement img_live_tv = homePage.img_live_tv;
+		WebElement img_live_tv = homePage.img_live_tv_cluster;
 		wait.until(ExpectedConditions.visibilityOfAllElements(img_live_tv));
 		img_live_tv.click();
 	}
