@@ -289,4 +289,118 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		assertion.assertArriveHomePage();
 		test.pass("Successfully Assert Arrived at Homepage");
 	}
+<<<<<<< HEAD
+=======
+	
+	@Test(priority = 13, dependsOnMethods = "TC_user_input_correct_otp")
+	public void TC_Access_Forgot_Password()throws InterruptedException, IOException, TimeoutException{
+		TC_Logout logout = new TC_Logout();
+		logout.TC_Access_Settings();
+		logout.TC_Access_Logout();
+		
+		TC_Login_As_Free_User_Phone login_as_free_phone = new TC_Login_As_Free_User_Phone();
+		login_as_free_phone.TC_Access_to_Login_Page();
+		
+		click.clickForgotPassword();
+		Thread.sleep(3000);
+	}
+	
+	@Test(priority = 14, dependsOnMethods = "TC_Access_Forgot_Password")
+	public void TC_Forgot_Password_Invalid_Password()throws InterruptedException, IOException, TimeoutException{
+		click.clickPhoneNumberFieldForgot();
+		test.pass("Successfully Clicked Text Field Phone Number");
+		
+		input.inputPhoneNumberForgot(phone_number);
+		test.pass("Successfully Input Text Field with Valid Phone Number");
+
+		click.clickFieldPassword();
+		test.pass("Successfully Clicked Text Field Password");
+		
+		input.inputPassword("lupa4321");
+		test.pass("Successfully Input Text Field Password with Valid Password");
+		
+		Thread.sleep(3000);
+		assertion.assertTextWarningPasswordPhone();
+		test.pass("Successfully Assert Text Warning Password is Displayed");
+	}
+	
+	@Test(priority = 15, dependsOnMethods = "TC_Forgot_Password_Invalid_Password")
+	public void TC_Forgot_Password_Wrong_OTP()throws InterruptedException, IOException, TimeoutException{
+		Thread.sleep(3000);
+		
+		input.clearPasswordField();
+
+		click.clickFieldPassword();
+		test.pass("Successfully Clicked Text Field Password");
+		
+		input.inputPassword(new_pass);
+		test.pass("Successfully Input Text Field Password with Valid Password");
+		
+		click.clickSendOTP();
+		test.pass("Successfully Clicked Send OTP");
+		
+		click.clickOtpFld();
+		test.pass("Successfully Click Text Field OTP");
+
+		input.inputOTP("1234");
+		test.pass("Successfully Input Text Field OTP with Invalid Numbers");
+		
+		android.hideKeyboard();
+		
+		click.clickRegisterLoginSubmitButton();
+		test.pass("Successfully Clicked Register Submit Button");
+		
+		assertion.assertTextWarningOTPWrong();
+		test.pass("Successfully Assert Text Warning OTP is Displayed");
+	}
+	
+	@Test(priority = 15, dependsOnMethods = "TC_Forgot_Password_Wrong_OTP")
+	public void TC_Forgot_Password_Valid_OTP()throws InterruptedException, IOException, TimeoutException{
+		input.clearOTP();
+		
+		click.clickOtpFld();
+		test.pass("Successfully Click Text Field OTP");
+
+		//Get OTP from DB
+		String otp_forgot = get_otp.get_OTP("8992403181545");
+		
+		input.inputOTP(otp_forgot);
+		test.pass("Successfully Input Text Field OTP with Valid Numbers");
+		System.out.println("Done Input OTP");
+		
+		android.hideKeyboard();
+		
+		click.clickRegisterLoginSubmitButton();
+		test.pass("Successfully Clicked Register Submit Button");
+	}
+	
+	@Test(priority = 16, dependsOnMethods = "TC_Forgot_Password_Valid_OTP")
+	public void TC_Login_After_Forgot()throws InterruptedException, IOException, TimeoutException{
+		click.clickPhoneNumberFieldForgot();
+		test.pass("Successfully Clicked Text Field Phone Number");
+		
+		input.clearPhoneNumberField();
+		
+		input.inputPhoneNumber(phone_number);
+		test.pass("Successfully Input Text Field Phone Number with Valid Registered Numbers");	
+
+		click.clickFieldPassword();
+		test.pass("Successfully Clicked Text Field Password");
+		
+		input.clearPasswordField();
+		
+		input.inputPassword(new_pass);
+		test.pass("Successfully Input Text Field Password with Valid Changed Password");
+		
+		android.hideKeyboard();
+		
+		click.clickRegisterLoginSubmitButton();
+		test.pass("Successfully Clicked Login Submit Button");
+		
+		Thread.sleep(3000);
+		
+		assertion.assertWelcomeText();
+		test.pass("Successfully Assert Welcome Text After Login");
+	}
+>>>>>>> a0fa5b1 (Change Structure)
 }

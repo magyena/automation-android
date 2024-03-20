@@ -95,7 +95,17 @@ public class HomePage extends AndroidGesture
 	
 	@AndroidFindBy(xpath="(/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.View")
 	public static WebElement img_live_tv;
+<<<<<<< HEAD
 
+=======
+	
+	@AndroidFindBy(xpath="//android.widget.TextView[contains(@text, 'Popular Actors')]/following::android.view.View[1]")
+	public static WebElement img_popular_actors_1;
+		
+	@AndroidFindBy(xpath="(//android.view.View[1])[1]")
+	public static WebElement img_popular_actors_series;
+	
+>>>>>>> a0fa5b1 (Change Structure)
 	@AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripRecyclerView\"])[1]/android.view.View[1]")
 	public static WebElement img_originals; //inno
 	

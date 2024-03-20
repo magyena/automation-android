@@ -12,17 +12,17 @@
 	  <class name="id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Email"/>
 	  <class name="id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Phone_Number"/>
 	  <class name="id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Free_User_Phone"/>
-	  <class name="id.visionplus.v2.TestCase.General.TC_Settings"/>
-	  <class name="id.visionplus.v2.TestCase.General.TC_Search"/>
-	  <class name="id.visionplus.v2.TestCase.General.TC_Profile"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_Live_TV"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_VOD"/>
+<<<<<<< HEAD
 	  <class name="id.visionplus.v2.TestCase.General.TC_Logout"/>
 	  <class name="id.visionplus.v2.TestCase.General.TC_Transaction_History"/> 
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Download_VOD"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_Guide"/>
 	  
 	  
+=======
+>>>>>>> a0fa5b1 (Change Structure)
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
