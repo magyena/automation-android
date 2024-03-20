@@ -1,15 +1,12 @@
 package id.visionplus.v2.TestCase.PremiumSport;
 
-import java.awt.Point;
 import java.io.IOException;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import expectj.TimeoutException;
 import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
-import id.visionplus.v2.Action.Swipe;
 import id.visionplus.v2.Action.Tap;
 import id.visionplus.v2.MainFunction.BaseTest;
 import id.visionplus.v2.TestCase.General.TC_OpenApp;

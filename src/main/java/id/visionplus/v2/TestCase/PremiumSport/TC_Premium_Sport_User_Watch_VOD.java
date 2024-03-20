@@ -2,13 +2,11 @@ package id.visionplus.v2.TestCase.PremiumSport;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import expectj.TimeoutException;
 import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
-import id.visionplus.v2.Action.Scroll;
 import id.visionplus.v2.MainFunction.BaseTest;
 import id.visionplus.v2.TestCase.General.TC_Homepage;
 

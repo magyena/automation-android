@@ -3,11 +3,7 @@ package id.visionplus.v2.TestCase.Visitor.Register;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.testng.annotations.Test;
-
-import com.itextpdf.text.log.SysoCounter;
-
 import expectj.TimeoutException;
 import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
