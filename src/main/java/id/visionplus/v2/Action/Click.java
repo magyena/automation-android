@@ -44,10 +44,7 @@ public class Click extends BaseTest {
 	TransactionHistoryPage transactionhistoryPage;
 	ProgramGuidePage programguidepage;
 
-	public void pressBack(){
-        (android).pressKey(new KeyEvent(AndroidKey.BACK));
-	}
-  
+
 	public void clickRandom() {
 		// Get the dimensions of the browser window
 		long window_width = (long) android.executeScript("return window.innerWidth");
@@ -110,14 +107,7 @@ public class Click extends BaseTest {
 		btn_login_by_facebook.click();
 	}
 	
-	public void clickForgotPassword(){
-		loginPage = new LoginPage(android);
-		wait =new WebDriverWait(android,Duration.ofSeconds(60));
-		WebElement btn_forgot_password = loginPage.btn_forgot_password;
-
-		wait.until(ExpectedConditions.visibilityOfAllElements(btn_forgot_password));
-		btn_forgot_password.click();
-	}
+	
 	public void clickPhoneNumberFieldForgot(){
 		WebDriverWait wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    int attempts = 0;
