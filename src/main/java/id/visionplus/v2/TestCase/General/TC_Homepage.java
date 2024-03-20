@@ -84,9 +84,7 @@ public class TC_Homepage extends BaseTest{
 		Swipe swipe = new Swipe(android);
 		
 		swipe.swipeLeft();
-	    test.pass("Successfully Swiped Live Tv");
-	    
-	    click.pressBack();
+	    test.pass("Successfully Swiped Live Tv");	    
 	}
 	
 	@Test(dependsOnMethods="TC_Access_VisionPlusOriginals")
