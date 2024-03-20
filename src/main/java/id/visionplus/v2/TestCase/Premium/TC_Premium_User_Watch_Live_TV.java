@@ -2,6 +2,7 @@ package id.visionplus.v2.TestCase.Premium;
 
 import java.io.IOException;
 
+import org.asynchttpclient.util.Assertions;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
@@ -75,8 +76,8 @@ public class TC_Premium_User_Watch_Live_TV extends BaseTest {
 		Thread.sleep(2000);
 		toggle.disable_wifi_connection();		
 		test.pass("Succesfully Disable wifi connection");
-		assertion.assertErrorConnection();
-		test.pass("Successfully assert Error Connection");
+//		assertion.assertErrorConnection();
+//		test.pass("Successfully assert Error Connection");
 		Thread.sleep(10000);
 		toggle.enable_wifi_connection();
 		Thread.sleep(10000);

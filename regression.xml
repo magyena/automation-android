@@ -9,6 +9,7 @@
   <test thread-count="7" name="Test">
 	<parameter name="testCaseType" value="FREE"/>
     <classes>
+      <class name="id.visionplus.v2.TestCase.General.TC_Homepage"/>
 	  	<class name="id.visionplus.v2.TestCase.General.TC_Search"/>
 	  	<class name="id.visionplus.v2.TestCase.General.TC_Profile"/>
 	  	<class name="id.visionplus.v2.TestCase.General.TC_Logout"/>

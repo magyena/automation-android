@@ -1,6 +1,6 @@
 package id.visionplus.v2.Action;
-
 import java.time.Duration;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -35,26 +35,22 @@ public class Scroll extends AndroidGesture
 	public void scrollUntilElementFound(By locator) {
 	    int flag = 0;
 	    long startTime = System.currentTimeMillis();
-	    long timeoutInMillis = TimeUnit.SECONDS.toMillis(180);
-
-	    while (flag == 0 && System.currentTimeMillis() - startTime <= timeoutInMillis) {
-	        try {
-	            WebElement element = android.findElement(locator);
-	            if (element.isDisplayed()) {
-	                System.out.println("Element Found");
-	                flag = 1;
-	                break;
-	            }
-	        } catch (NoSuchElementException e) {
-	            System.out.println("Element Not Found, initiate scroll down");
-	            scrollDown(0.2);
-	            scrollUp(0.3);
-	        }
-	    }
-
-	    if (flag == 0) {
-	        System.out.println("Element not found within the timeout period.");
-	    }
+	    long timeoutInMillis = TimeUnit.SECONDS.toMillis(120);
+	    
+		System.out.println("Initiate While Loop");
+        while (flag==0) {
+            try {
+                WebElement element = android.findElement(locator);
+                if (element.isDisplayed()) {
+            		System.out.println("Element Found");
+            		flag=1;
+                    break;
+                }
+            } catch (org.openqa.selenium.NoSuchElementException e) {
+        		System.out.println("Element Not Found, initiate scroll down");
+                scrollDown(0.2);
+            }
+        }
 	}
 	
 	public void scrollDown(double value) {

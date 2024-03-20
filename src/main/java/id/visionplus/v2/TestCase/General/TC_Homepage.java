@@ -133,9 +133,7 @@ public class TC_Homepage extends BaseTest{
 		Swipe swipe = new Swipe(android);
 		
 		swipe.swipeLeft();
-	    test.pass("Successfully Swiped Live Tv");
-	    
-	    click.pressBack();
+	    test.pass("Successfully Swiped Live Tv");	    
 	}
 	
 	@Test(priority=9,dependsOnMethods="TC_Swipe_Live_TV")
@@ -175,7 +173,7 @@ public class TC_Homepage extends BaseTest{
 	@Test(priority=12,dependsOnMethods="TC_Watch_TV_Love_Cinema_Content")
 	public void TC_Swipe_Top_10() throws IOException, InterruptedException, TimeoutException {   
 		click.pressBack();
-		
+
 		Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//android.widget.TextView[contains(@text, 'Top 10 This Week')]/following::android.view.View[1]");
 	    scroll.scrollUntilElementFound(locator);
@@ -188,7 +186,7 @@ public class TC_Homepage extends BaseTest{
 	
 	@Test(priority=13,dependsOnMethods="TC_Swipe_Top_10")
 	public void TC_Click_Top_10() throws IOException, InterruptedException, TimeoutException {
-	    click.clickVisionPlusOriginalsSeries();
+	    click.clickVisionPlusTop1Series();
 		test.pass("Successfully Clicked VOD in Top 10");
 	    assertion.assertVODDetails();
 	    test.pass("Successfully Assert VOD Details");
@@ -203,6 +201,7 @@ public class TC_Homepage extends BaseTest{
 	    
 	    click.clickBack();
 	    click.pressBack();
+
 	}
 	
 	@Test(priority=15,dependsOnMethods="TC_Interact_in_VOD_Details")
@@ -249,7 +248,6 @@ public class TC_Homepage extends BaseTest{
 
 	    click.clickComedyContent();
 		test.pass("Successfully Clicked Indonesian Comedy Series");
-		
 		assertion.assertVODDetails();
 		test.pass("Successfully Assert VOD Details Indonesian Comedy Series");
 	}

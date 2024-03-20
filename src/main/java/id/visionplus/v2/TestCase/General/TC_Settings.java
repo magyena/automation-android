@@ -21,8 +21,6 @@ public class TC_Settings extends BaseTest {
     SettingPage settingsPage = new SettingPage(android);
     
     // Get the test case type from TestNG parameters
-//    String testCaseType = System.getProperty("testCaseType");
-    
     String testCaseType = "PREMIUM_SPORT";
     @Test(priority = 1)
     public void TC_Access_Settings() throws IOException, InterruptedException, TimeoutException {

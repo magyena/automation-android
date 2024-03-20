@@ -103,5 +103,7 @@ public class VODDetailPage extends AndroidGesture {
 	@AndroidFindBy(xpath = "(//android.widget.LinearLayout[@resource-id=\"com.whatsapp:id/contactpicker_text_container\"])[4]")
 	public static WebElement btn_share_Wa_Number; // inno
 
+	@AndroidFindBy(xpath="//android.widget.TextView[@text=\"Download\"]")
+	public static WebElement body_details_VOD; // inno
 }
 

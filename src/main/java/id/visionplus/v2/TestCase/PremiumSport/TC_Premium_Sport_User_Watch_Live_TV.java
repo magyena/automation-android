@@ -65,7 +65,6 @@ public class TC_Premium_Sport_User_Watch_Live_TV extends BaseTest {
 		test.pass("Successfully Assert Live TV is Played");
 
 	}
-
 	@Test(priority = 3, dependsOnMethods = "TC_Premium_Sport_User_Watch_Premium_Sport_Linear")
 	public void TC_Detail_Channel_Sport() throws IOException, InterruptedException, TimeoutException {
         Scroll scrolll = new Scroll(android);

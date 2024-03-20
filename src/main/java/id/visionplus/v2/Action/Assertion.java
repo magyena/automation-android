@@ -5,6 +5,8 @@ import static org.testng.Assert.assertFalse;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByTagName;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -30,6 +32,8 @@ public class Assertion extends BaseTest {
 	SearchPage searchPage;
 	MyDownloadsPage myDownloadsPage;
 	TransactionHistoryPage transactionshistoryPage;
+	ProgramGuidePage programguidepage;
+
 
 	public void assertSearchPage() {
 		searchPage = new SearchPage(android);
@@ -159,7 +163,7 @@ public class Assertion extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(txt_register_title));
 
 		wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_password));
-
+    
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_register_submit));
 
 		Assert.assertTrue(txt_register_title.isDisplayed());
@@ -801,6 +805,64 @@ public class Assertion extends BaseTest {
 
 		Assert.assertTrue(error_connection.isDisplayed());
 	}
+
+	public void assertDetailVod() { // inno
+		vodDetailPage = new VODDetailPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement watch_vod = vodDetailPage.btn_watch;
+		wait.until(ExpectedConditions.visibilityOfAllElements(watch_vod));
+
+		Assert.assertTrue(watch_vod.isDisplayed());
+	}
+
+	public void assertDownloadTextNotPresent() { // inno
+//		vplusOriginalPage = new VPlusOriginalsPage(android);
+//		WebDriverWait wait = new WebDriverWait(android, Duration.ofSeconds(20));
+//		
+		String pageSource = android.getPageSource();
+		String textToAssert = "Download";
+
+		if (!pageSource.contains(textToAssert)) {
+			System.out.println("Assertion Passed: Text '" + textToAssert + "' is not present on the page.");
+		} else {
+			throw new AssertionError("Assertion Failed: Text '" + textToAssert + "' is present on the page.");
+		}
+	}
+
+	public void assertProgramGuide() { // inno
+		String pageSource = android.getPageSource();
+		String textToAssert = "Channel list";
+
+		if (pageSource.contains(textToAssert)) {
+			System.out.println("Assertion Passed: Text '" + textToAssert + "' is present on the page.");
+		} else {
+			throw new AssertionError("Assertion Failed: Text '" + textToAssert + "' is not present on the page.");
+		}
+	}
+
+	public void assertDisableGuide() { // inno
+		programguidepage = new ProgramGuidePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement disable_guide = programguidepage.disable_guide4;
+		wait.until(ExpectedConditions.visibilityOfAllElements(disable_guide));
+
+		Assert.assertTrue(disable_guide.isDisplayed());
+	}
+
+	public void assertDetailProgramGuide() { // inno
+	    programguidepage = new ProgramGuidePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    try {
+	        WebElement watchButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("watchButton")));
+	        WebElement btn_watch = programguidepage.btn_watch;
+	        Assert.assertFalse(btn_watch.isDisplayed(), "Assertion Failed: Watch Button is Display");
+	    } catch (TimeoutException e) {
+	        Assert.assertTrue(true, "Assertion Passed: Watch Button is not displayed");
+	        System.out.println("Assertion Passed: Watch Button not Showing");
+	    }
+	}
+
+
 	public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;

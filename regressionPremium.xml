@@ -7,9 +7,10 @@
 </listeners>
 
   <test thread-count="7" name="Test">
-	<parameter name="testCaseType" value="USER_PREMIUM"/> <!-- Add a parameter for the test case type -->
+	<parameter name="testCaseType" value="PREMIUM_USER"/> <!-- Add a parameter for the test case type -->
     <classes>
 		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_User_Watch_Live_TV"/> 
+		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_Watch_guide"/>
 		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_Download_VOD"/> 
     </classes>
   </test> <!-- Test -->
