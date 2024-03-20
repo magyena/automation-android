@@ -40,6 +40,5 @@ public class LoginPage extends AndroidGesture
 	 
 	 @AndroidFindBy(id="com.google.android.gms:id/account_display_name")
 	 public static WebElement btn_google_account_1;	 
-	
 
 }

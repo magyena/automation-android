@@ -1,7 +1,5 @@
 package id.visionplus.v2.Action;
 
-import static org.testng.Assert.fail;
-
 import java.time.Duration;
 import java.util.Random;
 
@@ -143,9 +141,6 @@ public class Click extends BaseTest {
 		btn_continue_as_facebook.click();
 	}
 
-	public void pressBack() {
-		(android).pressKey(new KeyEvent(AndroidKey.BACK));
-	}
 	public void clickLogin() {
 		entryPage = new EntryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -964,15 +959,6 @@ public class Click extends BaseTest {
 
 		wait.until(ExpectedConditions.visibilityOfAllElements(img_soccer_channel));
 		img_soccer_channel.click();
-	}
-	
-	public void clickForgotPassword(){
-		loginPage = new LoginPage(android);
-		wait =new WebDriverWait(android,Duration.ofSeconds(60));
-		WebElement btn_forgot_password = loginPage.btn_forgot_password;
-
-		wait.until(ExpectedConditions.visibilityOfAllElements(btn_forgot_password));
-		btn_forgot_password.click();
 	}
 	
 	public void clickComedyContent(){

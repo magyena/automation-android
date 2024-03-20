@@ -15,11 +15,8 @@ import id.visionplus.v2.MainFunction.BaseTest;
 public class TC_Homepage extends BaseTest{
 	Click click = new Click();
 	Assertion assertion = new Assertion();
-	
-// 	  Get the test case type from TestNG parameters
-    String testCaseType = System.getProperty("testCaseType");
     
-//    String testCaseType = "PREMIUM_SPORT";
+    String testCaseType = "PREMIUM_SPORT";
 
 	@Test(priority=1)
 	public void TC_Access_VOD_Detail() throws IOException, InterruptedException, TimeoutException {
@@ -138,7 +135,9 @@ public class TC_Homepage extends BaseTest{
 	
 	@Test(priority=9,dependsOnMethods="TC_Swipe_Live_TV")
 	public void TC_Click_Live_TV() throws IOException, InterruptedException, TimeoutException {
-	    click.clickLinearChannelCluster();
+	    click.pressBack();
+		
+		click.clickLinearChannelCluster();
 	    test.pass("Successfully Clicked Live TV in Cluster Live TV");
 	    
 	    assertion.assertLiveTVPlayed();
