@@ -1,10 +1,14 @@
 package id.visionplus.v2.Action;
+import java.time.Duration;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import id.visionplus.v2.Utils.AndroidGesture;
@@ -54,8 +58,8 @@ public class Scroll extends AndroidGesture
 		gesture.scrollDownWithParameter(value);
 	}
 	
-	public void scrollUpNoParameter(double value) {
+	public void scrollUp(double value) {
 		AndroidGesture gesture = new AndroidGesture(android);
-		gesture.scrollUpWithParameter(1);
+		gesture.scrollUpWithParameter(value);
 	}
 }

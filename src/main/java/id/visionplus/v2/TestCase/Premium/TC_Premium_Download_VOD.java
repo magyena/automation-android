@@ -55,6 +55,7 @@ public class TC_Premium_Download_VOD  extends BaseTest{
 		click.clickConfirmDownload();
 		test.pass("Successfully Clicked Confirmation DOwnload");
 		Thread.sleep(2000);
+
 	}
 
 	@Test(priority = 2)

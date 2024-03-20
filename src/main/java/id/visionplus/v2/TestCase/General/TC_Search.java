@@ -17,7 +17,7 @@ public class TC_Search extends BaseTest{
 	Input input = new Input();
     // Get the test case type from TestNG parameters
     String testCaseType = System.getProperty("testCaseType");
-//	String testCaseType = "PREMIUM_SPORT";
+
 	@Test(priority=1)
 	public void TC_Access_Search() throws IOException, InterruptedException, TimeoutException {
         TC_OpenApp open_app = new TC_OpenApp();
@@ -38,12 +38,11 @@ public class TC_Search extends BaseTest{
         
         assertion.assertSearchPage();
         test.pass("Successfully Assert Search Page");
+        
 	}
 	
 	@Test(priority=2,dependsOnMethods="TC_Access_Search()")
 	public void TC_user_can_search_VOD() throws IOException, InterruptedException, TimeoutException {
-		TC_Menu menu = new TC_Menu();
-		menu.TC_Access_Search();
 		input.clearSearch();
 
 		click.clickSearchField();

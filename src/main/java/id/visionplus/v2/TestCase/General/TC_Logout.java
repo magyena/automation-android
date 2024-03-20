@@ -14,11 +14,8 @@ public class TC_Logout extends BaseTest{
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	
-	@Test
+	@Test(priority=1)
 	public void TC_Access_Settings() throws IOException, InterruptedException, TimeoutException {
-		TC_OpenApp open_app = new TC_OpenApp();
-		open_app.TC_Open_App_as_Free_User();
-
 	    Thread.sleep(2000);
 
 	    click.clickMenuButton();
@@ -30,7 +27,7 @@ public class TC_Logout extends BaseTest{
 	    test.pass("Successfully Clicked Settings Button");
 	}
 	
-	@Test(dependsOnMethods="TC_Access_Settings")
+	@Test(priority=2, dependsOnMethods="TC_Access_Settings")
 	public void TC_Access_Logout() throws InterruptedException{
 	    Thread.sleep(2000);
 

@@ -34,6 +34,7 @@ public class Assertion extends BaseTest {
 	TransactionHistoryPage transactionshistoryPage;
 	ProgramGuidePage programguidepage;
 
+
 	public void assertSearchPage() {
 		searchPage = new SearchPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -162,7 +163,7 @@ public class Assertion extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(txt_register_title));
 
 		wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_password));
-
+    
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_register_submit));
 
 		Assert.assertTrue(txt_register_title.isDisplayed());

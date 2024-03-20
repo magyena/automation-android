@@ -28,10 +28,8 @@ public class VPlusOriginalsPage extends AndroidGesture
 	
 	@AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripRecyclerView\"])[2]/android.view.View[1]")
 	public static WebElement sample_vod; //inno
-	
+  
 	@AndroidFindBy(xpath="com.zte.iptvclient.android.idmnc:id/media_player_title_textview")
 	public static WebElement txt_Vod_Play; //inno
-	
-	
-	
+
 }

@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.asynchttpclient.util.Assertions;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+
 import expectj.TimeoutException;
 import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
@@ -45,7 +46,6 @@ public class TC_Premium_User_Watch_Live_TV extends BaseTest {
 		test.pass("Successfully Clicked Premium Linear");
 		assertion.assertLiveTVPlayed();
 		test.pass("Successfully Asser Premium Live TV Played");
-
 	}
 
 	@Test(priority = 2)
@@ -64,9 +64,7 @@ public class TC_Premium_User_Watch_Live_TV extends BaseTest {
 	}
 
 	@Test(priority = 3)
-	public void TC_User_See_Live_TV_Channel_Then_Disconnect_internet()
-			throws IOException, InterruptedException, TimeoutException {
-
+	public void TC_User_See_Live_TV_Channel_Then_Disconnect_internet() throws IOException, InterruptedException, TimeoutException {
 		Thread.sleep(2000);
 		Scroll scroll = new Scroll(android);
 		scroll.scrollUpWithParameter(100.0);
@@ -83,8 +81,5 @@ public class TC_Premium_User_Watch_Live_TV extends BaseTest {
 		Thread.sleep(10000);
 		toggle.enable_wifi_connection();
 		Thread.sleep(10000);
-		
-		
 	}
-
 }

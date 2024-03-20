@@ -6,6 +6,8 @@ import java.util.Date;
 
 import org.testng.annotations.Test;
 
+import com.itextpdf.text.log.SysoCounter;
+
 import expectj.TimeoutException;
 import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
@@ -179,6 +181,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 
 		click.clickFieldPassword();
 		test.pass("Successfully Clicked Text Field Password");
+		
+		System.out.println(phone_number);
 		
 		Thread.sleep(3000);
 		input.inputPassword("4321Lupa");

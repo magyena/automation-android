@@ -3,7 +3,6 @@ package id.visionplus.v2.Action;
 import static org.testng.Assert.fail;
 
 import java.time.Duration;
-
 import java.util.Random;
 
 import org.openqa.selenium.By;
@@ -44,6 +43,11 @@ public class Click extends BaseTest {
 	SearchPage searchPage;
 	TransactionHistoryPage transactionhistoryPage;
 	ProgramGuidePage programguidepage;
+
+	public void pressBack(){
+        (android).pressKey(new KeyEvent(AndroidKey.BACK));
+	}
+  
 	public void clickRandom() {
 		// Get the dimensions of the browser window
 		long window_width = (long) android.executeScript("return window.innerWidth");
@@ -106,6 +110,14 @@ public class Click extends BaseTest {
 		btn_login_by_facebook.click();
 	}
 	
+	public void clickForgotPassword(){
+		loginPage = new LoginPage(android);
+		wait =new WebDriverWait(android,Duration.ofSeconds(60));
+		WebElement btn_forgot_password = loginPage.btn_forgot_password;
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_forgot_password));
+		btn_forgot_password.click();
+	}
 	public void clickPhoneNumberFieldForgot(){
 		WebDriverWait wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    int attempts = 0;
@@ -144,7 +156,6 @@ public class Click extends BaseTest {
 	public void pressBack() {
 		(android).pressKey(new KeyEvent(AndroidKey.BACK));
 	}
-
 	public void clickLogin() {
 		entryPage = new EntryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -659,6 +670,13 @@ public class Click extends BaseTest {
 		WebElement img_vod_1 = vplusOriginalPage.img_vod_1;
 		wait.until(ExpectedConditions.visibilityOfAllElements(img_vod_1));
 		img_vod_1.click();
+	}	
+	public void clickTvLoveCinemaContent(){
+		homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_tv_love_cinema_content = homePage.img_tv_love_cinema_content;
+	    wait.until(ExpectedConditions.visibilityOfAllElements(img_tv_love_cinema_content));
+	    img_tv_love_cinema_content.click();
 	}
 
 	public void clickSubscribe() {

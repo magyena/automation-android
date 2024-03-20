@@ -11,6 +11,7 @@
     <classes>
 		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_User_Watch_Live_TV"/> 
 		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_Watch_guide"/>
+		<class name="id.visionplus.v2.TestCase.Premium.TC_Premium_Download_VOD"/> 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

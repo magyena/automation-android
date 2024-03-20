@@ -82,7 +82,33 @@ public class Swipe extends BaseTest {
 	            .addAction(FINGER.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 	    android.perform(Arrays.asList(swipee));
 	}
+  
+	 private AndroidDriver android;
+	 
+    public Swipe(AndroidDriver android) {
+        this.android = android;
+    }
 
-	
+    public void swipeLeft() {
+        final PointerInput FINGER = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Point start = new Point(932, 1650);
+        Point end = new Point (1083, 1650);
+        Sequence swipe = new Sequence(FINGER, 1)
+                    .addAction(
+                            FINGER.createPointerMove(
+                                    Duration.ofMillis(0),
+                                    PointerInput.Origin.viewport(),
+                                    start.getX(),
+                                    start.getY()))
+                    .addAction(FINGER.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                    .addAction(
+                            FINGER.createPointerMove(
+                                    Duration.ofMillis(1000),
+                                    PointerInput.Origin.viewport(),
+                                    end.getX(),
+                                    end.getY()))
+                    .addAction(FINGER.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            android.perform(Arrays.asList(swipe));
+    }
 }
 

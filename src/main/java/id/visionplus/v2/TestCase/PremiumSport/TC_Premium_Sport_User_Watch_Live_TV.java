@@ -65,18 +65,8 @@ public class TC_Premium_Sport_User_Watch_Live_TV extends BaseTest {
 		test.pass("Successfully Assert Live TV is Played");
 
 	}
-
-	@Test(priority = 3)
+	@Test(priority = 3, dependsOnMethods = "TC_Premium_Sport_User_Watch_Premium_Sport_Linear")
 	public void TC_Detail_Channel_Sport() throws IOException, InterruptedException, TimeoutException {
-		Thread.sleep(2000);
-
-        click.clickMenuButton();
-        Thread.sleep(2000);
-        assertion.assertMenu();
-        click.clickLiveTv();
-        Thread.sleep(2000);
-        assertion.assertLiveTVPlayed();	 
-        
         Scroll scrolll = new Scroll(android);
 		By locator = By.xpath("//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/live_tv_channel_list_element_channel_number\" and @text=\"112\"]");
 	    scrolll.scrollUntilElementFound(locator);
