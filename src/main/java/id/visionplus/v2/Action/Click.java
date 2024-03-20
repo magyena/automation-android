@@ -45,7 +45,7 @@ public class Click extends BaseTest {
 	public void pressBack(){
         (android).pressKey(new KeyEvent(AndroidKey.BACK));
 	}
-
+  
 	public void clickRandom() {
 		// Get the dimensions of the browser window
 		long window_width = (long) android.executeScript("return window.innerWidth");
