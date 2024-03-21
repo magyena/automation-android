@@ -16,7 +16,9 @@ public class TC_Homepage extends BaseTest{
 	Click click = new Click();
 	Assertion assertion = new Assertion();
     
-    String testCaseType = "FREE";
+//	String testCaseType = System.getProperty("testCaseType");
+	
+	String testCaseType = "FREE";
 
 	@Test(priority=1)
 	public void TC_Access_VOD_Detail() throws IOException, InterruptedException, TimeoutException {
@@ -96,10 +98,19 @@ public class TC_Homepage extends BaseTest{
 	    
 	    assertion.assertVODDetails();
 	    test.pass("Successfully Assert VOD Details");
-	    click.pressBack();
 	}
 	
 	@Test(priority=6,dependsOnMethods="TC_Access_VisionPlusOriginals")
+	public void TC_Add_To_Watchlist() throws IOException, InterruptedException, TimeoutException {
+		System.out.println("TC_Add_To_Watchlist");
+
+		click.clickSaveToWatchlist();
+	    test.pass("Successfully Clicked Save VOD to Watchlist");
+		
+	    click.pressBack();
+	}
+	
+	@Test(priority=7,dependsOnMethods="TC_Add_To_Watchlist")
 	public void TC_Access_WatchList() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Access_WatchList");
 
@@ -114,7 +125,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Assert VOD Details");
 	}
 	
-	@Test(priority=7,dependsOnMethods="TC_Access_WatchList")
+	@Test(priority=8,dependsOnMethods="TC_Access_WatchList")
 	public void TC_Play_VOD_WatchList() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Play_VOD_WatchList");
 
@@ -124,7 +135,16 @@ public class TC_Homepage extends BaseTest{
 	    Thread.sleep(10000);
 	    
 	    click.pressBack();
-	    click.clickBack();
+	}
+	
+	@Test(priority=7,dependsOnMethods="TC_Access_WatchList")
+	public void TC_Delete_To_Watchlist() throws IOException, InterruptedException, TimeoutException {
+		System.out.println("TC_Delete_To_Watchlist");
+
+		click.clickSaveToWatchlist();
+	    test.pass("Successfully Clicked Remove VOD to Watchlist");
+		
+	    click.pressBack();
 	}
 	
 	@Test(priority=8,dependsOnMethods="TC_Play_VOD_WatchList")
