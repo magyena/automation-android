@@ -29,7 +29,7 @@ public class Scroll extends AndroidGesture
 	}
 	
 	public void scrollUntilElementFound(By locator) {
-	    System.out.println("Arrive at scroll until method");
+	    System.out.println("Arrive at scroll down until");
 	    int flag = 0;
 	    long startTime = System.currentTimeMillis();
 	    long timeoutInMillis = TimeUnit.SECONDS.toMillis(180); // Timeout set to 180 seconds
@@ -46,6 +46,33 @@ public class Scroll extends AndroidGesture
 	            System.out.println("Element Not Found, initiate scroll down");
 	            scrollDown(0.2);
 	            scrollUp(0.3);
+	        }
+	    }
+
+	    if (flag == 0) {
+	    	scrollUpUntilElementFound(locator);
+	        System.out.println("Element not found within the timeout period.");
+	        // You might want to throw an exception or handle the failure in some way here
+	    }
+	}
+	
+	public void scrollUpUntilElementFound(By locator) {
+	    System.out.println("Arrive at scroll Up until");
+	    int flag = 0;
+	    long startTime = System.currentTimeMillis();
+	    long timeoutInMillis = TimeUnit.SECONDS.toMillis(180); // Timeout set to 180 seconds
+
+	    while (flag == 0 && System.currentTimeMillis() - startTime <= timeoutInMillis) {
+	        try {
+	            WebElement element = android.findElement(locator);
+	            if (element.isDisplayed()) {
+	                System.out.println("Element Found");
+	                flag = 1;
+	                break;
+	            }
+	        } catch (NoSuchElementException e) {
+	            System.out.println("Element Not Found, initiate scroll down");
+	            scrollUp(0.2);
 	        }
 	    }
 
