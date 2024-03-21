@@ -1,11 +1,11 @@
 package id.visionplus.v2.TestCase.Free;
 
-/* Author		: Fatah Alim
+/* Author		: Michael Liong
  * Created Date	: 21 Maret 2024
  * Updated by	: -
  * Updated Date	: -
  * Summary		: TC_Free_User_Watch_VOD
- * 1. Add TC Slide Cluster vision originals
+ * 1. Add Comment
  * */
 
 import static org.testng.Assert.fail;
@@ -27,6 +27,8 @@ import id.visionplus.v2.TestCase.General.TC_Homepage;
 
 public class TC_Free_User_Watch_VOD extends BaseTest {
 
+// Simplify Free User FLow
+	
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Tap tap = new Tap();
