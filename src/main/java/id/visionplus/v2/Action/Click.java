@@ -1,4 +1,12 @@
 package id.visionplus.v2.Action;
+/* Author		: Fatah Alim
+ * Created Date	: 21 Maret 2024
+ * Updated by	: -
+ * Updated Date	: -
+ * Summary		: Action_Click
+ * 1. Add Comment Update
+ * */
+
 
 import java.time.Duration;
 import java.util.Random;
@@ -778,7 +786,7 @@ public class Click extends BaseTest {
 		btn_live_tv.click();
 	}
 
-	public void clikDetailChannel() { // inno
+	public void clikDetailChannel() {  
 		liveTvPage = new LiveTVPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement btn_detail_channel = liveTvPage.btn_detail_channel;
@@ -786,7 +794,7 @@ public class Click extends BaseTest {
 		btn_detail_channel.click();
 	}
 
-	public void clickSampleVod() { // inno
+	public void clickSampleVod() {  
 		vplusOriginalPage = new VPlusOriginalsPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement sampleVod = vplusOriginalPage.sample_vod;
@@ -794,7 +802,7 @@ public class Click extends BaseTest {
 		sampleVod.click();
 	}
 
-	public void clickSampleVodEps1() { // inno
+	public void clickSampleVodEps1() {  
 		vodDetailPage = new VODDetailPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement sampleVodeps1 = vodDetailPage.sample_the_one_eps1;
@@ -802,7 +810,7 @@ public class Click extends BaseTest {
 		sampleVodeps1.click();
 	}
 
-	public void clickConfirmDownload() { // inno
+	public void clickConfirmDownload() {  
 		vodDetailPage = new VODDetailPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement confirm_download = vodDetailPage.btn_confirm_download;
@@ -810,7 +818,7 @@ public class Click extends BaseTest {
 		confirm_download.click();
 	}
 
-	public void clickCancelDownload() { // inno
+	public void clickCancelDownload() { 
 		vodDetailPage = new VODDetailPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement cancel_download = vodDetailPage.btn_cancel_download;
@@ -818,7 +826,7 @@ public class Click extends BaseTest {
 		cancel_download.click();
 	}
 
-	public void clickfilterAllStatusTransactionHistory() { // inno
+	public void clickfilterAllStatusTransactionHistory() { 
 		transactionhistoryPage = new TransactionHistoryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement filter_all_status = transactionhistoryPage.btn_all_status;
@@ -826,7 +834,7 @@ public class Click extends BaseTest {
 		filter_all_status.click();
 	}
 
-	public void clickfilterSuccessTransactionHistory() { // inno
+	public void clickfilterSuccessTransactionHistory() {  
 		transactionhistoryPage = new TransactionHistoryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement filter_success = transactionhistoryPage.btn_all_success;
@@ -834,7 +842,7 @@ public class Click extends BaseTest {
 		filter_success.click();
 	}
 
-	public void clickfilterFailedTransactionHistory() { // inno
+	public void clickfilterFailedTransactionHistory() {  
 		transactionhistoryPage = new TransactionHistoryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement filter_failed = transactionhistoryPage.btn_all_failed;
@@ -842,7 +850,7 @@ public class Click extends BaseTest {
 		filter_failed.click();
 	}
 
-	public void clickfilterPendingTransactionHistory() { // inno
+	public void clickfilterPendingTransactionHistory() { 
 		transactionhistoryPage = new TransactionHistoryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement filter_pending = transactionhistoryPage.btn_all_pending;
@@ -850,7 +858,7 @@ public class Click extends BaseTest {
 		filter_pending.click();
 	}
 
-	public void clickCloseSettings() { // inno
+	public void clickCloseSettings() {  
 		transactionhistoryPage = new TransactionHistoryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement btn_close = transactionhistoryPage.btn_close;
@@ -858,7 +866,7 @@ public class Click extends BaseTest {
 		btn_close.click();
 	}
 
-	public void clickAllTransactions() { // inno
+	public void clickAllTransactions() {  
 		transactionhistoryPage = new TransactionHistoryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement All_Transaction = transactionhistoryPage.sample_all_transaction;
@@ -866,7 +874,7 @@ public class Click extends BaseTest {
 		All_Transaction.click();
 	}
 
-	public void clickSuccessTransactions() { // inno
+	public void clickSuccessTransactions() { 
 		transactionhistoryPage = new TransactionHistoryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement Success_Transaction = transactionhistoryPage.sample_success_transaction;
@@ -874,7 +882,7 @@ public class Click extends BaseTest {
 		Success_Transaction.click();
 	}
 
-	public void clickFailedTransactions() { // inno
+	public void clickFailedTransactions() {  
 		transactionhistoryPage = new TransactionHistoryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement Failed_Transaction = transactionhistoryPage.sample_failed_transaction;
@@ -882,7 +890,7 @@ public class Click extends BaseTest {
 		Failed_Transaction.click();
 	}
 
-	public void clickBuyAgainSuccess() { // inno
+	public void clickBuyAgainSuccess() { 
 		transactionhistoryPage = new TransactionHistoryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement buy_again_success = transactionhistoryPage.btn_buy_again;
@@ -890,7 +898,7 @@ public class Click extends BaseTest {
 		buy_again_success.click();
 	}
 
-	public void clickInewsTv() { // inno
+	public void clickInewsTv() {  
 		liveTvPage = new LiveTVPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement img_inews = liveTvPage.img_inews_tv;
@@ -898,7 +906,7 @@ public class Click extends BaseTest {
 		img_inews.click();
 	}
 
-	public void clickBtnPlayBanner() { // inno
+	public void clickBtnPlayBanner() { 
 		homePage = new HomePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(3));
 		WebElement btn_play = homePage.btn_play_lastBanner;
@@ -906,7 +914,7 @@ public class Click extends BaseTest {
 		btn_play.click();
 	}
 
-	public void clickBtnProgramGuide() { // inno
+	public void clickBtnProgramGuide() { 
 		homePage = new HomePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(3));
 		WebElement btn_program_guide = homePage.btn_program_guide;
@@ -914,7 +922,7 @@ public class Click extends BaseTest {
 		btn_program_guide.click();
 	}
 	
-	public void clickguide3() { // inno
+	public void clickguide3() { 
 		programguidepage = new ProgramGuidePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(3));
 		WebElement disable_guide3 = programguidepage.disable_guide3;
@@ -922,7 +930,7 @@ public class Click extends BaseTest {
 		disable_guide3.click();
 	}
 
-	public void clickbtnBackGuide() { // inno
+	public void clickbtnBackGuide() {  
 		programguidepage = new ProgramGuidePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(3));
 		WebElement btn_back = programguidepage.btn_back;
@@ -930,14 +938,14 @@ public class Click extends BaseTest {
 		btn_back.click();
 	}
 
-	public void clickBtnWatchGuide() { // inno
+	public void clickBtnWatchGuide() { 
 		programguidepage = new ProgramGuidePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(3));
 		WebElement btn_watch = programguidepage.btn_watch;
 		wait.until(ExpectedConditions.visibilityOf(btn_watch));
 		btn_watch.click();
 	}
-
+	
 	public void clickLinearChannelCluster() {
 		homePage = new HomePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
