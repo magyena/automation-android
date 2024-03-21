@@ -118,19 +118,22 @@ public class HomePage extends AndroidGesture
 	public static WebElement img_popular_actors_series;
 	
 	@AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripRecyclerView\"])[1]/android.view.View[1]")
-	public static WebElement img_originals; //inno
+	public static WebElement img_originals; 
 	
 	@AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/title\" and @text=\"Home\"]" )
-	public static WebElement img_home; //inno
+	public static WebElement img_home; 
 
 	@AndroidFindBy(id ="com.zte.iptvclient.android.idmnc:id/container_banner_info" )
-	public static WebElement btn_play_lastBanner; //inno
+	public static WebElement btn_play_lastBanner; 
 	
 	@AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/title\" and @text=\"Program Guide\"]" )
-	public static WebElement btn_program_guide; //inno
+	public static WebElement btn_program_guide; 
 	
 	@AndroidFindBy(id ="com.zte.iptvclient.android.idmnc:id/templateTitle" )
-	public static WebElement txt_tittle_view_all; //inno
+	public static WebElement txt_tittle_view_all; 
+	
+	@AndroidFindBy(id ="(//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripRecyclerView\"])[2]/android.view.View[2]" )
+	public static WebElement img_series; 
 	
 	
 	

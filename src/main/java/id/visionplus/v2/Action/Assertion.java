@@ -1,4 +1,11 @@
 package id.visionplus.v2.Action;
+/* Author		: Fatah Alim
+ * Created Date	: 21 Maret 2024
+ * Updated by	: -
+ * Updated Date	: -
+ * Summary		: Action_Assertion
+ * 1. Add assertion txtviewAll
+ * */
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
