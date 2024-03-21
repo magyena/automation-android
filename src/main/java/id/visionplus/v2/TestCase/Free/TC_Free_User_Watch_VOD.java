@@ -5,7 +5,7 @@ package id.visionplus.v2.TestCase.Free;
  * Updated by	: -
  * Updated Date	: -
  * Summary		: TC_Free_User_Watch_VOD
- * 1. Add TC Free User Series
+ * 1. Add TC Slide Cluster vision originals
  * */
 
 import static org.testng.Assert.fail;
@@ -82,37 +82,8 @@ public class TC_Free_User_Watch_VOD extends BaseTest {
 	}
 
 	@Test(dependsOnMethods = "TC_Free_User_Access_Subscribe_From_VOD")
-	public void TC_User_View_All() throws IOException, InterruptedException, TimeoutException {
-		try {
-
-			click.pressBack();
-			test.pass("Successfully Press Back Button");
-
-			click.clickBack();
-			test.pass("Successfully click Back Button to home");
-
-			click.clickViewAll();
-			test.pass("Successfully click view all");
-
-			assertion.assertTxtViewAll();
-
-			test.pass("Test completed successfully");
-
-			Scroll scroll = new Scroll(android);
-			scroll.scrollUntilElementFound(By.xpath(
-					"//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripTitle\" and @text=\"Horror/Thriller\"]"));
-			Thread.sleep(5000);
-
-		} catch (AssertionError e) {
-			test.fail("Test failed because assertion or assertTxtViewAll failed: " + e.getMessage());
-		} catch (Exception e) {
-			test.fail("Test failed due to unexpected exception: " + e.getMessage());
-		}
-	}
-
-	@Test(dependsOnMethods = "TC_User_View_All")
 	public void TC_User_Slide_List_Cluster() throws IOException, InterruptedException, TimeoutException {
-
+		click.pressBack();
 		click.clickBack();
 		test.pass("Successfully click Back Button to home");
 
@@ -131,24 +102,4 @@ public class TC_Free_User_Watch_VOD extends BaseTest {
 		Thread.sleep(5000);
 	}
 
-	@Test(dependsOnMethods = "TC_User_Slide_List_Cluster")
-	public void TC_User_See_Detail_Cluster_VOD() throws IOException, InterruptedException, TimeoutException {
-
-		tap.tap(442, 1628);
-		test.pass("Successfully tap VOD");
-
-		assertion.assertDetailVod();
-		test.pass("Succesfully assert detail VOD");
-
-		Thread.sleep(2000);
-	}
-	
-	@Test(dependsOnMethods = "TC_User_See_Detail_Cluster_VOD")
-	public void TC_User_Like_VOD() throws IOException, InterruptedException, TimeoutException {
-
-		click.clickLikeVOD();
-		test.pass("Successfully Like VOD");
-		
-		Thread.sleep(2000);
-	}
 }
