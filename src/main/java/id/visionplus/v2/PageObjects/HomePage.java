@@ -128,4 +128,10 @@ public class HomePage extends AndroidGesture
 	
 	@AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/title\" and @text=\"Program Guide\"]" )
 	public static WebElement btn_program_guide; //inno
+	
+	@AndroidFindBy(id ="com.zte.iptvclient.android.idmnc:id/templateTitle" )
+	public static WebElement txt_tittle_view_all; //inno
+	
+	
+	
 }

@@ -861,6 +861,15 @@ public class Assertion extends BaseTest {
 	        System.out.println("Assertion Passed: Watch Button not Showing");
 	    }
 	}
+	
+	public void assertTxtViewAll() { // inno
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement txt_tittle_view_all = homePage.txt_tittle_view_all;
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_tittle_view_all));
+
+		Assert.assertTrue(txt_tittle_view_all.isDisplayed());
+	}
 
 
 	public void assertLiveTVPlayed() {

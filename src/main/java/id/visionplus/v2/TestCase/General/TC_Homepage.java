@@ -70,8 +70,26 @@ public class TC_Homepage extends BaseTest{
 		    test.pass("Successfully Press Back");
 		}
 	}
+	@Test(priority = 4)
+	public void TC_User_Slide_Banner() throws IOException, InterruptedException, TimeoutException {
+		Thread.sleep(5000);
+		Swipe swipe = new Swipe(android);
+		swipe.swipeFirstRightBannerHomepage();
+		test.pass("Successfully Swipe Home Banner");
+		Thread.sleep(5000);
+	}
+
+	@Test(priority = 5)
+	public void TC_User_can_see_banner_auto_slide() throws IOException, InterruptedException, TimeoutException {
+		Swipe swipe = new Swipe(android);
+		swipe.swipeSecondRightBannerHomepage();
+		
+
+		Thread.sleep(5000);
+	}
+
 	
-	@Test(priority=4,dependsOnMethods="TC_Play_Banner")
+	@Test(priority=6,dependsOnMethods="TC_Play_Banner")
 	public void TC_Swipe_VisionPlusOriginals() throws IOException, InterruptedException, TimeoutException {
 	    click.clickBack();
 	    test.pass("Successfully Clicked Back to Homepage");
@@ -82,7 +100,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Swiped Vision Plus Originals");
 	}
 	
-	@Test(priority=5,dependsOnMethods="TC_Swipe_VisionPlusOriginals")
+	@Test(priority=7,dependsOnMethods="TC_Swipe_VisionPlusOriginals")
 	public void TC_Access_VisionPlusOriginals() throws IOException, InterruptedException, TimeoutException {
 		click.clickVisionPlusOriginalsSeries();
 	    test.pass("Successfully Clicked Vision Plus Originals");
@@ -92,7 +110,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(priority=6,dependsOnMethods="TC_Access_VisionPlusOriginals")
+	@Test(priority=8,dependsOnMethods="TC_Access_VisionPlusOriginals")
 	public void TC_Access_WatchList() throws IOException, InterruptedException, TimeoutException {
 		Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//android.widget.TextView[contains(@text, 'Watchlist')]/following::android.view.View[1]");
@@ -105,7 +123,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Assert VOD Details");
 	}
 	
-	@Test(priority=7,dependsOnMethods="TC_Access_WatchList")
+	@Test(priority=9,dependsOnMethods="TC_Access_WatchList")
 	public void TC_Play_VOD_WatchList() throws IOException, InterruptedException, TimeoutException {
 		click.clickWatchVOD();
 	    test.pass("Successfully Clicked Watch VOD");
@@ -116,7 +134,7 @@ public class TC_Homepage extends BaseTest{
 	    click.clickBack();
 	}
 	
-	@Test(priority=8,dependsOnMethods="TC_Play_VOD_WatchList")
+	@Test(priority=10,dependsOnMethods="TC_Play_VOD_WatchList")
 	public void TC_Swipe_Live_TV() throws IOException, InterruptedException, TimeoutException {
 		Thread.sleep(1000);
 
@@ -133,7 +151,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Swiped Live Tv");	    
 	}
 	
-	@Test(priority=9,dependsOnMethods="TC_Swipe_Live_TV")
+	@Test(priority=11,dependsOnMethods="TC_Swipe_Live_TV")
 	public void TC_Click_Live_TV() throws IOException, InterruptedException, TimeoutException {
 	    click.pressBack();
 		
@@ -146,7 +164,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(priority=10,dependsOnMethods="TC_Click_Live_TV")
+	@Test(priority=12,dependsOnMethods="TC_Click_Live_TV")
 	public void TC_Click_TV_Love_Cinema() throws IOException, InterruptedException, TimeoutException {
 		Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//android.widget.TextView[contains(@text, 'TV, Love, Cinema')]/following::android.view.View[1]");
@@ -159,7 +177,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Assert VOD Details Page");
 	}
 	
-	@Test(priority=11,dependsOnMethods="TC_Click_TV_Love_Cinema")
+	@Test(priority=13,dependsOnMethods="TC_Click_TV_Love_Cinema")
 	public void TC_Watch_TV_Love_Cinema_Content() throws IOException, InterruptedException, TimeoutException {
 		click.clickWatchVOD();
 	    test.pass("Successfully Clicked Watch in VOD Details");
@@ -169,7 +187,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(priority=12,dependsOnMethods="TC_Watch_TV_Love_Cinema_Content")
+	@Test(priority=14,dependsOnMethods="TC_Watch_TV_Love_Cinema_Content")
 	public void TC_Swipe_Top_10() throws IOException, InterruptedException, TimeoutException {   
 		click.pressBack();
 
@@ -183,7 +201,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Swiped Top 10");
 	}
 	
-	@Test(priority=13,dependsOnMethods="TC_Swipe_Top_10")
+	@Test(priority=15,dependsOnMethods="TC_Swipe_Top_10")
 	public void TC_Click_Top_10() throws IOException, InterruptedException, TimeoutException {
 	    click.clickVisionPlusTop1Series();
 		test.pass("Successfully Clicked VOD in Top 10");
@@ -191,7 +209,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Assert VOD Details");
 	}
 	
-	@Test(priority=14,dependsOnMethods="TC_Click_Top_10")
+	@Test(priority=16,dependsOnMethods="TC_Click_Top_10")
 	public void TC_Interact_in_VOD_Details() throws IOException, InterruptedException, TimeoutException {
 	    TC_VOD_Details vod_details = new TC_VOD_Details();
 	    vod_details.TC_User_Like_VOD();
@@ -203,7 +221,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(priority=15,dependsOnMethods="TC_Interact_in_VOD_Details")
+	@Test(priority=17,dependsOnMethods="TC_Interact_in_VOD_Details")
 	public void TC_Click_Popular_Actors() throws IOException, InterruptedException, TimeoutException { 
 		Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//*[contains(@text,'Popular Actors')]");
@@ -215,7 +233,7 @@ public class TC_Homepage extends BaseTest{
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=16,dependsOnMethods="TC_Click_Popular_Actors")
+	@Test(priority=18,dependsOnMethods="TC_Click_Popular_Actors")
 	public void TC_Click_Watch_Popular_Actors_Series() throws IOException, InterruptedException, TimeoutException {  
 		Thread.sleep(2000);
 
@@ -235,7 +253,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(priority=17,dependsOnMethods="TC_Click_Watch_Popular_Actors_Series")
+	@Test(priority=19,dependsOnMethods="TC_Click_Watch_Popular_Actors_Series")
 	public void TC_Click_Comedy() throws IOException, InterruptedException, TimeoutException {  
 	    click.pressBack();
 
@@ -251,7 +269,7 @@ public class TC_Homepage extends BaseTest{
 		test.pass("Successfully Assert VOD Details Indonesian Comedy Series");
 	}
 	
-	@Test(priority=18,dependsOnMethods="TC_Click_Comedy")
+	@Test(priority=20,dependsOnMethods="TC_Click_Comedy")
 	public void TC_Watch_Comedy_Content() throws IOException, InterruptedException, TimeoutException {
 		Thread.sleep(2000);
 
