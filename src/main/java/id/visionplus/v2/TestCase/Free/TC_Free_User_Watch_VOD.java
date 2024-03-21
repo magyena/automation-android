@@ -5,11 +5,12 @@ package id.visionplus.v2.TestCase.Free;
  * Updated by	: -
  * Updated Date	: -
  * Summary		: TC_Free_User_Watch_VOD
- * 1. Add TC View All
+ * 1. Add TC Free User Series
  * */
 
 import static org.testng.Assert.fail;
 
+import java.awt.Point;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
@@ -19,6 +20,8 @@ import expectj.TimeoutException;
 import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
 import id.visionplus.v2.Action.Scroll;
+import id.visionplus.v2.Action.Swipe;
+import id.visionplus.v2.Action.Tap;
 import id.visionplus.v2.MainFunction.BaseTest;
 import id.visionplus.v2.TestCase.General.TC_Homepage;
 
@@ -26,6 +29,7 @@ public class TC_Free_User_Watch_VOD extends BaseTest {
 
 	Click click = new Click();
 	Assertion assertion = new Assertion();
+	Tap tap = new Tap();
 
 	@Test
 	public void TC_Free_User_Watch_Free_VOD() throws IOException, InterruptedException, TimeoutException {
@@ -78,8 +82,7 @@ public class TC_Free_User_Watch_VOD extends BaseTest {
 	}
 
 	@Test(dependsOnMethods = "TC_Free_User_Access_Subscribe_From_VOD")
-	public void TC_User_View_All()
-			throws IOException, InterruptedException, TimeoutException {
+	public void TC_User_View_All() throws IOException, InterruptedException, TimeoutException {
 		try {
 
 			click.pressBack();
@@ -94,6 +97,10 @@ public class TC_Free_User_Watch_VOD extends BaseTest {
 			assertion.assertTxtViewAll();
 
 			test.pass("Test completed successfully");
+
+			Scroll scroll = new Scroll(android);
+			scroll.scrollUntilElementFound(By.xpath(
+					"//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripTitle\" and @text=\"Horror/Thriller\"]"));
 			Thread.sleep(5000);
 
 		} catch (AssertionError e) {
@@ -101,5 +108,47 @@ public class TC_Free_User_Watch_VOD extends BaseTest {
 		} catch (Exception e) {
 			test.fail("Test failed due to unexpected exception: " + e.getMessage());
 		}
+	}
+
+	@Test(dependsOnMethods = "TC_User_View_All")
+	public void TC_User_Slide_List_Cluster() throws IOException, InterruptedException, TimeoutException {
+
+		click.clickBack();
+		test.pass("Successfully click Back Button to home");
+
+		Point start = new Point(1009, 1636);
+		Point end = new Point(109, 1628);
+		Swipe swipe = new Swipe(android);
+		swipe.swipeLeftProgramGuide(start, end);
+		test.pass("Succesfully swipe cluster");
+
+		Point start1 = new Point(1009, 1636);
+		Point end1 = new Point(109, 1628);
+		Swipe swipe1 = new Swipe(android);
+		swipe1.swipeLeftProgramGuide(start1, end1);
+		test.pass("Succesfully swipe cluster");
+
+		Thread.sleep(5000);
+	}
+
+	@Test(dependsOnMethods = "TC_User_Slide_List_Cluster")
+	public void TC_User_See_Detail_Cluster_VOD() throws IOException, InterruptedException, TimeoutException {
+
+		tap.tap(442, 1628);
+		test.pass("Successfully tap VOD");
+
+		assertion.assertDetailVod();
+		test.pass("Succesfully assert detail VOD");
+
+		Thread.sleep(2000);
+	}
+	
+	@Test(dependsOnMethods = "TC_User_See_Detail_Cluster_VOD")
+	public void TC_User_Like_VOD() throws IOException, InterruptedException, TimeoutException {
+
+		click.clickLikeVOD();
+		test.pass("Successfully Like VOD");
+		
+		Thread.sleep(2000);
 	}
 }
