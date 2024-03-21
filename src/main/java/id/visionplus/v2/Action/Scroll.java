@@ -2,6 +2,7 @@ package id.visionplus.v2.Action;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,18 +29,12 @@ public class Scroll extends AndroidGesture
 	}
 	
 	public void scrollUntilElementFound(By locator) {
+	    System.out.println("Arrive at scroll until method");
 	    int flag = 0;
 	    long startTime = System.currentTimeMillis();
-	    long timeoutInMillis = TimeUnit.SECONDS.toMillis(180); // Set timeout to 180 seconds
+	    long timeoutInMillis = TimeUnit.SECONDS.toMillis(180); // Timeout set to 180 seconds
 
-	    System.out.println("Initiate While Loop");
-	    while (flag == 0) {
-	        // Check if the elapsed time exceeds the timeout
-	        if (System.currentTimeMillis() - startTime > timeoutInMillis) {
-	            System.out.println("Scrolling timed out");
-	            break; // Consider scrolling as failed
-	        }
-
+	    while (flag == 0 && System.currentTimeMillis() - startTime <= timeoutInMillis) {
 	        try {
 	            WebElement element = android.findElement(locator);
 	            if (element.isDisplayed()) {
@@ -47,10 +42,16 @@ public class Scroll extends AndroidGesture
 	                flag = 1;
 	                break;
 	            }
-	        } catch (org.openqa.selenium.NoSuchElementException e) {
+	        } catch (NoSuchElementException e) {
 	            System.out.println("Element Not Found, initiate scroll down");
 	            scrollDown(0.2);
+	            scrollUp(0.3);
 	        }
+	    }
+
+	    if (flag == 0) {
+	        System.out.println("Element not found within the timeout period.");
+	        // You might want to throw an exception or handle the failure in some way here
 	    }
 	}
 	
