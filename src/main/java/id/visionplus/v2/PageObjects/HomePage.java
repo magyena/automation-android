@@ -19,7 +19,7 @@ public class HomePage extends AndroidGesture
 		this.android = android;
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
-	
+	//Test Push
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/search_button")
 	public static WebElement btn_search;
 	
