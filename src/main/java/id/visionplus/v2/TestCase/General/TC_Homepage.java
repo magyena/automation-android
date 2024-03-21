@@ -16,7 +16,7 @@ public class TC_Homepage extends BaseTest{
 	Click click = new Click();
 	Assertion assertion = new Assertion();
     
-    String testCaseType = "PREMIUM_SPORT";
+    String testCaseType = "FREE";
 
 	@Test(priority=1)
 	public void TC_Access_VOD_Detail() throws IOException, InterruptedException, TimeoutException {
@@ -195,12 +195,12 @@ public class TC_Homepage extends BaseTest{
 	public void TC_Interact_in_VOD_Details() throws IOException, InterruptedException, TimeoutException {
 	    TC_VOD_Details vod_details = new TC_VOD_Details();
 	    vod_details.TC_User_Like_VOD();
-	    
+	    vod_details.TC_User_Disike_VOD();
 	    vod_details.TC_User_Can_See_Synopsis();
+	    vod_details.TC_User_Cannot_Download();
 	    
 	    click.clickBack();
 	    click.pressBack();
-
 	}
 	
 	@Test(priority=15,dependsOnMethods="TC_Interact_in_VOD_Details")
