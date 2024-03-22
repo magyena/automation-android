@@ -232,11 +232,18 @@ public class Click extends BaseTest {
 	}
 
 	public void clickFieldPhoneNumber() {
-		registerPage = new RegisterPage(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
-		WebElement txt_fld_phone = registerPage.txt_fld_phone;
-		wait.until(ExpectedConditions.visibilityOfAllElements(txt_fld_phone));
-		txt_fld_phone.click();
+		WebDriverWait wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    int attempts = 0;
+	    while (attempts < 3) {
+	        try {
+	            WebElement phoneNumberElement = android.findElement(By.xpath("//android.widget.TextView[@text='Phone Number']/following::android.widget.EditText[1]"));
+	            wait.until(ExpectedConditions.visibilityOf(phoneNumberElement));
+	            phoneNumberElement.click();
+	            break; // If successfully clicked, exit the loop
+	        } catch (StaleElementReferenceException e) {
+	            attempts++;
+	        }
+	    }
 	}
 
 	public void clickFieldEmail() {
