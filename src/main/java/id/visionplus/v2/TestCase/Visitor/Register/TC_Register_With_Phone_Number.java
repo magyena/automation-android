@@ -376,7 +376,9 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 	
 	@Test(priority = 16, dependsOnMethods = "TC_Forgot_Password_Valid_OTP")
 	public void TC_Login_After_Forgot()throws InterruptedException, IOException, TimeoutException{
-		click.clickPhoneNumberFieldForgot();
+		Thread.sleep(2000);
+		
+		click.clickFieldPhoneNumber();
 		test.pass("Successfully Clicked Text Field Phone Number");
 		
 		input.clearPhoneNumberField();
@@ -399,7 +401,7 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		
 		Thread.sleep(3000);
 		
-		assertion.assertWelcomeText();
-		test.pass("Successfully Assert Welcome Text After Login");
+		assertion.assertHomePage();
+		test.pass("Successfully Assert Homepage After Login");
 	}
 }

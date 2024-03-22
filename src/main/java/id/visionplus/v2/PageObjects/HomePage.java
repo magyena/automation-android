@@ -33,7 +33,6 @@ public class HomePage extends AndroidGesture
 	public static WebElement btn_view_all;
 	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/welcomeText")
-	
 	public static WebElement txt_welcome;
 	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/profiles_discover")

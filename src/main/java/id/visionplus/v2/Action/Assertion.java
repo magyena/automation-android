@@ -704,8 +704,7 @@ public class Assertion extends BaseTest {
 	public void assertHomePage() {
 		homePage = new HomePage(android);
 		WebElement img_originals = homePage.img_originals;
-		Assert.assertFalse(isElementPresent1(img_originals)); // inno
-
+		Assert.assertTrue(isElementPresent1(img_originals)); // inno
 	}
 
 	public boolean isElementPresent1(WebElement element) {
