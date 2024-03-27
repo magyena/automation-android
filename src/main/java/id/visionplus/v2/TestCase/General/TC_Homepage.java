@@ -16,10 +16,8 @@ public class TC_Homepage extends BaseTest{
 	Click click = new Click();
 	Assertion assertion = new Assertion();
     
-//	String testCaseType = System.getProperty("testCaseType");
+	String testCaseType = System.getProperty("testCaseType");
 	
-	String testCaseType = "FREE";
-
 	@Test(priority=1)
 	public void TC_Access_VOD_Detail() throws IOException, InterruptedException, TimeoutException {
 		TC_OpenApp open_app = new TC_OpenApp();
