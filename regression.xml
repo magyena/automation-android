@@ -10,7 +10,6 @@
 	<parameter name="testCaseType" value="FREE"/>
     <classes>
       <class name="id.visionplus.v2.TestCase.General.TC_Homepage"/>
-	  	
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
