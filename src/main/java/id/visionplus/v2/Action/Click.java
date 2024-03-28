@@ -11,6 +11,7 @@ package id.visionplus.v2.Action;
 import java.time.Duration;
 import java.util.Random;
 
+import org.checkerframework.checker.units.qual.h;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
@@ -959,6 +960,94 @@ public class Click extends BaseTest {
 		WebElement img_live_tv = homePage.img_live_tv_cluster;
 		wait.until(ExpectedConditions.visibilityOfAllElements(img_live_tv));
 		img_live_tv.click();
+	}
+	
+	public void clickBtnProfilePlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_profile_playstore = outsideApp.btn_profile_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_profile_playstore));
+		btn_profile_playstore.click();
+	}
+	
+	public void clickBtnPaymentandSubscriptionsPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_payments_subscriptions = outsideApp.btn_Payment_Subscriptions_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_payments_subscriptions));
+		btn_payments_subscriptions.click();
+	}
+
+	public void clickBtnSubscriptionsPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_subscriptions = outsideApp.btn_subscriptions_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_subscriptions));
+		btn_subscriptions.click();
+	}
+
+	public void clickHistoryPremium30DaysPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement history_Premium = outsideApp.history_premium_30_days_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(history_Premium));
+		history_Premium.click();
+	}
+
+	public void clickHistoryPremiumSport30DaysPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement history_Premium_sports = outsideApp.history_premium_sports_30_days_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(history_Premium_sports));
+		history_Premium_sports.click();
+	}
+	
+	public void clickCancelSubscriptionPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement btn_cancel_subscriptions = outsideApp.btn_cancel_subscription_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_cancel_subscriptions));
+		btn_cancel_subscriptions.click();
+	}
+	
+	public void clickBtnNoThanksPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement btn_no_thanks = outsideApp.btn_no_thanks_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_no_thanks));
+		btn_no_thanks.click();
+	}
+	
+	public void clickRadioCancelPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement radio_btn = outsideApp.btn_radio_cancel_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(radio_btn));
+		radio_btn.click();
+	}
+	
+	public void clickBtnContinuePlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement btn_continue = outsideApp.btn_continue_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_continue));
+		btn_continue.click();
+	}
+	
+	public void clickConfirmCancelPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement btn_confirm_cancel = outsideApp.btn_confirm_cancel_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_confirm_cancel));
+		btn_confirm_cancel.click();
+	}
+	
+	public void clickBacktoHistory() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement btn_back = outsideApp.btn_back_to_list_history_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_back));
+		btn_back.click();
 	}
 
 	public void clickFreeLinear() {
