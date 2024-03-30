@@ -40,6 +40,8 @@ public class Assertion extends BaseTest {
 	MyDownloadsPage myDownloadsPage;
 	TransactionHistoryPage transactionshistoryPage;
 	ProgramGuidePage programguidepage;
+	CategoryPage categorypage;
+	BuyPackagePage buypackage;
 
 
 	public void assertSearchPage() {
@@ -821,10 +823,7 @@ public class Assertion extends BaseTest {
 		Assert.assertTrue(watch_vod.isDisplayed());
 	}
 
-	public void assertDownloadTextNotPresent() { // inno
-//		vplusOriginalPage = new VPlusOriginalsPage(android);
-//		WebDriverWait wait = new WebDriverWait(android, Duration.ofSeconds(20));
-//		
+	public void assertDownloadTextNotPresent() { // inno	
 		String pageSource = android.getPageSource();
 		String textToAssert = "Download";
 
@@ -876,9 +875,115 @@ public class Assertion extends BaseTest {
 
 		Assert.assertTrue(txt_tittle_view_all.isDisplayed());
 	}
-
-
-	public void assertLiveTVPlayed() {
+	
+	public void assertBannerInfo() {
+	    homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement banner_info = homePage.img_banner_info;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(banner_info));
+	        Assert.assertTrue(banner_info.isDisplayed());
+	        System.out.println("Assert Success: Banner info is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Banner info is not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertActionCategory() {
+	    categorypage = new CategoryPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement movies = categorypage.action_category_categorypage;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(movies));
+	        Assert.assertTrue(movies.isDisplayed());
+	        System.out.println("Assert Success: Movies View is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Movies View is not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertSubscriptionImage() {
+	    categorypage = new CategoryPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement img_subscription = categorypage.img_subscription_categorypage;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(img_subscription));
+	        Assert.assertTrue(img_subscription.isDisplayed());
+	        System.out.println("Assert Success: Subscription Image is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Subscription Image is not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public boolean assertSubscriptionPremium30days() {
+	    outsideApp = new OutsideApp(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_premium30_days = outsideApp.txt_premium30_days_playstore;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_premium30_days));
+	        Assert.assertTrue(txt_premium30_days.isDisplayed());
+	        System.out.println("Assert Success: Premium 30 Days is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Premium 30 Days is not displayed.");
+	        throw e; 
+	    }
+		return false;
+	}
+	
+	public void assertSubscriptionPremiumSports30days() {
+	    outsideApp = new OutsideApp(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_premium30sports_days = outsideApp.txt_premiumSports30_days_playstore;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_premium30sports_days));
+	        Assert.assertTrue(txt_premium30sports_days.isDisplayed());
+	        System.out.println("Assert Success: Premium Sports 30 Days is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Premium Sports 30 Days is not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertMenuBuyPackage() {
+	    buypackage = new BuyPackagePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_buy_package = buypackage.txt_package_page;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_buy_package));
+	        Assert.assertTrue(txt_buy_package.isDisplayed());
+	        System.out.println("Assert Success: Your Current Package is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Your Current Package is not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public boolean assertErrorSubscriptionPlaystore() {
+	    outsideApp = new OutsideApp(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_error = outsideApp.txt_error_subscribe_playstore;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_error));
+	        Assert.assertTrue(txt_error.isDisplayed());
+	        System.out.println("Assert Success: Error text is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Error Text is not displayed.");
+	        throw e; 
+	    }
+		return false;
+	}
+	
+		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
 		Assert.assertFalse(isElementPresent1(btn_subscribe));

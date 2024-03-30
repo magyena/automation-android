@@ -28,4 +28,9 @@ public class PopUpPage extends AndroidGesture
 	
 	@AndroidFindBy(xpath="//*[starts-with(@content-desc,'Premium' Sports)]")
 	public static WebElement txt_package_premium_sport;
+	
+	@AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/popup_element_title\" and @text=\"Premium 30 days\"]")
+	public static WebElement txt_package_premium30days;
+	
+	
 }
