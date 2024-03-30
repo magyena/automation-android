@@ -126,17 +126,17 @@ public class TC_Cluster_Film extends BaseTest {
 
 		assertion.assertBannerInfo();
 		test.pass("Successfully assert banner info");
-//
-//		Point start2 = new Point(109, 1022);
-//		Point end2 = new Point(1000, 1028);
-//		swipe.swipetoLeft(start2, end2);
-//		test.pass("Successfully Swipe ");
-//
-//		Scroll scroll = new Scroll(android);
-//		By locator = By.xpath("//*[contains(@text,'Asian Action Movies')]");
-//		scroll.scrollUntilElementFound(locator);
-//
-//		scroll.scrollUp(100);
+
+		Point start2 = new Point(109, 1022);
+		Point end2 = new Point(1000, 1028);
+		swipe.swipetoLeft(start2, end2);
+		test.pass("Successfully Swipe ");
+
+		Scroll scroll = new Scroll(android);
+		By locator = By.xpath("//*[contains(@text,'Asian Action Movies')]");
+		scroll.scrollUntilElementFound(locator);
+
+		scroll.scrollUp(100);
 
 		click.clickActionCategory();
 		test.pass("Succesfully clicked action category");
