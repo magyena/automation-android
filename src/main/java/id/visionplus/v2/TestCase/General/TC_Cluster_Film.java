@@ -259,9 +259,10 @@ public class TC_Cluster_Film extends BaseTest {
 		click.clickMenuHome();
 		click.clickVisionPlusOriginalsSeries();
 		click.clickWatchVOD();
+		Thread.sleep(10000);
 		click.pressBack();
 		click.clickSaveToWatchlist();
 
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 	}
 }
