@@ -1,10 +1,10 @@
 package id.visionplus.v2.TestCase.General;
 /* Author		: Fatah Alim
- * Created Date	: 22 Maret 2024
+ * Created Date	: 1 April 2024
  * Updated by	: -
  * Updated Date	: -
  * Summary		: TC_Cluster_Film
- * 1. Click Cluster Movies
+ * 1. Update validation after buy package
  * */
 
 import java.awt.Point;
@@ -184,6 +184,7 @@ public class TC_Cluster_Film extends BaseTest {
 		            click.clickBtnGotIt();
 		            test.pass("Successfully clicked 'Got It' again");
 		            click.clickSubscribe();
+		            flag = 1;
 		        }
 		    } catch (Exception e) {
 		        try {
@@ -233,6 +234,9 @@ public class TC_Cluster_Film extends BaseTest {
 		assertion.assertMenuBuyPackage();
 		test.pass("Successfully assert menu buy package");
 
+		assertion.assertActivePackagePremium30();
+		test.pass("Successfully assert active package 30 days");
+		
 		click.clickPremiumSports30daysPackage();
 		test.pass("Successfully clicked premium sports 30 days");
 		
@@ -250,6 +254,11 @@ public class TC_Cluster_Film extends BaseTest {
 		
 		click.clickBtnAccept();
 		test.pass("Successfully clicked accept");
+		Thread.sleep(5000);
+		click.clickMenuButton();
+		click.clickMyPackage();
+		assertion.assertActivePackagePremium30Sports();
+		test.pass("Successfully assert active package premium sports 30 days");
 		
 		click.clickMenuButton();
 		click.clickMenuHome();

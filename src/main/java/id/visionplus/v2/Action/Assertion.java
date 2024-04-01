@@ -983,6 +983,36 @@ public class Assertion extends BaseTest {
 		return false;
 	}
 	
+	public void assertActivePackagePremium30() {
+	    buypackage = new BuyPackagePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_premium30_package = buypackage.txt_premium30_package;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_premium30_package));
+	        Assert.assertTrue(txt_premium30_package.isDisplayed());
+	        System.out.println("Assert Success: Premium 30 Days left is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Premium 30 Days left not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertActivePackagePremium30Sports() {
+	    buypackage = new BuyPackagePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_premium30_sports_package = buypackage.txt_premium30Sports_package;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_premium30_sports_package));
+	        Assert.assertTrue(txt_premium30_sports_package.isDisplayed());
+	        System.out.println("Assert Success: Premium Sports 30 Days left is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Premium Sports 30 Days left not displayed.");
+	        throw e; 
+	    }
+	}
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
