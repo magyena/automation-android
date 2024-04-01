@@ -134,6 +134,11 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(id ="(//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripRecyclerView\"])[2]/android.view.View[2]" )
 	public static WebElement img_series; 
 	
+
+	@AndroidFindBy(xpath="//*[contains(@text,'Buy Package')]")
+	public static WebElement btn_buy_package;
+	
+	
 	
 	
 }

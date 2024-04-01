@@ -92,13 +92,13 @@ public class TC_Free_User_Watch_VOD extends BaseTest {
 		Point start = new Point(1009, 1636);
 		Point end = new Point(109, 1628);
 		Swipe swipe = new Swipe(android);
-		swipe.swipeLeftProgramGuide(start, end);
+		swipe.swipetoLeft(start, end);
 		test.pass("Succesfully swipe cluster");
 
 		Point start1 = new Point(1009, 1636);
 		Point end1 = new Point(109, 1628);
 		Swipe swipe1 = new Swipe(android);
-		swipe1.swipeLeftProgramGuide(start1, end1);
+		swipe1.swipetoLeft(start1, end1);
 		test.pass("Succesfully swipe cluster");
 
 		Thread.sleep(5000);

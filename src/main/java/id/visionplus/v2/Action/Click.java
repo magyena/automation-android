@@ -11,6 +11,7 @@ package id.visionplus.v2.Action;
 import java.time.Duration;
 import java.util.Random;
 
+import org.checkerframework.checker.units.qual.h;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
@@ -19,11 +20,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import id.visionplus.v2.MainFunction.BaseTest;
+import id.visionplus.v2.PageObjects.BuyPackagePage;
+import id.visionplus.v2.PageObjects.CategoryPage;
 import id.visionplus.v2.PageObjects.EntryPage;
 import id.visionplus.v2.PageObjects.HomePage;
 import id.visionplus.v2.PageObjects.LiveTVPage;
 import id.visionplus.v2.PageObjects.LoginPage;
 import id.visionplus.v2.PageObjects.OutsideApp;
+import id.visionplus.v2.PageObjects.PopUpPage;
 import id.visionplus.v2.PageObjects.ProgramGuidePage;
 import id.visionplus.v2.PageObjects.RegisterPage;
 import id.visionplus.v2.PageObjects.SearchPage;
@@ -33,6 +37,7 @@ import id.visionplus.v2.PageObjects.VODDetailPage;
 import id.visionplus.v2.PageObjects.VPlusOriginalsPage;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
+import io.opentelemetry.api.internal.OtelEncodingUtils;
 
 public class Click extends BaseTest {
 	WebDriverWait wait;
@@ -49,6 +54,9 @@ public class Click extends BaseTest {
 	SearchPage searchPage;
 	TransactionHistoryPage transactionhistoryPage;
 	ProgramGuidePage programguidepage;
+	CategoryPage categorypage ;
+	PopUpPage popuppage;
+	BuyPackagePage buypackage;
 
 	public void pressBack(){
         (android).pressKey(new KeyEvent(AndroidKey.BACK));
@@ -650,12 +658,12 @@ public class Click extends BaseTest {
 		btn_view_all.click();
 	}
 
-	public void clickSeriesInTop10() {
+	public void clickSeriesInTop60() {
 		homePage = new HomePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
-		WebElement img_top_10_series = homePage.img_top_10_series;
-		wait.until(ExpectedConditions.visibilityOfAllElements(img_top_10_series));
-		img_top_10_series.click();
+		WebElement img_top_60_series = homePage.img_top_10_series;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_top_60_series));
+		img_top_60_series.click();
 	}
 
 	public void clickVisionPlusOriginalsSeries() {
@@ -960,6 +968,183 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(img_live_tv));
 		img_live_tv.click();
 	}
+	
+	public void clickBtnProfilePlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_profile_playstore = outsideApp.btn_profile_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_profile_playstore));
+		btn_profile_playstore.click();
+	}
+	
+	public void clickBtnPaymentandSubscriptionsPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_payments_subscriptions = outsideApp.btn_Payment_Subscriptions_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_payments_subscriptions));
+		btn_payments_subscriptions.click();
+	}
+
+	public void clickBtnSubscriptionsPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_subscriptions = outsideApp.btn_subscriptions_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_subscriptions));
+		btn_subscriptions.click();
+	}
+	
+	public void clickBtnSubscriptionsPlaystoreagain() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_subscriptions_again = outsideApp.btn_subscriptions_playstore_again;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_subscriptions_again));
+		btn_subscriptions_again.click();
+	}
+
+	public void clickHistoryPremium30DaysPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement history_Premium = outsideApp.history_premium_30_days_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(history_Premium));
+		history_Premium.click();
+	}
+
+	public void clickHistoryPremiumSport30DaysPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement history_Premium_sports = outsideApp.history_premium_sports_30_days_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(history_Premium_sports));
+		history_Premium_sports.click();
+	}
+	
+	public void clickCancelSubscriptionPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_cancel_subscriptions = outsideApp.btn_cancel_subscription_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_cancel_subscriptions));
+		btn_cancel_subscriptions.click();
+	}
+	
+	public void clickBtnNoThanksPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_no_thanks = outsideApp.btn_no_thanks_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_no_thanks));
+		btn_no_thanks.click();
+	}
+	
+	public void clickRadioCancelPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement radio_btn = outsideApp.btn_radio_cancel_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(radio_btn));
+		radio_btn.click();
+	}
+	
+	public void clickBtnContinuePlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_continue = outsideApp.btn_continue_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_continue));
+		btn_continue.click();
+	}
+	
+	public void clickConfirmCancelPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_confirm_cancel = outsideApp.btn_confirm_cancel_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_confirm_cancel));
+		btn_confirm_cancel.click();
+	}
+	
+	public void clickBacktoHistory() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_back = outsideApp.btn_back_to_list_history_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_back));
+		btn_back.click();
+	}
+	
+	public void clickClusterSlideMovies() {
+		categorypage = new CategoryPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement movies = categorypage.slide_cluster_movies_categorypage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(movies));
+		movies.click();
+	}
+	
+	public void clickActionCategory() {
+		categorypage = new CategoryPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement action_category = categorypage.action_category_categorypage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(action_category));
+		action_category.click();
+	}
+	
+	public void clickPremium30daysPckages() {
+		popuppage = new PopUpPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement premium_30days = popuppage.txt_package_premium30days;
+		wait.until(ExpectedConditions.visibilityOfAllElements(premium_30days));
+		premium_30days.click();
+	}
+	
+	public void clickBtnSubscribePlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_subscribe = outsideApp.btn_subscribe_playstore;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_subscribe));
+		btn_subscribe.click();
+	}
+	
+	public void clickBtnAccept() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		WebElement btn_accept = outsideApp.btn_accept;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_accept));
+		btn_accept.click();
+	}
+	
+	public void clickBtnBack() {
+		categorypage = new CategoryPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_back = categorypage.btn_back_categorypage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_back));
+		btn_back.click();
+	}
+	
+	public void clickMyPackage() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_mypackage = homePage.btn_buy_package;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_mypackage));
+		btn_mypackage.click();
+	}
+	
+	public void clickPremiumSports30daysPackage() {
+		buypackage = new BuyPackagePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement premium_sports = buypackage.txt_package_premiumsports30_days;
+		wait.until(ExpectedConditions.visibilityOfAllElements(premium_sports));
+		premium_sports.click();
+	}
+	
+	public void clickMenuHome() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement menu_home = homePage.img_home;
+		wait.until(ExpectedConditions.visibilityOfAllElements(menu_home));
+		menu_home.click();
+	}
+	
+	public void clickBtnGotIt() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_gotit = outsideApp.btn_got_it;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_gotit));
+		btn_gotit.click();
+	}
+	
 
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);

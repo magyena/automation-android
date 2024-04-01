@@ -79,7 +79,7 @@ public class Swipe extends BaseTest {
 				.addAction(FINGER.createPointerUp(PointerInput.MouseButton.RIGHT.asArg()));
 		android.perform(Arrays.asList(swipee));
 	}
-	public void swipeLeftProgramGuide(java.awt.Point start, java.awt.Point end) {
+	public void swipetoLeft(java.awt.Point start, java.awt.Point end) {
 	    final PointerInput FINGER = new PointerInput(PointerInput.Kind.TOUCH, "finger");
 	    Sequence swipee = new Sequence(FINGER, 1)
 	            .addAction(FINGER.createPointerMove(Duration.ofMillis(3000), PointerInput.Origin.viewport(), (int) start.getX(),
@@ -88,6 +88,17 @@ public class Swipe extends BaseTest {
 	            .addAction(FINGER.createPointerMove(Duration.ofMillis(3000), PointerInput.Origin.viewport(), (int) end.getX(),
 	                    (int) end.getY()))
 	            .addAction(FINGER.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+	    android.perform(Arrays.asList(swipee));
+	}
+	public void swipetoRight(java.awt.Point start, java.awt.Point end) {
+	    final PointerInput FINGER = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+	    Sequence swipee = new Sequence(FINGER, 1)
+	            .addAction(FINGER.createPointerMove(Duration.ofMillis(3000), PointerInput.Origin.viewport(), (int) start.getX(),
+	                    (int) start.getY()))
+	            .addAction(FINGER.createPointerDown(PointerInput.MouseButton.RIGHT.asArg()))
+	            .addAction(FINGER.createPointerMove(Duration.ofMillis(3000), PointerInput.Origin.viewport(), (int) end.getX(),
+	                    (int) end.getY()))
+	            .addAction(FINGER.createPointerUp(PointerInput.MouseButton.RIGHT.asArg()));
 	    android.perform(Arrays.asList(swipee));
 	}
 }

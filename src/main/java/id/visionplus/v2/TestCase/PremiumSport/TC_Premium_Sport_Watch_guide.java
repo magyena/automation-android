@@ -16,7 +16,8 @@ public class TC_Premium_Sport_Watch_guide extends BaseTest {
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Tap tap = new Tap();
-	String testCaseType = "PREMIUM_SPORT";
+	String testCaseType = System.getProperty("testCaseType");
+//	String testCaseType = "PREMIUM_SPORT";
 
 	@Test(priority = 1) // T338
 
