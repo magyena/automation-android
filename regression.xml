@@ -10,6 +10,8 @@
 	<parameter name="testCaseType" value="FREE"/>
     <classes>
       <class name="id.visionplus.v2.TestCase.General.TC_Homepage"/>
+	  <class name="id.visionplus.v2.TestCase.General.TC_Cluster_Film"/>
+	  	
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
