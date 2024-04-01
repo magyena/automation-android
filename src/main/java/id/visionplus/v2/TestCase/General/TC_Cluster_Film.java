@@ -185,17 +185,13 @@ public class TC_Cluster_Film extends BaseTest {
 		            test.pass("Successfully clicked 'Got It' again");
 		            click.clickSubscribe();
 		        }
-		        
-
 		    } catch (Exception e) {
 		        try {
 		        	 click.clickBtnSubscriptionsPlaystore();
 		             test.pass("Successfully clicked button subscriptions playstore");
-		             break; 
-		            
 		        } catch (Exception ex) {
 		        	click.clickBtnAccept(); 
-		             test.pass("Successfully clicked button accept pending subscription");
+		            test.pass("Successfully clicked button accept pending subscription");
 		            flag = 1;
 		            break; 
 		        }
