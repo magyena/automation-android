@@ -1145,6 +1145,13 @@ public class Click extends BaseTest {
 		btn_gotit.click();
 	}
 	
+	public void clickSettingsAccountNumberorEmail() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_account_number_email = settingPage.btn_account_email_handphone;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_account_number_email));
+		btn_account_number_email.click();
+	}
 
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);

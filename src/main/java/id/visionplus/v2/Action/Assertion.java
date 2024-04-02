@@ -1013,6 +1013,21 @@ public class Assertion extends BaseTest {
 	    }
 	}
 	
+	public void assertSubscriberNumberSettingsPage() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_subscriber_number = settingPage.txt_account_Subscriber_number;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_subscriber_number));
+	        Assert.assertTrue(txt_subscriber_number.isDisplayed());
+	        System.out.println("Assert Success: Subscriber Number is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Subscribet Number not displayed.");
+	        throw e; 
+	    }
+	}
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
