@@ -1028,11 +1028,74 @@ public class Assertion extends BaseTest {
 	    }
 	}
 	
+	public void assertChangePasswordWebView() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_Change_Password = settingPage.txt_account_change_password_webview;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_Change_Password));
+	        Assert.assertTrue(txt_Change_Password.isDisplayed());
+	        System.out.println("Assert Success: Tittle Change Password is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Tittle Change Password not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertSuccessChangePassword() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_success = settingPage.img_success_change_password;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(img_success));
+	        Assert.assertTrue(img_success.isDisplayed());
+	        System.out.println("Assert Success: Image success is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Image success not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertChangePassworfailed() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_change_password_failed = settingPage.txt_change_password_failed;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_change_password_failed));
+	        Assert.assertTrue(txt_change_password_failed.isDisplayed());
+	        System.out.println("Assert Success: Change Password Failed is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Change Password Failed not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertPasswordNoCriteria() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_no_criteria = settingPage.txt_no_criteria;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_no_criteria));
+	        Assert.assertTrue(txt_no_criteria.isDisplayed());
+	        System.out.println("Assert Success: Password does not match criteria is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Password does not match criteria not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
 		Assert.assertFalse(isElementPresent1(btn_subscribe));
 	}
+		
+		
 
 	public boolean isElementPresent(WebElement element) {
 		try {

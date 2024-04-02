@@ -130,10 +130,32 @@ public class SettingPage extends AndroidGesture
 	public static WebElement field_account_Enter_new_password;
 	
 	@AndroidFindBy(xpath="//android.widget.TextView[@text=\"Change Password\"]")
-	public static WebElement txt_account_change_password;
+	public static WebElement txt_account_change_password_webview;
 	
-	@AndroidFindBy(id="//android.widget.Button[@text=\"Next\"]")
+	@AndroidFindBy(xpath="//android.widget.Button[@text=\"Next\"]")
 	public static WebElement btn_account__change_password_next;
+	
+	@AndroidFindBy(xpath="//android.widget.Image[@text=\"Succes\"]")
+	public static WebElement img_success_change_password;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/close")
+	public static WebElement btn_back_success;
+	
+	@AndroidFindBy(xpath="//android.widget.TextView[@text=\"Change Password Failed\"]")
+	public static WebElement txt_change_password_failed;
+	
+	@AndroidFindBy(xpath="//android.widget.Button[@text=\"Close\"]")
+	public static WebElement btn_Close;
+	
+	@AndroidFindBy(xpath="//android.view.View[@text=\"Password does not match criteria.\"]")
+	public static WebElement txt_no_criteria;
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
