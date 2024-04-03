@@ -33,7 +33,13 @@ public class BuyPackagePage extends AndroidGesture
 	 @AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"com.android.vending:id/0_resource_name_obfuscated\"]")
 	public static WebElement error_message_cantbuy;
 	
+	 @AndroidFindBy(xpath="(//android.view.View[@content-desc=\"30 days left\"])[1]")
+		public static WebElement txt_premium30_package;
+		
+	 @AndroidFindBy(xpath="(//android.view.View[@content-desc=\"30 days left\"])[2]")
+		public static WebElement txt_premium30Sports_package;
 	
+	 
 	 
 	
 }

@@ -73,6 +73,12 @@ public class Input extends BaseTest
 	    txt_fld_email.sendKeys(keyword);
 	}
 	
+	public void inputEmailAgain(String keyword) {
+	    // Assuming the field note element is represented by txt_fld_note in your RegisterPage class
+	    WebElement txt_fld_note = registerPage.txt_fld_email;
+	    txt_fld_note.sendKeys(keyword);
+	}
+	
 	public void inputPassword(String keyword){
 		registerPage = new RegisterPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -156,5 +162,35 @@ public class Input extends BaseTest
 	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
 	    WebElement txt_fld_voucher = settingPage.txt_fld_voucher;
 	    txt_fld_voucher.clear();
+	}
+	
+	public void ClearCurrentPasswordChangePassword(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    WebElement txt_fld_current_password = settingPage.field_account_Enter_current_password;
+	    txt_fld_current_password.clear();
+	}
+	
+	public void ClearNewPasswordChangePassword(){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(90));
+	    WebElement txt_fld_new_password = settingPage.field_account_Enter_new_password;
+	    txt_fld_new_password.clear();
+	}
+	
+	public void inputCurrentPasswordChangePassword(String keyword){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_current_password = settingPage.field_account_Enter_current_password;
+	    txt_current_password.sendKeys(keyword);
+	}
+	
+	public void inputNewPasswordChangePassword(String keyword){
+		settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_new_password = settingPage.field_account_Enter_new_password;
+	    txt_new_password.sendKeys(keyword);
+	    
+	
 	}
 }

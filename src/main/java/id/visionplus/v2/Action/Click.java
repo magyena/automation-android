@@ -699,7 +699,7 @@ public class Click extends BaseTest {
 
 	public void clickSubscribe() {
 		vodDetailPage = new VODDetailPage(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(30));
 		WebElement btn_subscribe = vodDetailPage.btn_subscribe;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_subscribe));
 		btn_subscribe.click();
@@ -987,7 +987,7 @@ public class Click extends BaseTest {
 
 	public void clickBtnSubscriptionsPlaystore() {
 		outsideApp = new OutsideApp(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(30));
 		WebElement btn_subscriptions = outsideApp.btn_subscriptions_playstore;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_subscriptions));
 		btn_subscriptions.click();
@@ -1099,7 +1099,7 @@ public class Click extends BaseTest {
 	
 	public void clickBtnAccept() {
 		outsideApp = new OutsideApp(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait = new WebDriverWait(android, Duration.ofSeconds(30));
 		WebElement btn_accept = outsideApp.btn_accept;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_accept));
 		btn_accept.click();
@@ -1139,12 +1139,59 @@ public class Click extends BaseTest {
 	
 	public void clickBtnGotIt() {
 		outsideApp = new OutsideApp(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(30));
 		WebElement btn_gotit = outsideApp.btn_got_it;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_gotit));
 		btn_gotit.click();
 	}
 	
+	public void clickSettingsAccountNumberorEmail() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_account_number_email = settingPage.btn_account_email_handphone;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_account_number_email));
+		btn_account_number_email.click();
+	}
+	
+	public void clickChangePassword() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement txt_change_password = settingPage.txt_account_Change_password;
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_change_password));
+		txt_change_password.click();
+	}
+	
+	public void clickNextChangePassword() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_next = settingPage.btn_account__change_password_next;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_next));
+		btn_next.click();
+	}
+	
+	public void clickBtnSuccessBack() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_back_success = settingPage.btn_back_success;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_back_success));
+		btn_back_success.click();
+	}
+	
+	public void clickBtnOKChangePasswordFailed() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_close = settingPage.btn_Close;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_close));
+		btn_close.click();
+	}
+	
+	public void clickProfilesHaveBeenDeleted() {
+		popuppage = new PopUpPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_ok = popuppage.txt_profiles_have_been_deleted;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_ok));
+		btn_ok.click();
+	}
 
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);

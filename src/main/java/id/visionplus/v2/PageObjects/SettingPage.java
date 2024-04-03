@@ -1,5 +1,6 @@
 package id.visionplus.v2.PageObjects;
 
+import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -112,4 +113,53 @@ public class SettingPage extends AndroidGesture
 	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/close_session_button")
 	public static WebElement btn_logout;
+	
+	@AndroidFindBy(xpath="//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/recycler_view\"]/android.view.ViewGroup[3]")
+	public static WebElement btn_account_email_handphone;
+	
+	@AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/text_view_preference_label\" and @text=\"Subscriber number\"]")
+	public static WebElement txt_account_Subscriber_number;
+	
+	@AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/text_view_preference_label\" and @text=\"Change password\"]")
+	public static WebElement txt_account_Change_password;
+	
+	@AndroidFindBy(xpath="//android.webkit.WebView[@text=\"Change Password\"]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[2]/android.widget.EditText")
+	public static WebElement field_account_Enter_current_password;
+
+	@AndroidFindBy(xpath="//android.webkit.WebView[@text=\"Change Password\"]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[4]/android.widget.EditText")
+	public static WebElement field_account_Enter_new_password;
+	
+	@AndroidFindBy(xpath="//android.widget.TextView[@text=\"Change Password\"]")
+	public static WebElement txt_account_change_password_webview;
+	
+	@AndroidFindBy(xpath="//android.widget.Button[@text=\"Next\"]")
+	public static WebElement btn_account__change_password_next;
+	
+	@AndroidFindBy(xpath="//android.widget.Image[@text=\"Succes\"]")
+	public static WebElement img_success_change_password;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/close")
+	public static WebElement btn_back_success;
+	
+	@AndroidFindBy(xpath="//android.widget.TextView[@text=\"Change Password Failed\"]")
+	public static WebElement txt_change_password_failed;
+	
+	@AndroidFindBy(xpath="//android.widget.Button[@text=\"Close\"]")
+	public static WebElement btn_Close;
+	
+	@AndroidFindBy(xpath="//android.view.View[@text=\"Password does not match criteria.\"]")
+	public static WebElement txt_no_criteria;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
