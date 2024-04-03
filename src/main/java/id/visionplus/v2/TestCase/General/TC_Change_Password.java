@@ -29,8 +29,8 @@ import id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Email;
 import id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Phone_Number;
 import io.appium.java_client.android.Activity;
 
-public class TC_Change_Password extends BaseTest {
-
+public class TC_Change_Password extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE IN FE
+ 
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Input input = new Input();
