@@ -983,11 +983,119 @@ public class Assertion extends BaseTest {
 		return false;
 	}
 	
+	public void assertActivePackagePremium30() {
+	    buypackage = new BuyPackagePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_premium30_package = buypackage.txt_premium30_package;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_premium30_package));
+	        Assert.assertTrue(txt_premium30_package.isDisplayed());
+	        System.out.println("Assert Success: Premium 30 Days left is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Premium 30 Days left not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertActivePackagePremium30Sports() {
+	    buypackage = new BuyPackagePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_premium30_sports_package = buypackage.txt_premium30Sports_package;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_premium30_sports_package));
+	        Assert.assertTrue(txt_premium30_sports_package.isDisplayed());
+	        System.out.println("Assert Success: Premium Sports 30 Days left is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Premium Sports 30 Days left not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertSubscriberNumberSettingsPage() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_subscriber_number = settingPage.txt_account_Subscriber_number;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_subscriber_number));
+	        Assert.assertTrue(txt_subscriber_number.isDisplayed());
+	        System.out.println("Assert Success: Subscriber Number is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Subscribet Number not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertChangePasswordWebView() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_Change_Password = settingPage.txt_account_change_password_webview;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_Change_Password));
+	        Assert.assertTrue(txt_Change_Password.isDisplayed());
+	        System.out.println("Assert Success: Tittle Change Password is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Tittle Change Password not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertSuccessChangePassword() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement img_success = settingPage.img_success_change_password;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(img_success));
+	        Assert.assertTrue(img_success.isDisplayed());
+	        System.out.println("Assert Success: Image success is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Image success not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertChangePassworfailed() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_change_password_failed = settingPage.txt_change_password_failed;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_change_password_failed));
+	        Assert.assertTrue(txt_change_password_failed.isDisplayed());
+	        System.out.println("Assert Success: Change Password Failed is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Change Password Failed not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertPasswordNoCriteria() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_no_criteria = settingPage.txt_no_criteria;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_no_criteria));
+	        Assert.assertTrue(txt_no_criteria.isDisplayed());
+	        System.out.println("Assert Success: Password does not match criteria is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Password does not match criteria not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
 		Assert.assertFalse(isElementPresent1(btn_subscribe));
 	}
+		
+		
 
 	public boolean isElementPresent(WebElement element) {
 		try {

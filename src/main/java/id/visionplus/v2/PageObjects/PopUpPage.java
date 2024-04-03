@@ -33,4 +33,12 @@ public class PopUpPage extends AndroidGesture
 	public static WebElement txt_package_premium30days;
 	
 	
+	@AndroidFindBy(id="android:id/button1")
+	public static WebElement txt_profiles_have_been_deleted;
+	
+	
+	
+	
+	
+	
 }
