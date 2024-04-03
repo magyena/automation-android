@@ -1184,6 +1184,14 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_close));
 		btn_close.click();
 	}
+	
+	public void clickProfilesHaveBeenDeleted() {
+		popuppage = new PopUpPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_ok = popuppage.txt_profiles_have_been_deleted;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_ok));
+		btn_ok.click();
+	}
 
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);

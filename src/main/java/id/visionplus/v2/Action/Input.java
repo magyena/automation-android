@@ -73,6 +73,12 @@ public class Input extends BaseTest
 	    txt_fld_email.sendKeys(keyword);
 	}
 	
+	public void inputEmailAgain(String keyword) {
+	    // Assuming the field note element is represented by txt_fld_note in your RegisterPage class
+	    WebElement txt_fld_note = registerPage.txt_fld_email;
+	    txt_fld_note.sendKeys(keyword);
+	}
+	
 	public void inputPassword(String keyword){
 		registerPage = new RegisterPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
