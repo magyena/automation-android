@@ -150,6 +150,53 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath="//android.view.View[@text=\"Password does not match criteria.\"]")
 	public static WebElement txt_no_criteria;
 	
+	@AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/text_view_preference_label\" and @text=\"Delete account\"]")
+	public static WebElement txt_delete_account;
+	
+	@AndroidFindBy(xpath="//android.view.View[@text=\"Delete your Vision+ Account\"]")
+	public static WebElement txt_delete_account_webview;
+
+	@AndroidFindBy(className = "android.widget.CheckBox")
+	public static WebElement btn_checkbox;
+	
+	@AndroidFindBy(xpath = "//android.widget.Button[@text=\"Keep Account\"]")
+	public static WebElement btn_keep_account;
+	
+	@AndroidFindBy(xpath = "//android.widget.Button[@text=\"Proceed to Delete Account\"]")
+	public static WebElement btn_proceed_delete_account;
+	
+	@AndroidFindBy(xpath = "//android.view.View[@text=\"You have to enter your password to delete your account\"]")
+	public static WebElement txt_delete_account_enter_password;
+	
+	@AndroidFindBy(xpath = "//android.widget.EditText")
+	public static WebElement field_delete_account_enter_password;
+	
+	@AndroidFindBy(xpath = "//android.widget.Button[@text=\"Deleted Account\"]")
+	public static WebElement btn_confirm_deleted_account;
+	
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Delete Account Failed\"]")
+	public static WebElement txt_delete_account_failed;
+	
+	@AndroidFindBy(xpath = "//android.view.View[@text=\"Your account is deleted\"]")
+	public static WebElement txt_success_delete_account;
+	
+	@AndroidFindBy(xpath = "//android.view.View[@text=\"You still have active package\"]")
+	public static WebElement txt_still_have_package;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

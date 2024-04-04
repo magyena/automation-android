@@ -1003,7 +1003,7 @@ public class Click extends BaseTest {
 
 	public void clickHistoryPremium30DaysPlaystore() {
 		outsideApp = new OutsideApp(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
 		WebElement history_Premium = outsideApp.history_premium_30_days_playstore;
 		wait.until(ExpectedConditions.visibilityOfAllElements(history_Premium));
 		history_Premium.click();
@@ -1011,7 +1011,7 @@ public class Click extends BaseTest {
 
 	public void clickHistoryPremiumSport30DaysPlaystore() {
 		outsideApp = new OutsideApp(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
 		WebElement history_Premium_sports = outsideApp.history_premium_sports_30_days_playstore;
 		wait.until(ExpectedConditions.visibilityOfAllElements(history_Premium_sports));
 		history_Premium_sports.click();
@@ -1019,7 +1019,7 @@ public class Click extends BaseTest {
 	
 	public void clickCancelSubscriptionPlaystore() {
 		outsideApp = new OutsideApp(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
 		WebElement btn_cancel_subscriptions = outsideApp.btn_cancel_subscription_playstore;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_cancel_subscriptions));
 		btn_cancel_subscriptions.click();
@@ -1192,7 +1192,48 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_ok));
 		btn_ok.click();
 	}
+	
+	public void clickDeleteAccount() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement txt_delete_account = settingPage.txt_delete_account;
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_delete_account));
+		txt_delete_account.click();
+	}
 
+	public void clickCheckBoxDeleteAccount() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement checkbox_delete_account = settingPage.btn_checkbox;
+		wait.until(ExpectedConditions.visibilityOfAllElements(checkbox_delete_account));
+		checkbox_delete_account.click();
+	}
+
+	public void clickBtnKeepAccount() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_keep_account = settingPage.btn_keep_account;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_keep_account));
+		btn_keep_account.click();
+	}
+	
+
+	public void clickBtnProceedDeletedAccount() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_proceed_delete_account = settingPage.btn_proceed_delete_account;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_proceed_delete_account));
+		btn_proceed_delete_account.click();
+	}
+	
+	public void clickBtnConfirmationDeleteAccount() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_confirm_delete = settingPage.btn_confirm_deleted_account;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_confirm_delete));
+		btn_confirm_delete.click();
+	}
+	
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));

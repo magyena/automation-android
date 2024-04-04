@@ -65,41 +65,62 @@ public class TC_Cluster_Film extends BaseTest {
 		test.pass("Successfully clicked subcsriptions playstore");
 
 		int flag = 0;
-		boolean historyPremium30DaysClicked = false;
+		
 		boolean historyPremiumSport30DaysClicked = false;
+
 		try {
-			while (true) {
-				if (flag == 0 && !historyPremium30DaysClicked) {
-					click.clickHistoryPremium30DaysPlaystore();
-					historyPremium30DaysClicked = true;
-				} else if (flag == 1 && !historyPremiumSport30DaysClicked) {
-					click.clickHistoryPremiumSport30DaysPlaystore();
-					historyPremiumSport30DaysClicked = true;
-				}
+		    click.clickHistoryPremium30DaysPlaystore();
+		    flag = 1;
+		} catch (Exception ex) {
+		    System.out.println("Error: " + ex);
+		    try {
+		        click.clickHistoryPremiumSport30DaysPlaystore();
+		        flag = 1;
+		    } catch (Exception e) {
+		        System.out.println("Error: " + e);
+		    }
+		}
 
-				if (!historyPremium30DaysClicked && !historyPremiumSport30DaysClicked) {
-					System.out.println("Error: Neither action performed.");
-					break;
-				}
+		if (flag == 1) {
+		    try {
+		        click.clickCancelSubscriptionPlaystore();
+		        click.clickBtnNoThanksPlaystore();
+		        click.clickRadioCancelPlaystore();
+		        test.pass("Successfully clicked radio button");
 
-				click.clickCancelSubscriptionPlaystore();
-				click.clickBtnNoThanksPlaystore();
-				click.clickRadioCancelPlaystore();
-				test.pass("Successfully clicked radio button");
+		        click.clickBtnContinuePlaystore();
+		        test.pass("Successfully clicked continue");
 
-				click.clickBtnContinuePlaystore();
-				test.pass("Successfully clicked continue");
+		        click.clickConfirmCancelPlaystore();
+		        test.pass("Successfully clicked cancel subscription");
+		        click.clickBacktoHistory();
 
-				click.clickConfirmCancelPlaystore();
-				test.pass("Successfully clicked cancel subscription");
-				click.clickBacktoHistory();
-				Thread.sleep(2000);
+		        if (!historyPremiumSport30DaysClicked) {
+		            click.clickHistoryPremiumSport30DaysPlaystore();
+		            historyPremiumSport30DaysClicked = true;
+		            flag = 2; 
+		        }
+		    } catch (Exception ex) {
+		        System.out.println("Error: " + ex);
+		    }
+		  
+		    if (flag == 2) {
+		        try {
+		        	click.clickCancelSubscriptionPlaystore();
+			        click.clickBtnNoThanksPlaystore();
+			        click.clickRadioCancelPlaystore();
+			        test.pass("Successfully clicked radio button");
 
-				flag = (flag == 0) ? 1 : 0;
+			        click.clickBtnContinuePlaystore();
+			        test.pass("Successfully clicked continue");
 
-			}
-		} catch (Exception e) {
-			Thread.sleep(2000);
+			        click.clickConfirmCancelPlaystore();
+			        test.pass("Successfully clicked cancel subscription");
+			        click.clickBacktoHistory();
+		        } catch (Exception ex) {
+		            System.out.println("Error: " + ex);
+		        }
+		    }
 		}
 	}
 
@@ -179,31 +200,31 @@ public class TC_Cluster_Film extends BaseTest {
 		int attempt = 0;
 
 		while (attempt < maxAttempts && flag == 0) {
-		    try {
-		        for (int i = 0; i < 10; i++) {
-		            click.clickBtnGotIt();
-		            test.pass("Successfully clicked 'Got It' again");
-		            click.clickSubscribe();
-		            flag = 1;
-		        }
-		    } catch (Exception e) {
-		        try {
-		        	 click.clickBtnSubscriptionsPlaystore();
-		             test.pass("Successfully clicked button subscriptions playstore");
-		        } catch (Exception ex) {
-		        	click.clickBtnAccept(); 
-		            test.pass("Successfully clicked button accept pending subscription");
-		            flag = 1;
-		            break; 
-		        }
-		    }
+			try {
+				for (int i = 0; i < 10; i++) {
+					click.clickBtnGotIt();
+					test.pass("Successfully clicked 'Got It' again");
+					click.clickSubscribe();
+					flag = 1;
+				}
+			} catch (Exception e) {
+				try {
+					click.clickBtnSubscriptionsPlaystore();
+					test.pass("Successfully clicked button subscriptions playstore");
+				} catch (Exception ex) {
+					click.clickBtnAccept();
+					test.pass("Successfully clicked button accept pending subscription");
+					flag = 1;
+					break;
+				}
+			}
 		}
-	    attempt++;
-	    Thread.sleep(5000);
-	    
-	    click.clickWatchVOD();
+		attempt++;
+		Thread.sleep(5000);
+
+		click.clickWatchVOD();
 		test.pass("Successfully clicked watch vod");
-		
+
 		Thread.sleep(10000);
 		click.pressBack();
 		test.pass("Successfully clicked back button");
@@ -236,10 +257,10 @@ public class TC_Cluster_Film extends BaseTest {
 
 		assertion.assertActivePackagePremium30();
 		test.pass("Successfully assert active package 30 days");
-		
+
 		click.clickPremiumSports30daysPackage();
 		test.pass("Successfully clicked premium sports 30 days");
-		
+
 		assertion.assertSubscriptionImage();
 		test.pass("Successfully assert subscription image");
 
@@ -248,10 +269,10 @@ public class TC_Cluster_Film extends BaseTest {
 
 		assertion.assertSubscriptionPremiumSports30days();
 		test.pass("Successfully assert subscribe premium sports 30 days");
-		
+
 		click.clickBtnSubscriptionsPlaystoreagain();
-        test.pass("Successfully clicked button subscriptions playstore");
-		
+		test.pass("Successfully clicked button subscriptions playstore");
+
 		click.clickBtnAccept();
 		test.pass("Successfully clicked accept");
 		Thread.sleep(5000);
@@ -259,7 +280,7 @@ public class TC_Cluster_Film extends BaseTest {
 		click.clickMyPackage();
 		assertion.assertActivePackagePremium30Sports();
 		test.pass("Successfully assert active package premium sports 30 days");
-		
+
 		click.clickMenuButton();
 		click.clickMenuHome();
 		click.clickVisionPlusOriginalsSeries();
