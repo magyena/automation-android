@@ -72,12 +72,12 @@ public class TC_Cluster_Film extends BaseTest {
 		    click.clickHistoryPremium30DaysPlaystore();
 		    flag = 1;
 		} catch (Exception ex) {
-		    System.out.println("Error: " + ex);
+//		    System.out.println("Error: " + ex);
 		    try {
 		        click.clickHistoryPremiumSport30DaysPlaystore();
 		        flag = 1;
 		    } catch (Exception e) {
-		        System.out.println("Error: " + e);
+//		        System.out.println("Error: " + e);
 		    }
 		}
 
@@ -101,7 +101,7 @@ public class TC_Cluster_Film extends BaseTest {
 		            flag = 2; 
 		        }
 		    } catch (Exception ex) {
-		        System.out.println("Error: " + ex);
+//		        System.out.println("Error: " + ex);
 		    }
 		  
 		    if (flag == 2) {
@@ -118,7 +118,7 @@ public class TC_Cluster_Film extends BaseTest {
 			        test.pass("Successfully clicked cancel subscription");
 			        click.clickBacktoHistory();
 		        } catch (Exception ex) {
-		            System.out.println("Error: " + ex);
+//		            System.out.println("Error: " + ex);
 		        }
 		    }
 		}

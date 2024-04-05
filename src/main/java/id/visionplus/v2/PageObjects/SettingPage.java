@@ -183,6 +183,12 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath = "//android.view.View[@text=\"You still have active package\"]")
 	public static WebElement txt_still_have_package;
 	
+	@AndroidFindBy(xpath = "//android.view.View[@text=\"Please click the link we’ve sent to your email to proceed account deletion\"]")
+	public static WebElement txt_google_delete_account;
+	
+	
+	
+	
 	
 	
 	

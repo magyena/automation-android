@@ -1150,7 +1150,7 @@ public class Assertion extends BaseTest {
 	
 	public void assertStillHavePackage() {
 	    settingPage = new SettingPage(android);
-	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
 	    WebElement txt_still_have_package = settingPage.txt_still_have_package;
 	    
 	    try {
@@ -1162,6 +1162,22 @@ public class Assertion extends BaseTest {
 	        throw e; 
 	    }
 	}
+	
+	public void assertGoogleDeleteAccount() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_google_delete = settingPage.txt_google_delete_account;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_google_delete));
+	        Assert.assertTrue(txt_google_delete.isDisplayed());
+	        System.out.println("Assert Success: Delete onfirm link to email is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Delete Confirm link to email not displayed.");
+	        throw e; 
+	    }
+	}
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
