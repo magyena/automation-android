@@ -46,7 +46,7 @@ public class TC_Free_User_Delete_Account extends BaseTest {
 					click.clickBtnGotIt();
 					test.pass("Successfully clicked 'Got It' again");
 					click.clickSubscribe();
-					flag = 1;
+					
 				}
 			} catch (Exception e) {
 				try {
@@ -55,7 +55,7 @@ public class TC_Free_User_Delete_Account extends BaseTest {
 				} catch (Exception ex) {
 					click.clickBtnAccept();
 					test.pass("Successfully clicked button accept pending subscription");
-					flag = 1;
+					
 					break;
 				}
 			}
@@ -84,6 +84,7 @@ public class TC_Free_User_Delete_Account extends BaseTest {
 
 		click.clickDeleteAccount();
 		test.pass("Successfully clicked delete account");
+		Thread.sleep(5000);
 		
 		assertion.assertStillHavePackage();
 		test.pass("Successfully assert still have package");
