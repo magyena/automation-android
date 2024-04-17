@@ -777,12 +777,12 @@ public class Click extends BaseTest {
 		btn_download.click();
 	}
 
-	public void clickEps7VOD() {
+	public void clickEpsPremiumVOD() {
 		vodDetailPage = new VODDetailPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
-		WebElement img_eps_7_vod = vodDetailPage.img_eps_7_vod;
-		wait.until(ExpectedConditions.visibilityOfAllElements(img_eps_7_vod));
-		img_eps_7_vod.click();
+		WebElement img_eps_premium_vod = vodDetailPage.img_eps_premium_vod;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_eps_premium_vod));
+		img_eps_premium_vod.click();
 	}
 
 	public void clickWatchVOD() {

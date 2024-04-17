@@ -76,8 +76,8 @@ public class VODDetailPage extends AndroidGesture {
 	@AndroidFindBy(xpath = "//android.view.View[starts-with(@content-desc,'E2')]")
 	public static WebElement txt_eps_2_vod;
 
-	@AndroidFindBy(xpath = "//android.view.View[starts-with(@content-desc,'E7')]")
-	public static WebElement img_eps_7_vod;
+	@AndroidFindBy(xpath = "//android.view.View[starts-with(@content-desc,'E')][last()]")
+	public static WebElement img_eps_premium_vod;
 
 	@AndroidFindBy(xpath = "//*[contains(@text,'The One')]")
 	public static WebElement sample_the_one; // inno
