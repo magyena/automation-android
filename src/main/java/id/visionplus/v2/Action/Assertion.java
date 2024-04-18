@@ -416,12 +416,12 @@ public class Assertion extends BaseTest {
 	public void assertVODinWatchlist() {
 		homePage = new HomePage(android);
 
-		WebElement img_visionplus_originals_content = homePage.img_visionplus_originals_content;
+		WebElement img_watchlist_content = homePage.img_watchlist_content;
 
 		wait = new WebDriverWait(android, Duration.ofSeconds(90));
-		wait.until(ExpectedConditions.visibilityOfAllElements(img_visionplus_originals_content));
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_watchlist_content));
 
-		Assert.assertTrue(img_visionplus_originals_content.isDisplayed());
+		Assert.assertTrue(img_watchlist_content.isDisplayed());
 	}
 
 	public void assertUnregisteredAccountText() {

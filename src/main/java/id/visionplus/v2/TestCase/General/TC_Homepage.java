@@ -107,25 +107,26 @@ public class TC_Homepage extends BaseTest{
 		click.clickSaveToWatchlist();
 	    test.pass("Successfully Clicked Save VOD to Watchlist");
 		
-	    click.pressBack();
 	}
+	
+//	@Test(priority=7,dependsOnMethods="TC_Add_To_Watchlist")
+//	public void TC_Access_WatchList() throws IOException, InterruptedException, TimeoutException {
+//    	click.pressBack();
+
+//		System.out.println("TC_Access_WatchList");
+//
+//		Scroll scroll = new Scroll(android);
+//		By locator = By.xpath("//android.widget.TextView[contains(@text, 'Watchlist')]/following::android.view.View[1]");
+//	    scroll.scrollUntilElementFound(locator);
+//
+//		click.clickVisionPlusOriginalsSeries();
+//	    test.pass("Successfully Clicked Vision Plus Originals");
+//	    
+//	    assertion.assertVODDetails();
+//	    test.pass("Successfully Assert VOD Details");
+//	}
 	
 	@Test(priority=7,dependsOnMethods="TC_Add_To_Watchlist")
-	public void TC_Access_WatchList() throws IOException, InterruptedException, TimeoutException {
-		System.out.println("TC_Access_WatchList");
-
-		Scroll scroll = new Scroll(android);
-		By locator = By.xpath("//android.widget.TextView[contains(@text, 'Watchlist')]/following::android.view.View[1]");
-	    scroll.scrollUntilElementFound(locator);
-
-		click.clickVisionPlusOriginalsSeries();
-	    test.pass("Successfully Clicked Vision Plus Originals");
-	    
-	    assertion.assertVODDetails();
-	    test.pass("Successfully Assert VOD Details");
-	}
-	
-	@Test(priority=8,dependsOnMethods="TC_Access_WatchList")
 	public void TC_Play_VOD_WatchList() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Play_VOD_WatchList");
 
@@ -137,7 +138,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(priority=7,dependsOnMethods="TC_Access_WatchList")
+	@Test(priority=8,dependsOnMethods="TC_Play_VOD_WatchList")
 	public void TC_Delete_To_Watchlist() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Delete_To_Watchlist");
 
@@ -227,6 +228,10 @@ public class TC_Homepage extends BaseTest{
 	@Test(priority=13,dependsOnMethods="TC_Swipe_Top_10")
 	public void TC_Click_Top_10() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Click_Top_10");
+		
+		Scroll scroll = new Scroll(android);
+		By locator = By.xpath("//android.widget.TextView[contains(@text, 'Top 10 This Week')]/following::android.view.View[1]");
+	    scroll.scrollUntilElementFound(locator);
 
 	    click.clickVisionPlusTop1Series();
 		test.pass("Successfully Clicked VOD in Top 10");
