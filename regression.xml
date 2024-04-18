@@ -11,6 +11,8 @@
     <classes>
       <class name="id.visionplus.v2.TestCase.General.TC_Homepage"/>
 	  <class name="id.visionplus.v2.TestCase.General.TC_Cluster_Film"/>
+	  <class name="id.visionplus.v2.TestCase.General.TC_Cluster_Watchlist"/>
+	  
 	  	
     </classes>
   </test> <!-- Test -->

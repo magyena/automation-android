@@ -32,4 +32,52 @@ public class VPlusOriginalsPage extends AndroidGesture
 	@AndroidFindBy(xpath="com.zte.iptvclient.android.idmnc:id/media_player_title_textview")
 	public static WebElement txt_Vod_Play; //inno
 
+	@AndroidFindBy(xpath="//android.widget.FrameLayout[@resource-id=\"com.zte.iptvclient.android.idmnc:id/templateGrid\"]/android.view.View[2]")
+	public static WebElement coming_soon_vod_1; 
+
+	@AndroidFindBy(xpath="//android.widget.FrameLayout[@resource-id=\"com.zte.iptvclient.android.idmnc:id/templateGrid\"]/android.view.View[3]")
+	public static WebElement coming_soon_vod_2; 
+	
+	@AndroidFindBy(xpath="//android.widget.FrameLayout[@resource-id=\"com.zte.iptvclient.android.idmnc:id/templateGrid\"]/android.view.View[4]")
+	public static WebElement coming_soon_vod_3; 
+	
+	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Twisted 3: The Sinners\"]")
+	public static WebElement img_sinners; 
+	
+	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Radio\"]")
+	public static WebElement img_radio; 
+	
+	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"12 Hari\"]")
+	public static WebElement img_12Hari; 
+	
+	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Prince Of My Heart\"]")
+	public static WebElement img_prince;
+	
+	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Piknik Pesona\"]")
+	public static WebElement img_piknik;
+
+	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Katanya\"]")
+	public static WebElement img_katanya;
+	
+	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Ada Dewa Disisiku\"]")
+	public static WebElement img_Ada_dewa;
+
+	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Catatan Akhir Sekolah: The Series\"]")
+	public static WebElement img_catatan_akhir_sekolah;
+	
+	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"My Comic Boyfriend\"]")
+	public static WebElement img_comic;
+
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
 }
