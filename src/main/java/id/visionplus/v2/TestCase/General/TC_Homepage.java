@@ -158,6 +158,8 @@ public class TC_Homepage extends BaseTest{
 		By locator = By.xpath("//android.widget.TextView[contains(@text, 'Your Favorite TV Channel')]/following::android.view.View[1]");
 
 	    scroll.scrollUntilElementFound(locator);
+	    
+	    scroll.scrollDown(0.3);
 
 	    click.clickViewAll();
 	    
@@ -211,13 +213,15 @@ public class TC_Homepage extends BaseTest{
 	
 	@Test(priority=12,dependsOnMethods="TC_Watch_TV_Love_Cinema_Content")
 	public void TC_Swipe_Top_10() throws IOException, InterruptedException, TimeoutException {
-		System.out.println("TC_Swipe_Top_10");
-
 		click.pressBack();
+
+		System.out.println("TC_Swipe_Top_10");
 
 		Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//android.widget.TextView[contains(@text, 'Top 10 This Week')]/following::android.view.View[1]");
 	    scroll.scrollUntilElementFound(locator);
+	    
+	    scroll.scrollDown(0.3);
 	    	    	    
 		Swipe swipe = new Swipe(android);
 		
@@ -306,6 +310,8 @@ public class TC_Homepage extends BaseTest{
 		Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//*[contains(@text,'Indonesian Comedy Series')]/following::android.view.View[1]");
 	    scroll.scrollUntilElementFound(locator);
+	    
+	    scroll.scrollDown(0.3);
 	    	    	    
 		Thread.sleep(2000);
 

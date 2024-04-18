@@ -32,7 +32,7 @@ public class Scroll extends AndroidGesture
 	    System.out.println("Arrive at scroll down until");
 	    int flag = 0;
 	    long startTime = System.currentTimeMillis();
-	    long timeoutInMillis = TimeUnit.SECONDS.toMillis(180); // Timeout set to 180 seconds
+	    long timeoutInMillis = TimeUnit.SECONDS.toMillis(90); // Timeout set to 180 seconds
 
 	    while (flag == 0 && System.currentTimeMillis() - startTime <= timeoutInMillis) {
 	        try {
