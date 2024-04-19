@@ -10,6 +10,10 @@
 	<parameter name="testCaseType" value="FREE"/>
     <classes>
       <class name="id.visionplus.v2.TestCase.General.TC_Homepage"/>
+      <class name="id.visionplus.v2.TestCase.General.TC_Profile"/>
+      <class name="id.visionplus.v2.TestCase.General.TC_Search"/>
+      <class name="id.visionplus.v2.TestCase.General.TC_Settings"/>
+
       	  <class name="id.visionplus.v2.TestCase.General.TC_Cluster_Film"/>
 		  <class name="id.visionplus.v2.TestCase.General.TC_Cluster_Watchlist"/>
     </classes>
