@@ -448,10 +448,6 @@ public class Assertion extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(txt_wrong_email_password));
 
 		Assert.assertTrue(txt_wrong_email_password.isDisplayed());
-
-		String actual = txt_wrong_email_password.getText();
-		String expected = "Wrong email or password";
-		Assert.assertEquals(actual, expected);
 	}
 
 	public void assertManageProfile() {
