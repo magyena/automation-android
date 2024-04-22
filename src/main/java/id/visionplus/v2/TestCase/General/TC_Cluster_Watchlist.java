@@ -21,7 +21,7 @@ public class TC_Cluster_Watchlist extends BaseTest {
 	Assertion assertion = new Assertion();
 	Tap tap = new Tap();
 	String testCaseType = System.getProperty("testCaseType");
-	// String testCaseType = "FREE";
+//	String testCaseType = "FREE";
 	Swipe swipe = new Swipe(android);
 
 	@Test(priority = 1)
@@ -87,6 +87,7 @@ public class TC_Cluster_Watchlist extends BaseTest {
 		scroll.scrollUntilElementFound(locator1);
 		click.clickVODComic();
 		click.clickSaveToWatchlist();
+		click.clickSaveToWatchlist();
 		click.clickBack();
 
 		click.pressBack();
@@ -102,7 +103,18 @@ public class TC_Cluster_Watchlist extends BaseTest {
 		swipe.swipetoLeft(start1, end1);
 		swipe.swipetoLeft(start1, end1);
 		swipe.swipetoLeft(start1, end1);
+	}
 
+	@Test(priority = 2)
+	public void TC_cluster_because_you_watched() throws IOException, TimeoutException, InterruptedException {
+		Scroll scroll = new Scroll(android);
+		By locator = By.xpath("//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripTitle\" and @text=\"Family Friendly Movies\"]");
+		scroll.scrollUntilElementFound(locator);
+
+		assertion.assertClusterBecauseYouWatched();
+		test.pass("Successfully assert the cluster");
+		
+		
 		Thread.sleep(5000);
 
 	}

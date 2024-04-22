@@ -1178,6 +1178,21 @@ public class Assertion extends BaseTest {
 	    }
 	}
 	
+	public void assertClusterBecauseYouWatched() {
+	    homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_because_you_watched = homePage.txt_cluster_because_you_watched;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_because_you_watched));
+	        Assert.assertTrue(txt_because_you_watched.isDisplayed());
+	        System.out.println("Assert Success: Cluster Because you watched is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Cluster Because you watched not displayed.");
+	        throw e; 
+	    }
+	}
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
