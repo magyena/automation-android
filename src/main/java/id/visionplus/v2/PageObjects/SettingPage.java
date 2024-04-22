@@ -186,6 +186,26 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath = "//android.view.View[@text=\"Please click the link we’ve sent to your email to proceed account deletion\"]")
 	public static WebElement txt_google_delete_account;
 	
+	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"android:id/title\" and @text=\"Manage devices\"]")
+	public static WebElement txt_Manage_Devices;
+	
+	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/errorTextView\"]")
+	public static WebElement txt_no_devices;
+
+	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/toolbar_text\"]")
+	public static WebElement txt_tittle_manage_devices;
+	
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/disconnect_devices_button")
+	public static WebElement btn_discconnect_manage_devices;
+	
+	@AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/deviceList\"]/android.view.ViewGroup[1]")
+	public static WebElement txt_connected_devices;
+	
+	
+	
+	
+	
+	
 	
 	
 	

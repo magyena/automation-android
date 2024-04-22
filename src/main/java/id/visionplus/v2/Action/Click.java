@@ -1330,6 +1330,14 @@ public class Click extends BaseTest {
 		img_comic.click();
 	}
 	
+	public void clickManageDevices() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement txt_manage_devices = settingPage.txt_Manage_Devices;
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_manage_devices));
+		txt_manage_devices.click();
+	}
+	
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));

@@ -1189,6 +1189,36 @@ public class Assertion extends BaseTest {
 	    }
 	}
 	
+	public void assertManageDevices() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_toolbar_manage_devices = settingPage.txt_tittle_manage_devices;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_toolbar_manage_devices));
+	        Assert.assertTrue(txt_toolbar_manage_devices.isDisplayed());
+	        System.out.println("Assert Success: Manage Devices Tittle is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Manage Devices Tittle not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertConnectedDevices() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement connected_devices = settingPage.txt_connected_devices;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(connected_devices));
+	        Assert.assertTrue(connected_devices.isDisplayed());
+	        System.out.println("Assert Success: Showing Connected Devices is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Showing Connected Devices not displayed.");
+	        throw e; 
+	    }
+	}
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
