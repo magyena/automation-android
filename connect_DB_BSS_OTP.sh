@@ -19,7 +19,7 @@ SQLQuery="select otp from otps s where recipient like '%$phoneNumber' and verifi
 chmod 600 "$privateKey"
 
 # Suppress warning message and connect to the jumphost with the private key to get the OTP value
-otpValue=$(/opt/homebrew/Cellar/sshpass/1.09/bin/sshpass -p "$jumphostPassword" ssh -T -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i "$privateKey" "$jumphostUser@$jumphostHost" 2>/dev/null << EOF
+otpValue=$(/usr/local/Cellar/sshpass/1.06/bin/sshpass -p "$jumphostPassword" ssh -T -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i "$privateKey" "$jumphostUser@$jumphostHost" 2>/dev/null << EOF
   PGPASSWORD="$dbPassword" psql -U $dbUsername -d $dbName -h $dbHost -p $dbPort -t -c "$SQLQuery" | grep -oP '\b\d+\b'
 EOF
 )
