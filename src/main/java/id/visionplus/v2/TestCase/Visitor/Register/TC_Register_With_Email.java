@@ -1,5 +1,11 @@
 package id.visionplus.v2.TestCase.Visitor.Register;
 
+/* Created Date	: 3 April 2024
+ * Updated by	: Michael
+ * Updated Date	: Adding Sleep before assert Homepage
+ * 1. 
+ * */
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -134,6 +140,8 @@ public class TC_Register_With_Email extends BaseTest{
 		
 		click.clickRegisterLoginSubmitButton();
 		test.pass("Successfully Clicked Send Register Submit Button");
+		
+		Thread.sleep(2000);
 		
 		assertion.assertTextWarningOTPWrong();
 		test.pass("Successfully Assert Text Warning OTP is Displayed");

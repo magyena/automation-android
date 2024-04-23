@@ -30,7 +30,10 @@ public class VODDetailPage extends AndroidGesture {
 
 	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/saveButtonIcon")
 	public static WebElement btn_save;
-
+	
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/saveButtonText")
+	public static WebElement txt_btn_save;
+	
 	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/likeButtonIcon")
 	public static WebElement btn_like;
 

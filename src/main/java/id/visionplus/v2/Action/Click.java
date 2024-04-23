@@ -1,17 +1,17 @@
 package id.visionplus.v2.Action;
-/* Author		: Fatah Alim
- * Created Date	: 21 Maret 2024
- * Updated by	: -
- * Updated Date	: -
- * Summary		: Action_Click
- * 1. Add Comment Update
+/* Created Date	: 21 March 2024
+ * Updated by	: Michael
+ * Updated Date	: 4 April 2024
+ * Summary		: Add Click Watchlist
+ * 1. Adding Click Watchlist, only for watchlist Content
  * */
 
+
+import static org.testng.Assert.assertEquals;
 
 import java.time.Duration;
 import java.util.Random;
 
-import org.checkerframework.checker.units.qual.h;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
@@ -37,7 +37,6 @@ import id.visionplus.v2.PageObjects.VODDetailPage;
 import id.visionplus.v2.PageObjects.VPlusOriginalsPage;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
-import io.opentelemetry.api.internal.OtelEncodingUtils;
 
 public class Click extends BaseTest {
 	WebDriverWait wait;
@@ -470,6 +469,14 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_help));
 		btn_help.click();
 	}
+	
+	public void clickHelpCenterButton() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_help_center = settingPage.btn_help_center;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_help_center));
+		btn_help_center.click();
+	}
 
 	public void clickManageProfile() {
 		settingPage = new SettingPage(android);
@@ -674,6 +681,22 @@ public class Click extends BaseTest {
 		img_visionplus_originals_content.click();
 	}
 	
+	public void clickVisionPlusOriginals() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement img_visionplus_originals_cluster_content = homePage.img_visionplus_originals_cluster_content;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_visionplus_originals_cluster_content));
+		img_visionplus_originals_cluster_content.click();
+	}
+	
+	public void clickWatchlist() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement img_watchlist_content = homePage.img_watchlist_content;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_watchlist_content));
+		img_watchlist_content.click();
+	}
+	
 	public void clickVisionPlusTop1Series() {
 		homePage = new HomePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -750,7 +773,33 @@ public class Click extends BaseTest {
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement btn_save = vodDetailPage.btn_save;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_save));
-		btn_save.click();
+	
+		//If Already Saved don't Click
+		WebElement txt_btn_save = vodDetailPage.txt_btn_save;
+		String actual = txt_btn_save.getText();
+		
+		if (actual.equals("Add to List")) {
+	        btn_save.click();
+	    } else {
+	        System.out.println("The Save button is already turned on. No action taken.");
+	    }
+	}
+	
+	public void clickDeleteToWatchlist() {
+		vodDetailPage = new VODDetailPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_save = vodDetailPage.btn_save;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_save));
+	
+		//If Already Saved Click
+		WebElement txt_btn_save = vodDetailPage.txt_btn_save;
+		String actual = txt_btn_save.getText();
+		
+		if (actual.equals("Remove from List")) {
+	        btn_save.click();
+	    } else {
+	        System.out.println("The Save button is already turned off. No action taken.");
+	    }
 	}
 
 	public void clickCopyLink() {
