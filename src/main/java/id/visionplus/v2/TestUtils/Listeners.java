@@ -1,5 +1,6 @@
 package id.visionplus.v2.TestUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +8,9 @@ import java.util.List;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.testng.IRetryAnalyzer;
 import org.testng.xml.XmlSuite;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -17,108 +21,126 @@ import id.visionplus.v2.MainFunction.*;
 import io.appium.java_client.android.AndroidDriver;
 
 public class Listeners extends BaseTest implements ITestListener {
-	
-	AndroidDriver android;
-	ExtentReports extent = ExtentReporterNG.getReporterObject();
-	String path = System.getProperty("user.dir") + "/reports/" + timeStampDate + "/Automation Report"  + ".html";
-	ExtentTest test;
-	
-	List<String> failedTestCaseLists = new ArrayList<>();
-	String resultString="List of Failed Test Cases";	
-	
-	int totalTestCases = 0;
+    
+    AndroidDriver android;
+    ExtentReports extent = ExtentReporterNG.getReporterObject();
+    String path = System.getProperty("user.dir") + "/reports/" + timeStampDate + "/Automation Report"  + ".html";
+    ExtentTest test;
+    
+    List<String> failedTestCaseLists = new ArrayList<>();
+    String resultString="List of Failed Test Cases";    
+    
+    int totalTestCases = 0;
     int totalTestCasesFailed = 0;
     int totalTestCasesSkipped = 0;
     String failedTestCases ="";
     String skippedTestCases ="";
     String testSuitesName = "";
 
-    @Override		
-    public void onTestStart(ITestResult result) {			
-        // TODO Auto-generated method stub				
+    @Override        
+    public void onTestStart(ITestResult result) {           
         test = extent.createTest(result.getMethod().getMethodName());
         test.info("Script onStart method " + result.getName());
         totalTestCases++;
         
-     // Extract the test class name and method name
         String className = result.getTestClass().getName();
         String methodName = result.getMethod().getMethodName();
         
-        // Print the test flow
         System.out.println("Running Test Class: " + className + ", Method: " + methodName);
 
-        // Extract the test suite name from the result's ITestContext
         ITestContext context = result.getTestContext();
         XmlSuite xmlSuite = context.getSuite().getXmlSuite();
         String suiteName = xmlSuite.getName();
 
-        // Log the test suite name
         test.info("Test Suite: " + suiteName);
         testSuitesName=suiteName;
-    }	
+    }    
     
-    @Override		
-    public void onTestSuccess(ITestResult result) {					
-        // TODO Auto-generated method stub				
-        test.log(Status.PASS, "Script " + result.getMethod().getMethodName() + " Successfuly Running");
-    }	
+    @Override        
+    public void onTestSuccess(ITestResult result) {                 
+        test.log(Status.PASS, "Script " + result.getMethod().getMethodName() + " Successfully Running");
+    }    
     
-    @Override		
-    public void onTestFailure(ITestResult result) {					
-        // TODO Auto-generated method stub		
-    	String methodName = result.getMethod().getMethodName();
+    @Override        
+    public void onTestFailure(ITestResult result) {                 
+        String methodName = result.getMethod().getMethodName();
 
-	        test.fail(result.getThrowable());
-	        test.fail("Script " + result.getMethod().getMethodName() + " Failed Running"); 
-	           
-	        totalTestCasesFailed++;
-	        failedTestCases += "- [FAILED] "+ methodName + " Failed Running\n";
-
-        try {
-        	android = (AndroidDriver) result.getTestClass().getRealClass().getField("android").get(result.getInstance());
-        } catch (Exception e1) {
-        	e1.printStackTrace();
+        if (result.getMethod() instanceof IRetryAnalyzer) {
+            IRetryAnalyzer retryAnalyzer = (IRetryAnalyzer) result.getMethod();
+            if (retryAnalyzer.retry(result)) {
+                test.info("Retrying Test " + methodName);
+                totalTestCasesFailed--;
+                return;
+            }
         }
+
+        test.fail(result.getThrowable());
+        test.fail("Script " + methodName + " Failed Running"); 
+
+        // Check if the app was closed unexpectedly
+        if (result.getThrowable().toString().contains("NoSuchSessionException")) {
+            test.info("Retrying Test " + methodName + " due to app closure");
+            totalTestCasesFailed--;
+            return;
+        }
+
+        totalTestCasesFailed++;
+        failedTestCases += "- [FAILED] "+ methodName + " Failed Running\n";
+
         try {
-			test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName(),android), result.getMethod().getMethodName());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-    }	
+            android = (AndroidDriver) result.getTestClass().getRealClass().getField("android").get(result.getInstance());
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+        
+        // Capture screenshot and attach to report
+        try {
+            String screenshotPath = getScreenshotPath(result.getMethod().getMethodName(), android);
+            test.addScreenCaptureFromPath(screenshotPath, result.getMethod().getMethodName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     
-	    @Override		
-	    public void onFinish(ITestContext result) {					
-	        // TODO Auto-generated method stub	
-	    	sendTestSuitesName(testSuitesName);
-	    	sendSummaryTestCases(totalTestCases, totalTestCases - totalTestCasesFailed - totalTestCasesSkipped, totalTestCasesFailed, totalTestCasesSkipped);
-	    	
-	    	if(totalTestCasesFailed>0){
-		    	sendListFailedTestCases(failedTestCases);
-	    	}
-	    	if(totalTestCasesSkipped>0){
-	    		sendListSkippedTestCases(skippedTestCases);
-	    	}
-	    	if(totalTestCasesFailed==0 && totalTestCasesSkipped==0){
-	    		sendCustomMessage("All Test Case are Passed and Successfully Executed");
-	    	}	    	
-	    	
-	    	sendCcMessage();
-	    	test.info("Script onFinish method " + result.getName());
-	        extent.flush();
-	    }			
+    @Override        
+    public void onFinish(ITestContext result) {                 
+        sendTestSuitesName(testSuitesName);
+        sendSummaryTestCases(totalTestCases, totalTestCases - totalTestCasesFailed - totalTestCasesSkipped, totalTestCasesFailed, totalTestCasesSkipped);
+        
+        if(totalTestCasesFailed>0){
+            sendListFailedTestCases(failedTestCases);
+        }
+        if(totalTestCasesSkipped>0){
+            sendListSkippedTestCases(skippedTestCases);
+        }
 
-	    @Override		
-	    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {					
-	        test.info("Test failed but it is in defined success ratio " + result.getMethod().getMethodName());
-	    }			
+        if(totalTestCasesFailed==0){
+        	if(totalTestCasesSkipped==0){
+                sendCustomMessage("All Test Cases are Passed and Successfully Executed");
+        	}
+        }else{
+        	sendCcMessage();
+        }
+        
+        test.info("Script onFinish method " + result.getName());
+        extent.flush();
+    }            
+    
+    public String getScreenshotPath(String methodName, AndroidDriver android) throws IOException {
+        File source = android.getScreenshotAs(OutputType.FILE);
+        String destinationFile = System.getProperty("user.dir") + "/reports/screenshots/" + methodName + ".png";
+        FileUtils.copyFile(source, new File(destinationFile));
+        return destinationFile;
+    }
 
-	    @Override		
-	    public void onTestSkipped(ITestResult result) {
-	    	String methodName = result.getMethod().getMethodName();
-	    	totalTestCasesSkipped++;
-	        test.info("Script " + methodName + " Skipped");	
-	        test.log(Status.SKIP, "Test Skipped");
-	        skippedTestCases += "- [SKIPPED] "+ methodName + " Skipped\n";
-	    }				
-	
+    @Override        
+    public void onTestSkipped(ITestResult result) {
+        String methodName = result.getMethod().getMethodName();
+        totalTestCasesSkipped++;
+        test.info("Script " + methodName + " Skipped");    
+        test.log(Status.SKIP, "Test Skipped");
+        skippedTestCases += "- [SKIPPED] "+ methodName + " Skipped\n";
+    }               
+
 }

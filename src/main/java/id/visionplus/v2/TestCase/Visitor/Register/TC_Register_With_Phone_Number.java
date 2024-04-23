@@ -1,5 +1,11 @@
 package id.visionplus.v2.TestCase.Visitor.Register;
 
+/* Created Date	: 4 April 2024
+ * Updated by	: Michael
+ * Updated Date	: Adding Log
+ * 1. 
+ * */
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -178,7 +184,7 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		click.clickFieldPassword();
 		test.pass("Successfully Clicked Text Field Password");
 		
-		System.out.println(phone_number);
+		System.out.println("Phone Number in Register: "+phone_number);
 		
 		Thread.sleep(3000);
 		input.inputPassword("4321Lupa");
@@ -312,6 +318,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		
 		input.inputPhoneNumberForgot(phone_number);
 		test.pass("Successfully Input Text Field with Valid Phone Number");
+		
+		System.out.println("Phone Number in Forgot: "+phone_number);
 
 		click.clickFieldPassword();
 		test.pass("Successfully Clicked Text Field Password");
