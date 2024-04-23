@@ -1,13 +1,22 @@
 package id.visionplus.v2.TestCase.General;
 
+/* Created Date	: 5 April 2024
+ * Updated by	: Michael
+ * Updated Date	: 5 April 2024
+ * Summary		: Add Scroll to Linear Channels
+ * 1. Adding Scroll after search linear Channels
+ * */
+
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import expectj.TimeoutException;
 import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
 import id.visionplus.v2.Action.Input;
+import id.visionplus.v2.Action.Scroll;
 import id.visionplus.v2.MainFunction.BaseTest;
 
 public class TC_Search extends BaseTest{
@@ -17,6 +26,8 @@ public class TC_Search extends BaseTest{
 	Input input = new Input();
     // Get the test case type from TestNG parameters
     String testCaseType = System.getProperty("testCaseType");
+//    String testCaseType = "FREE";
+
 
 	@Test(priority=1)
 	public void TC_Access_Search() throws IOException, InterruptedException, TimeoutException {
@@ -74,6 +85,10 @@ public class TC_Search extends BaseTest{
 		test.pass("Successfully Input Search Field with Valid Keyword");
 		
 		android.hideKeyboard();
+		
+		Scroll scroll = new Scroll(android);
+		By locator = By.xpath("//android.widget.TextView[contains(@text, 'Channels')]/following::android.view.View[2]");
+	    scroll.scrollUntilElementFound(locator);
 		
 		assertion.assertSearchLiveTv();
 		test.pass("Successfully Assert Live TV Search Result");

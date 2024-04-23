@@ -31,8 +31,8 @@ public class TC_Transaction_History extends BaseTest {
 	Input input = new Input();
 	Tap tap = new Tap();
 	TC_Settings settings = new TC_Settings();
-	String testCaseType = System.getProperty("testCaseType");
-//	String testCaseType = "PREMIUM_SPORT";
+//	String testCaseType = System.getProperty("testCaseType");
+	String testCaseType = "FREE";
 
 	@Test(priority = 1)
 
@@ -123,7 +123,9 @@ public class TC_Transaction_History extends BaseTest {
 		Thread.sleep(2000);
 		tap.tap(981, 667);
 		tap.tap(145, 2211);
-
+		
+		click.clickHelpCenterButton();
+		
 		assertion.assertHelpCentre();
 		Thread.sleep(2000);	
 		click.clickCloseToSettings();
