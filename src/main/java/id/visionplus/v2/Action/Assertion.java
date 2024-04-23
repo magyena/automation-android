@@ -1234,6 +1234,36 @@ public class Assertion extends BaseTest {
 	    }
 	}
 	
+	public void assertAddtoListWatchlist() {
+	    vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_Add_to_list = vodDetailPage.txt_Add_to_list;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_Add_to_list));
+	        Assert.assertTrue(txt_Add_to_list.isDisplayed());
+	        System.out.println("Assert Success: Add to list is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Add to list not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertRemoveFromListtWatchlist() {
+	    vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_remove_from_list = vodDetailPage.txt_Remove_from_list;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_remove_from_list));
+	        Assert.assertTrue(txt_remove_from_list.isDisplayed());
+	        System.out.println("Assert Success: Remove from List is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Remove from List displayed.");
+	        throw e; 
+	    }
+	}
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;

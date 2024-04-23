@@ -1,5 +1,6 @@
 package id.visionplus.v2.TestCase.General;
 
+import org.testng.annotations.Test;
 import java.awt.Point;
 import java.io.IOException;
 
@@ -86,11 +87,30 @@ public class TC_Cluster_Watchlist extends BaseTest {
 		click.clickBack();
 		scroll.scrollUntilElementFound(locator1);
 		click.clickVODComic();
-		click.clickSaveToWatchlist();
-		click.clickSaveToWatchlist();
-		click.clickBack();
+		int flag = 0;
+
+		try {
+			assertion.assertAddtoListWatchlist();
+			click.clickSaveToWatchlist();
+		} catch (Exception e) {
+			System.out.println("Failed to assertion add to list: " + e.getMessage());
+			try {
+				assertion.assertRemoveFromListtWatchlist();
+
+			} catch (Exception ex) {
+				System.out.println("to assertion remove from list: " + ex.getMessage());
+				flag = 1;
+			}
+		}
+		Thread.sleep(10000);
+
+		if (flag == 0) {
+			click.clickBack();
+			test.pass("Successfully Press Back");
+		}
 
 		click.pressBack();
+
 		By locator2 = By.xpath(
 				"//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripTitle\" and @text=\"Watchlist\"]");
 		scroll.scrollUntilElementFound(locator2);
@@ -105,16 +125,16 @@ public class TC_Cluster_Watchlist extends BaseTest {
 		swipe.swipetoLeft(start1, end1);
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, dependsOnMethods = "TC_User_add_32_VOD_to_Cluster_Watchlist")
 	public void TC_cluster_because_you_watched() throws IOException, TimeoutException, InterruptedException {
 		Scroll scroll = new Scroll(android);
-		By locator = By.xpath("//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripTitle\" and @text=\"Family Friendly Movies\"]");
+		By locator = By.xpath(
+				"//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripTitle\" and @text=\"Family Friendly Movies\"]");
 		scroll.scrollUntilElementFound(locator);
 
 		assertion.assertClusterBecauseYouWatched();
 		test.pass("Successfully assert the cluster");
-		
-		
+
 		Thread.sleep(5000);
 
 	}
