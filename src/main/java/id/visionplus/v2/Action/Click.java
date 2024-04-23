@@ -826,12 +826,12 @@ public class Click extends BaseTest {
 		btn_download.click();
 	}
 
-	public void clickEps7VOD() {
+	public void clickEpsPremiumVOD() {
 		vodDetailPage = new VODDetailPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
-		WebElement img_eps_7_vod = vodDetailPage.img_eps_7_vod;
-		wait.until(ExpectedConditions.visibilityOfAllElements(img_eps_7_vod));
-		img_eps_7_vod.click();
+		WebElement img_eps_premium_vod = vodDetailPage.img_eps_premium_vod;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_eps_premium_vod));
+		img_eps_premium_vod.click();
 	}
 
 	public void clickWatchVOD() {
@@ -1052,7 +1052,7 @@ public class Click extends BaseTest {
 
 	public void clickHistoryPremium30DaysPlaystore() {
 		outsideApp = new OutsideApp(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
 		WebElement history_Premium = outsideApp.history_premium_30_days_playstore;
 		wait.until(ExpectedConditions.visibilityOfAllElements(history_Premium));
 		history_Premium.click();
@@ -1060,7 +1060,7 @@ public class Click extends BaseTest {
 
 	public void clickHistoryPremiumSport30DaysPlaystore() {
 		outsideApp = new OutsideApp(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
 		WebElement history_Premium_sports = outsideApp.history_premium_sports_30_days_playstore;
 		wait.until(ExpectedConditions.visibilityOfAllElements(history_Premium_sports));
 		history_Premium_sports.click();
@@ -1068,7 +1068,7 @@ public class Click extends BaseTest {
 	
 	public void clickCancelSubscriptionPlaystore() {
 		outsideApp = new OutsideApp(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
 		WebElement btn_cancel_subscriptions = outsideApp.btn_cancel_subscription_playstore;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_cancel_subscriptions));
 		btn_cancel_subscriptions.click();
@@ -1241,7 +1241,144 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_ok));
 		btn_ok.click();
 	}
+	
+	public void clickDeleteAccount() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement txt_delete_account = settingPage.txt_delete_account;
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_delete_account));
+		txt_delete_account.click();
+	}
 
+	public void clickCheckBoxDeleteAccount() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement checkbox_delete_account = settingPage.btn_checkbox;
+		wait.until(ExpectedConditions.visibilityOfAllElements(checkbox_delete_account));
+		checkbox_delete_account.click();
+	}
+
+	public void clickBtnKeepAccount() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_keep_account = settingPage.btn_keep_account;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_keep_account));
+		btn_keep_account.click();
+	}
+	
+
+	public void clickBtnProceedDeletedAccount() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_proceed_delete_account = settingPage.btn_proceed_delete_account;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_proceed_delete_account));
+		btn_proceed_delete_account.click();
+	}
+	
+	public void clickBtnConfirmationDeleteAccount() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_confirm_delete = settingPage.btn_confirm_deleted_account;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_confirm_delete));
+		btn_confirm_delete.click();
+	}
+	
+	public void clickVODComingSoon1() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement coming_soon_1 = vplusOriginalPage.coming_soon_vod_1;
+		wait.until(ExpectedConditions.visibilityOfAllElements(coming_soon_1));
+		coming_soon_1.click();
+	}
+	
+	public void clickVODComingSoon2() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement coming_soon_2 = vplusOriginalPage.coming_soon_vod_2;
+		wait.until(ExpectedConditions.visibilityOfAllElements(coming_soon_2));
+		coming_soon_2.click();
+	}
+	
+	public void clickVODComingSoon3() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement coming_soon_3 = vplusOriginalPage.coming_soon_vod_3;
+		wait.until(ExpectedConditions.visibilityOfAllElements(coming_soon_3));
+		coming_soon_3.click();
+	}
+	
+	public void clickVODSinners() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement img_sinners = vplusOriginalPage.img_sinners;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_sinners));
+		img_sinners.click();
+	}
+	
+	public void clickVODRadio() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement img_radio = vplusOriginalPage.img_radio;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_radio));
+		img_radio.click();
+	}
+	
+	public void clickVOD12Hari() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement img_12hari = vplusOriginalPage.img_12Hari;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_12hari));
+		img_12hari.click();
+	}
+	
+	public void clickVODPrince() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement img_prince = vplusOriginalPage.img_prince;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_prince));
+		img_prince.click();
+	}
+	
+	public void clickVODPiknik() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement img_piknik = vplusOriginalPage.img_piknik;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_piknik));
+		img_piknik.click();
+	}
+	
+	public void clickVODKatanya() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement img_katanya = vplusOriginalPage.img_katanya;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_katanya));
+		img_katanya.click();
+	}
+	
+	public void clickVODadaDewa() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement img_dewa = vplusOriginalPage.img_Ada_dewa;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_dewa));
+		img_dewa.click();
+	}
+	
+	public void clickVODCatatanAkhirSekolah() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement img_catatan_akhir_sekolah = vplusOriginalPage.img_catatan_akhir_sekolah;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_catatan_akhir_sekolah));
+		img_catatan_akhir_sekolah.click();
+	}
+	
+	public void clickVODComic() {
+		vplusOriginalPage = new VPlusOriginalsPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement img_comic = vplusOriginalPage.img_comic;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_comic));
+		img_comic.click();
+	}
+	
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));

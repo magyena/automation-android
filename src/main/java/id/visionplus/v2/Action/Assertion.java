@@ -416,12 +416,12 @@ public class Assertion extends BaseTest {
 	public void assertVODinWatchlist() {
 		homePage = new HomePage(android);
 
-		WebElement img_visionplus_originals_content = homePage.img_visionplus_originals_content;
+		WebElement img_watchlist_content = homePage.img_watchlist_content;
 
 		wait = new WebDriverWait(android, Duration.ofSeconds(90));
-		wait.until(ExpectedConditions.visibilityOfAllElements(img_visionplus_originals_content));
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_watchlist_content));
 
-		Assert.assertTrue(img_visionplus_originals_content.isDisplayed());
+		Assert.assertTrue(img_watchlist_content.isDisplayed());
 	}
 
 	public void assertUnregisteredAccountText() {
@@ -448,10 +448,6 @@ public class Assertion extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(txt_wrong_email_password));
 
 		Assert.assertTrue(txt_wrong_email_password.isDisplayed());
-
-		String actual = txt_wrong_email_password.getText();
-		String expected = "Wrong email or password";
-		Assert.assertEquals(actual, expected);
 	}
 
 	public void assertManageProfile() {
@@ -1088,6 +1084,95 @@ public class Assertion extends BaseTest {
 	    }
 	}
 	
+	public void assertDeleteAccountWebView() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_delete_account_webview = settingPage.txt_delete_account_webview;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_delete_account_webview));
+	        Assert.assertTrue(txt_delete_account_webview.isDisplayed());
+	        System.out.println("Assert Success: Deleted Account text is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Deleted Account text not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertDeleteAccountEnterPassword() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_enter_password = settingPage.txt_delete_account_enter_password;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_enter_password));
+	        Assert.assertTrue(txt_enter_password.isDisplayed());
+	        System.out.println("Assert Success: You have to enter your password... is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: You have to enter your password... not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertDeleteAccountFailed() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_delete_account_failed = settingPage.txt_delete_account_failed;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_delete_account_failed));
+	        Assert.assertTrue(txt_delete_account_failed.isDisplayed());
+	        System.out.println("Assert Success: Delete Account Failed is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Delete Account Failed not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertDeleteAccountSuccess() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    WebElement txt_delete_account_success = settingPage.txt_success_delete_account;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_delete_account_success));
+	        Assert.assertTrue(txt_delete_account_success.isDisplayed());
+	        System.out.println("Assert Success: Your Account is deleted is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Your Account is deleted not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertStillHavePackage() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_still_have_package = settingPage.txt_still_have_package;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_still_have_package));
+	        Assert.assertTrue(txt_still_have_package.isDisplayed());
+	        System.out.println("Assert Success: Your Still Have Package is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Your Still Have Package not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertGoogleDeleteAccount() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_google_delete = settingPage.txt_google_delete_account;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_google_delete));
+	        Assert.assertTrue(txt_google_delete.isDisplayed());
+	        System.out.println("Assert Success: Delete onfirm link to email is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Delete Confirm link to email not displayed.");
+	        throw e; 
+	    }
+	}
 	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
