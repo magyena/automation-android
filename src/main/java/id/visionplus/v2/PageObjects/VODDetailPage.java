@@ -108,5 +108,11 @@ public class VODDetailPage extends AndroidGesture {
 
 	@AndroidFindBy(xpath="//android.widget.TextView[@text=\"Download\"]")
 	public static WebElement body_details_VOD; // inno
+	
+	@AndroidFindBy(xpath = "//*[contains(@text,'Remove from List')]")
+	public static WebElement txt_Remove_from_list;
+	
+	@AndroidFindBy(xpath = "//*[contains(@text,'Add to List')]")
+	public static WebElement txt_Add_to_list;
 }
 

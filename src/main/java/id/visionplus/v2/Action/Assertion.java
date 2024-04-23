@@ -1174,6 +1174,96 @@ public class Assertion extends BaseTest {
 	    }
 	}
 	
+	public void assertClusterBecauseYouWatched() {
+	    homePage = new HomePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_because_you_watched = homePage.txt_cluster_because_you_watched;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_because_you_watched));
+	        Assert.assertTrue(txt_because_you_watched.isDisplayed());
+	        System.out.println("Assert Success: Cluster Because you watched is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Cluster Because you watched not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertManageDevices() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_toolbar_manage_devices = settingPage.txt_tittle_manage_devices;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_toolbar_manage_devices));
+	        Assert.assertTrue(txt_toolbar_manage_devices.isDisplayed());
+	        System.out.println("Assert Success: Manage Devices Tittle is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Manage Devices Tittle not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertConnectedDevices() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement connected_devices = settingPage.txt_connected_devices;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(connected_devices));
+	        Assert.assertTrue(connected_devices.isDisplayed());
+	        System.out.println("Assert Success: Showing Connected Devices is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Showing Connected Devices not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertNoConnectedDevices() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement no_connected_devices = settingPage.txt_no_devices;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(no_connected_devices));
+	        Assert.assertTrue(no_connected_devices.isDisplayed());
+	        System.out.println("Assert Success: No Devices Connected is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: No Devices Connected not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertAddtoListWatchlist() {
+	    vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_Add_to_list = vodDetailPage.txt_Add_to_list;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_Add_to_list));
+	        Assert.assertTrue(txt_Add_to_list.isDisplayed());
+	        System.out.println("Assert Success: Add to list is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Add to list not displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertRemoveFromListtWatchlist() {
+	    vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement txt_remove_from_list = vodDetailPage.txt_Remove_from_list;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(txt_remove_from_list));
+	        Assert.assertTrue(txt_remove_from_list.isDisplayed());
+	        System.out.println("Assert Success: Remove from List is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Remove from List displayed.");
+	        throw e; 
+	    }
+	}
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
