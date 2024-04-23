@@ -114,11 +114,15 @@ public class Listeners extends BaseTest implements ITestListener {
         if(totalTestCasesSkipped>0){
             sendListSkippedTestCases(skippedTestCases);
         }
-        if(totalTestCasesFailed==0 && totalTestCasesSkipped==0){
-            sendCustomMessage("All Test Cases are Passed and Successfully Executed");
-        }               
+
+        if(totalTestCasesFailed==0){
+        	if(totalTestCasesSkipped==0){
+                sendCustomMessage("All Test Cases are Passed and Successfully Executed");
+        	}
+        }else{
+        	sendCcMessage();
+        }
         
-        sendCcMessage();
         test.info("Script onFinish method " + result.getName());
         extent.flush();
     }            
