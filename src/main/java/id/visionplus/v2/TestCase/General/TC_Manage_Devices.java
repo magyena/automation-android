@@ -36,7 +36,7 @@ public class TC_Manage_Devices extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE I
 	Input input = new Input();
 //	String testCaseType = System.getProperty("testCaseType");
 	String testCaseType = "PREMIUM_SPORT";
-
+	BaseTest base = new BaseTest();
 	TC_Integrate_Register_Email register = new TC_Integrate_Register_Email();
 
 	@Test(priority = 1)
@@ -63,7 +63,53 @@ public class TC_Manage_Devices extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE I
 		assertion.assertConnectedDevices();
 		test.pass("Successfully assert connected devices");
 		
-		Thread.sleep(5000);
+		click.clickSettingsBackButton();
+		
+		click.clickSettingsAccountNumberorEmail();
+		test.pass("Successfully clicked acccount number or email");
+
+		click.clickLogout();
+		Thread.sleep(2000);
+		android.closeApp();
+		
+		
+	}
+	
+	@Test(priority = 2)
+
+	public void TC_user_can_show_no_connected_devives() throws InterruptedException, IOException, TimeoutException {
+		TC_Integrate_Register register = new TC_Integrate_Register();
+		base.ConfigureAppium();
+		register.TC_user_input_valid_phone_number_and_password();
+		register.TC_user_click_send_otp_2nd_time();
+		register.TC_user_input_correct_otp();
+		click.clickMenuButton();
+		test.pass("Successfully clicked menu");
+
+		assertion.assertMenu();
+		test.pass("Successfully assert menu");
+
+		click.clickSettingsButton();
+		test.pass("Successfully clicked Settings Button");
+
+		assertion.assertSettingsPage();
+		test.pass("Successfully assert menu buy package");
+
+		click.clickManageDevices();
+		test.pass("Successfully clicked managed devices");
+		
+		assertion.assertNoConnectedDevices();
+		test.pass("Successfully assert connected devices");
+		
+		click.clickSettingsBackButton();
+		
+		click.clickSettingsAccountNumberorEmail();
+		test.pass("Successfully clicked acccount number or email");
+
+		click.clickLogout();
+		Thread.sleep(2000);
+		android.closeApp();
+		
 	}
 	
 

@@ -1219,6 +1219,21 @@ public class Assertion extends BaseTest {
 	    }
 	}
 	
+	public void assertNoConnectedDevices() {
+	    settingPage = new SettingPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement no_connected_devices = settingPage.txt_no_devices;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(no_connected_devices));
+	        Assert.assertTrue(no_connected_devices.isDisplayed());
+	        System.out.println("Assert Success: No Devices Connected is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: No Devices Connected not displayed.");
+	        throw e; 
+	    }
+	}
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
