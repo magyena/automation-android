@@ -32,8 +32,8 @@ public class TC_Manage_Devices extends BaseTest {
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Input input = new Input();
-//	String testCaseType = System.getProperty("testCaseType");
-	String testCaseType = "PREMIUM_SPORT";
+	String testCaseType = System.getProperty("testCaseType");
+//	String testCaseType = "PREMIUM_SPORT";
 	BaseTest base = new BaseTest();
 	TC_Integrate_Register_Email register = new TC_Integrate_Register_Email();
 
@@ -41,38 +41,38 @@ public class TC_Manage_Devices extends BaseTest {
 
 	public void TC_user_can_show_all_connected_devices() throws InterruptedException, IOException, TimeoutException {
 		TC_OpenApp open_app = new TC_OpenApp();
-//		open_app.Choose_Login_As(testCaseType);
-//
-//		click.clickMenuButton();
-//		test.pass("Successfully clicked menu");
-//
-//		assertion.assertMenu();
-//		test.pass("Successfully assert menu");
-//
-//		click.clickSettingsButton();
-//		test.pass("Successfully clicked Settings Button");
-//
-//		assertion.assertSettingsPage();
-//		test.pass("Successfully assert menu buy package");
-//
-//		click.clickManageDevices();
-//		test.pass("Successfully clicked managed devices");
-//
-//		assertion.assertConnectedDevices();
-//		test.pass("Successfully assert connected devices");
-//
-//		click.clickSettingsBackButton();
-//
-//		click.clickSettingsAccountNumberorEmail();
-//		test.pass("Successfully clicked acccount number or email");
-//
-//		click.clickLogout();
-//		Thread.sleep(2000);
+		open_app.Choose_Login_As(testCaseType);
+
+		click.clickMenuButton();
+		test.pass("Successfully clicked menu");
+
+		assertion.assertMenu();
+		test.pass("Successfully assert menu");
+
+		click.clickSettingsButton();
+		test.pass("Successfully clicked Settings Button");
+
+		assertion.assertSettingsPage();
+		test.pass("Successfully assert menu buy package");
+
+		click.clickManageDevices();
+		test.pass("Successfully clicked managed devices");
+
+		assertion.assertConnectedDevices();
+		test.pass("Successfully assert connected devices");
+
+		click.clickSettingsBackButton();
+
+		click.clickSettingsAccountNumberorEmail();
+		test.pass("Successfully clicked acccount number or email");
+
+		click.clickLogout();
+		Thread.sleep(2000);
 		android.closeApp();
 
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, dependsOnMethods = "TC_user_can_show_all_connected_devices")
 
 	public void TC_user_can_show_no_connected_devives() throws InterruptedException, IOException, TimeoutException {
 		TC_Integrate_Register register = new TC_Integrate_Register();
@@ -103,7 +103,7 @@ public class TC_Manage_Devices extends BaseTest {
 		click.clickSettingsBackButton();
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3,dependsOnMethods = "TC_user_can_show_no_connected_devives")
 
 	public void TC_user_can_delete_Devices() throws InterruptedException, IOException, TimeoutException {
 
