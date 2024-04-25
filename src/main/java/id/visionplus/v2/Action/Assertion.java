@@ -1207,7 +1207,7 @@ public class Assertion extends BaseTest {
 	public void assertConnectedDevices() {
 	    settingPage = new SettingPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
-	    WebElement connected_devices = settingPage.txt_connected_devices;
+	    WebElement connected_devices = settingPage.list_connected_devices;
 	    
 	    try {
 	        wait.until(ExpectedConditions.visibilityOfAllElements(connected_devices));

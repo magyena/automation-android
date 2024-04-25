@@ -202,7 +202,17 @@ public class SettingPage extends AndroidGesture
 	public static WebElement btn_discconnect_manage_devices;
 	
 	@AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/deviceList\"]/android.view.ViewGroup[1]")
-	public static WebElement txt_connected_devices;
+	public static WebElement list_connected_devices;
+
+	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"android:id/title\"]")
+	public static WebElement disconnect_devices;
+	
+	@AndroidFindBy(id = "android:id/button1")
+	public static WebElement btn_confirm_disconnect_devices;
+	
+	
+
+	
 	
 	
 	

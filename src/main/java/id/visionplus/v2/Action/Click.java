@@ -1387,6 +1387,30 @@ public class Click extends BaseTest {
 		txt_manage_devices.click();
 	}
 	
+	public void clickListDevices() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement list_devices = settingPage.list_connected_devices;
+		wait.until(ExpectedConditions.visibilityOfAllElements(list_devices));
+		list_devices.click();
+	}
+	
+	public void clickDisconnectDevices() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement disconnect_devices = settingPage.disconnect_devices;
+		wait.until(ExpectedConditions.visibilityOfAllElements(disconnect_devices));
+		disconnect_devices.click();
+	}
+	
+	public void clickConfirmDisconnectDevices() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement btn_disconnect_devices = settingPage.btn_confirm_disconnect_devices;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_disconnect_devices));
+		btn_disconnect_devices.click();
+	}
+	
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
