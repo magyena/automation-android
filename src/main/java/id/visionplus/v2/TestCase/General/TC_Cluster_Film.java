@@ -156,8 +156,11 @@ public class TC_Cluster_Film extends BaseTest {
 		Scroll scroll = new Scroll(android);
 		By locator = By.xpath("//*[contains(@text,'Asian Action Movies')]");
 		scroll.scrollUntilElementFound(locator);
-
-		scroll.scrollUp(100);
+		
+		
+		  for (int i = 0; i < 5; i++) {
+	            scroll.scrollUp(0.1);
+	        }
 
 		click.clickActionCategory();
 		test.pass("Succesfully clicked action category");
