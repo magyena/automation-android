@@ -3,9 +3,10 @@ package id.visionplus.v2.TestCase.General;
  * Created Date	: 2 April 2024
  * Updated by	: -
  * Updated Date	: -
- * Summary		: TC_Change_Password
- * 1. Update Scenario Change Password
+ * Summary		: TC_Manage_Devices
+ * 1. Update Scenario Manage Devices
  * */
+
 
 import java.awt.Point;
 import java.io.IOException;
