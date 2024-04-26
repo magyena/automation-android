@@ -80,6 +80,9 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(xpath="(//android.widget.ImageView[@content-desc=\"false\"])[1]")
 	public static WebElement img_1st_profile;
 	
+	@AndroidFindBy(xpath="(//android.widget.ImageView[@content-desc=\"false\"])[7]")
+	public static WebElement img_last_profile;
+	
 	@AndroidFindBy(xpath="//*[contains(@text,'Live TV')]")
 	public static WebElement btn_live_tv;
 	
@@ -146,6 +149,11 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(xpath="//*[contains(@text,'Because you watched')]")
 	public static WebElement txt_cluster_because_you_watched;
 	
+	@AndroidFindBy(xpath="//*[contains(@text,'Watchlist')]")
+	public static WebElement txt_cluster_watchlist;
+	
+	@AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripRecyclerView\"])[2]")
+	public static WebElement content_cluster_new_release;
 	
 	
 }

@@ -324,6 +324,14 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(img_1st_profile));
 		img_1st_profile.click();
 	}
+	
+	public void clickLastProfile() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement img_last_profile = homePage.img_last_profile;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_last_profile));
+		img_last_profile.click();
+	}
 
 	public void clickSkip() {
 		homePage = new HomePage(android);
@@ -783,6 +791,14 @@ public class Click extends BaseTest {
 	    } else {
 	        System.out.println("The Save button is already turned on. No action taken.");
 	    }
+	}
+	
+	public void clickAddWatchlist() {
+		vodDetailPage = new VODDetailPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_save = vodDetailPage.btn_save;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_save));
+		btn_save.click();
 	}
 	
 	public void clickDeleteToWatchlist() {
@@ -1409,6 +1425,22 @@ public class Click extends BaseTest {
 		WebElement btn_disconnect_devices = settingPage.btn_confirm_disconnect_devices;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_disconnect_devices));
 		btn_disconnect_devices.click();
+	}
+	
+	public void clickVodCintaDiBalikAwan() {
+		searchPage = new SearchPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement vod_cinta = searchPage.vod_cinta_di_balik_awan;
+		wait.until(ExpectedConditions.visibilityOfAllElements(vod_cinta));
+		vod_cinta.click();
+	}
+	
+	public void clickContentClusterNewRelease() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement content_cluster_new_release = homePage.content_cluster_new_release;
+		wait.until(ExpectedConditions.visibilityOfAllElements(content_cluster_new_release));
+		content_cluster_new_release.click();
 	}
 	
 	public void clickFreeLinear() {

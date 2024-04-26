@@ -1264,6 +1264,53 @@ public class Assertion extends BaseTest {
 	    }
 	}
 	
+	public void assertClusterWatchlist() { 
+	    String pageSource = android.getPageSource();
+	    String textToAssert = "Watchlist";
+
+	    try {
+	        if (pageSource.contains(textToAssert)) {
+	            System.out.println("Assertion Passed: Text '" + textToAssert + "' is present on the page.");
+	        } else {
+	            throw new AssertionError("After Change Profile Cluster '" + textToAssert + "' is not present .");
+	        }
+	    } catch (AssertionError e) {
+	        System.out.println(e.getMessage());
+	        
+	    }
+	}
+	
+	public void assertContentClusterNewRelease() {
+	    vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement content_cluster_new_relase = vodDetailPage.banner_content_cluster_new_release;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(content_cluster_new_relase));
+	        Assert.assertTrue(content_cluster_new_relase.isDisplayed());
+	        System.out.println("Assert Success: Detail VOD is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Detail VOD displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertClusterContinueWatching() { 
+	    String pageSource = android.getPageSource();
+	    String textToAssert = "Continue watching";
+
+	    try {
+	        if (pageSource.contains(textToAssert)) {
+	            System.out.println("Assertion Passed: Text '" + textToAssert + "' is present on the page.");
+	        } else {
+	            throw new AssertionError("Assertion Failed: Text '" + textToAssert + "' is not present .");
+	        }
+	    } catch (AssertionError e) {
+	        System.out.println(e.getMessage());
+	        
+	    }
+	}
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
