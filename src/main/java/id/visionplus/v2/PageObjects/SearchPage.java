@@ -31,5 +31,9 @@ public class SearchPage extends AndroidGesture
 	
 	@AndroidFindBy(xpath="(//android.widget.TextView[contains(@text, 'Channels')]/following::*[@content-desc='RCTI'])[2]")
 	public static WebElement img_search_live_tv_rcti;
+	
+	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Cinta Di Balik Awan\"]")
+	public static WebElement vod_cinta_di_balik_awan;
+	
 
 }

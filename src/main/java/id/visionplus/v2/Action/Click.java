@@ -10,6 +10,7 @@ package id.visionplus.v2.Action;
 import static org.testng.Assert.assertEquals;
 
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.Random;
 
 import org.openqa.selenium.By;
@@ -19,6 +20,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.model.Media;
+
 import id.visionplus.v2.MainFunction.BaseTest;
 import id.visionplus.v2.PageObjects.BuyPackagePage;
 import id.visionplus.v2.PageObjects.CategoryPage;
@@ -26,6 +29,7 @@ import id.visionplus.v2.PageObjects.EntryPage;
 import id.visionplus.v2.PageObjects.HomePage;
 import id.visionplus.v2.PageObjects.LiveTVPage;
 import id.visionplus.v2.PageObjects.LoginPage;
+import id.visionplus.v2.PageObjects.MediaPlayerPage;
 import id.visionplus.v2.PageObjects.OutsideApp;
 import id.visionplus.v2.PageObjects.PopUpPage;
 import id.visionplus.v2.PageObjects.ProgramGuidePage;
@@ -56,6 +60,7 @@ public class Click extends BaseTest {
 	CategoryPage categorypage ;
 	PopUpPage popuppage;
 	BuyPackagePage buypackage;
+	MediaPlayerPage mediaplayerpage;
 
 	public void pressBack(){
         (android).pressKey(new KeyEvent(AndroidKey.BACK));
@@ -323,6 +328,14 @@ public class Click extends BaseTest {
 		WebElement img_1st_profile = homePage.img_1st_profile;
 		wait.until(ExpectedConditions.visibilityOfAllElements(img_1st_profile));
 		img_1st_profile.click();
+	}
+	
+	public void clickLastProfile() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement img_last_profile = homePage.img_last_profile;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_last_profile));
+		img_last_profile.click();
 	}
 
 	public void clickSkip() {
@@ -785,6 +798,14 @@ public class Click extends BaseTest {
 	    }
 	}
 	
+	public void clickAddWatchlist() {
+		vodDetailPage = new VODDetailPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_save = vodDetailPage.btn_save;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_save));
+		btn_save.click();
+	}
+	
 	public void clickDeleteToWatchlist() {
 		vodDetailPage = new VODDetailPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -1130,6 +1151,14 @@ public class Click extends BaseTest {
 		action_category.click();
 	}
 	
+	public void clickContentActionCategoryPage() {
+		categorypage = new CategoryPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement content_action_category = categorypage.content_below_cluster_Best_Korean_Action;
+		wait.until(ExpectedConditions.visibilityOfAllElements(content_action_category));
+		content_action_category.click();
+	}
+	
 	public void clickPremium30daysPckages() {
 		popuppage = new PopUpPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -1385,6 +1414,86 @@ public class Click extends BaseTest {
 		WebElement txt_manage_devices = settingPage.txt_Manage_Devices;
 		wait.until(ExpectedConditions.visibilityOfAllElements(txt_manage_devices));
 		txt_manage_devices.click();
+	}
+	
+	public void clickListDevices() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement list_devices = settingPage.list_connected_devices;
+		wait.until(ExpectedConditions.visibilityOfAllElements(list_devices));
+		list_devices.click();
+	}
+	
+	public void clickDisconnectDevices() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement disconnect_devices = settingPage.disconnect_devices;
+		wait.until(ExpectedConditions.visibilityOfAllElements(disconnect_devices));
+		disconnect_devices.click();
+	}
+	
+	public void clickConfirmDisconnectDevices() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement btn_disconnect_devices = settingPage.btn_confirm_disconnect_devices;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_disconnect_devices));
+		btn_disconnect_devices.click();
+	}
+	
+	public void clickVodCintaDiBalikAwan() {
+		searchPage = new SearchPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement vod_cinta = searchPage.vod_cinta_di_balik_awan;
+		wait.until(ExpectedConditions.visibilityOfAllElements(vod_cinta));
+		vod_cinta.click();
+	}
+	
+	public void clickContentClusterNewRelease() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement content_cluster_new_release = homePage.content_cluster_new_release;
+		wait.until(ExpectedConditions.visibilityOfAllElements(content_cluster_new_release));
+		content_cluster_new_release.click();
+	}
+	
+	public void clickFirstContentClusterVPlusOriginals() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement FirstContent = homePage.img_First_Vod_VPlusOriginals;
+		wait.until(ExpectedConditions.visibilityOfAllElements(FirstContent));
+		FirstContent.click();
+	}
+	
+	public void clickFastForwardMediaPlayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement forward = mediaplayerpage.btn_forward_media_playerpage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(forward));
+		forward.click();
+	}
+	
+	public void clickRewinddMediaPlayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement rewind = mediaplayerpage.btn_rewind_media_playerpage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(rewind));
+		rewind.click();
+	}
+	
+	public void clickLayoutMediaPLayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement layout_mediaplayer = mediaplayerpage.layout_media_player;
+		wait.until(ExpectedConditions.visibilityOfAllElements(layout_mediaplayer));
+		layout_mediaplayer.click();
+	}
+	
+	public void clickRestartMediaPlayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement restart_mediaplayer = mediaplayerpage.btn_restart_media_playerpage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(restart_mediaplayer));
+		restart_mediaplayer.click();
 	}
 	
 	public void clickFreeLinear() {

@@ -47,7 +47,7 @@ public class MediaPlayerPage extends AndroidGesture
 	 public static WebElement btn_volume_media_playerpage;
 	 
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/media_player_player_reload_button")
-	 public static WebElement btn_reload_video_media_playerpage;
+	 public static WebElement btn_restart_media_playerpage;
 	 
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/media_player_language_and_subs_button")
 	 public static WebElement btn_language_media_playerpage;
@@ -64,6 +64,10 @@ public class MediaPlayerPage extends AndroidGesture
 	 @AndroidFindBy(xpath="//android.widget.RadioButton[@text=\"English\"]")
 	 public static WebElement radio_btn_english_language_media_playerpage;
 	
+	 @AndroidFindBy(xpath="//android.widget.FrameLayout[@resource-id=\"com.zte.iptvclient.android.idmnc:id/exo_subtitles\"]/android.view.View")
+	 public static WebElement layout_media_player;
+	 
+	 
 	
 	 
 	

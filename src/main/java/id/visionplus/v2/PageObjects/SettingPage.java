@@ -24,7 +24,7 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"Email\"]")
 	public static WebElement btn_help_email;
 	
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[8]")
+	@AndroidFindBy(xpath="(//android.view.ViewGroup[@resource-id=\"com.zte.iptvclient.android.idmnc:id/profileView\"])[8]")
 	public static WebElement btn_latest_profile;
 	
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.TextView")
@@ -202,7 +202,17 @@ public class SettingPage extends AndroidGesture
 	public static WebElement btn_discconnect_manage_devices;
 	
 	@AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/deviceList\"]/android.view.ViewGroup[1]")
-	public static WebElement txt_connected_devices;
+	public static WebElement list_connected_devices;
+
+	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"android:id/title\"]")
+	public static WebElement disconnect_devices;
+	
+	@AndroidFindBy(id = "android:id/button1")
+	public static WebElement btn_confirm_disconnect_devices;
+	
+	
+
+	
 	
 	
 	

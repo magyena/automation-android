@@ -114,5 +114,10 @@ public class VODDetailPage extends AndroidGesture {
 	
 	@AndroidFindBy(xpath = "//*[contains(@text,'Add to List')]")
 	public static WebElement txt_Add_to_list;
+	
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/fake_fade_background_image_view")
+	public static WebElement banner_content_cluster_new_release;
+	
+	
 }
 

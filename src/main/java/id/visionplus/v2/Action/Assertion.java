@@ -42,6 +42,7 @@ public class Assertion extends BaseTest {
 	ProgramGuidePage programguidepage;
 	CategoryPage categorypage;
 	BuyPackagePage buypackage;
+	MediaPlayerPage mediaplayerpage;
 
 
 	public void assertSearchPage() {
@@ -1207,7 +1208,7 @@ public class Assertion extends BaseTest {
 	public void assertConnectedDevices() {
 	    settingPage = new SettingPage(android);
 	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
-	    WebElement connected_devices = settingPage.txt_connected_devices;
+	    WebElement connected_devices = settingPage.list_connected_devices;
 	    
 	    try {
 	        wait.until(ExpectedConditions.visibilityOfAllElements(connected_devices));
@@ -1260,6 +1261,68 @@ public class Assertion extends BaseTest {
 	        System.out.println("Assert Success: Remove from List is displayed.");
 	    } catch (AssertionError e) {
 	        System.out.println(" Assert Failure: Remove from List displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertClusterWatchlist() { 
+	    String pageSource = android.getPageSource();
+	    String textToAssert = "Watchlist";
+
+	    try {
+	        if (pageSource.contains(textToAssert)) {
+	            System.out.println("Assertion Passed: Text '" + textToAssert + "' is present on the page.");
+	        } else {
+	            throw new AssertionError("After Change Profile Cluster '" + textToAssert + "' is not present .");
+	        }
+	    } catch (AssertionError e) {
+	        System.out.println(e.getMessage());
+	        
+	    }
+	}
+	
+	public void assertContentClusterNewRelease() {
+	    vodDetailPage = new VODDetailPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement content_cluster_new_relase = vodDetailPage.banner_content_cluster_new_release;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(content_cluster_new_relase));
+	        Assert.assertTrue(content_cluster_new_relase.isDisplayed());
+	        System.out.println("Assert Success: Detail VOD is displayed.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Detail VOD displayed.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertClusterContinueWatching() { 
+	    String pageSource = android.getPageSource();
+	    String textToAssert = "Continue watching";
+
+	    try {
+	        if (pageSource.contains(textToAssert)) {
+	            System.out.println("Assertion Passed: Text '" + textToAssert + "' is present on the page.");
+	        } else {
+	            throw new AssertionError("Assertion Failed: Text '" + textToAssert + "' is not present .");
+	        }
+	    } catch (AssertionError e) {
+	        System.out.println(e.getMessage());
+	        
+	    }
+	}
+	
+	public void assertMediaPlayerPlayed() {
+	    mediaplayerpage = new MediaPlayerPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement vod_played = mediaplayerpage.txt_tittle_media_playerpage;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(vod_played));
+	        Assert.assertTrue(vod_played.isDisplayed());
+	        System.out.println("Assert Success: VOD is running.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: VOD is not running.");
 	        throw e; 
 	    }
 	}
