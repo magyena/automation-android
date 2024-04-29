@@ -124,7 +124,7 @@ public class TC_Cluster_Film extends BaseTest {
 		}
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 2)
 
 	public void TC_User_Can_Upgrade_to_Premium() throws InterruptedException, IOException, TimeoutException {
 		TC_Integrate_Register register = new TC_Integrate_Register();
