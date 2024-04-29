@@ -21,7 +21,7 @@ public class BuyPackagePage extends AndroidGesture
 		this.android = android;
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
-	 @AndroidFindBy(xpath="//android.view.View[@content-desc=\"Rp 40.000,00\"]") 
+	 @AndroidFindBy(xpath="//android.view.View[@content-desc='Rp 40.000,00']") 
 	 public static WebElement txt_package_premiumsports30_days;
 	 
 	 @AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/text_view_separator_title\" and @text=\"Your current package\"]") 
