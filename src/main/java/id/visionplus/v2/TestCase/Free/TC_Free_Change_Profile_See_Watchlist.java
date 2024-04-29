@@ -132,6 +132,21 @@ public class TC_Free_Change_Profile_See_Watchlist extends BaseTest {
 			swipe1.swipetoLeft(start1, end1);
 
 		}
+	}
+		@Test(priority = 5,dependsOnMethods ="TC_User_Cant_See_LiveTV_in_Cluster_Continue_Watching")
 
+		public void TC_Slide_banner()
+				throws InterruptedException, IOException, TimeoutException {
+
+		Scroll scroll =new Scroll(android);
+		scroll.scrollUp(0.1);
+		
+		Point start = new Point(937, 1636);
+		Point end = new Point(189, 1628);
+
+		for (int i = 0; i < 3; i++) {
+			Swipe swipe1 = new Swipe(android);
+			swipe1.swipetoLeft(start, end);
+		}
 	}
 }
