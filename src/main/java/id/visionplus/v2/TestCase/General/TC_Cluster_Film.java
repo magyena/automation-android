@@ -124,7 +124,7 @@ public class TC_Cluster_Film extends BaseTest {
 		}
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 1)
 
 	public void TC_User_Can_Upgrade_to_Premium() throws InterruptedException, IOException, TimeoutException {
 		TC_Integrate_Register register = new TC_Integrate_Register();
@@ -157,8 +157,7 @@ public class TC_Cluster_Film extends BaseTest {
 		By locator = By.xpath("//*[contains(@text,'Asian Action Movies')]");
 		scroll.scrollUntilElementFound(locator);
 		
-		
-		  for (int i = 0; i < 5; i++) {
+		  for (int i = 0; i < 6; i++) {
 	            scroll.scrollUp(0.1);
 	        }
 
@@ -168,8 +167,8 @@ public class TC_Cluster_Film extends BaseTest {
 		assertion.assertActionCategory();
 		test.pass("Successfully assert movies");
 
-		click.clickActionCategory();
-		test.pass("Succesfully clicked action category");
+		click.clickContentActionCategoryPage();
+		test.pass("Succesfully clicked content action category");
 
 		try {
 			assertion.assertSubscribetoPremiumSport();
