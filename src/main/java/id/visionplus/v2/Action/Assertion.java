@@ -42,6 +42,7 @@ public class Assertion extends BaseTest {
 	ProgramGuidePage programguidepage;
 	CategoryPage categorypage;
 	BuyPackagePage buypackage;
+	MediaPlayerPage mediaplayerpage;
 
 
 	public void assertSearchPage() {
@@ -1308,6 +1309,21 @@ public class Assertion extends BaseTest {
 	    } catch (AssertionError e) {
 	        System.out.println(e.getMessage());
 	        
+	    }
+	}
+	
+	public void assertMediaPlayerPlayed() {
+	    mediaplayerpage = new MediaPlayerPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement vod_played = mediaplayerpage.txt_tittle_media_playerpage;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(vod_played));
+	        Assert.assertTrue(vod_played.isDisplayed());
+	        System.out.println("Assert Success: VOD is running.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: VOD is not running.");
+	        throw e; 
 	    }
 	}
 	
