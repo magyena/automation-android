@@ -10,6 +10,7 @@ package id.visionplus.v2.Action;
 import static org.testng.Assert.assertEquals;
 
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.Random;
 
 import org.openqa.selenium.By;
@@ -19,6 +20,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.model.Media;
+
 import id.visionplus.v2.MainFunction.BaseTest;
 import id.visionplus.v2.PageObjects.BuyPackagePage;
 import id.visionplus.v2.PageObjects.CategoryPage;
@@ -26,6 +29,7 @@ import id.visionplus.v2.PageObjects.EntryPage;
 import id.visionplus.v2.PageObjects.HomePage;
 import id.visionplus.v2.PageObjects.LiveTVPage;
 import id.visionplus.v2.PageObjects.LoginPage;
+import id.visionplus.v2.PageObjects.MediaPlayerPage;
 import id.visionplus.v2.PageObjects.OutsideApp;
 import id.visionplus.v2.PageObjects.PopUpPage;
 import id.visionplus.v2.PageObjects.ProgramGuidePage;
@@ -56,6 +60,7 @@ public class Click extends BaseTest {
 	CategoryPage categorypage ;
 	PopUpPage popuppage;
 	BuyPackagePage buypackage;
+	MediaPlayerPage mediaplayerpage;
 
 	public void pressBack(){
         (android).pressKey(new KeyEvent(AndroidKey.BACK));
@@ -1146,6 +1151,14 @@ public class Click extends BaseTest {
 		action_category.click();
 	}
 	
+	public void clickContentActionCategoryPage() {
+		categorypage = new CategoryPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement content_action_category = categorypage.content_below_cluster_Best_Korean_Action;
+		wait.until(ExpectedConditions.visibilityOfAllElements(content_action_category));
+		content_action_category.click();
+	}
+	
 	public void clickPremium30daysPckages() {
 		popuppage = new PopUpPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -1441,6 +1454,46 @@ public class Click extends BaseTest {
 		WebElement content_cluster_new_release = homePage.content_cluster_new_release;
 		wait.until(ExpectedConditions.visibilityOfAllElements(content_cluster_new_release));
 		content_cluster_new_release.click();
+	}
+	
+	public void clickFirstContentClusterVPlusOriginals() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement FirstContent = homePage.img_First_Vod_VPlusOriginals;
+		wait.until(ExpectedConditions.visibilityOfAllElements(FirstContent));
+		FirstContent.click();
+	}
+	
+	public void clickFastForwardMediaPlayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement forward = mediaplayerpage.btn_forward_media_playerpage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(forward));
+		forward.click();
+	}
+	
+	public void clickRewinddMediaPlayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement rewind = mediaplayerpage.btn_rewind_media_playerpage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(rewind));
+		rewind.click();
+	}
+	
+	public void clickLayoutMediaPLayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement layout_mediaplayer = mediaplayerpage.layout_media_player;
+		wait.until(ExpectedConditions.visibilityOfAllElements(layout_mediaplayer));
+		layout_mediaplayer.click();
+	}
+	
+	public void clickRestartMediaPlayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement restart_mediaplayer = mediaplayerpage.btn_restart_media_playerpage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(restart_mediaplayer));
+		restart_mediaplayer.click();
 	}
 	
 	public void clickFreeLinear() {
