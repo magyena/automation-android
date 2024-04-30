@@ -156,6 +156,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
 		
+		Thread.sleep(10000);
+		
 		assertion.assertPopUpExistingAccount();
 		test.pass("Successfully Assert Pop Up Existing Account");
 	}
@@ -205,6 +207,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
 		
+		Thread.sleep(10000);
+		
 		click.clickOtpFld();
 		test.pass("Successfully Click Text Field OTP");
 
@@ -253,6 +257,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 	public void TC_user_click_send_otp_2nd_time()throws InterruptedException, IOException{
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
+		
+		Thread.sleep(10000);
 		
 		assertion.assertTimer5Minutes();
 		test.pass("Successfully Assert Timer 5 Minutes");
@@ -346,6 +352,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
+		
+		Thread.sleep(10000);
 		
 		click.clickOtpFld();
 		test.pass("Successfully Click Text Field OTP");

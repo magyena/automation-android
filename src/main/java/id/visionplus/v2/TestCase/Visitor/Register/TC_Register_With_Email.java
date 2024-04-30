@@ -25,6 +25,7 @@ public class TC_Register_With_Email extends BaseTest{
 	Assertion assertion = new Assertion();
 	Input input = new Input();
 	TC_Get_OTP get_otp= new TC_Get_OTP();
+	BaseTest base = new BaseTest();
 	String email=email_random();
 	String existing_email="freetest39@visionplus.id";
 	
@@ -130,8 +131,12 @@ public class TC_Register_With_Email extends BaseTest{
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
 		
-		click.clickOtpFld();
-		test.pass("Successfully Click Text Field OTP");
+		Thread.sleep(10000);
+				
+		while(!android.isKeyboardShown()){
+			click.clickOtpFld();
+			test.pass("Successfully Click Text Field OTP");
+		}
 
 		input.inputOTP("1234");
 		test.pass("Successfully Input Text Field OTP with Invalid Numbers");
@@ -155,7 +160,7 @@ public class TC_Register_With_Email extends BaseTest{
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
 		
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		
 		assertion.assertTimer5Minutes();
 		test.pass("Successfully Assert Timer 5 Minutes");
@@ -167,9 +172,12 @@ public class TC_Register_With_Email extends BaseTest{
 
 		input.clearOTP();
 		test.pass("Successfully Clear Text Field OTP");
-
-		click.clickOtpFld();
-		test.pass("Successfully Click Text Field OTP");
+		
+		while(!android.isKeyboardShown()){
+			System.out.println("Try Click OTP Field");
+			click.clickOtpFld();
+			test.pass("Successfully Click Text Field OTP");
+		}
 
 		//Get OTP from DB
 		String res_otp = get_otp.get_OTP(email);
@@ -196,5 +204,38 @@ public class TC_Register_With_Email extends BaseTest{
 		
 		assertion.assertArriveHomePage();
 		test.pass("Successfully Assert Arrived at Homepage");
+	}
+	
+	@Test(priority = 8, dependsOnMethods = "TC_user_input_correct_otp")
+	public void TC_register_again_after_kill_apps()throws InterruptedException, IOException, TimeoutException{
+		System.out.println("DONE REGISTER - PROCEED TO KILL APPS");
+		TC_Logout tc_logout = new TC_Logout();
+		
+		//logout first
+		tc_logout.TC_Access_Settings();
+		tc_logout.TC_Access_Logout();
+		
+		android.closeApp();
+		base.ConfigureAppium();
+		
+		Thread.sleep(2000);
+		
+		TC_access_register_by_email_page();
+		
+		//input based on epoch existing random email
+		input.inputEmail(email);
+		test.pass("Successfully Input Text Field Email with Already Registered Email");
+
+		click.clickFieldPassword();
+		test.pass("Successfully Clicked Text Field Password");
+		
+		input.inputPassword("4321Lupa");
+		test.pass("Successfully Input Text Field Password with Valid Password");
+		
+		click.clickSendOTP();
+		test.pass("Successfully Clicked Send OTP");
+		
+		assertion.assertPopUpExistingAccount();
+		test.pass("Successfully Assert Pop Up Existing Account");
 	}
 }
