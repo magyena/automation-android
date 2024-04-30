@@ -157,7 +157,7 @@ public class TC_Cluster_Film extends BaseTest {
 		By locator = By.xpath("//*[contains(@text,'Asian Action Movies')]");
 		scroll.scrollUntilElementFound(locator);
 		
-		  for (int i = 0; i < 6; i++) {
+		  for (int i = 0; i < 7; i++) {
 	            scroll.scrollUp(0.1);
 	        }
 
@@ -268,15 +268,24 @@ public class TC_Cluster_Film extends BaseTest {
 
 		click.clickSubscribe();
 		test.pass("Successfully clicked subscribe button");
+		
+		System.out.println("Done Click Subscribe");
+		
+		Thread.sleep(3000);
 
 		assertion.assertSubscriptionPremiumSports30days();
 		test.pass("Successfully assert subscribe premium sports 30 days");
-
+		
 		click.clickBtnSubscriptionsPlaystoreagain();
 		test.pass("Successfully clicked button subscriptions playstore");
 
+		System.out.println("Done Click Subscribe in Playstore");
+		
 		click.clickBtnAccept();
 		test.pass("Successfully clicked accept");
+		
+		System.out.println("Done Subscribe in Playstore");
+
 		Thread.sleep(5000);
 		click.clickMenuButton();
 		click.clickMyPackage();

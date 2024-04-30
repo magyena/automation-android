@@ -1098,7 +1098,7 @@ public class Click extends BaseTest {
 	public void clickBtnNoThanksPlaystore() {
 		outsideApp = new OutsideApp(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
-		WebElement btn_no_thanks = outsideApp.btn_no_thanks_playstore;
+		WebElement btn_no_thanks = outsideApp.btn_no_thanks;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_no_thanks));
 		btn_no_thanks.click();
 	}
@@ -1114,7 +1114,7 @@ public class Click extends BaseTest {
 	public void clickBtnContinuePlaystore() {
 		outsideApp = new OutsideApp(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
-		WebElement btn_continue = outsideApp.btn_continue_playstore;
+		WebElement btn_continue = outsideApp.btn_continue_play_store;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_continue));
 		btn_continue.click();
 	}
