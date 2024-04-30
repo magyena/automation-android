@@ -131,21 +131,19 @@ public class Input extends BaseTest {
 		
 		String existingText = fld_otp.getAttribute("text");
 				
-		fld_otp.sendKeys(otp);
+//		fld_otp.sendKeys(otp);
 
+		// Loop through each character of the OTP string
+		for (int i = 0; i < 4; i++) {
+			// Get the digit at position i
+			char digit = otp.charAt(i);
 
-//		// Loop through each character of the OTP string
-//		for (int i = 0; i < 4; i++) {
-//			// Get the digit at position i
-//			char digit = otp.charAt(i);
-//
-//			// Append the current digit to the existing text
-//			existingText += digit;
-//			
-//			System.out.println(existingText+"\n");
-//			
-//			fld_otp.sendKeys(existingText);
-//		}
+			// Append the current digit to the existing text
+			existingText += digit;
+						
+			fld_otp.sendKeys(existingText);
+			System.out.println(existingText);
+		}
 
 		System.out.println("Inputed: " + otp);
 	}
