@@ -15,6 +15,7 @@
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_Live_TV"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Watch_VOD"/>
 	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_User_Delete_Account"/>
+  	  <class name="id.visionplus.v2.TestCase.Free.TC_Free_Change_Profile_See_Watchlist"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
