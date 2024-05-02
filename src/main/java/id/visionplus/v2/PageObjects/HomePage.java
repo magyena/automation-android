@@ -38,6 +38,15 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/profiles_discover")
 	public static WebElement txt_discover;
 	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/imageAvatar")
+	public static WebElement img_change_avatar;
+	
+	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/chooseAvatarTitle")
+	public static WebElement txt_change_avatar;
+	
+	@AndroidFindBy(xpath="(//android.widget.ImageView[@content-desc=\"Choose an avatar\"])[2]")
+	public static WebElement img_avatar_2;
+	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/profiles_skip")
 	public static WebElement btn_skip;
 	
