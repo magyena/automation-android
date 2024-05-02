@@ -23,7 +23,7 @@ import id.visionplus.v2.Action.Scroll;
 import id.visionplus.v2.Action.Swipe;
 import id.visionplus.v2.Action.Tap;
 import id.visionplus.v2.MainFunction.BaseTest;
-import id.visionplus.v2.TestCase.Free.TC_Integrate_Register;
+import id.visionplus.v2.TestCase.Visitor.Register.TC_Integrate_Register;
 import id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Phone_Number;
 import io.appium.java_client.android.Activity;
 

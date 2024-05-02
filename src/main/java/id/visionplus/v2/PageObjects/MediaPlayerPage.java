@@ -37,7 +37,7 @@ public class MediaPlayerPage extends AndroidGesture
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/remoteNextEpisode")
 	 public static WebElement btn_next_episode_media_playerpage;
 	
-	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/remotePrevEpisode")
+	 @AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"com.zte.iptvclient.android.idmnc:id/remotePrevEpisode\"]")
 	 public static WebElement btn_previous_episode_media_playerpage;
 	 
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/media_player_play_pause_button")
@@ -50,10 +50,10 @@ public class MediaPlayerPage extends AndroidGesture
 	 public static WebElement btn_restart_media_playerpage;
 	 
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/media_player_language_and_subs_button")
-	 public static WebElement btn_language_media_playerpage;
+	 public static WebElement btn_settings_mediaplayer;
 	 
 	 @AndroidFindBy(id="android:id/button1")
-	 public static WebElement btn_language_ok_media_playerpage;
+	 public static WebElement btn_ok_settings_mediaplayer;
 	 
 	 @AndroidFindBy(xpath="//android.widget.RadioButton[@text=\"Indonesian\"]")
 	 public static WebElement radio_btn_indonesia_language_media_playerpage;
@@ -66,6 +66,11 @@ public class MediaPlayerPage extends AndroidGesture
 	
 	 @AndroidFindBy(xpath="//android.widget.FrameLayout[@resource-id=\"com.zte.iptvclient.android.idmnc:id/exo_subtitles\"]/android.view.View")
 	 public static WebElement layout_media_player;
+	 
+	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/media_player_progress_text")
+	 public static WebElement img_buffering_media_player;
+	 
+	 
 	 
 	 
 	

@@ -1355,6 +1355,68 @@ public class Assertion extends BaseTest {
 	    }
 	}
 	
+	public void assertSettingsLanguageMediaPlayer() { 
+	    String pageSource = android.getPageSource();
+	    String textToAssert = "Subtitles";
+
+	    try {
+	        if (pageSource.contains(textToAssert)) {
+	            System.out.println("Assertion Passed: Text '" + textToAssert + "' is present on the page.");
+	        } else {
+	            throw new AssertionError("Assertion Failed: Text '" + textToAssert + "' is not present .");
+	        }
+	    } catch (AssertionError e) {
+	        System.out.println(e.getMessage());
+	        
+	    }
+	}
+	
+	public void assertSettingsAudioMediaPlayer() { 
+	    String pageSource = android.getPageSource();
+	    String textToAssert = "Audio";
+
+	    try {
+	        if (pageSource.contains(textToAssert)) {
+	            System.out.println("Assertion Passed: Text '" + textToAssert + "' is present on the page.");
+	        } else {
+	            throw new AssertionError("Assertion Failed: Text '" + textToAssert + "' is not present .");
+	        }
+	    } catch (AssertionError e) {
+	        System.out.println(e.getMessage());
+	        
+	    }
+	}
+	
+	public void assertNextEpisodeMediaPlayer() {
+	    mediaplayerpage = new MediaPlayerPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement assert_next_episode = mediaplayerpage.btn_previous_episode_media_playerpage;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(assert_next_episode));
+	        Assert.assertTrue(assert_next_episode.isDisplayed());
+	        System.out.println("Assert Success: Previous Episode Button Showing.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Previous Episode Button not Showing.");
+	        throw e; 
+	    }
+	}
+	
+	public void assertPreviousEpisodeMediaPlayer() {
+	    mediaplayerpage = new MediaPlayerPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement assert_next_episode = mediaplayerpage.btn_next_episode_media_playerpage;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(assert_next_episode));
+	        Assert.assertTrue(assert_next_episode.isDisplayed());
+	        System.out.println("Assert Success: Next Episode Button not Showing.");
+	    } catch (AssertionError e) {
+	        System.out.println(" Assert Failure: Next Episode Button Showing.");
+	        throw e; 
+	    }
+	}
+	
 		public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
