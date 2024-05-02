@@ -26,7 +26,7 @@ public class TC_Premium_User_Watch_Live_TV extends BaseTest {
 	TC_Settings settings = new TC_Settings();
 	Toggle toggle = new Toggle();
 	String testCaseType = System.getProperty("testCaseType");
-//	String testCaseType = "PREMIUM_USER";
+//	String testCaseType = "PREMIUM";
 
 	@Test(priority = 1)
 

@@ -13,7 +13,7 @@
 		<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_Live_TV"/>
 		<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_VOD"/>
     	<class name="id.visionplus.v2.TestCase.General.TC_Manage_Devices"/>
-    <class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_Watch_guide"/>
+    	<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_Watch_guide"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
