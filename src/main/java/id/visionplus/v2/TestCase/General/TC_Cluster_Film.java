@@ -46,83 +46,83 @@ public class TC_Cluster_Film extends BaseTest {
 	}
 
 //	String testcaseType = "FREE";
-//
-//	@Test(priority = 1)
-//
-//	public void TC_Cancel_Subscription_Playstore() throws InterruptedException, IOException, TimeoutException {
-//		click.pressBack();
-//		Thread.sleep(2000);
-//		Activity activity = new Activity("com.android.vending", "com.google.android.finsky.activities.MainActivity");
-//		android.startActivity(activity);
-//
-//		click.clickBtnProfilePlaystore();
-//		test.pass("Successfully clicked profile playstore");
-//
-//		click.clickBtnPaymentandSubscriptionsPlaystore();
-//		test.pass("Successfully clicked payments and subscriptions playstore");
-//
-//		click.clickBtnSubscriptionsPlaystore();
-//		test.pass("Successfully clicked subcsriptions playstore");
-//
-//		int flag = 0;
-//		
-//		boolean historyPremiumSport30DaysClicked = false;
-//
-//		try {
-//		    click.clickHistoryPremium30DaysPlaystore();
-//		    flag = 1;
-//		} catch (Exception ex) {
-////		    System.out.println("Error: " + ex);
-//		    try {
-//		        click.clickHistoryPremiumSport30DaysPlaystore();
-//		        flag = 1;
-//		    } catch (Exception e) {
-////		        System.out.println("Error: " + e);
-//		    }
-//		}
-//
-//		if (flag == 1) {
-//		    try {
-//		        click.clickCancelSubscriptionPlaystore();
-//		        click.clickBtnNoThanksPlaystore();
-//		        click.clickRadioCancelPlaystore();
-//		        test.pass("Successfully clicked radio button");
-//
-//		        click.clickBtnContinuePlaystore();
-//		        test.pass("Successfully clicked continue");
-//
-//		        click.clickConfirmCancelPlaystore();
-//		        test.pass("Successfully clicked cancel subscription");
-//		        click.clickBacktoHistory();
-//
-//		        if (!historyPremiumSport30DaysClicked) {
-//		            click.clickHistoryPremiumSport30DaysPlaystore();
-//		            historyPremiumSport30DaysClicked = true;
-//		            flag = 2; 
-//		        }
-//		    } catch (Exception ex) {
-////		        System.out.println("Error: " + ex);
-//		    }
-//		  
-//		    if (flag == 2) {
-//		        try {
-//		        	click.clickCancelSubscriptionPlaystore();
-//			        click.clickBtnNoThanksPlaystore();
-//			        click.clickRadioCancelPlaystore();
-//			        test.pass("Successfully clicked radio button");
-//
-//			        click.clickBtnContinuePlaystore();
-//			        test.pass("Successfully clicked continue");
-//
-//			        click.clickConfirmCancelPlaystore();
-//			        test.pass("Successfully clicked cancel subscription");
-//			        click.clickBacktoHistory();
-//		        } catch (Exception ex) {
-////		            System.out.println("Error: " + ex);
-//		        }
-//		    }
-//		}
-//	}
+
+	@Test(priority = 1)
+
+	public void TC_Cancel_Subscription_Playstore() throws InterruptedException, IOException, TimeoutException {
+		click.pressBack();
+		Thread.sleep(2000);
+		Activity activity = new Activity("com.android.vending", "com.google.android.finsky.activities.MainActivity");
+		android.startActivity(activity);
+
+		click.clickBtnProfilePlaystore();
+		test.pass("Successfully clicked profile playstore");
+
+		click.clickBtnPaymentandSubscriptionsPlaystore();
+		test.pass("Successfully clicked payments and subscriptions playstore");
+
+		click.clickBtnSubscriptionsPlaystore();
+		test.pass("Successfully clicked subcsriptions playstore");
+
+		int flag = 0;
+		
+		boolean historyPremiumSport30DaysClicked = false;
+
+		try {
+		    click.clickHistoryPremium30DaysPlaystore();
+		    flag = 1;
+		} catch (Exception ex) {
+//		    System.out.println("Error: " + ex);
+		    try {
+		        click.clickHistoryPremiumSport30DaysPlaystore();
+		        flag = 1;
+		    } catch (Exception e) {
+//		        System.out.println("Error: " + e);
+		    }
+		}
+
+		if (flag == 1) {
+		    try {
+		        click.clickCancelSubscriptionPlaystore();
+		        click.clickBtnNoThanksPlaystore();
+		        click.clickRadioCancelPlaystore();
+		        test.pass("Successfully clicked radio button");
+
+		        click.clickBtnContinuePlaystore();
+		        test.pass("Successfully clicked continue");
+
+		        click.clickConfirmCancelPlaystore();
+		        test.pass("Successfully clicked cancel subscription");
+		        click.clickBacktoHistory();
+
+		        if (!historyPremiumSport30DaysClicked) {
+		            click.clickHistoryPremiumSport30DaysPlaystore();
+		            historyPremiumSport30DaysClicked = true;
+		            flag = 2; 
+		        }
+		    } catch (Exception ex) {
+//		        System.out.println("Error: " + ex);
+		    }
+		  
+		    if (flag == 2) {
+		        try {
+		        	click.clickCancelSubscriptionPlaystore();
+			        click.clickBtnNoThanksPlaystore();
+			        click.clickRadioCancelPlaystore();
+			        test.pass("Successfully clicked radio button");
+
+			        click.clickBtnContinuePlaystore();
+			        test.pass("Successfully clicked continue");
+
+			        click.clickConfirmCancelPlaystore();
+			        test.pass("Successfully clicked cancel subscription");
+			        click.clickBacktoHistory();
+		        } catch (Exception ex) {
+//		            System.out.println("Error: " + ex);
+		        }
+		    }
+		}
+	}
 
 	@Test(priority = 2)
 
