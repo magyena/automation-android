@@ -854,6 +854,24 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(img_eps_1_vod));
 		img_eps_1_vod.click();
 	}
+	
+	public void clickSeasonSpinner() {
+		vodDetailPage = new VODDetailPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_season = vodDetailPage.btn_season;
+
+		wait.until(ExpectedConditions.visibilityOf(btn_season));
+		btn_season.click();
+	}
+	
+	public void clickSeason1() {
+		vodDetailPage = new VODDetailPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_ddl_season_1 = vodDetailPage.btn_ddl_season_1;
+
+		wait.until(ExpectedConditions.visibilityOf(btn_ddl_season_1));
+		btn_ddl_season_1.click();
+	}
 
 	public void clickEpsDownloadVOD() {
 		vodDetailPage = new VODDetailPage(android);

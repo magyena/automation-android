@@ -47,6 +47,19 @@ public class TC_Homepage extends BaseTest{
 	}
 	
 	@Test(priority=2,dependsOnMethods="TC_Access_VOD_Detail")
+	public void TC_Access_Season1_From_Season_0() throws IOException, InterruptedException, TimeoutException {
+		// Check if there is an element containing text "Season 0"
+	    By seasonLocator = By.id("com.zte.iptvclient.android.idmnc:id/seasonSpinner");
+	    if (android.findElements(seasonLocator).size() > 0) {
+	        click.clickSeasonSpinner();
+	        test.pass("Successfully Clicked on Season 0");
+	        
+	        click.clickSeason1();
+	        test.pass("Successfully Clicked on Season 1");
+	    }
+	}
+	
+	@Test(priority=3,dependsOnMethods="TC_Access_Season1_From_Season_0")
 	public void TC_Click_Banner() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Click_Banner");
 	    click.pressBack();
@@ -58,7 +71,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Assert Banner Details");
 	}
 	
-	@Test(priority=3,dependsOnMethods="TC_Click_Banner")
+	@Test(priority=4,dependsOnMethods="TC_Click_Banner")
 	public void TC_Play_Banner() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Play_Banner");
 
@@ -86,7 +99,7 @@ public class TC_Homepage extends BaseTest{
 		}
 	}
 	
-	@Test(priority=4,dependsOnMethods="TC_Play_Banner")
+	@Test(priority=5,dependsOnMethods="TC_Play_Banner")
 	public void TC_Swipe_VisionPlusOriginals() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Swipe_VisionPlusOriginals");
 
@@ -99,7 +112,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Swiped Vision Plus Originals");
 	}
 	
-	@Test(priority=5,dependsOnMethods="TC_Swipe_VisionPlusOriginals")
+	@Test(priority=6,dependsOnMethods="TC_Swipe_VisionPlusOriginals")
 	public void TC_Access_VisionPlusOriginals() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Access_VisionPlusOriginals");
 
@@ -110,7 +123,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Assert VOD Details");
 	}
 	
-	@Test(priority=6,dependsOnMethods="TC_Access_VisionPlusOriginals")
+	@Test(priority=7,dependsOnMethods="TC_Access_VisionPlusOriginals")
 	public void TC_Add_To_Watchlist() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Add_To_Watchlist");
 
@@ -120,7 +133,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(priority=7,dependsOnMethods="TC_Add_To_Watchlist")
+	@Test(priority=8,dependsOnMethods="TC_Add_To_Watchlist")
 	public void TC_Access_WatchList() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Access_WatchList");
 
@@ -137,7 +150,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Assert VOD Details");
 	}
 	
-	@Test(priority=8,dependsOnMethods="TC_Access_WatchList")
+	@Test(priority=9,dependsOnMethods="TC_Access_WatchList")
 	public void TC_Play_VOD_WatchList() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Play_VOD_WatchList");
 
@@ -149,7 +162,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(priority=9,dependsOnMethods="TC_Play_VOD_WatchList")
+	@Test(priority=10,dependsOnMethods="TC_Play_VOD_WatchList")
 	public void TC_Delete_To_Watchlist() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Delete_To_Watchlist");
 
@@ -160,7 +173,7 @@ public class TC_Homepage extends BaseTest{
 		System.out.println("done TC_Delete_To_Watchlist");
 	}
 	
-	@Test(priority=10,dependsOnMethods="TC_Delete_To_Watchlist")
+	@Test(priority=11,dependsOnMethods="TC_Delete_To_Watchlist")
 	public void TC_Swipe_Live_TV() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Swipe_Live_TV");
 
@@ -180,7 +193,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Swiped Live Tv");	    
 	}
 
-	@Test(priority=11,dependsOnMethods="TC_Swipe_Live_TV")
+	@Test(priority=12,dependsOnMethods="TC_Swipe_Live_TV")
 	public void TC_Click_Live_TV() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Click_Live_TV");
 		
@@ -193,7 +206,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(priority=12,dependsOnMethods="TC_Click_Live_TV")
+	@Test(priority=13,dependsOnMethods="TC_Click_Live_TV")
 	public void TC_Click_TV_Love_Cinema() throws IOException, InterruptedException, TimeoutException {
 	    click.pressBack();
 
@@ -210,7 +223,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Assert VOD Details Page");
 	}
 	
-	@Test(priority=13,dependsOnMethods="TC_Click_TV_Love_Cinema")
+	@Test(priority=14,dependsOnMethods="TC_Click_TV_Love_Cinema")
 	public void TC_Watch_TV_Love_Cinema_Content() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Watch_TV_Love_Cinema_Content");
 
@@ -223,7 +236,7 @@ public class TC_Homepage extends BaseTest{
 		click.clickBack();
 	}
 	
-	@Test(priority=14,dependsOnMethods="TC_Watch_TV_Love_Cinema_Content")
+	@Test(priority=15,dependsOnMethods="TC_Watch_TV_Love_Cinema_Content")
 	public void TC_Swipe_Top_10() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Swipe_Top_10");
 
@@ -238,7 +251,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Swiped Top 10");
 	}
 	
-	@Test(priority=15,dependsOnMethods="TC_Swipe_Top_10")
+	@Test(priority=16,dependsOnMethods="TC_Swipe_Top_10")
 	public void TC_Click_Top_10() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Click_Top_10");
 
@@ -248,7 +261,7 @@ public class TC_Homepage extends BaseTest{
 	    test.pass("Successfully Assert VOD Details");
 	}
 	
-	@Test(priority=16,dependsOnMethods="TC_Click_Top_10")
+	@Test(priority=17,dependsOnMethods="TC_Click_Top_10")
 	public void TC_Interact_in_VOD_Details() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Interact_in_VOD_Details");
 
@@ -270,7 +283,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(priority=17,dependsOnMethods="TC_Interact_in_VOD_Details")
+	@Test(priority=18,dependsOnMethods="TC_Interact_in_VOD_Details")
 	public void TC_Click_Popular_Actors() throws IOException, InterruptedException, TimeoutException { 
 		System.out.println("TC_Click_Popular_Actors");
 
@@ -284,7 +297,7 @@ public class TC_Homepage extends BaseTest{
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=18,dependsOnMethods="TC_Click_Popular_Actors")
+	@Test(priority=19,dependsOnMethods="TC_Click_Popular_Actors")
 	public void TC_Click_Watch_Popular_Actors_Series() throws IOException, InterruptedException, TimeoutException {  
 		System.out.println("TC_Click_Watch_Popular_Actors_Series");
 
@@ -306,7 +319,7 @@ public class TC_Homepage extends BaseTest{
 	    click.pressBack();
 	}
 	
-	@Test(priority=19,dependsOnMethods="TC_Click_Watch_Popular_Actors_Series")
+	@Test(priority=20,dependsOnMethods="TC_Click_Watch_Popular_Actors_Series")
 	public void TC_Click_Comedy() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Click_Comedy");
 
@@ -324,7 +337,7 @@ public class TC_Homepage extends BaseTest{
 		test.pass("Successfully Assert VOD Details Indonesian Comedy Series");
 	}
 	
-	@Test(priority=20,dependsOnMethods="TC_Click_Comedy")
+	@Test(priority=21,dependsOnMethods="TC_Click_Comedy")
 	public void TC_Watch_Comedy_Content() throws IOException, InterruptedException, TimeoutException {
 		System.out.println("TC_Watch_Comedy_Content");
 

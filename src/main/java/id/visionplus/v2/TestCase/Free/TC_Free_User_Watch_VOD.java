@@ -37,6 +37,7 @@ public class TC_Free_User_Watch_VOD extends BaseTest {
 	public void TC_Free_User_Watch_Free_VOD() throws IOException, InterruptedException, TimeoutException {
 		TC_Homepage tc_homePage = new TC_Homepage();
 		tc_homePage.TC_Access_VOD_Detail();
+		tc_homePage.TC_Access_Season1_From_Season_0();
 
 		click.clickEps1VOD();
 		test.pass("Successfully Clicked Episode 1 Button");
