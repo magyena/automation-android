@@ -11,6 +11,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.By.ByTagName;
@@ -328,6 +329,33 @@ public class Assertion extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_add_profile_ok));
 
 		Assert.assertFalse(btn_add_profile_ok.isEnabled());
+	}
+	
+	public void assertAvatarChanged() {
+		homePage = new HomePage(android);
+
+	    WebElement img_avatar_2 = homePage.img_avatar_2;
+
+	    // Wait for the check icon element to be present and visible
+	    WebDriverWait wait = new WebDriverWait(android, Duration.ofSeconds(30));
+	    WebElement checkIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.zte.iptvclient.android.idmnc:id/avatarSelected")));
+
+	    // Assert that the check icon is enabled
+	    Assert.assertTrue(checkIcon.isEnabled(), "Check icon is present on the first profile image.");
+	}
+	
+	public void assertChangeAvatarSection() {
+		homePage = new HomePage(android);
+
+		WebElement txt_change_avatar_title = homePage.txt_change_avatar;
+		WebElement img_avatar_2 = homePage.img_avatar_2;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_change_avatar_title));
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_avatar_2));
+
+		Assert.assertTrue(txt_change_avatar_title.isDisplayed());
+		Assert.assertTrue(img_avatar_2.isDisplayed());
 	}
 
 	public void assertAddProfileNameFieldIs15Char() {

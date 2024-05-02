@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import expectj.TimeoutException;
@@ -33,6 +34,14 @@ public class TC_Profile extends BaseTest{
 	    
 	    assertion.assertAddProfileSection();
 	    test.pass("Successfully Assert Add Profile Section");
+	}
+	
+	public void TC_Access_Avatar_Section() throws IOException, InterruptedException, TimeoutException {		
+		click.clickChangeAvatar();
+	    test.pass("Successfully Clicked Change Avatar Icon");
+		
+		assertion.assertChangeAvatarSection();
+	    test.pass("Successfully Assert Change Avatar Section");
 	}
 	
 	@Test
@@ -101,10 +110,35 @@ public class TC_Profile extends BaseTest{
 	    test.pass("Successfully Clicked Cancel in Profile Submission");
 	}
 //	
+	
 	@Test(priority=4, dependsOnMethods="TC_Add_Existing_Profile")
-	public void TC_Add_Profile() throws IOException, InterruptedException, TimeoutException {
+	public void TC_Cancel_Add_Avatar() throws IOException, InterruptedException, TimeoutException {
 		TC_Access_Add_Profile_Section();
 		
+		TC_Access_Avatar_Section();
+		
+		click.clickAddProfileCancelButton();
+	    test.pass("Successfully Click Cancel Change Avatar Section");
+
+		assertion.assertAddProfileSection();
+	    test.pass("Successfully Assert Back to Profile Section");
+	}
+	
+	@Test(priority=5, dependsOnMethods="TC_Cancel_Add_Avatar")
+	public void TC_Change_Avatar() throws IOException, InterruptedException, TimeoutException {		
+		TC_Access_Avatar_Section();
+		
+		click.click2ndAvatar();
+	    test.pass("Successfully Click Change Avatar to 2nd Image");
+	    
+	    assertion.assertAvatarChanged();
+	    test.pass("Successfully Assert New Image Checked");
+	    
+	    click.clickAddProfileOKButton();
+	}
+	
+	@Test(priority=6, dependsOnMethods="TC_Change_Avatar")
+	public void TC_Add_Profile() throws IOException, InterruptedException, TimeoutException {		
 	    input.clearProfileName();
 	    test.pass("Successfully Clear Text Field Profile Name");
 	    
@@ -124,13 +158,13 @@ public class TC_Profile extends BaseTest{
 	    test.pass("Successfully Clicked Done Profile Button");
 	}
 		
-	@Test(priority=5, dependsOnMethods="TC_Add_Profile")
+	@Test(priority=7, dependsOnMethods="TC_Add_Profile")
 	public void TC_User_cannot_add_more_more_than_8_profile() throws IOException, InterruptedException, TimeoutException {
 		assertion.assertAddProfileNotShown();
 		test.pass("Successfully Assert Add Profile Button not Shown");		
 	}
 	
-	@Test(priority=6, dependsOnMethods="TC_User_cannot_add_more_more_than_8_profile")
+	@Test(priority=8, dependsOnMethods="TC_User_cannot_add_more_more_than_8_profile")
 	public void TC_Back_to_Homepage() throws IOException, InterruptedException, TimeoutException {	
 	    click.clickFirstProfile();
 	    test.pass("Successfully Clicked First Profile");
@@ -139,7 +173,7 @@ public class TC_Profile extends BaseTest{
 	    test.pass("Successfully Assert Arrived at Homepage");
 	}
 	
-	@Test(priority=7, dependsOnMethods="TC_Back_to_Homepage")
+	@Test(priority=9, dependsOnMethods="TC_Back_to_Homepage")
 	public void TC_Access_Manage_Profile() throws IOException, InterruptedException, TimeoutException {
 	    click.clickMenuButton();
 	    test.pass("Successfully Clicked Menu Button");
@@ -156,9 +190,10 @@ public class TC_Profile extends BaseTest{
         test.pass("Successfully Assert Manage Profile Page");
 	}
 
-	@Test(priority=8, dependsOnMethods="TC_Access_Manage_Profile")
+	@Test(priority=10, dependsOnMethods="TC_Access_Manage_Profile")
 	public void TC_Delete_Profile() throws IOException, InterruptedException, TimeoutException {
-		click.clickLatestProfile();
+	    By locator = By.xpath("//*[text()='" + random_name + "']");
+		click.clickLatestProfile(locator);
         test.pass("Successfully Clicked Latest Profile");
 
         click.clickDeleteProfile();
