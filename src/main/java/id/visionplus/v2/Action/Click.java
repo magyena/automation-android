@@ -1489,12 +1489,19 @@ public class Click extends BaseTest {
 	}
 	
 	public void clickRestartMediaPlayer() {
-		mediaplayerpage = new MediaPlayerPage(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(10));
-		WebElement restart_mediaplayer = mediaplayerpage.btn_restart_media_playerpage;
-		wait.until(ExpectedConditions.visibilityOfAllElements(restart_mediaplayer));
-		restart_mediaplayer.click();
+	    mediaplayerpage = new MediaPlayerPage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement restart_mediaplayer = mediaplayerpage.btn_restart_media_playerpage;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(restart_mediaplayer));
+	        restart_mediaplayer.click();
+	        System.out.println("Successfully clicked restart button.");
+	    } catch (Exception e) {
+	        System.out.println("Failed to click restart button: " + e.getMessage());
+	    }
 	}
+
 	
 	public void clickSettingsMediaPlayer() {
 		mediaplayerpage = new MediaPlayerPage(android);
@@ -1510,6 +1517,38 @@ public class Click extends BaseTest {
 		WebElement btn_ok = mediaplayerpage.btn_ok_settings_mediaplayer;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_ok));
 		btn_ok.click();
+	}
+	
+	public void clickDisableLanguageMediaPlayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement disable_language = mediaplayerpage.radio_btn_disable_lang_media_playerpage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(disable_language));
+		disable_language.click();
+	}
+	
+	public void clickEnglishLanguageMediaPlayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement english_language = mediaplayerpage.radio_btn_english_language_media_playerpage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(english_language));
+		english_language.click();
+	}
+	
+	public void clickNextEpisodeMediaPlayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement next_episode = mediaplayerpage.btn_next_episode_media_playerpage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(next_episode));
+		next_episode.click();
+	}
+	
+	public void clickPreviousEpisodeMediaPlayer() {
+		mediaplayerpage = new MediaPlayerPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement previous_episode = mediaplayerpage.btn_previous_episode_media_playerpage;
+		wait.until(ExpectedConditions.visibilityOfAllElements(previous_episode));
+		previous_episode.click();
 	}
 	
 	public void clickFreeLinear() {

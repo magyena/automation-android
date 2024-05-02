@@ -37,7 +37,7 @@ public class MediaPlayerPage extends AndroidGesture
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/remoteNextEpisode")
 	 public static WebElement btn_next_episode_media_playerpage;
 	
-	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/remotePrevEpisode")
+	 @AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"com.zte.iptvclient.android.idmnc:id/remotePrevEpisode\"]")
 	 public static WebElement btn_previous_episode_media_playerpage;
 	 
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/media_player_play_pause_button")
