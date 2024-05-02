@@ -297,7 +297,9 @@ public class TC_Cluster_Film extends BaseTest {
 		TC_Homepage tc_homePage = new TC_Homepage();
 
 		//Validation of the VOD Series Has Season 0
-		tc_homePage.TC_Access_VOD_Detail();
+	    click.clickVisionPlusOriginalsSeries();
+	    test.pass("Successfully Clicked VOD Vision Plus Originals");
+	    
 		tc_homePage.TC_Access_Season1_From_Season_0();
 
 		click.clickWatchVOD();
