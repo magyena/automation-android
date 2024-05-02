@@ -34,6 +34,8 @@ public class TC_Premium_Download_VOD  extends BaseTest{
 			open_app.Choose_Login_As("PREMIUM_SPORT");
 		} else if ("FREE".equals(testCaseType)) {
 			open_app.Choose_Login_As("FREE");
+		} else if ("PREMIUM_USER".equals(testCaseType)) {
+			open_app.Choose_Login_As("PREMIUM_USER");
 		}
 		Thread.sleep(2000);
 
