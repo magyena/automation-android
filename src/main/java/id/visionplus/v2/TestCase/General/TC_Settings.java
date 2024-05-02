@@ -21,12 +21,13 @@ public class TC_Settings extends BaseTest {
     SettingPage settingsPage = new SettingPage(android);
     
 // 	Get the test case type from TestNG parameters
-//  String testCaseType = "PREMIUM_SPORT";
-	String testCaseType = System.getProperty("testCaseType");
+  String testCaseType = "FREE";
+//	String testCaseType = System.getProperty("testCaseType");
 
     
     @Test(priority = 1)
     public void TC_Access_Settings() throws IOException, InterruptedException, TimeoutException {
+    	System.out.println("Arrived at TC_Access_Settings");
         TC_OpenApp open_app = new TC_OpenApp();
 
         if ("PREMIUM_SPORT".equals(testCaseType)) {
@@ -46,6 +47,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 2, dependsOnMethods = "TC_Access_Settings")
     public void TC_Access_Transaction_History() throws InterruptedException {
+    	System.out.println("Arrived at TC_Access_Transaction_History");
+
         try {
             Thread.sleep(2000);
 
@@ -66,6 +69,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 2, dependsOnMethods = "TC_Access_Settings")
     public void TC_Access_Manage_Profile() throws InterruptedException {
+    	System.out.println("Arrived at TC_Access_Manage_Profile");
+
         try {
             Thread.sleep(2000);
 
@@ -86,6 +91,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 2, dependsOnMethods = "TC_Access_Settings")
     public void TC_Access_Notification_Centre() throws InterruptedException {
+    	System.out.println("Arrived at TC_Access_Notification_Centre");
+
         try {
             Thread.sleep(2000);
 
@@ -106,6 +113,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 3, dependsOnMethods = "TC_Access_Settings")
     public void TC_Access_Voucher() throws InterruptedException {
+    	System.out.println("Arrived at TC_Access_Voucher");
+
         try {
             Thread.sleep(2000);
 
@@ -124,6 +133,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 4, dependsOnMethods = "TC_Access_Voucher")
     public void TC_User_input_Expired_Voucher() throws InterruptedException {
+    	System.out.println("Arrived at TC_User_input_Expired_Voucher");
+
         try {
 	        Thread.sleep(2000);
 	
@@ -153,6 +164,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 5)
     public void TC_User_input_Invalid_Voucher() throws InterruptedException {
+    	System.out.println("Arrived at TC_User_input_Invalid_Voucher");
+
     	try{
 	        Thread.sleep(2000);
 	
@@ -182,6 +195,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 6)
     public void TC_User_input_Redeemed_Voucher() throws InterruptedException {
+    	System.out.println("Arrived at TC_User_input_Redeemed_Voucher");
+
     	try {
 	        Thread.sleep(2000);
 	
@@ -215,6 +230,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 7, dependsOnMethods = "TC_User_input_Redeemed_Voucher")
     public void TC_Access_Help_Centre() throws InterruptedException {
+    	System.out.println("Arrived at TC_Access_Help_Centre");
+
         try {
             Thread.sleep(2000);
 
@@ -241,6 +258,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 8, dependsOnMethods = "TC_Access_Help_Centre")
     public void TC_Access_About_Us() throws InterruptedException {
+    	System.out.println("Arrived at TC_Access_About_Us");
+
     	try {
 	        click.clickAboutUs();
 	        test.pass("Successfully Clicked About Us Button in Help Center Page");
@@ -261,6 +280,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 9, dependsOnMethods = "TC_Access_About_Us()")
     public void TC_Access_WhatsApp() throws InterruptedException {
+    	System.out.println("Arrived at TC_Access_WhatsApp");
+
     	try {
 	        Thread.sleep(2000);
 	
@@ -283,6 +304,8 @@ public class TC_Settings extends BaseTest {
     
     @Test(priority = 10, dependsOnMethods = "TC_Access_WhatsApp()")
     public void TC_Access_Subscription_Transaction() throws InterruptedException {
+    	System.out.println("Arrived at TC_Access_Subscription_Transaction");
+
     	try {
 	        Thread.sleep(2000);
 	
@@ -304,6 +327,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 11, dependsOnMethods = "TC_Access_Subscription_Transaction()")
     public void TC_Access_Email() throws InterruptedException {
+    	System.out.println("Arrived at TC_Access_Email");
+
     	try {
 	        Thread.sleep(2000);
 	
@@ -327,6 +352,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 12, dependsOnMethods = "TC_Access_Subscription_Transaction()")
     public void TC_Access_Legal_Information() throws InterruptedException {
+    	System.out.println("Arrived at TC_Access_Legal_Information");
+
         try {
             Thread.sleep(2000);
             
@@ -354,6 +381,8 @@ public class TC_Settings extends BaseTest {
 
     @Test(priority = 13, dependsOnMethods = "TC_Access_Legal_Information")
     public void TC_Access_Software_Licenses() throws InterruptedException {
+    	System.out.println("Arrived at TC_Access_Software_Licenses");
+
     	try {
 	        Thread.sleep(2000);
 	

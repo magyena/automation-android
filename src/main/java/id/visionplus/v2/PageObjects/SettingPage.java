@@ -27,7 +27,7 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath="(//android.view.ViewGroup[@resource-id=\"com.zte.iptvclient.android.idmnc:id/profileView\"])[8]")
 	public static WebElement btn_latest_profile;
 	
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.TextView")
+	@AndroidFindBy(xpath="(//*[contains(@text,'Voucher')][1])[2]")
 	public static WebElement txt_settings_voucher_section_title;
 	
 	@AndroidFindBy(xpath="//*[contains(@text,'Transaction History')]")
@@ -81,7 +81,7 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath="//*[contains(@text,'Terms of Use')]")
 	public static WebElement btn_terms_of_use;
 	
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.widget.Button")
+	@AndroidFindBy(xpath="//android.widget.Button[contains(@text, 'Reedem')]")
 	public static WebElement btn_redeem;
 	
 	@AndroidFindBy(xpath="//*[contains(@text,'Privacy Policy')]")
@@ -93,7 +93,7 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath="//*/android.widget.TextView[1]")
 	public static WebElement txt_software_license_title;
 	
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View[2]")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View")
 	public static WebElement txt_warning_voucher;
 	
 	@AndroidFindBy(xpath="//*[contains(@text, 'Manage profiles')]")
@@ -108,7 +108,7 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/toolbar_text")
 	public static WebElement txt_settings_section_title;
 	
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.EditText")
+	@AndroidFindBy(xpath="//android.widget.EditText[contains(@hint, 'Enter Voucher Code')]")
 	public static WebElement txt_fld_voucher;
 	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/back")
