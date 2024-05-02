@@ -321,6 +321,22 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_login_by_email_section));
 		btn_login_by_email_section.click();
 	}
+	
+	public void clickChangeAvatar() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement img_change_avatar = homePage.img_change_avatar;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_change_avatar));
+		img_change_avatar.click();
+	}
+	
+	public void click2ndAvatar() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement img_avatar_2 = homePage.img_avatar_2;
+		wait.until(ExpectedConditions.visibilityOfAllElements(img_avatar_2));
+		img_avatar_2.click();
+	}
 
 	public void clickFirstProfile() {
 		homePage = new HomePage(android);
@@ -443,9 +459,9 @@ public class Click extends BaseTest {
 		btn_cancel_almost_done.click();
 	}
 
-	public void clickLatestProfile() {
+	public void clickLatestProfile(By locator) {
 		settingPage = new SettingPage(android);
-		WebElement btn_latest_profile = settingPage.btn_latest_profile;
+		WebElement btn_latest_profile = android.findElement(locator);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_latest_profile));
 		btn_latest_profile.click();
@@ -459,7 +475,7 @@ public class Click extends BaseTest {
 		btn_delete_profile.click();
 	}
 
-	public void clickConfirmationDeleteProfile() {
+	public void clickConfirmationDeleteProfile(){
 		settingPage = new SettingPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement btn_delete_confirmation = settingPage.btn_delete_confirmation;
