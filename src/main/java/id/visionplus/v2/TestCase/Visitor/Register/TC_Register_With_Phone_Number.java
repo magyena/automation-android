@@ -2,8 +2,8 @@ package id.visionplus.v2.TestCase.Visitor.Register;
 
 /* Created Date	: 4 April 2024
  * Updated by	: Michael
- * Updated Date	: Adding Log
- * 1. 
+ * Updated Date	: 30 April 2024
+ * 1. Adding Sleep before assert Homepage
  * */
 
 import java.io.IOException;
@@ -25,6 +25,7 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 	Input input = new Input();
 	TC_Get_OTP get_otp= new TC_Get_OTP();
 	String phone_number=epoch_random();
+	BaseTest base = new BaseTest();
 	String existing_phone_number="899012345678";
 	String prev_otp = "";
 	String new_pass = "Lupa4321";
@@ -156,6 +157,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
 		
+		Thread.sleep(10000);
+		
 		assertion.assertPopUpExistingAccount();
 		test.pass("Successfully Assert Pop Up Existing Account");
 	}
@@ -167,14 +170,14 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 
 		assertion.assertRegisterLoginPage();
 		test.pass("Successfully Assert Login Page");
-		
-		//back to Entry Page
-		click.pressBack();
-		test.pass("Successfully Pressed Back Button");
 	}
 	
 	@Test(priority = 7, dependsOnMethods = "TC_user_redirect_to_login")
 	public void TC_user_input_valid_phone_number_and_password()throws InterruptedException, TimeoutException{	
+		//back to Entry Page
+		click.pressBack();
+		test.pass("Successfully Pressed Back Button");
+		
 		//Access Register by Phone Page
 		TC_access_register_page();
 		
@@ -204,6 +207,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 	public void TC_user_cannot_input_wrong_otp()throws InterruptedException{	
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
+		
+		Thread.sleep(10000);
 		
 		click.clickOtpFld();
 		test.pass("Successfully Click Text Field OTP");
@@ -253,6 +258,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 	public void TC_user_click_send_otp_2nd_time()throws InterruptedException, IOException{
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
+		
+		Thread.sleep(10000);
 		
 		assertion.assertTimer5Minutes();
 		test.pass("Successfully Assert Timer 5 Minutes");
@@ -347,6 +354,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
 		
+		Thread.sleep(10000);
+		
 		click.clickOtpFld();
 		test.pass("Successfully Click Text Field OTP");
 
@@ -383,7 +392,35 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 	}
 	
 	@Test(priority = 16, dependsOnMethods = "TC_Forgot_Password_Valid_OTP")
+	public void TC_register_again_after_kill_apps()throws InterruptedException, IOException, TimeoutException{
+		android.closeApp();
+		base.ConfigureAppium();
+		
+		Thread.sleep(2000);
+		
+		TC_access_register_page();
+		
+		//input based on epoch existing random email
+		input.inputEmail(phone_number);
+		test.pass("Successfully Input Text Field Email with Already Registered Email");
+
+		click.clickFieldPassword();
+		test.pass("Successfully Clicked Text Field Password");
+		
+		input.inputPassword(new_pass);
+		test.pass("Successfully Input Text Field Password with Valid Password");
+		
+		click.clickSendOTP();
+		test.pass("Successfully Clicked Send OTP");
+		
+		assertion.assertPopUpExistingAccount();
+		test.pass("Successfully Assert Pop Up Existing Account");
+	}
+	
+	@Test(priority = 17, dependsOnMethods = "TC_register_again_after_kill_apps")
 	public void TC_Login_After_Forgot()throws InterruptedException, IOException, TimeoutException{
+		TC_user_redirect_to_login();
+		
 		Thread.sleep(2000);
 		
 		click.clickFieldPhoneNumber();

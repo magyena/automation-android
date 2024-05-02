@@ -1,5 +1,11 @@
 package id.visionplus.v2.Action;
 
+/* Created Date	: 3 April 2024
+ * Updated by	: Michael
+ * Updated Date	: 30 April 2024
+ * 1. Adding Log for OTP Input
+ * */
+
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -123,12 +129,14 @@ public class Input extends BaseTest {
 	}
 
 	public void inputOTP(String otp) throws InterruptedException {
+		System.out.println("Current OTP: "+otp);
+		
 		registerPage = new RegisterPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(90));
 		WebElement fld_otp = registerPage.fld_otp;
-
+		
 		String existingText = fld_otp.getAttribute("text");
-
+				
 		// Loop through each character of the OTP string
 		for (int i = 0; i < 4; i++) {
 			// Get the digit at position i
@@ -136,7 +144,9 @@ public class Input extends BaseTest {
 
 			// Append the current digit to the existing text
 			existingText += digit;
+						
 			fld_otp.sendKeys(existingText);
+			System.out.println(existingText);
 		}
 
 		System.out.println("Inputed: " + otp);

@@ -1,5 +1,12 @@
 package id.visionplus.v2.TestCase.General;
 
+
+/* Created Date	: 
+ * Updated by	: Michael
+ * Updated Date	: 30 April 2024
+ * 1. Adding Login as PREMIUM
+ * */
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +26,7 @@ public class TC_OpenApp extends BaseTest{
 			TC_Open_App_as_Free_User();
 		}else if(type.equals("PREMIUM_SPORT")){
 			TC_Open_App_as_Premium_Sport_User();
-		}else  if (type.equals("PREMIUM_USER")){
+		}else  if (type.equals("PREMIUM")){
 			TC_Open_app_as_Premium_User();
 		}
 	}
