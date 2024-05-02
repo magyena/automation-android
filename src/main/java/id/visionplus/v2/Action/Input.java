@@ -1,5 +1,11 @@
 package id.visionplus.v2.Action;
 
+/* Created Date	: 3 April 2024
+ * Updated by	: Michael
+ * Updated Date	: 30 April 2024
+ * 1. Adding Log for OTP Input
+ * */
+
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -131,8 +137,6 @@ public class Input extends BaseTest {
 		
 		String existingText = fld_otp.getAttribute("text");
 				
-//		fld_otp.sendKeys(otp);
-
 		// Loop through each character of the OTP string
 		for (int i = 0; i < 4; i++) {
 			// Get the digit at position i

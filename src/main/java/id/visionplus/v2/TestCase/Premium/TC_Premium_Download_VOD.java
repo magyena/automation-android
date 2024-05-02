@@ -1,5 +1,10 @@
 package id.visionplus.v2.TestCase.Premium;
 
+/* Created Date	: 3 April 2024
+ * Updated by	: Michael
+ * Updated Date	: 30 April 2024
+ * 1. Adding Log in as PREMIUM
+ * */
 
 import java.io.IOException;
 
@@ -35,7 +40,7 @@ public class TC_Premium_Download_VOD  extends BaseTest{
 		} else if ("FREE".equals(testCaseType)) {
 			open_app.Choose_Login_As("FREE");
 		} else if ("PREMIUM_USER".equals(testCaseType)) {
-			open_app.Choose_Login_As("PREMIUM_USER");
+			open_app.Choose_Login_As("PREMIUM");
 		}
 		Thread.sleep(2000);
 

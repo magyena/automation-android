@@ -2,8 +2,8 @@ package id.visionplus.v2.TestCase.Visitor.Register;
 
 /* Created Date	: 3 April 2024
  * Updated by	: Michael
- * Updated Date	: Adding Sleep before assert Homepage
- * 1. 
+ * Updated Date	: 30 April 2024
+ * 1. Adding Sleep before assert Homepage
  * */
 
 import java.io.IOException;
