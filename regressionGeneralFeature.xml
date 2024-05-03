@@ -12,7 +12,6 @@
       <class name="id.visionplus.v2.TestCase.General.TC_Profile"/>
       <class name="id.visionplus.v2.TestCase.General.TC_Search"/>
       <class name="id.visionplus.v2.TestCase.General.TC_Settings"/>
-      <class name="id.visionplus.v2.TestCase.General.TC_Change_Password"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

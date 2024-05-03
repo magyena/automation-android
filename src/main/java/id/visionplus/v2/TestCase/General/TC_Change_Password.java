@@ -2,7 +2,7 @@ package id.visionplus.v2.TestCase.General;
 /* Author		: Fatah Alim
  * Created Date	: 2 April 2024
  * Updated by	: -
- * Updated Date	: 2 Mei 2024
+ * Updated Date	: -
  * Summary		: TC_Change_Password
  * 1. Update Scenario Change Password
  * */
@@ -102,7 +102,7 @@ public class TC_Change_Password extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE 
 
 		input.inputNewPasswordChangePassword("4321lupaaa");
 		test.pass("Successfully input current password");
-		Thread.sleep(3000);
+		
 		assertion.assertPasswordNoCriteria();
 		test.pass("Succesfully assert password no criteria");
 		
@@ -195,7 +195,7 @@ public class TC_Change_Password extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE 
 
 		input.inputNewPasswordChangePassword("4321lupaaa");
 		test.pass("Successfully input current password");
-		Thread.sleep(3000);
+
 		assertion.assertPasswordNoCriteria();
 		test.pass("Succesfully assert password no criteria");
 

@@ -124,13 +124,6 @@ public class VODDetailPage extends AndroidGesture {
 	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/fake_fade_background_image_view")
 	public static WebElement banner_content_cluster_new_release;
 	
-	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"E1 Per'Jamu'an\"]")
-	public static WebElement vod_download_eps1;
-	
-	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/episodeTitle")
-	public static WebElement txt_title_episode;
-	
-	
 	
 }
 
