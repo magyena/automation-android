@@ -1585,6 +1585,31 @@ public class Click extends BaseTest {
 		previous_episode.click();
 	}
 	
+
+	public void clickVodDownloadEps1() {
+		vodDetailPage = new VODDetailPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement vod_eps1 = vodDetailPage.vod_download_eps1;
+		wait.until(ExpectedConditions.visibilityOfAllElements(vod_eps1));
+		vod_eps1.click();
+	}
+	
+	public void clickTurnOnGps() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement turn_on_gps = outsideApp.btn_confirm_turn_on_gps;
+		wait.until(ExpectedConditions.visibilityOfAllElements(turn_on_gps));
+		turn_on_gps.click();
+	}
+	
+	public void clickSwitchOnGps() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement switch_on = outsideApp.switch_gps_on;
+		wait.until(ExpectedConditions.visibilityOfAllElements(switch_on));
+		switch_on.click();
+	}
+	
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));

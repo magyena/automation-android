@@ -103,6 +103,7 @@ public class TC_Change_Password extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE 
 		input.inputNewPasswordChangePassword("4321lupaaa");
 		test.pass("Successfully input current password");
 		
+		Thread.sleep(3000);
 		assertion.assertPasswordNoCriteria();
 		test.pass("Succesfully assert password no criteria");
 		
@@ -196,6 +197,7 @@ public class TC_Change_Password extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE 
 		input.inputNewPasswordChangePassword("4321lupaaa");
 		test.pass("Successfully input current password");
 
+		Thread.sleep(3000);
 		assertion.assertPasswordNoCriteria();
 		test.pass("Succesfully assert password no criteria");
 
