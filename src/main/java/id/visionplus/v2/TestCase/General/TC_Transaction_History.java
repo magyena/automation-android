@@ -1,5 +1,11 @@
 package id.visionplus.v2.TestCase.General;
-
+/* Author		: Fatah Alim
+ * Created Date	: 2 April 2024
+ * Updated by	: -
+ * Updated Date	: 2 Mei 2024
+ * Summary		: TC_Change_Password
+ * 1. Delete Fitur Buy again from Transaction History
+ * */
 import java.io.IOException;
 
 import org.openqa.selenium.By;
@@ -31,13 +37,22 @@ public class TC_Transaction_History extends BaseTest {
 	Input input = new Input();
 	Tap tap = new Tap();
 	TC_Settings settings = new TC_Settings();
-//	String testCaseType = System.getProperty("testCaseType");
-	String testCaseType = "FREE";
+	String testCaseType = System.getProperty("testCaseType");
+//	String testCaseType = "PREMIUM_SPORT";
 
 	@Test(priority = 1)
 
 	public void TC_User_see_All_Transactions() throws IOException, InterruptedException, TimeoutException {
-		settings.TC_Access_Settings();
+		TC_OpenApp open_app = new TC_OpenApp();
+		open_app.Choose_Login_As(testCaseType);
+
+		click.clickMenuButton();
+		test.pass("Successfully Clicked Menu Button");
+
+		Thread.sleep(2000);
+
+		click.clickSettingsButton();
+		test.pass("Successfully Clicked Settings Button");
 
 		Thread.sleep(2000);
 		click.clickTransactionHistory();
@@ -101,11 +116,7 @@ public class TC_Transaction_History extends BaseTest {
 		Thread.sleep(2000);
 		tap.tap(117, 2083);
 		// tap.tap(145, 2211); call center
-		Thread.sleep(2000);
-		assertion.assertPaymentBuyAgain();
-		Thread.sleep(2000);
-		test.pass("Successfully Assert Payment  Page");
-
+		
 		click.clickCloseToSettings();
 		test.pass("Successfully Clicked Close Help Center Page");
 	}
@@ -123,13 +134,11 @@ public class TC_Transaction_History extends BaseTest {
 		Thread.sleep(2000);
 		tap.tap(981, 667);
 		tap.tap(145, 2211);
-		
-		click.clickHelpCenterButton();
-		
-		assertion.assertHelpCentre();
-		Thread.sleep(2000);	
-		click.clickCloseToSettings();
-		test.pass("Successfully Clicked Close Help Center Page");
 
+		click.clickHelpCenterButton();
+		Thread.sleep(5000);
+
+		assertion.assertHelpCentre();
+		
 	}
 }

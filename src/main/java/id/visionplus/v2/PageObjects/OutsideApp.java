@@ -102,6 +102,13 @@ public class OutsideApp extends AndroidGesture
 	@AndroidFindBy(xpath="//*[contains(@text,'Cancel subscription)]")
 	public static WebElement btn_confirm_cancel_subscription;
 	
+	@AndroidFindBy(xpath="//*[contains(@text,'TURN ON')]")
+	public static WebElement btn_confirm_turn_on_gps;
+	
+	@AndroidFindBy(xpath="(//android.widget.Switch[@resource-id=\"android:id/switch_widget\"])[1]")
+	public static WebElement switch_gps_on;
+	
+	
 	
 	
 	

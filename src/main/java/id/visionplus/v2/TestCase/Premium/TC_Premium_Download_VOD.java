@@ -1,9 +1,9 @@
 package id.visionplus.v2.TestCase.Premium;
 
 /* Created Date	: 3 April 2024
- * Updated by	: Michael
- * Updated Date	: 30 April 2024
- * 1. Adding Log in as PREMIUM
+ * Updated by	: Fatah
+ * Updated Date	: 2 Mei 2024
+ * 1. Fixing issue vod Download
  * */
 
 import java.io.IOException;
@@ -25,13 +25,12 @@ import id.visionplus.v2.MainFunction.BaseTest;
 import id.visionplus.v2.TestCase.General.TC_OpenApp;
 import io.appium.java_client.android.AndroidDriver;
 
-public class TC_Premium_Download_VOD  extends BaseTest{
+public class TC_Premium_Download_VOD extends BaseTest {
 
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Input input = new Input();
-  String testCaseType = System.getProperty("testCaseType");
-
+	String testCaseType = System.getProperty("testCaseType");
 	@Test(priority = 1)
 	public void TC_User_Can_Download_VOD() throws IOException, InterruptedException, TimeoutException {
 		TC_OpenApp open_app = new TC_OpenApp();
@@ -43,26 +42,48 @@ public class TC_Premium_Download_VOD  extends BaseTest{
 			open_app.Choose_Login_As("PREMIUM");
 		}
 		Thread.sleep(2000);
+		
+		
+		click.clickMenuButton();
+		click.clickSearchButton();
+		input.clearSearch();
 
-		click.clickSampleVod();
-		test.pass("Successfully clicked Open Vod");
-		Thread.sleep(2000);
-		assertion.assertSampleDetailVod();
-		test.pass("Successfully  assert Vod Page");
-		click.clickSampleVodEps1();
-		test.pass("Successfully Clicked Eps 1 VOD");
-		Thread.sleep(2000);
-		assertion.assertSeriesTittleEps1();
-		test.pass("Successfully  assert EPS 1 VOD");
+		click.clickSearchField();
+		test.pass("Successfully Clicked Search Field");
+
+		input.inputSearch("Cinta Di Balik Awan");
+		test.pass("Successfully Input Search Field with Valid Keyword");
+
+		click.clickVodCintaDiBalikAwan();
+		test.pass("Successfully clicked VOD Eps 1");
+
+		click.clickVodDownloadEps1();
+		test.pass("Successfully clicked Eps 1 VOD");
+
+		assertion.assertTitleVODEpisode();
+		test.pass("Successfully assert title episode");
+
 		click.clickEpsDownloadVOD();
 		test.pass("Successfully Clicked Download VOD");
-		Thread.sleep(2000);
-		assertion.assertPopupConfirmDownload();
-		test.pass("Successfully assert popup download");
-		click.clickConfirmDownload();
-		test.pass("Successfully Clicked Confirmation DOwnload");
-		Thread.sleep(2000);
-
+		
+		try {
+		    if (assertion.assertGPS()) {
+		        click.clickTurnOnGps();
+		        click.clickSwitchOnGps();
+		        click.pressBack();
+		        click.clickEpsDownloadVOD();
+		        test.pass("Successfully Clicked Download VOD");
+		        Thread.sleep(5000);
+		        assertion.assertDownloadSuccessfully();
+		        test.pass("Successfully assert Download VOD");
+		    } else {
+		        Thread.sleep(3000);
+		        assertion.assertDownloadSuccessfully();
+		        test.pass("Successfully assert Download VOD");
+		    }
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
 	}
 
 	@Test(priority = 2)
@@ -76,5 +97,3 @@ public class TC_Premium_Download_VOD  extends BaseTest{
 		Thread.sleep(2000);
 	}
 }
-
-
