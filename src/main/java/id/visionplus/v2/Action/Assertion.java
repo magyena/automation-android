@@ -139,6 +139,17 @@ public class Assertion extends BaseTest {
 		String expectedPrefix = "Resend in 04:";
 		Assert.assertTrue(actual.startsWith(expectedPrefix), "Timer text does not start with 'Resend in 04:'");
 	}
+	
+	public void assertTimer2Minutes() {
+		WebElement txt_timer = registerPage.txt_timer;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_timer));
+
+		String actual = txt_timer.getText();
+		String expectedPrefix = "Resend in 01:";
+		Assert.assertTrue(actual.startsWith(expectedPrefix), "Timer text does not start with 'Resend in 01:'");
+	}
 
 	public void assertTermsOfUsePageInd() {
 		WebElement txt_widget_title = entryPage.txt_widget_terms_privacy;
