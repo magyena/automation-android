@@ -29,13 +29,13 @@ import id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Email;
 import id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Phone_Number;
 import io.appium.java_client.android.Activity;
 
-public class TC_Change_Password extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE IN FE
- 
+public class TC_Change_Password extends BaseTest { // ON HOLD BECAUSE ANY ISSUE IN FE
+
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Input input = new Input();
 	TC_Get_OTP get_otp = new TC_Get_OTP();
-	
+
 	String new_password = "4321LupA";
 	TC_Integrate_Register_Email register = new TC_Integrate_Register_Email();
 
@@ -72,19 +72,19 @@ public class TC_Change_Password extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE 
 		Thread.sleep(2000);
 		assertion.assertChangePasswordWebView();
 		test.pass("Successfully assert change password page");
-		
+
 		input.inputCurrentPasswordChangePassword("4321aLupa");
 		test.pass("Successfully input current password");
 
 		input.inputNewPasswordChangePassword("4321LupA");
 		test.pass("Successfully input current password");
-		
+
 		click.clickNextChangePassword();
 		test.pass("Successfully clikced next");
-		
+
 		assertion.assertChangePassworfailed();
 		test.pass("Successfully assert change password failed");
-		
+
 		click.clickBtnOKChangePasswordFailed();
 		test.pass("Successfully clicked button ok");
 	}
@@ -96,26 +96,25 @@ public class TC_Change_Password extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE 
 		input.ClearCurrentPasswordChangePassword();
 		input.inputCurrentPasswordChangePassword("4321Lupa");
 		test.pass("Successfully input current password");
-		
+
 		input.ClearNewPasswordChangePassword();
-		
 
 		input.inputNewPasswordChangePassword("4321lupaaa");
 		test.pass("Successfully input current password");
-		
+
 		Thread.sleep(3000);
 		assertion.assertPasswordNoCriteria();
 		test.pass("Succesfully assert password no criteria");
-		
+
 		input.ClearNewPasswordChangePassword();
-		
+
 		Thread.sleep(2000);
 	}
 
 	@Test(priority = 3)
 
 	public void TC_User_Change_Password_Success() throws InterruptedException, IOException, TimeoutException {
-		
+
 		input.inputNewPasswordChangePassword(new_password);
 		test.pass("Successfully input current password");
 
@@ -129,14 +128,14 @@ public class TC_Change_Password extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE 
 		test.pass("Successfully clicked button back");
 
 		Thread.sleep(2000);
-		
+
 		click.clickLogout();
 	}
 
 	@Test(priority = 4)
 
 	public void TC_User_Invalid_Current_Password_Email() throws InterruptedException, IOException, TimeoutException {
-		
+
 		register.TC_access_register_by_email_page();
 		register.TC_user_input_valid_email_and_password();
 		register.TC_user_input_correct_otp();
@@ -209,7 +208,7 @@ public class TC_Change_Password extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE 
 	@Test(priority = 6)
 
 	public void TC_User_Change_Password_Success_Email() throws InterruptedException, IOException, TimeoutException {
-		
+
 		input.inputNewPasswordChangePassword(new_password);
 		test.pass("Successfully input current password");
 
@@ -225,10 +224,14 @@ public class TC_Change_Password extends BaseTest {  //ON HOLD BECAUSE ANY ISSUE 
 		Thread.sleep(2000);
 
 		click.clickLogout();
-		
-		register.TC_User_login_After_Change_Password(); 
+
+	}
+
+	@Test(priority = 7)
+
+	public void TC_User_Login_After_Change_Password() throws InterruptedException, IOException, TimeoutException {
+
+		register.TC_User_login_After_Change_Password();
 		Thread.sleep(10000);
 	}
-	
-
 }
