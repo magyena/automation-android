@@ -307,26 +307,8 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		test.pass("Successfully Assert Arrived at Homepage");
 	}
 	
-	@Test(priority = 13, dependsOnMethods = "TC_user_input_correct_otp")
-	public void TC_Forgot_Password()throws InterruptedException, IOException, TimeoutException{
-		TC_Logout logout = new TC_Logout();
-		logout.TC_Access_Settings();
-		logout.TC_Access_Logout();
-		
-		TC_Forgot_Password tc_forgot_password = new TC_Forgot_Password();
-		tc_forgot_password.TC_Access_Forgot_Password();
-		tc_forgot_password.TC_Forgot_Password_Invalid_Password(phone_number);
-		tc_forgot_password.TC_Forgot_Password_OTP_First_Time(new_pass);
-		tc_forgot_password.TC_Forgot_Password_Wrong_OTP();
-		
-		TC_user_cannot_input_same_otp_after_2_minutes();
-
-		tc_forgot_password.TC_Forgot_Password_Valid_OTP(phone_number);
-				
-		click.clickRegisterLoginSubmitButton();
-	}
 	
-	@Test(priority = 14, dependsOnMethods = "TC_Forgot_Password")
+	@Test(priority = 13, dependsOnMethods = "TC_user_input_correct_otp")
 	public void TC_register_again_after_kill_apps()throws InterruptedException, IOException, TimeoutException{
 		android.closeApp();
 		base.ConfigureAppium();
@@ -352,7 +334,7 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		test.pass("Successfully Assert Pop Up Existing Account");
 	}
 	
-	@Test(priority = 15, dependsOnMethods = "TC_register_again_after_kill_apps")
+	@Test(priority = 14, dependsOnMethods = "TC_register_again_after_kill_apps")
 	public void TC_Login_After_Forgot()throws InterruptedException, IOException, TimeoutException{
 		TC_user_redirect_to_login();
 		

@@ -157,14 +157,14 @@ public class TC_Register_With_Email extends BaseTest{
 		Thread.sleep(3000);
 		input.inputPassword("4321Lupa");
 		test.pass("Successfully Input Text Field Password with Valid Password");
+		
+		click.clickSendOTP();
+		test.pass("Successfully Clicked Send OTP");
 	}
 	
 	@Test(priority = 5, dependsOnMethods = "TC_user_input_valid_email_and_password")
 	public void TC_user_cannot_input_wrong_otp()throws InterruptedException{	
-		click.clickSendOTP();
-		test.pass("Successfully Clicked Send OTP");
-		
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 				
 		while(!android.isKeyboardShown()){
 			click.clickOtpFld();
@@ -183,13 +183,13 @@ public class TC_Register_With_Email extends BaseTest{
 		
 		assertion.assertTextWarningOTPWrong();
 		test.pass("Successfully Assert Text Warning OTP is Displayed");
+		
+		//Wait until 2 Minutes
+		Thread.sleep(120000);
 	}
 	
 	@Test(priority = 6, dependsOnMethods = "TC_user_cannot_input_wrong_otp")
 	public void TC_user_click_send_otp_2nd_time()throws InterruptedException, IOException{
-		//Wait until 2 Minutes
-		Thread.sleep(120000);
-		
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
 		
@@ -197,20 +197,14 @@ public class TC_Register_With_Email extends BaseTest{
 		
 		assertion.assertTimer5Minutes();
 		test.pass("Successfully Assert Timer 5 Minutes");
+		
+		input.clearOTP();
+		test.pass("Successfully Clear Text Field OTP");
 	}
 	
 	@Test(priority = 7, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
-	public void TC_user_input_correct_otp()throws InterruptedException, IOException{
-		Thread.sleep(2000);
-
-		input.clearOTP();
-		test.pass("Successfully Clear Text Field OTP");
-		
-		while(!android.isKeyboardShown()){
-			System.out.println("Try Click OTP Field");
-			click.clickOtpFld();
-			test.pass("Successfully Click Text Field OTP");
-		}
+	public String TC_user_input_correct_otp()throws InterruptedException, IOException{
+		Thread.sleep(3000);
 
 		//Get OTP from DB
 		String res_otp = get_otp.get_OTP(email);
@@ -237,44 +231,11 @@ public class TC_Register_With_Email extends BaseTest{
 		
 		assertion.assertArriveHomePage();
 		test.pass("Successfully Assert Arrived at Homepage");
+		
+		return email;
 	}
 	
-	@Test(priority = 8)
-	public void TC_Forgot_Password()throws InterruptedException, IOException, TimeoutException{
-		TC_Logout logout = new TC_Logout();
-		logout.TC_Access_Settings();
-		logout.TC_Access_Logout();		
-		TC_Forgot_Password tc_forgot_password = new TC_Forgot_Password();
-		tc_forgot_password.TC_Access_Forgot_Password();
-		
-		System.out.println("Arrive in Forgot Password");
-		
-		int attempts = 0;
-		while (attempts < 5) {
-		    try {
-				click.clickRegisterLoginByEmailSection();
-				test.pass("Successfully Clicked Login by Email Section Button");
-		        break;
-		    } catch (StaleElementReferenceException e) {
-		    	System.out.println(e.getMessage());
-		    }
-		    attempts++;
-		    Thread.sleep(2000);
-		}
-		
-		tc_forgot_password.TC_Forgot_Password_Invalid_Password(email);
-				
-		tc_forgot_password.TC_Forgot_Password_OTP_First_Time(new_pass);
-		tc_forgot_password.TC_Forgot_Password_Wrong_OTP();
-		
-		TC_user_cannot_input_same_otp_after_2_minutes(email);
-		
-		tc_forgot_password.TC_Forgot_Password_Valid_OTP(email);
-				
-		click.clickRegisterLoginSubmitButton();
-	}
-	
-	@Test(priority = 9, dependsOnMethods = "TC_Forgot_Password")
+	@Test(priority = 8, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
 	public void TC_register_again_after_kill_apps()throws InterruptedException, IOException, TimeoutException{
 		System.out.println("DONE REGISTER - PROCEED TO KILL APPS");
 		
@@ -302,7 +263,7 @@ public class TC_Register_With_Email extends BaseTest{
 		test.pass("Successfully Assert Pop Up Existing Account");
 	}
 	
-	@Test(priority = 10, dependsOnMethods = "TC_register_again_after_kill_apps")
+	@Test(priority = 9, dependsOnMethods = "TC_register_again_after_kill_apps")
 	public void TC_Login_After_Forgot()throws InterruptedException, IOException, TimeoutException{
 		TC_user_redirect_to_login();
 		
