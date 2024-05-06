@@ -19,6 +19,9 @@ public class VODDetailPage extends AndroidGesture {
 		PageFactory.initElements(new AppiumFieldDecorator(android), this);
 	}
 
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/seasonSpinner")
+	public static WebElement btn_season;
+
 	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/startDownloadButton")
 	public static WebElement btn_download;
 
@@ -57,7 +60,10 @@ public class VODDetailPage extends AndroidGesture {
 
 	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/trailerButton")
 	public static WebElement btn_trailer;
-
+	
+	@AndroidFindBy(xpath ="//android.widget.ListView//*[contains(@text, 'Season 1')]")
+	public static WebElement btn_ddl_season_1;
+	
 	@AndroidFindBy(xpath = "//*[contains(@text,'Gmail')]")
 	public static WebElement txt_share_gmail;
 
@@ -118,6 +124,11 @@ public class VODDetailPage extends AndroidGesture {
 	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/fake_fade_background_image_view")
 	public static WebElement banner_content_cluster_new_release;
 	
+	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"E1 Per'Jamu'an\"]")
+	public static WebElement vod_download_eps1;
+	
+	@AndroidFindBy(id = "com.zte.iptvclient.android.idmnc:id/episodeTitle")
+	public static WebElement txt_title_episode;
 	
 }
 

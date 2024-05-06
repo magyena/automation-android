@@ -1,4 +1,4 @@
-package id.visionplus.v2.TestCase.Free;
+package id.visionplus.v2.TestCase.Visitor.Register;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

@@ -23,7 +23,7 @@ import id.visionplus.v2.Action.Scroll;
 import id.visionplus.v2.Action.Swipe;
 import id.visionplus.v2.Action.Tap;
 import id.visionplus.v2.MainFunction.BaseTest;
-import id.visionplus.v2.TestCase.Free.TC_Integrate_Register;
+import id.visionplus.v2.TestCase.Visitor.Register.TC_Integrate_Register;
 import id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Phone_Number;
 import io.appium.java_client.android.Activity;
 
@@ -294,7 +294,14 @@ public class TC_Cluster_Film extends BaseTest {
 
 		click.clickMenuButton();
 		click.clickMenuHome();
-		click.clickVisionPlusOriginalsSeries();
+		TC_Homepage tc_homePage = new TC_Homepage();
+
+		//Validation of the VOD Series Has Season 0
+	    click.clickVisionPlusOriginalsSeries();
+	    test.pass("Successfully Clicked VOD Vision Plus Originals");
+	    
+		tc_homePage.TC_Access_Season1_From_Season_0();
+
 		click.clickWatchVOD();
 		Thread.sleep(10000);
 		click.pressBack();

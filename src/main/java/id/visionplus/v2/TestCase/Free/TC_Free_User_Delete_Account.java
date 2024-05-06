@@ -12,6 +12,7 @@ import id.visionplus.v2.MainFunction.BaseTest;
 import id.visionplus.v2.TestCase.General.TC_Cluster_Film;
 import id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Free_User_Google;
 import id.visionplus.v2.TestCase.Visitor.Login.TC_Login_Email;
+import id.visionplus.v2.TestCase.Visitor.Register.TC_Integrate_Register;
 
 public class TC_Free_User_Delete_Account extends BaseTest {
 

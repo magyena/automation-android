@@ -56,13 +56,13 @@ public class OutsideApp extends AndroidGesture
 	@AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"com.android.vending:id/0_resource_name_obfuscated\" and @text=\"No thanks\"]")
 	public static WebElement btn_no_thanks_playstore;
 	
-	@AndroidFindBy(xpath="//android.widget.RadioButton[@text='Decline to answer']")
+	@AndroidFindBy(xpath="//android.widget.RadioButton[@content-desc=\"Decline to answer\"]")
 	public static WebElement btn_radio_cancel_playstore;
 	
 	@AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"com.android.vending:id/0_resource_name_obfuscated\"]")
 	public static WebElement btn_continue_playstore;
 	
-	@AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"com.android.vending:id/0_resource_name_obfuscated\" and @text=\"Cancel subscription\"]")
+	@AndroidFindBy(xpath="//android.widget.TextView[@content-desc=\"Cancel subscription\"]")
 	public static WebElement btn_confirm_cancel_playstore;
 	
 	@AndroidFindBy(xpath="//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.widget.Button")
@@ -96,11 +96,17 @@ public class OutsideApp extends AndroidGesture
 	@AndroidFindBy(xpath="//*[contains(@text,'Decline to answer)]")
 	public static WebElement txt_decline_to_answer;
 	
-	@AndroidFindBy(xpath="//*[contains(@text,'Continue)]")
+	@AndroidFindBy(xpath="//android.widget.TextView[@content-desc=\"Continue\"]")
 	public static WebElement btn_continue_play_store;
 	
 	@AndroidFindBy(xpath="//*[contains(@text,'Cancel subscription)]")
 	public static WebElement btn_confirm_cancel_subscription;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'TURN ON')]")
+	public static WebElement btn_confirm_turn_on_gps;
+	
+	@AndroidFindBy(xpath="(//android.widget.Switch[@resource-id=\"android:id/switch_widget\"])[1]")
+	public static WebElement switch_gps_on;
 	
 	
 	
