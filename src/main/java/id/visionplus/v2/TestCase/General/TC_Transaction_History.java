@@ -122,7 +122,6 @@ public class TC_Transaction_History extends BaseTest {
 		tap.tap(981, 667);
 		tap.tap(145, 2211);
 		
-		click.clickHelpCenterButton();
 		Thread.sleep(5000);
 		assertion.assertHelpCentre();
 		Thread.sleep(2000);	
