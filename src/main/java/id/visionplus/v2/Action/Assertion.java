@@ -11,6 +11,9 @@ package id.visionplus.v2.Action;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.time.Duration;
 import java.util.List;
 
@@ -45,6 +48,44 @@ public class Assertion extends BaseTest {
 	CategoryPage categorypage;
 	BuyPackagePage buypackage;
 	MediaPlayerPage mediaplayerpage;
+	
+//	 String adbPath = "/users/visionplus/Library/Android/sdk/platform-tools/adb";
+
+	 String adbPath = "/users/michaelliong/Library/Android/sdk/platform-tools/adb";
+
+// TOAST ASSERTION - BEGIN
+	// Method to capture the Toast message
+    public String captureToastMessage() throws IOException {
+        // Execute adb command to capture the Toast message
+        Process process = Runtime.getRuntime().exec(adbPath + " shell dumpsys activity");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            if (line.contains("android.widget.Toast")) {
+                // Extract the Toast message text
+                int index = line.indexOf("Text:");
+                return line.substring(index + 5);
+            }
+        }
+        return null; // Return null if no Toast message is found
+    }
+
+    // Test method to assert the Toast message
+    public void testToastMessage(String toast_message, String expected_message) throws IOException {
+        String expectedToastMessage = expected_message; // Expected Toast message text
+        String actualToastMessage = toast_message; // Capture the actual Toast message
+        System.out.println("Actual Toast message: " + actualToastMessage);
+
+        Assert.assertEquals(actualToastMessage, expectedToastMessage);
+        
+        // Assert the actual message text with the expected one
+        if (expectedToastMessage.equals(actualToastMessage)) {
+            System.out.println("Toast message assertion passed.");
+        } else {
+            System.out.println("Toast message assertion failed.");
+        }
+    }
+ // TOAST ASSERTION - END
 
 	public void assertSearchPage() {
 		searchPage = new SearchPage(android);

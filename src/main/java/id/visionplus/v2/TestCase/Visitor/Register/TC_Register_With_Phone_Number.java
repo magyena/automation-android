@@ -307,9 +307,12 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		test.pass("Successfully Assert Arrived at Homepage");
 	}
 	
-	
 	@Test(priority = 13, dependsOnMethods = "TC_user_input_correct_otp")
 	public void TC_register_again_after_kill_apps()throws InterruptedException, IOException, TimeoutException{
+		TC_Logout logout = new TC_Logout();
+		logout.TC_Access_Settings();
+		logout.TC_Access_Logout();
+		
 		android.closeApp();
 		base.ConfigureAppium();
 		
