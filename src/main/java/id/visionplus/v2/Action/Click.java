@@ -1535,6 +1535,20 @@ public class Click extends BaseTest {
 	        System.out.println("Failed to click restart button: " + e.getMessage());
 	    }
 	}
+	
+	public void clickDisableGuide() {
+	    programguidepage = new ProgramGuidePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement disable_guide = programguidepage.disable_guide4;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(disable_guide));
+	        disable_guide.click();
+	        System.out.println("Channel program disable");
+	    } catch (Exception e) {
+	        System.out.println("Channel program not disable " + e.getMessage());
+	    }
+	}
 
 	
 	public void clickSettingsMediaPlayer() {

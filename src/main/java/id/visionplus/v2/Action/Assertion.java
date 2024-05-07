@@ -837,14 +837,20 @@ public class Assertion extends BaseTest {
 
 		Assert.assertTrue(subscribe.isDisplayed());
 	}
-
-	public void assertErrorConnection() { // inno
+	
+	public void assertErrorConnection() {
 		liveTvPage = new LiveTVPage(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
 		WebElement error_connection = liveTvPage.img_error_connection;
-		wait.until(ExpectedConditions.visibilityOfAllElements(error_connection));
 
-		Assert.assertTrue(error_connection.isDisplayed());
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(error_connection));
+			Assert.assertTrue(error_connection.isDisplayed());
+			System.out.println("Assert Success: Notification error connection Showing.");
+		} catch (TimeoutException e) {
+			System.out.println(" Assert Failure: Notification error connection not Showing.");
+			throw e;
+		}
 	}
 
 	public void assertDetailVod() { // inno
@@ -877,16 +883,23 @@ public class Assertion extends BaseTest {
 			throw new AssertionError("Assertion Failed: Text '" + textToAssert + "' is not present on the page.");
 		}
 	}
-
-	public void assertDisableGuide() { // inno
+	
+	public boolean assertDisableGuide() {
 		programguidepage = new ProgramGuidePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement disable_guide = programguidepage.disable_guide4;
-		wait.until(ExpectedConditions.visibilityOfAllElements(disable_guide));
 
-		Assert.assertTrue(disable_guide.isDisplayed());
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(disable_guide));
+			Assert.assertTrue(disable_guide.isDisplayed());
+			System.out.println("Assert Success: Guide is disable.");
+		} catch (AssertionError e) {
+			System.out.println(" Assert Failure: Guide not disable.");
+			throw e;
+		}
+		return true;
 	}
-
+	
 	public void assertDetailProgramGuide() { // inno
 		programguidepage = new ProgramGuidePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(10));
@@ -1479,7 +1492,7 @@ public class Assertion extends BaseTest {
 	public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
-		Assert.assertFalse(isElementPresent1(btn_subscribe));
+		Assert.assertFalse(isElementPresent(btn_subscribe));
 	}
 
 	public boolean isElementPresent(WebElement element) {
