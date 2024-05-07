@@ -567,6 +567,17 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOf(btn_voucher));
 		btn_voucher.click();
 	}
+	
+	public void clickSeeMyStatus() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_see_my_status = settingPage.btn_see_my_status;
+
+		wait.until(ExpectedConditions.visibilityOf(btn_see_my_status));
+		btn_see_my_status.click();
+		
+		System.out.println("Done Click See My Status");
+	}
 
 	public void clickVoucherField() {
 		settingPage = new SettingPage(android);

@@ -637,50 +637,87 @@ public class Assertion extends BaseTest {
 		String expected = "Transaction History";
 		Assert.assertEquals(actual, expected);
 	}
+	
+	public void assertVoucherSuccess() {
+		
+		System.out.println("Assert Voucher Redeemed");
+		settingPage = new SettingPage(android);
+
+		WebElement txt_pop_up_voucher_success = settingPage.txt_pop_up_voucher_success;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_pop_up_voucher_success));
+
+		Assert.assertTrue(txt_pop_up_voucher_success.isDisplayed());
+		
+		System.out.println("Voucher Redeemed Displayed");
+
+		String actual = txt_pop_up_voucher_success.getText();
+		String expected = "Voucher Redeemed";
+		Assert.assertEquals(actual, expected);
+		
+		System.out.println("Assert Voucher Redeemed as expected Text");
+
+	}
+	
+	public void assertPaymentSuccess() {
+		settingPage = new SettingPage(android);
+
+		WebElement txt_voucher_payment_success = settingPage.txt_voucher_payment_success;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_voucher_payment_success));
+
+		Assert.assertTrue(txt_voucher_payment_success.isDisplayed());
+
+		String actual = txt_voucher_payment_success.getText();
+		String expected = "Payment Success";
+		Assert.assertEquals(actual, expected);
+	}
 
 	public void assertVoucherExpired() {
-//		settingPage = new SettingPage(android);
-//
-//		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
-//
-//		wait = new WebDriverWait(android, Duration.ofSeconds(90));
-//		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
-//
-//		Assert.assertTrue(txt_warning_voucher.isDisplayed());
-//
-//		String actual = txt_warning_voucher.getText();
-//		String expected = "Voucher code expired";
-//		Assert.assertEquals(actual, expected);
+		settingPage = new SettingPage(android);
+
+		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
+
+		Assert.assertTrue(txt_warning_voucher.isDisplayed());
+
+		String actual = txt_warning_voucher.getText();
+		String expected = "Voucher code expired";
+		Assert.assertEquals(actual, expected);
 	}
 
 	public void assertVoucherInvalid() {
-//		settingPage = new SettingPage(android);
-//
-//		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
-//
-//		wait = new WebDriverWait(android, Duration.ofSeconds(90));
-//		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
-//
-//		Assert.assertTrue(txt_warning_voucher.isDisplayed());
-//
-//		String actual = txt_warning_voucher.getText();
-//		String expected = "Invalid code";
-//		Assert.assertEquals(actual, expected);
+		settingPage = new SettingPage(android);
+
+		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
+
+		Assert.assertTrue(txt_warning_voucher.isDisplayed());
+
+		String actual = txt_warning_voucher.getText();
+		String expected = "Invalid code";
+		Assert.assertEquals(actual, expected);
 	}
 
 	public void assertVoucherReedemed() {
-//		settingPage = new SettingPage(android);
-//
-//		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
-//
-//		wait = new WebDriverWait(android, Duration.ofSeconds(90));
-//		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
-//
-////		Assert.assertTrue(txt_warning_voucher.isDisplayed());
-//
-//		String actual = txt_warning_voucher.getText();
-//		String expected = "This code has been redeemed";
-//		Assert.assertEquals(actual, expected);
+		settingPage = new SettingPage(android);
+
+		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
+
+		Assert.assertTrue(txt_warning_voucher.isDisplayed());
+
+		String actual = txt_warning_voucher.getText();
+		String expected = "This code has been redeemed";
+		Assert.assertEquals(actual, expected);
 	}
 
 	public void assertSoftwareLicense() {
