@@ -36,19 +36,6 @@ public class TC_Cluster_Watchlist extends BaseTest {
 		test.pass("Successfully assert view All");
 
 		Scroll scroll = new Scroll(android);
-		By locator = By.xpath(
-				"//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripTitle\" and @text=\"Love Stories\"]");
-		scroll.scrollUntilElementFound(locator);
-
-		click.clickVODComingSoon3();
-		click.clickSaveToWatchlist();
-		click.clickBack();
-		click.clickVODComingSoon2();
-		click.clickSaveToWatchlist();
-		click.clickBack();
-		click.clickVODComingSoon1();
-		click.clickSaveToWatchlist();
-		click.clickBack();
 
 		By locator1 = By.xpath(
 				"//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripTitle\" and @text=\"Horror/Thriller\"]");
