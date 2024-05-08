@@ -167,7 +167,11 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripRecyclerView\"])[2]/android.view.View[1]")
 	public static WebElement img_First_Vod_VPlusOriginals;
 	
+	@AndroidFindBy(xpath="//*[contains(@text,'Family Friendly Movies')]/preceding::*[1]")
+	public static WebElement content_above_cluster_Family_Friendly;
 	
+	
+
 	
 	
 }

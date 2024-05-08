@@ -1651,6 +1651,14 @@ public class Click extends BaseTest {
 		switch_on.click();
 	}
 	
+	public void clickContentAboveClusterFamilyFriends() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement content_above = homePage.content_above_cluster_Family_Friendly;
+		wait.until(ExpectedConditions.visibilityOfAllElements(content_above));
+		content_above.click();
+	}
+	
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
