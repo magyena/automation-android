@@ -26,7 +26,7 @@ public class LoginPage extends AndroidGesture
 	 @AndroidFindBy(xpath="/hierarchy/android.widget.Toast")
 	 public static WebElement txt_wrong_email_password;
 	 
-	 @AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[1]/android.view.View[2]/android.widget.TextView")
+	 @AndroidFindBy(xpath="//*/android.widget.TextView[contains(@text, 'Email')]")
 	 public static WebElement btn_login_by_email_section;
 	 
 	 @AndroidFindBy(xpath="//*[contains(@text,'Forgot Password?')]")

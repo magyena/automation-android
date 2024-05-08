@@ -5,8 +5,6 @@ package id.visionplus.v2.Action;
  * Summary		: Modify Scroll Down Until Element Found
  * 1. Modify that when arrive at the bottom, do scroll up until element
  * */
-
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -16,6 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import id.visionplus.v2.Utils.AndroidGesture;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import java.util.concurrent.TimeUnit;
+
 
 public class Scroll extends AndroidGesture {
 
@@ -38,7 +38,7 @@ public class Scroll extends AndroidGesture {
         System.out.println("Arrive at scroll down until");
         int flag = 0;
         long startTime = System.currentTimeMillis();
-        long timeoutInMillis = TimeUnit.SECONDS.toMillis(30); // Timeout set to 30 seconds
+        long timeoutInMillis = 30 * 1000; // Timeout set to 30 seconds
         int currentHeight;
         int totalHeight = getTotalHeight();
 
@@ -77,7 +77,7 @@ public class Scroll extends AndroidGesture {
         System.out.println("Arrive at scroll Up until");
         int flag = 0;
         long startTime = System.currentTimeMillis();
-        long timeoutInMillis = TimeUnit.SECONDS.toMillis(180); // Timeout set to 180 seconds
+        long timeoutInMillis = 180 * 1000; // Timeout set to 180 seconds
 
         while (flag == 0 && System.currentTimeMillis() - startTime <= timeoutInMillis) {
             try {

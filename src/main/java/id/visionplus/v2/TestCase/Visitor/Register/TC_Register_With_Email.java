@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.openqa.selenium.StaleElementReferenceException;
 import org.testng.annotations.Test;
 
 import expectj.TimeoutException;
@@ -28,6 +29,8 @@ public class TC_Register_With_Email extends BaseTest{
 	BaseTest base = new BaseTest();
 	String email=email_random();
 	String existing_email="freetest39@visionplus.id";
+	String new_pass = "Lupa4321";
+	String prev_otp = "";
 	
 	public String email_random(){
 		long epochTime = System.currentTimeMillis();
@@ -35,6 +38,34 @@ public class TC_Register_With_Email extends BaseTest{
         String formattedTime = dateFormat.format(new Date(epochTime));
         String result = "visionplus" + formattedTime.substring(0, Math.max(0, 20 - "visionplus".length())) + "@visionplus.id";
         return result;
+	}
+	
+	public void TC_user_cannot_input_same_otp_after_2_minutes(String email)throws InterruptedException, IOException{
+		//Wait until 2 Minutes
+		Thread.sleep(120000);
+		
+		input.clearOTP();
+		test.pass("Successfully Clear Text Field OTP");
+
+		click.clickOtpFld();
+		test.pass("Successfully Click Text Field OTP");
+
+		//Get OTP from DB
+		String res_otp = get_otp.get_OTP(email);
+		prev_otp = res_otp;
+				
+	    input.inputOTP(res_otp);
+		test.pass("Successfully Input Text Field OTP with Valid Numbers");
+		
+		android.hideKeyboard();
+		
+		click.clickRegisterLoginSubmitButton();
+		test.pass("Successfully Clicked Send Register Submit Button");
+		
+		Thread.sleep(3000);
+		
+		assertion.assertTextWarningOTPExpired();
+		test.pass("Successfully Assert OTP Expired");
 	}
 	
 	@Test(priority = 1)
@@ -118,20 +149,22 @@ public class TC_Register_With_Email extends BaseTest{
 		input.inputEmail(email);
 		test.pass("Successfully Input Text Field Email with Valid Email");
 		
+		System.out.println(email);
+		
 		click.clickFieldPassword();
 		test.pass("Successfully Clicked Text Field Password");
 		
 		Thread.sleep(3000);
 		input.inputPassword("4321Lupa");
 		test.pass("Successfully Input Text Field Password with Valid Password");
+		
+		click.clickSendOTP();
+		test.pass("Successfully Clicked Send OTP");
 	}
 	
 	@Test(priority = 5, dependsOnMethods = "TC_user_input_valid_email_and_password")
 	public void TC_user_cannot_input_wrong_otp()throws InterruptedException{	
-		click.clickSendOTP();
-		test.pass("Successfully Clicked Send OTP");
-		
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 				
 		while(!android.isKeyboardShown()){
 			click.clickOtpFld();
@@ -150,13 +183,13 @@ public class TC_Register_With_Email extends BaseTest{
 		
 		assertion.assertTextWarningOTPWrong();
 		test.pass("Successfully Assert Text Warning OTP is Displayed");
+		
+		//Wait until 2 Minutes
+		Thread.sleep(120000);
 	}
 	
 	@Test(priority = 6, dependsOnMethods = "TC_user_cannot_input_wrong_otp")
 	public void TC_user_click_send_otp_2nd_time()throws InterruptedException, IOException{
-		//Wait until 2 Minutes
-		Thread.sleep(120000);
-		
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
 		
@@ -164,20 +197,14 @@ public class TC_Register_With_Email extends BaseTest{
 		
 		assertion.assertTimer5Minutes();
 		test.pass("Successfully Assert Timer 5 Minutes");
+		
+		input.clearOTP();
+		test.pass("Successfully Clear Text Field OTP");
 	}
 	
 	@Test(priority = 7, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
-	public void TC_user_input_correct_otp()throws InterruptedException, IOException{
-		Thread.sleep(2000);
-
-		input.clearOTP();
-		test.pass("Successfully Clear Text Field OTP");
-		
-		while(!android.isKeyboardShown()){
-			System.out.println("Try Click OTP Field");
-			click.clickOtpFld();
-			test.pass("Successfully Click Text Field OTP");
-		}
+	public String TC_user_input_correct_otp()throws InterruptedException, IOException{
+		Thread.sleep(3000);
 
 		//Get OTP from DB
 		String res_otp = get_otp.get_OTP(email);
@@ -204,16 +231,13 @@ public class TC_Register_With_Email extends BaseTest{
 		
 		assertion.assertArriveHomePage();
 		test.pass("Successfully Assert Arrived at Homepage");
+		
+		return email;
 	}
 	
-	@Test(priority = 8, dependsOnMethods = "TC_user_input_correct_otp")
+	@Test(priority = 8, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
 	public void TC_register_again_after_kill_apps()throws InterruptedException, IOException, TimeoutException{
 		System.out.println("DONE REGISTER - PROCEED TO KILL APPS");
-		TC_Logout tc_logout = new TC_Logout();
-		
-		//logout first
-		tc_logout.TC_Access_Settings();
-		tc_logout.TC_Access_Logout();
 		
 		android.closeApp();
 		base.ConfigureAppium();
@@ -237,5 +261,38 @@ public class TC_Register_With_Email extends BaseTest{
 		
 		assertion.assertPopUpExistingAccount();
 		test.pass("Successfully Assert Pop Up Existing Account");
+	}
+	
+	@Test(priority = 9, dependsOnMethods = "TC_register_again_after_kill_apps")
+	public void TC_Login_After_Forgot()throws InterruptedException, IOException, TimeoutException{
+		TC_user_redirect_to_login();
+		
+		Thread.sleep(2000);
+		
+		click.clickFieldEmail();
+		test.pass("Successfully Clicked Text Field Email");
+		
+		input.clearPhoneNumberField();
+		
+		input.inputEmail(email);
+		test.pass("Successfully Input Text Field Email with Valid Registered Email");	
+
+		click.clickFieldPassword();
+		test.pass("Successfully Clicked Text Field Password");
+		
+		input.clearPasswordField();
+		
+		input.inputPassword(new_pass);
+		test.pass("Successfully Input Text Field Password with Valid Changed Password");
+		
+		android.hideKeyboard();
+		
+		click.clickRegisterLoginSubmitButton();
+		test.pass("Successfully Clicked Login Submit Button");
+		
+		Thread.sleep(3000);
+		
+		assertion.assertHomePage();
+		test.pass("Successfully Assert Homepage After Login");
 	}
 }

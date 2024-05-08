@@ -136,6 +136,7 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_forgot_password));
 		btn_forgot_password.click();
 	}
+	
 	public void clickPhoneNumberFieldForgot(){
 		WebDriverWait wait = new WebDriverWait(android, Duration.ofSeconds(60));
 	    int attempts = 0;
@@ -144,6 +145,21 @@ public class Click extends BaseTest {
 	            WebElement phoneNumberElement = android.findElement(By.xpath("//android.widget.TextView[@text='Phone Number']/following::android.widget.EditText[1]"));
 	            wait.until(ExpectedConditions.visibilityOf(phoneNumberElement));
 	            phoneNumberElement.click();
+	            break; // If successfully clicked, exit the loop
+	        } catch (StaleElementReferenceException e) {
+	            attempts++;
+	        }
+	    }
+	}
+	
+	public void clickEmailFieldForgot(){
+		WebDriverWait wait = new WebDriverWait(android, Duration.ofSeconds(60));
+	    int attempts = 0;
+	    while (attempts < 3) {
+	        try {
+	            WebElement emailElement = android.findElement(By.xpath("//android.widget.TextView[@text='Email']/following::android.widget.EditText[1]"));
+	            wait.until(ExpectedConditions.visibilityOf(emailElement));
+	            emailElement.click();
 	            break; // If successfully clicked, exit the loop
 	        } catch (StaleElementReferenceException e) {
 	            attempts++;
@@ -313,7 +329,7 @@ public class Click extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_register_login_submit));
 		btn_register_login_submit.click();
 	}
-
+	
 	public void clickRegisterLoginByEmailSection() {
 		loginPage = new LoginPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -550,6 +566,17 @@ public class Click extends BaseTest {
 
 		wait.until(ExpectedConditions.visibilityOf(btn_voucher));
 		btn_voucher.click();
+	}
+	
+	public void clickSeeMyStatus() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_see_my_status = settingPage.btn_see_my_status;
+
+		wait.until(ExpectedConditions.visibilityOf(btn_see_my_status));
+		btn_see_my_status.click();
+		
+		System.out.println("Done Click See My Status");
 	}
 
 	public void clickVoucherField() {

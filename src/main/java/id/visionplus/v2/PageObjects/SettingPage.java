@@ -111,6 +111,15 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(xpath="//android.widget.EditText[contains(@hint, 'Enter Voucher Code')]")
 	public static WebElement txt_fld_voucher;
 	
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.app.Dialog/android.view.View/android.widget.TextView[1]")
+	public static WebElement txt_pop_up_voucher_success;
+	
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.app.Dialog/android.view.View/android.widget.Button")
+	public static WebElement btn_see_my_status;
+	
+	@AndroidFindBy(xpath="(//android.view.View[2])[2]")
+	public static WebElement txt_voucher_payment_success;
+	
 	@AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/back")
 	public static WebElement btn_back;
 	

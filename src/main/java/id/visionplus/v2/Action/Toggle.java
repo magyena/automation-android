@@ -8,7 +8,10 @@ import id.visionplus.v2.MainFunction.BaseTest;
 public class Toggle extends BaseTest {
 	//String adbPath = "/Users/fatahalim/Library/Android/sdk/platform-tools/adb";
 
-	 String adbPath = "/users/visionplus/Library/Android/sdk/platform-tools/adb";
+//	 String adbPath = "/users/visionplus/Library/Android/sdk/platform-tools/adb";
+	 
+	 String adbPath = "/users/michaelliong/Library/Android/sdk/platform-tools/adb";
+
 	public void disable_data_connection() {
 
 		try {
