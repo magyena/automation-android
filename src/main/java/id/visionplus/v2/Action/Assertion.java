@@ -11,6 +11,9 @@ package id.visionplus.v2.Action;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.time.Duration;
 import java.util.List;
 
@@ -45,6 +48,44 @@ public class Assertion extends BaseTest {
 	CategoryPage categorypage;
 	BuyPackagePage buypackage;
 	MediaPlayerPage mediaplayerpage;
+	
+//	 String adbPath = "/users/visionplus/Library/Android/sdk/platform-tools/adb";
+
+	 String adbPath = "/users/michaelliong/Library/Android/sdk/platform-tools/adb";
+
+// TOAST ASSERTION - BEGIN
+	// Method to capture the Toast message
+    public String captureToastMessage() throws IOException {
+        // Execute adb command to capture the Toast message
+        Process process = Runtime.getRuntime().exec(adbPath + " shell dumpsys activity");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            if (line.contains("android.widget.Toast")) {
+                // Extract the Toast message text
+                int index = line.indexOf("Text:");
+                return line.substring(index + 5);
+            }
+        }
+        return null; // Return null if no Toast message is found
+    }
+
+    // Test method to assert the Toast message
+    public void testToastMessage(String toast_message, String expected_message) throws IOException {
+        String expectedToastMessage = expected_message; // Expected Toast message text
+        String actualToastMessage = toast_message; // Capture the actual Toast message
+        System.out.println("Actual Toast message: " + actualToastMessage);
+
+        Assert.assertEquals(actualToastMessage, expectedToastMessage);
+        
+        // Assert the actual message text with the expected one
+        if (expectedToastMessage.equals(actualToastMessage)) {
+            System.out.println("Toast message assertion passed.");
+        } else {
+            System.out.println("Toast message assertion failed.");
+        }
+    }
+ // TOAST ASSERTION - END
 
 	public void assertSearchPage() {
 		searchPage = new SearchPage(android);
@@ -138,6 +179,17 @@ public class Assertion extends BaseTest {
 		String actual = txt_timer.getText();
 		String expectedPrefix = "Resend in 04:";
 		Assert.assertTrue(actual.startsWith(expectedPrefix), "Timer text does not start with 'Resend in 04:'");
+	}
+	
+	public void assertTimer2Minutes() {
+		WebElement txt_timer = registerPage.txt_timer;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_timer));
+
+		String actual = txt_timer.getText();
+		String expectedPrefix = "Resend in 01:";
+		Assert.assertTrue(actual.startsWith(expectedPrefix), "Timer text does not start with 'Resend in 01:'");
 	}
 
 	public void assertTermsOfUsePageInd() {
@@ -585,50 +637,87 @@ public class Assertion extends BaseTest {
 		String expected = "Transaction History";
 		Assert.assertEquals(actual, expected);
 	}
+	
+	public void assertVoucherSuccess() {
+		
+		System.out.println("Assert Voucher Redeemed");
+		settingPage = new SettingPage(android);
+
+		WebElement txt_pop_up_voucher_success = settingPage.txt_pop_up_voucher_success;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_pop_up_voucher_success));
+
+		Assert.assertTrue(txt_pop_up_voucher_success.isDisplayed());
+		
+		System.out.println("Voucher Redeemed Displayed");
+
+		String actual = txt_pop_up_voucher_success.getText();
+		String expected = "Voucher Redeemed";
+		Assert.assertEquals(actual, expected);
+		
+		System.out.println("Assert Voucher Redeemed as expected Text");
+
+	}
+	
+	public void assertPaymentSuccess() {
+		settingPage = new SettingPage(android);
+
+		WebElement txt_voucher_payment_success = settingPage.txt_voucher_payment_success;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_voucher_payment_success));
+
+		Assert.assertTrue(txt_voucher_payment_success.isDisplayed());
+
+		String actual = txt_voucher_payment_success.getText();
+		String expected = "Payment Success";
+		Assert.assertEquals(actual, expected);
+	}
 
 	public void assertVoucherExpired() {
-//		settingPage = new SettingPage(android);
-//
-//		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
-//
-//		wait = new WebDriverWait(android, Duration.ofSeconds(90));
-//		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
-//
-//		Assert.assertTrue(txt_warning_voucher.isDisplayed());
-//
-//		String actual = txt_warning_voucher.getText();
-//		String expected = "Voucher code expired";
-//		Assert.assertEquals(actual, expected);
+		settingPage = new SettingPage(android);
+
+		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
+
+		Assert.assertTrue(txt_warning_voucher.isDisplayed());
+
+		String actual = txt_warning_voucher.getText();
+		String expected = "Voucher code expired";
+		Assert.assertEquals(actual, expected);
 	}
 
 	public void assertVoucherInvalid() {
-//		settingPage = new SettingPage(android);
-//
-//		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
-//
-//		wait = new WebDriverWait(android, Duration.ofSeconds(90));
-//		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
-//
-//		Assert.assertTrue(txt_warning_voucher.isDisplayed());
-//
-//		String actual = txt_warning_voucher.getText();
-//		String expected = "Invalid code";
-//		Assert.assertEquals(actual, expected);
+		settingPage = new SettingPage(android);
+
+		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
+
+		Assert.assertTrue(txt_warning_voucher.isDisplayed());
+
+		String actual = txt_warning_voucher.getText();
+		String expected = "Invalid code";
+		Assert.assertEquals(actual, expected);
 	}
 
 	public void assertVoucherReedemed() {
-//		settingPage = new SettingPage(android);
-//
-//		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
-//
-//		wait = new WebDriverWait(android, Duration.ofSeconds(90));
-//		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
-//
-////		Assert.assertTrue(txt_warning_voucher.isDisplayed());
-//
-//		String actual = txt_warning_voucher.getText();
-//		String expected = "This code has been redeemed";
-//		Assert.assertEquals(actual, expected);
+		settingPage = new SettingPage(android);
+
+		WebElement txt_warning_voucher = settingPage.txt_warning_voucher;
+
+		wait = new WebDriverWait(android, Duration.ofSeconds(90));
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_warning_voucher));
+
+		Assert.assertTrue(txt_warning_voucher.isDisplayed());
+
+		String actual = txt_warning_voucher.getText();
+		String expected = "This code has been redeemed";
+		Assert.assertEquals(actual, expected);
 	}
 
 	public void assertSoftwareLicense() {

@@ -12,7 +12,9 @@
       <class name="id.visionplus.v2.TestCase.General.TC_Profile"/>
       <class name="id.visionplus.v2.TestCase.General.TC_Search"/>
       <class name="id.visionplus.v2.TestCase.General.TC_Settings"/>
+      <class name="id.visionplus.v2.TestCase.General.TC_Redeem_Voucher"/>
       <class name="id.visionplus.v2.TestCase.General.TC_Transaction_History"/>
+      <class name="id.visionplus.v2.TestCase.General.TC_Media_Player"/>
 	  <class name="id.visionplus.v2.TestCase.General.TC_Change_Password"/>
     </classes>
   </test> <!-- Test -->
