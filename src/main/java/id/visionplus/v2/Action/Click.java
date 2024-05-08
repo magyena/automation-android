@@ -1659,6 +1659,14 @@ public class Click extends BaseTest {
 		content_above.click();
 	}
 	
+	public void clickInfoButtonLiveTV() {
+		liveTvPage = new LiveTVPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement info_img = liveTvPage.img_info_button;
+		wait.until(ExpectedConditions.visibilityOfAllElements(info_img));
+		info_img.click();
+	}
+	
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));

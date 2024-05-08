@@ -51,7 +51,7 @@ public class TC_Premium_User_Watch_Live_TV extends BaseTest {
 		test.pass("Successfully Asser Premium Live TV Played");
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, dependsOnMethods = "TC_User_Premium_Watch_Premium_Live_TV_Channel_Premium")
 	public void TC_User_Premium_Watch_Premium_Live_TV_Channel_Premium_Sports()
 			throws IOException, InterruptedException, TimeoutException {
 
@@ -66,7 +66,7 @@ public class TC_Premium_User_Watch_Live_TV extends BaseTest {
 		Thread.sleep(5000);
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3,dependsOnMethods = "TC_User_Premium_Watch_Premium_Live_TV_Channel_Premium_Sports")
 	public void TC_User_See_Live_TV_Channel_Then_Disconnect_internet() throws IOException, InterruptedException, TimeoutException {
 		Thread.sleep(2000);
 		Point start = new Point(555,1029);
@@ -92,5 +92,13 @@ public class TC_Premium_User_Watch_Live_TV extends BaseTest {
 		Thread.sleep(10000);
 		toggle.enable_wifi_connection();
 		Thread.sleep(10000);
+		
+	}
+	
+	@Test(priority = 4,dependsOnMethods = "TC_User_See_Live_TV_Channel_Then_Disconnect_internet")
+	public void TC_User_Click_Info_Button() throws IOException, InterruptedException, TimeoutException {
+	
+		click.clickInfoButtonLiveTV();
+		test.pass("Successfully click info button");
 	}
 }
