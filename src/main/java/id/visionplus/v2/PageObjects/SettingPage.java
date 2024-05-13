@@ -219,6 +219,10 @@ public class SettingPage extends AndroidGesture
 	@AndroidFindBy(id = "android:id/button1")
 	public static WebElement btn_confirm_disconnect_devices;
 	
+	@AndroidFindBy(xpath = "//*[contains(@text, 'Visionplus2')]")
+	public static WebElement second_profile;
+	
+	
 	
 
 	

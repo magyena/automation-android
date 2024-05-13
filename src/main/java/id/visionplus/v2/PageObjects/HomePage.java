@@ -170,6 +170,12 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(xpath="//*[contains(@text,'Family Friendly Movies')]/preceding::*[1]")
 	public static WebElement content_above_cluster_Family_Friendly;
 	
+	@AndroidFindBy(xpath="//*[contains(@text,'Animation for Kids')]/preceding::*[2]")
+	public static WebElement content_below_cluster_Explore_by_genre;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'Explore by Genre')]")
+	public static WebElement txt_cluster_Explore_by_genre;
+	
 	
 
 	

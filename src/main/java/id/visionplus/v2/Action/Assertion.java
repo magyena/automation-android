@@ -1538,7 +1538,7 @@ public class Assertion extends BaseTest {
 			Assert.assertTrue(assert_next_episode.isDisplayed());
 			System.out.println("Assert Success: Next Episode Button Showing.");
 		} catch (AssertionError e) {
-			System.out.println(" Assert Failure: Next Episode Button Showing.");
+			System.out.println(" Assert Failure: Next Episode Button not Showing.");
 			throw e;
 		}
 	}
@@ -1576,6 +1576,36 @@ public class Assertion extends BaseTest {
 	        System.out.println(e.getMessage());
 	        
 	    }
+	}
+	
+	public void assertClusterExplorebyGenre() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement cluster_explore_by_genre = homePage.txt_cluster_Explore_by_genre;
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(cluster_explore_by_genre));
+			Assert.assertTrue(cluster_explore_by_genre.isDisplayed());
+			System.out.println("Assert Success: Cluster Explore by Genre Showing.");
+		} catch (AssertionError e) {
+			System.out.println(" Assert Failure: Cluster Explore by Genre not Showing.");
+			throw e;
+		}
+	}
+	
+	public void assertContentExplorebyGenre() {
+		vodDetailPage = new VODDetailPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement content_explore_by_genre = vodDetailPage.btn_back;
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(content_explore_by_genre));
+			Assert.assertTrue(content_explore_by_genre.isDisplayed());
+			System.out.println("Assert Success: Content Cluster Explore by Genre Showing.");
+		} catch (AssertionError e) {
+			System.out.println(" Assert Failure: Content Cluster Explore by Genre not Showing.");
+			throw e;
+		}
 	}
 	
 	public void assertLiveTVPlayed() {

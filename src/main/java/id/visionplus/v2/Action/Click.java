@@ -1659,6 +1659,22 @@ public class Click extends BaseTest {
 		content_above.click();
 	}
 	
+	public void clickSecondProfileManageProfiles() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement second_profile = settingPage.second_profile;
+		wait.until(ExpectedConditions.visibilityOfAllElements(second_profile));
+		second_profile.click();
+	}
+	
+	public void clickContentExploreByGenre() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement content_genre = homePage.content_below_cluster_Explore_by_genre;
+		wait.until(ExpectedConditions.visibilityOfAllElements(content_genre));
+		content_genre.click();
+	}
+	
 	public void clickInfoButtonLiveTV() {
 		liveTvPage = new LiveTVPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(10));
