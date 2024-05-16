@@ -1562,6 +1562,20 @@ public class Click extends BaseTest {
 	        System.out.println("Failed to click restart button: " + e.getMessage());
 	    }
 	}
+	
+	public void clickDisableGuide() {
+	    programguidepage = new ProgramGuidePage(android);
+	    wait = new WebDriverWait(android, Duration.ofSeconds(10));
+	    WebElement disable_guide = programguidepage.disable_guide4;
+	    
+	    try {
+	        wait.until(ExpectedConditions.visibilityOfAllElements(disable_guide));
+	        disable_guide.click();
+	        System.out.println("Channel program disable");
+	    } catch (Exception e) {
+	        System.out.println("Channel program not disable " + e.getMessage());
+	    }
+	}
 
 	
 	public void clickSettingsMediaPlayer() {
@@ -1635,6 +1649,38 @@ public class Click extends BaseTest {
 		WebElement switch_on = outsideApp.switch_gps_on;
 		wait.until(ExpectedConditions.visibilityOfAllElements(switch_on));
 		switch_on.click();
+	}
+	
+	public void clickContentAboveClusterFamilyFriends() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement content_above = homePage.content_above_cluster_Family_Friendly;
+		wait.until(ExpectedConditions.visibilityOfAllElements(content_above));
+		content_above.click();
+	}
+	
+	public void clickSecondProfileManageProfiles() {
+		settingPage = new SettingPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement second_profile = settingPage.second_profile;
+		wait.until(ExpectedConditions.visibilityOfAllElements(second_profile));
+		second_profile.click();
+	}
+	
+	public void clickContentExploreByGenre() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement content_genre = homePage.content_below_cluster_Explore_by_genre;
+		wait.until(ExpectedConditions.visibilityOfAllElements(content_genre));
+		content_genre.click();
+	}
+	
+	public void clickInfoButtonLiveTV() {
+		liveTvPage = new LiveTVPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement info_img = liveTvPage.img_info_button;
+		wait.until(ExpectedConditions.visibilityOfAllElements(info_img));
+		info_img.click();
 	}
 	
 	public void clickFreeLinear() {

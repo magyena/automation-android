@@ -20,7 +20,7 @@ public class TC_Premium_Watch_guide extends BaseTest {
 	Assertion assertion = new Assertion();
 	Tap tap = new Tap();
 	String testCaseType = System.getProperty("testCaseType");
-	//String testCaseType = "PREMIUM";
+//	String testCaseType = "PREMIUM";
 
 	@Test(priority = 1) // T335
 
@@ -39,14 +39,9 @@ public class TC_Premium_Watch_guide extends BaseTest {
 		Thread.sleep(2000);
 
 		tap.tap(72, 394);
-		tap.tap(1013, 390);
-		tap.tap(1013, 390);
-		tap.tap(1013, 390);
-		tap.tap(1013, 390);
-		tap.tap(1013, 390);
-		tap.tap(1013, 390);
-		tap.tap(1013, 390);
-		tap.tap(1013, 390);
+		for (int i = 0; i < 9; i++) {
+		    tap.tap(1013, 390);
+		}
 		Thread.sleep(5000);
 
 	}
@@ -68,14 +63,9 @@ public class TC_Premium_Watch_guide extends BaseTest {
 	public void TC_User_Can_Watching_Guide() throws IOException, InterruptedException, TimeoutException {
 
 		click.clickbtnBackGuide();
-		tap.tap(72, 398);
-		tap.tap(72, 398);
-		tap.tap(72, 398);
-		tap.tap(72, 398);
-		tap.tap(72, 398);
-		tap.tap(72, 398);
-		tap.tap(72, 398);
-		tap.tap(72, 398);
+		for (int i = 0; i < 9; i++) {
+			tap.tap(72, 398);
+		}
 
 		click.clickguide3();
 		test.pass("Successfully click guide");

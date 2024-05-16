@@ -36,19 +36,6 @@ public class TC_Cluster_Watchlist extends BaseTest {
 		test.pass("Successfully assert view All");
 
 		Scroll scroll = new Scroll(android);
-		By locator = By.xpath(
-				"//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripTitle\" and @text=\"Love Stories\"]");
-		scroll.scrollUntilElementFound(locator);
-
-		click.clickVODComingSoon3();
-		click.clickSaveToWatchlist();
-		click.clickBack();
-		click.clickVODComingSoon2();
-		click.clickSaveToWatchlist();
-		click.clickBack();
-		click.clickVODComingSoon1();
-		click.clickSaveToWatchlist();
-		click.clickBack();
 
 		By locator1 = By.xpath(
 				"//android.widget.TextView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripTitle\" and @text=\"Horror/Thriller\"]");
@@ -134,7 +121,17 @@ public class TC_Cluster_Watchlist extends BaseTest {
 
 		assertion.assertClusterBecauseYouWatched();
 		test.pass("Successfully assert the cluster");
+	}
 
+	@Test(priority = 3, dependsOnMethods = "TC_cluster_because_you_watched")
+	public void TC_Watch_cluster_because_you_watched() throws IOException, TimeoutException, InterruptedException {
+
+		click.clickContentAboveClusterFamilyFriends();
+		test.pass("Successfully click content");
+		
+		assertion.assertTitleVODEpisode();
+		test.pass("Successfully assert detail VOD");
+		
 		Thread.sleep(5000);
 
 	}

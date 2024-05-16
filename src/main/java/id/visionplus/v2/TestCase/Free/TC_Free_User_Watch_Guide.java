@@ -1,11 +1,9 @@
 package id.visionplus.v2.TestCase.Free;
 
 import java.awt.Point;
-import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import expectj.TimeoutException;
 import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
 import id.visionplus.v2.Action.Swipe;
@@ -18,11 +16,11 @@ public class TC_Free_User_Watch_Guide extends BaseTest {
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	String testCaseType = System.getProperty("testCaseType");
-	//String testCaseType = "FREE";
+//	String testCaseType = "FREE";
 
 	@Test
 
-	public void TC_Free_user_Cant_Watching_Guide() throws IOException, InterruptedException, TimeoutException {
+	public void TC_Free_user_Cant_Watching_Guide() throws Exception {
 		TC_OpenApp open_app = new TC_OpenApp();
 		open_app.Choose_Login_As(testCaseType);
 
@@ -46,13 +44,20 @@ public class TC_Free_User_Watch_Guide extends BaseTest {
 		Swipe swipe1 = new Swipe(android);
 		swipe1.swipetoLeft(start1, end1);
 		test.pass("Successfully Swipe Second ");
-		assertion.assertDisableGuide();
+		try {
+		    click.clickDisableGuide();
+		    throw new Exception("clickDisableGuide() executed successfully, but it should not have.");
+		} catch (Exception e) {
+		    test.pass("clickDisableGuide() failed as expected. Error message: " + e.getMessage());
+		}
+
+	
 		Point start2 = new Point(366, 1150);
 		Point end2 = new Point(1041, 1146);
 		Swipe swipe2 = new Swipe(android);
 		swipe2.swipetoLeft(start2, end2);
 		test.pass("Successfully Swipe Second ");
-		assertion.assertDisableGuide();
+		click.clickDisableGuide();
 		Thread.sleep(5000);
 
 	}

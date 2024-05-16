@@ -926,14 +926,20 @@ public class Assertion extends BaseTest {
 
 		Assert.assertTrue(subscribe.isDisplayed());
 	}
-
-	public void assertErrorConnection() { // inno
+	
+	public void assertErrorConnection() {
 		liveTvPage = new LiveTVPage(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
 		WebElement error_connection = liveTvPage.img_error_connection;
-		wait.until(ExpectedConditions.visibilityOfAllElements(error_connection));
 
-		Assert.assertTrue(error_connection.isDisplayed());
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(error_connection));
+			Assert.assertTrue(error_connection.isDisplayed());
+			System.out.println("Assert Success: Notification error connection Showing.");
+		} catch (TimeoutException e) {
+			System.out.println(" Assert Failure: Notification error connection not Showing.");
+			throw e;
+		}
 	}
 
 	public void assertDetailVod() { // inno
@@ -966,16 +972,23 @@ public class Assertion extends BaseTest {
 			throw new AssertionError("Assertion Failed: Text '" + textToAssert + "' is not present on the page.");
 		}
 	}
-
-	public void assertDisableGuide() { // inno
+	
+	public boolean assertDisableGuide() {
 		programguidepage = new ProgramGuidePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
 		WebElement disable_guide = programguidepage.disable_guide4;
-		wait.until(ExpectedConditions.visibilityOfAllElements(disable_guide));
 
-		Assert.assertTrue(disable_guide.isDisplayed());
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(disable_guide));
+			Assert.assertTrue(disable_guide.isDisplayed());
+			System.out.println("Assert Success: Guide is disable.");
+		} catch (AssertionError e) {
+			System.out.println(" Assert Failure: Guide not disable.");
+			throw e;
+		}
+		return true;
 	}
-
+	
 	public void assertDetailProgramGuide() { // inno
 		programguidepage = new ProgramGuidePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(10));
@@ -1525,7 +1538,7 @@ public class Assertion extends BaseTest {
 			Assert.assertTrue(assert_next_episode.isDisplayed());
 			System.out.println("Assert Success: Next Episode Button Showing.");
 		} catch (AssertionError e) {
-			System.out.println(" Assert Failure: Next Episode Button Showing.");
+			System.out.println(" Assert Failure: Next Episode Button not Showing.");
 			throw e;
 		}
 	}
@@ -1565,10 +1578,40 @@ public class Assertion extends BaseTest {
 	    }
 	}
 	
+	public void assertClusterExplorebyGenre() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement cluster_explore_by_genre = homePage.txt_cluster_Explore_by_genre;
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(cluster_explore_by_genre));
+			Assert.assertTrue(cluster_explore_by_genre.isDisplayed());
+			System.out.println("Assert Success: Cluster Explore by Genre Showing.");
+		} catch (AssertionError e) {
+			System.out.println(" Assert Failure: Cluster Explore by Genre not Showing.");
+			throw e;
+		}
+	}
+	
+	public void assertContentExplorebyGenre() {
+		vodDetailPage = new VODDetailPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement content_explore_by_genre = vodDetailPage.btn_back;
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(content_explore_by_genre));
+			Assert.assertTrue(content_explore_by_genre.isDisplayed());
+			System.out.println("Assert Success: Content Cluster Explore by Genre Showing.");
+		} catch (AssertionError e) {
+			System.out.println(" Assert Failure: Content Cluster Explore by Genre not Showing.");
+			throw e;
+		}
+	}
+	
 	public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);
 		WebElement btn_subscribe = liveTvPage.btn_subscribe;
-		Assert.assertFalse(isElementPresent1(btn_subscribe));
+		Assert.assertFalse(isElementPresent(btn_subscribe));
 	}
 
 	public boolean isElementPresent(WebElement element) {
