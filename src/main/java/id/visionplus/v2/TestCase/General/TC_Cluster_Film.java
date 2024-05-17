@@ -46,7 +46,7 @@ public class TC_Cluster_Film extends BaseTest {
 	}
 
 //	String testcaseType = "FREE";
-
+	
 	@Test(priority = 1)
 
 	public void TC_Cancel_Subscription_Playstore() throws InterruptedException, IOException, TimeoutException {
@@ -136,9 +136,11 @@ public class TC_Cluster_Film extends BaseTest {
 		register.TC_user_input_correct_otp();
 
 		Point start = new Point(988, 1028);
-		Point end = new Point(79, 1018);
+		Point end = new Point(200, 1028);
 		Swipe swipe = new Swipe(android);
-		swipe.swipetoLeft(start, end);
+		for (int i=0;i<2;i++){
+			swipe.swipetoLeft(start, end);
+		}
 		test.pass("Successfully Swipe ");
 
 		click.clickClusterSlideMovies();
