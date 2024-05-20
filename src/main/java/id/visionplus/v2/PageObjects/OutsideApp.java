@@ -83,7 +83,7 @@ public class OutsideApp extends AndroidGesture
 	@AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"com.android.vending:id/0_resource_name_obfuscated\"]")
 	public static WebElement btn_subscribe_playstore;
 	
-	@AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"android:id/button1\"]")
+	@AndroidFindBy(xpath="//android.widget.Button[@text='ACCEPT']")
 	public static WebElement btn_accept;
 	
 	@AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"com.android.vending:id/0_resource_name_obfuscated\" and @text=\"Error\"]")

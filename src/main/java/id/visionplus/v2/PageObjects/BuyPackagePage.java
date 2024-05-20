@@ -42,7 +42,7 @@ public class BuyPackagePage extends AndroidGesture
 	 @AndroidFindBy(xpath="//android.view.View[@content-desc=\"Rp 79.000,00\"]")
 	 public static WebElement txt_package_euro;
 	
-	 @AndroidFindBy(xpath="//android.view.View[@content-desc=\"days left\"]")
+	 @AndroidFindBy(xpath="//android.view.View[substring(@content-desc, string-length(@content-desc) - string-length('days left') + 1) = 'days left']")
 	 public static WebElement txt_current_package_euro;
 	
 }

@@ -34,7 +34,7 @@ public class TC_Register_With_Phone_Number extends BaseTest{
 		long epochTime = System.currentTimeMillis();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmssSSS");
         String formattedTime = dateFormat.format(new Date(epochTime));
-        String result = "899" + formattedTime.substring(0, Math.max(0, 13 - "899".length()));
+		String result = "8990000" + formattedTime.substring(0, Math.max(0, 9 - "899".length()));
         return result;
 	}
 	

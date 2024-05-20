@@ -36,7 +36,7 @@ public class TC_Register_With_Email extends BaseTest{
 		long epochTime = System.currentTimeMillis();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmss");
         String formattedTime = dateFormat.format(new Date(epochTime));
-        String result = "visionplus" + formattedTime.substring(0, Math.max(0, 20 - "visionplus".length())) + "@visionplus.id";
+        String result = "visionplus" + formattedTime.substring(0, Math.max(0, 20 - "visionplus".length())) + "qa@visionplus.id";
         return result;
 	}
 	

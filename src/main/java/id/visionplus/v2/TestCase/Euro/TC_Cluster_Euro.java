@@ -45,11 +45,11 @@ public class TC_Cluster_Euro extends BaseTest {
 		long epochTime = System.currentTimeMillis();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmssSSS");
 		String formattedTime = dateFormat.format(new Date(epochTime));
-		String result = "899" + formattedTime.substring(0, Math.max(0, 13 - "899".length()));
+		String result = "8990000" + formattedTime.substring(0, Math.max(0, 9 - "899".length()));
 		return result;
 	}
 
-//	String testcaseType = "FREE";
+	String testcaseType = "FREE";
 	
 	public void TC_Cancel_Subscription_Playstore() throws InterruptedException, IOException, TimeoutException {
 		click.pressBack();
@@ -202,14 +202,9 @@ public class TC_Cluster_Euro extends BaseTest {
 		    test.fail("All attempts to click the buttons failed");
 		}
 
-
-//		click.clickBtnSubscriptionsPlaystoreagain();
-//		test.pass("Successfully clicked button subscriptions playstore");
-
 		System.out.println("Done Click Subscribe in Playstore");
 		
-		click.clickBtnAccept();
-		test.pass("Successfully clicked accept");
+		click.pressBack();
 	}
 	
 	@Test(priority = 3)	
@@ -220,6 +215,7 @@ public class TC_Cluster_Euro extends BaseTest {
 		menu.TC_Access_Buy_Package();
         test.pass("Successfully Access Buy Package");
 		
+        Thread.sleep(3000);       
 		assertion.assertCurrentEuroPackage();
         test.pass("Successfully Assert Current Euro Package");
 	}
@@ -234,7 +230,19 @@ public class TC_Cluster_Euro extends BaseTest {
 	    click.clickLiveTv();
 	    test.pass("Successfully Clicked Menu Button");
 		
-		sport_linear_tc.TC_Premium_Sport_User_Watch_Free_Linear();
+		click.clickMenuButton();
+	    test.pass("Successfully Clicked Menu Button");
+	    
+	    click.clickLiveTv();
+	    test.pass("Successfully Clicked Menu Button");
+	    
+		click.clickFreeLinear();
+		test.pass("Successfully Clicked Free Linear Channel");
+
+		Thread.sleep(1000);
+
+		assertion.assertLiveTVPlayed();
+		test.pass("Successfully Assert Live TV is Played");
 		
 		sport_linear_tc.TC_Premium_Sport_User_Watch_Premium_Linear();
 	}
