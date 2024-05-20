@@ -27,6 +27,9 @@ public class CategoryPage extends AndroidGesture
 	 @AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripRecyclerView\"])[1]/android.view.View[2]") 
 	 public static WebElement slide_cluster_movies_categorypage;
 	 
+	 @AndroidFindBy(xpath="(//androidx.drawerlayout.widget.DrawerLayout//androidx.recyclerview.widget.RecyclerView)[2]/android.view.View[2]") 
+	 public static WebElement slide_cluster_euro;
+	 
 	 @AndroidFindBy(xpath="(//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/stripRecyclerView\"])[1]/android.view.View[1]") 
 	 public static WebElement action_category_categorypage;
 	 

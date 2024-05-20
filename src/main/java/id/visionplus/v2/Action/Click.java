@@ -1204,6 +1204,24 @@ public class Click extends BaseTest {
 		movies.click();
 	}
 	
+	//Euro
+	public void clickClusterSlideEuro() {
+		categorypage = new CategoryPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement euro = categorypage.slide_cluster_euro;
+		wait.until(ExpectedConditions.visibilityOfAllElements(euro));
+		euro.click();
+	}
+	
+	public void clickEuroPackage() {
+		buypackage = new BuyPackagePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement package_euro = buypackage.txt_package_euro;
+		
+		package_euro.click();
+	}
+	//Euro - END
+	
 	public void clickActionCategory() {
 		categorypage = new CategoryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));
@@ -1258,6 +1276,26 @@ public class Click extends BaseTest {
 		WebElement btn_mypackage = homePage.btn_buy_package;
 		wait.until(ExpectedConditions.visibilityOfAllElements(btn_mypackage));
 		btn_mypackage.click();
+	}
+	
+	public void clickEuro() {
+		homePage = new HomePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement btn_euro_2024 = homePage.btn_euro_2024;
+		wait.until(ExpectedConditions.visibilityOfAllElements(btn_euro_2024));
+		btn_euro_2024.click();
+	}
+	
+	public void clickEuro1Channel() {
+		By locatorEuro1 = By.xpath("//*[contains(@text,'1003')]");
+	    WebElement euro1Element = wait.until(ExpectedConditions.visibilityOfElementLocated(locatorEuro1));
+	    euro1Element.click();
+	}
+	
+	public void clickEuro2Channel() {
+		By locatorEuro2 = By.xpath("//*[contains(@text,'1004')]");
+	    WebElement euro2Element = wait.until(ExpectedConditions.visibilityOfElementLocated(locatorEuro2));
+	    euro2Element.click();
 	}
 	
 	public void clickPremiumSports30daysPackage() {

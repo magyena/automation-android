@@ -1,5 +1,13 @@
 package id.visionplus.v2.TestCase.General;
 
+/* Author		: Michael Liong
+ * Created Date	: 17 May 2024
+ * Updated by	: -
+ * Updated Date	: -
+ * Summary		: TC_Menu
+ * 1. Adding Access to Buy Package
+ * */
+
 import java.io.IOException;
 
 import org.testng.annotations.Test;
@@ -50,13 +58,45 @@ public class TC_Menu extends BaseTest{
         click.clickMenuButton();
         test.pass("Successfully Clicked Menu Button");
 
-        Thread.sleep(2000);
-
         click.clickSearchButton();
         test.pass("Successfully Clicked Search Button");
         
         assertion.assertSearchPage();
         test.pass("Successfully Assert Search Page");
+	}
+	
+	@Test
+	public void TC_Access_Buy_Package() throws IOException, InterruptedException, TimeoutException {
+        Thread.sleep(2000);
+
+		click.clickMenuButton();
+		test.pass("Successfully clicked menu");
+
+		assertion.assertMenu();
+		test.pass("Successfully assert menu");
+
+		click.clickMyPackage();
+		test.pass("Successfully clicked My Package");
+
+		assertion.assertMenuBuyPackage();
+		test.pass("Successfully assert menu buy package");
+	}
+	
+	@Test
+	public void TC_Access_Euro() throws IOException, InterruptedException, TimeoutException {
+        Thread.sleep(2000);
+
+		click.clickMenuButton();
+		test.pass("Successfully clicked menu");
+
+		assertion.assertMenu();
+		test.pass("Successfully assert menu");
+
+		click.clickEuro();
+		test.pass("Successfully clicked Euro Menu");
+		
+		assertion.assertMenuEuro();
+		test.pass("Successfully assert menu EURO");
 	}
 	
 	public void TC_Access_My_Download_As_Free_User() throws IOException, InterruptedException, TimeoutException {
