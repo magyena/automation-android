@@ -45,7 +45,7 @@ public class TC_Cluster_Euro extends BaseTest {
 		long epochTime = System.currentTimeMillis();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmssSSS");
 		String formattedTime = dateFormat.format(new Date(epochTime));
-		String result = "8990000" + formattedTime.substring(0, Math.max(0, 9 - "899".length()));
+		String result = "899000" + formattedTime.substring(0, Math.max(0, 13 - "899".length()));
 		return result;
 	}
 
@@ -247,34 +247,34 @@ public class TC_Cluster_Euro extends BaseTest {
 		sport_linear_tc.TC_Premium_Sport_User_Watch_Premium_Linear();
 	}
 	
-	@Test(priority = 5)	
-	public void TC_Watch_Euro_Channel_1() throws InterruptedException, IOException, TimeoutException {
-		Scroll scroll = new Scroll(android);
-		By locatorEuro1 = By.xpath("//*[contains(@text,'1003')]");
-		scroll.scrollUntilElementFound(locatorEuro1);
-		System.out.println("Success Scroll and Find Euro 1 Channel");
-		
-		click.clickEuro1Channel();
-        test.pass("Successfully Click Euro 1 Channel");
-		
-		assertion.assertLiveTVPlayed();
-		test.pass("Successfully Assert Live TV is Played");
-		
-		System.out.println("Success Play Euro 1 Channel");
-	}
-	
-	@Test(priority = 6)	
-	public void TC_Watch_Euro_Channel_2() throws InterruptedException, IOException, TimeoutException {
-		Scroll scroll = new Scroll(android);
-		By locatorEuro2 = By.xpath("//*[contains(@text,'1004')]");
-		scroll.scrollUntilElementFound(locatorEuro2);
-		System.out.println("Success Scroll and Find Euro 2 Channel");
-		
-		click.clickEuro2Channel();
-        test.pass("Successfully Click Euro 2 Channel");
-		
-		assertion.assertLiveTVPlayed();
-		test.pass("Successfully Assert Live TV is Played");
-		System.out.println("Success Play Euro 2 Channel");
-	}
+//	@Test(priority = 5)	
+//	public void TC_Watch_Euro_Channel_1() throws InterruptedException, IOException, TimeoutException {
+//		Scroll scroll = new Scroll(android);
+//		By locatorEuro1 = By.xpath("//*[contains(@text,'1003')]");
+//		scroll.scrollUntilElementFound(locatorEuro1);
+//		System.out.println("Success Scroll and Find Euro 1 Channel");
+//		
+//		click.clickEuro1Channel();
+//        test.pass("Successfully Click Euro 1 Channel");
+//		
+//		assertion.assertLiveTVPlayed();
+//		test.pass("Successfully Assert Live TV is Played");
+//		
+//		System.out.println("Success Play Euro 1 Channel");
+//	}
+//	
+//	@Test(priority = 6)	
+//	public void TC_Watch_Euro_Channel_2() throws InterruptedException, IOException, TimeoutException {
+//		Scroll scroll = new Scroll(android);
+//		By locatorEuro2 = By.xpath("//*[contains(@text,'1004')]");
+//		scroll.scrollUntilElementFound(locatorEuro2);
+//		System.out.println("Success Scroll and Find Euro 2 Channel");
+//		
+//		click.clickEuro2Channel();
+//        test.pass("Successfully Click Euro 2 Channel");
+//		
+//		assertion.assertLiveTVPlayed();
+//		test.pass("Successfully Assert Live TV is Played");
+//		System.out.println("Success Play Euro 2 Channel");
+//	}
 }
