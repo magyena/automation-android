@@ -45,7 +45,12 @@ public class TC_Cluster_Euro extends BaseTest {
 		long epochTime = System.currentTimeMillis();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmssSSS");
 		String formattedTime = dateFormat.format(new Date(epochTime));
-		String result = "899000" + formattedTime.substring(0, Math.max(0, 13 - "899".length()));
+		
+		String prefix = "899000";
+        int suffixLength = 13 - prefix.length();
+
+        // Extract the necessary number of digits from the formatted time
+        String result = prefix + formattedTime.substring(0, Math.max(0,suffixLength));
 		return result;
 	}
 
