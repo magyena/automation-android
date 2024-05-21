@@ -1683,6 +1683,30 @@ public class Click extends BaseTest {
 		info_img.click();
 	}
 	
+	public void clickEuroPackage() {
+		buypackage = new BuyPackagePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement euro_package = buypackage.euro_package;
+		wait.until(ExpectedConditions.visibilityOfAllElements(euro_package));
+		euro_package.click();
+	}
+	
+	public void clickEuroChannel1() {
+		liveTvPage = new LiveTVPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement euro_channel1 = liveTvPage.img_euro_1;
+		wait.until(ExpectedConditions.visibilityOfAllElements(euro_channel1));
+		euro_channel1.click();
+	}
+	
+	public void clickEuroChannel2() {
+		liveTvPage = new LiveTVPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement euro_channel2 = liveTvPage.img_euro_2;
+		wait.until(ExpectedConditions.visibilityOfAllElements(euro_channel2));
+		euro_channel2.click();
+	}
+	
 	public void clickFreeLinear() {
 		liveTvPage = new LiveTVPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(60));

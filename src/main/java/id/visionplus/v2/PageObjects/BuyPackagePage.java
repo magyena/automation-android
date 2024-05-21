@@ -39,6 +39,15 @@ public class BuyPackagePage extends AndroidGesture
 	 @AndroidFindBy(xpath="(//android.view.View[@content-desc=\"30 days left\"])[2]")
 		public static WebElement txt_premium30Sports_package;
 	
+	 @AndroidFindBy(xpath="//android.widget.TextView[@text='Packages']/following::android.view.View[1]")
+		public static WebElement euro_package;
+	
+	 @AndroidFindBy(xpath="//android.widget.TextView[@text='Your current package']/following::android.view.View[2]")
+		public static WebElement current_euro_package;
+	
+	
+	
+	
 	 
 	 
 	

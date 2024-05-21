@@ -78,7 +78,7 @@ public class TC_Redeem_Voucher extends BaseTest {
 	        input.clearVoucherField();
 	        test.pass("Successfully Clear Voucher Code Field");
 	
-	        input.inputVoucher("IKINGGH2WFXO3PREM");
+	        input.inputVoucher("testingRKZ0DKDN1ZUauto");
 	        test.pass("Successfully Input Valid Voucher Code");
 	
 	        android.hideKeyboard();
@@ -87,7 +87,7 @@ public class TC_Redeem_Voucher extends BaseTest {
 	        test.pass("Successfully Clicked Redeem Button");
 	
 	        Thread.sleep(2000);
-	
+	//IKINGGH2WFXO3PREM
 //	        assertion.assertVoucherSuccess();
 //	        test.pass("Successfully Assert Voucher Success Redeemed");
     }
