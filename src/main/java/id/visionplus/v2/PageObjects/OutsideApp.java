@@ -74,10 +74,16 @@ public class OutsideApp extends AndroidGesture
 	@AndroidFindBy(xpath="//*[contains(@text,'Premium Sports 30 Days')]")
 	public static WebElement txt_premiumSports30_days_playstore;
 	
+	@AndroidFindBy(xpath="//*[contains(@text,'EURO')]")
+	public static WebElement txt_euro_playstore;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'79.000,00')]")
+	public static WebElement txt_euro_price_playstore;
+	
 	@AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"com.android.vending:id/0_resource_name_obfuscated\"]")
 	public static WebElement btn_subscribe_playstore;
 	
-	@AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"android:id/button1\"]")
+	@AndroidFindBy(xpath="//android.widget.Button[@text='ACCEPT']")
 	public static WebElement btn_accept;
 	
 	@AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"com.android.vending:id/0_resource_name_obfuscated\" and @text=\"Error\"]")

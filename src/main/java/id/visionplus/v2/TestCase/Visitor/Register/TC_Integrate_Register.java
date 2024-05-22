@@ -3,6 +3,7 @@ package id.visionplus.v2.TestCase.Visitor.Register;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 import org.testng.annotations.Test;
 
@@ -21,16 +22,22 @@ public class TC_Integrate_Register extends BaseTest {
 	Assertion assertion = new Assertion();
 	Input input = new Input();
 	TC_Get_OTP get_otp = new TC_Get_OTP();
-	String phone_number = epoch_random();
+	String phone_number = random_phone();
 	String prev_otp = "";
 	String new_pass = "Lupa4321";
 
-	public String epoch_random() {
-		long epochTime = System.currentTimeMillis();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmssSSS");
-		String formattedTime = dateFormat.format(new Date(epochTime));
-		String result = "899" + formattedTime.substring(0, Math.max(0, 13 - "899".length()));
-		return result;
+	public String random_phone() {
+		 	String prefix = "899000";
+	        int suffixLength = 13 - prefix.length();
+	        Random random = new Random();
+
+	        StringBuilder suffix = new StringBuilder(suffixLength);
+	        for (int i = 0; i < suffixLength; i++) {
+	            suffix.append(random.nextInt(10));
+	        }
+
+	        String result = prefix + suffix.toString();
+	        return result;
 	}
 
 	@Test(priority = 1)

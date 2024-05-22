@@ -33,7 +33,7 @@ public class TC_Redeem_Voucher extends BaseTest {
 		register_with_email.TC_user_input_valid_email_and_password();
 		
 		System.out.println("Done input email and password");
-		registeredEmail=register_with_email.TC_user_input_correct_otp();
+		registeredEmail=register_with_email.TC_input_otp_with_email();
 		
 		System.out.println(registeredEmail);
 		

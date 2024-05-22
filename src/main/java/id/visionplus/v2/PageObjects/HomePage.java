@@ -155,6 +155,9 @@ public class HomePage extends AndroidGesture
 	@AndroidFindBy(xpath="//*[contains(@text,'Buy Package')]")
 	public static WebElement btn_buy_package;
 	
+	@AndroidFindBy(xpath="//*[contains(@text,'EURO 2024')]")
+	public static WebElement btn_euro_2024;
+	
 	@AndroidFindBy(xpath="//*[contains(@text,'Because you watched')]")
 	public static WebElement txt_cluster_because_you_watched;
 	

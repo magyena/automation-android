@@ -47,6 +47,7 @@ public class Assertion extends BaseTest {
 	ProgramGuidePage programguidepage;
 	CategoryPage categorypage;
 	BuyPackagePage buypackage;
+	EuroPage euroPage;
 	MediaPlayerPage mediaplayerpage;
 	
 //	 String adbPath = "/users/visionplus/Library/Android/sdk/platform-tools/adb";
@@ -902,6 +903,22 @@ public class Assertion extends BaseTest {
 		Assert.assertTrue(PopupDownload.isDisplayed());
 
 	}
+	
+	public void assertEuroPackageExist(){
+		buypackage = new BuyPackagePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement package_euro = buypackage.txt_package_euro;
+		
+		Assert.assertTrue(package_euro.isDisplayed());
+	}
+	
+	public void assertCurrentEuroPackage(){
+		buypackage = new BuyPackagePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		WebElement txt_current_package_euro = buypackage.txt_current_package_euro;
+		
+		Assert.assertTrue(txt_current_package_euro.isDisplayed());
+	}
 
 	public void assertPaymentBuyAgain() { // inno
 		transactionshistoryPage = new TransactionHistoryPage(android);
@@ -1071,6 +1088,30 @@ public class Assertion extends BaseTest {
 		}
 		return false;
 	}
+	
+	public void assertSubscriptionEuroPlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement txt_euro_playstore = outsideApp.txt_euro_playstore;
+
+			wait.until(ExpectedConditions.visibilityOfAllElements(txt_euro_playstore));
+			Assert.assertTrue(txt_euro_playstore.isDisplayed());
+			System.out.println("Assert Success: Euro is Displayed");
+	}
+	
+	public void assertSubscriptionEuroPricePlaystore() {
+		outsideApp = new OutsideApp(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement txt_euro_price_playstore = outsideApp.txt_euro_price_playstore;
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(txt_euro_price_playstore));
+		Assert.assertTrue(txt_euro_price_playstore.isDisplayed());
+		System.out.println("Assert Success: Euro Price Displayed");
+		
+		String actual = txt_euro_price_playstore.getText();
+		String expected = "Rp 79.000,00";
+		Assert.assertEquals(actual, expected);
+	}
 
 	public void assertSubscriptionPremiumSports30days() {
 		outsideApp = new OutsideApp(android);
@@ -1098,6 +1139,25 @@ public class Assertion extends BaseTest {
 			System.out.println("Assert Success: Your Current Package is displayed.");
 		} catch (AssertionError e) {
 			System.out.println(" Assert Failure: Your Current Package is not displayed.");
+			throw e;
+		}
+	}
+	
+	public void assertMenuEuro() {
+		euroPage = new EuroPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement txt_Euro_official_film = euroPage.txt_Euro_official_film;
+		WebElement txt_Teams = euroPage.txt_Teams;
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(txt_Teams));
+			Assert.assertTrue(txt_Euro_official_film.isDisplayed());
+			
+			wait.until(ExpectedConditions.visibilityOfAllElements(txt_Teams));
+			Assert.assertTrue(txt_Teams.isDisplayed());
+			System.out.println("Assert Success: Arrived at Euro Page");
+		} catch (AssertionError e) {
+			System.out.println("Assert Success: Not Arrived at Euro Page or Teams and Euro Official Films not Existed in the Current Page");
 			throw e;
 		}
 	}

@@ -31,15 +31,18 @@ public class BuyPackagePage extends AndroidGesture
 	 public static WebElement txt_error_subscription;
 	 
 	 @AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"com.android.vending:id/0_resource_name_obfuscated\"]")
-	public static WebElement error_message_cantbuy;
+	 public static WebElement error_message_cantbuy;
 	
 	 @AndroidFindBy(xpath="(//android.view.View[@content-desc=\"30 days left\"])[1]")
-		public static WebElement txt_premium30_package;
+	 public static WebElement txt_premium30_package;
 		
 	 @AndroidFindBy(xpath="(//android.view.View[@content-desc=\"30 days left\"])[2]")
-		public static WebElement txt_premium30Sports_package;
+	 public static WebElement txt_premium30Sports_package;
 	
-	 
-	 
+	 @AndroidFindBy(xpath="//android.view.View[@content-desc=\"Rp 79.000,00\"]")
+	 public static WebElement txt_package_euro;
+	
+	 @AndroidFindBy(xpath="//android.view.View[substring(@content-desc, string-length(@content-desc) - string-length('days left') + 1) = 'days left']")
+	 public static WebElement txt_current_package_euro;
 	
 }

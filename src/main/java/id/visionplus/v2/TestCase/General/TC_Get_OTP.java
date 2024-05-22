@@ -8,7 +8,8 @@ public class TC_Get_OTP{
 
 	public String get_OTP(String phone_number) throws IOException, InterruptedException{	
 		String result_otp;
-		
+        System.out.println("Arrive to Get OTP Method");
+
             // Step 1: Specify the path to your shell script
             String scriptPath = "./connect_DB_BSS_OTP.sh";
 
