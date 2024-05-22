@@ -1233,7 +1233,7 @@ public class Click extends BaseTest {
 	public void clickContentActionCategoryPage() {
 		categorypage = new CategoryPage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(10));
-		WebElement content_action_category = categorypage.content_below_cluster_Best_Korean_Action;
+		WebElement content_action_category = categorypage.content_below_cluster_Asian_Action_Movies;
 		wait.until(ExpectedConditions.visibilityOfAllElements(content_action_category));
 		content_action_category.click();
 	}

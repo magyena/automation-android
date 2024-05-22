@@ -125,7 +125,6 @@ public class TC_Cluster_Film extends BaseTest {
 	}
 
 	@Test(priority = 2)
-
 	public void TC_User_Can_Upgrade_to_Premium() throws InterruptedException, IOException, TimeoutException {
 		TC_Integrate_Register register = new TC_Integrate_Register();
 		base.ConfigureAppium();
@@ -136,7 +135,7 @@ public class TC_Cluster_Film extends BaseTest {
 		register.TC_user_input_correct_otp();
 
 		Point start = new Point(988, 1028);
-		Point end = new Point(200, 1028);
+		Point end = new Point(198, 1028);
 		Swipe swipe = new Swipe(android);
 		for (int i=0;i<2;i++){
 			swipe.swipetoLeft(start, end);
@@ -273,7 +272,7 @@ public class TC_Cluster_Film extends BaseTest {
 		
 		System.out.println("Done Click Subscribe");
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		assertion.assertSubscriptionPremiumSports30days();
 		test.pass("Successfully assert subscribe premium sports 30 days");

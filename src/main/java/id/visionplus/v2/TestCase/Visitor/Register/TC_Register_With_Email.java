@@ -9,6 +9,7 @@ package id.visionplus.v2.TestCase.Visitor.Register;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 import org.openqa.selenium.StaleElementReferenceException;
 import org.testng.annotations.Test;
@@ -33,11 +34,49 @@ public class TC_Register_With_Email extends BaseTest{
 	String prev_otp = "";
 	
 	public String email_random(){
-		long epochTime = System.currentTimeMillis();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmss");
-        String formattedTime = dateFormat.format(new Date(epochTime));
-        String result = "visionplus" + formattedTime.substring(0, Math.max(0, 20 - "visionplus".length())) + "qa@visionplus.id";
+        Random random = new Random();
+        String prefix = "visionplus";
+        int suffixLength = 20 - prefix.length();
+        StringBuilder suffix = new StringBuilder(suffixLength);
+        for (int i = 0; i < suffixLength; i++) {
+            suffix.append(random.nextInt(10));
+        }
+        String result = "visionplus" + suffix + "qa@visionplus.id";
         return result;
+	}
+	
+	public String TC_input_otp_with_email()throws InterruptedException, IOException{
+		System.out.println("INPUT CORRECT OTP");
+		Thread.sleep(3000);
+
+		//Get OTP from DB
+		String res_otp = get_otp.get_OTP(email);
+		System.out.println("GET OTP:"+res_otp);
+	    input.inputOTP(res_otp);
+		test.pass("Successfully Input Text Field OTP with Valid Email");
+		
+		Thread.sleep(3000);
+		
+		android.hideKeyboard();
+		
+		click.clickRegisterLoginSubmitButton();
+		test.pass("Successfully Clicked Send Register Submit Button");
+		
+		Thread.sleep(3000);
+	
+		assertion.assertDiscoverText();
+		test.pass("Successfully Assert Discover Profile Text After Login");
+		
+		click.clickSkip();
+		test.pass("Successfully Click Skip Button");
+		
+		click.clickContinue();
+		test.pass("Successfully Click Continue Button");
+		
+		assertion.assertArriveHomePage();
+		test.pass("Successfully Assert Arrived at Homepage");
+		
+		return email;
 	}
 	
 	public void TC_user_cannot_input_same_otp_after_2_minutes(String email)throws InterruptedException, IOException{
@@ -109,7 +148,7 @@ public class TC_Register_With_Email extends BaseTest{
 		test.pass("Successfully Assert Text Warning Password is Displayed");
 	}
 	
-	@Test(priority = 3, dependsOnMethods = "TC_user_input_invalid_password")
+	@Test(priority = 4, dependsOnMethods = "TC_user_input_invalid_password")
 	public void TC_user_input_existing_account()throws InterruptedException{	
 		input.clearPasswordField();
 		test.pass("Successfully Empty Text Field Password");
@@ -128,7 +167,7 @@ public class TC_Register_With_Email extends BaseTest{
 		test.pass("Successfully Assert Pop Up Existing Account");
 	}
 	
-	@Test(priority = 3, dependsOnMethods = "TC_user_input_existing_account")
+	@Test(priority = 5, dependsOnMethods = "TC_user_input_existing_account")
 	public void TC_user_redirect_to_login()throws InterruptedException{	
 		click.clickLoginPopUp();
 		test.pass("Successfully Clicked Login Button in Existing Account Pop Up");
@@ -141,7 +180,7 @@ public class TC_Register_With_Email extends BaseTest{
 		test.pass("Successfully Pressed Back Button");
 	}
 	
-	@Test(priority = 4, dependsOnMethods = "TC_user_redirect_to_login")
+	@Test(priority = 6, dependsOnMethods = "TC_user_redirect_to_login")
 	public void TC_user_input_valid_email_and_password()throws InterruptedException, TimeoutException{
 		//Access Register by Email Page
 		TC_access_register_by_email_page();
@@ -162,7 +201,7 @@ public class TC_Register_With_Email extends BaseTest{
 		test.pass("Successfully Clicked Send OTP");
 	}
 	
-	@Test(priority = 5, dependsOnMethods = "TC_user_input_valid_email_and_password")
+	@Test(priority = 7, dependsOnMethods = "TC_user_input_valid_email_and_password")
 	public void TC_user_cannot_input_wrong_otp()throws InterruptedException{	
 		Thread.sleep(5000);
 				
@@ -188,8 +227,10 @@ public class TC_Register_With_Email extends BaseTest{
 		Thread.sleep(120000);
 	}
 	
-	@Test(priority = 6, dependsOnMethods = "TC_user_cannot_input_wrong_otp")
+	@Test(priority = 8, dependsOnMethods = "TC_user_cannot_input_wrong_otp")
 	public void TC_user_click_send_otp_2nd_time()throws InterruptedException, IOException{
+		System.out.println("TC SEND OTP 2nd times");
+
 		click.clickSendOTP();
 		test.pass("Successfully Clicked Send OTP");
 		
@@ -202,12 +243,14 @@ public class TC_Register_With_Email extends BaseTest{
 		test.pass("Successfully Clear Text Field OTP");
 	}
 	
-	@Test(priority = 7, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
-	public String TC_user_input_correct_otp()throws InterruptedException, IOException{
+	@Test(priority = 9, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
+	public void TC_user_input_correct_otp()throws InterruptedException, IOException{
+		System.out.println("INPUT CORRECT OTP");
 		Thread.sleep(3000);
 
 		//Get OTP from DB
 		String res_otp = get_otp.get_OTP(email);
+		System.out.println("GET OTP:"+res_otp);
 	    input.inputOTP(res_otp);
 		test.pass("Successfully Input Text Field OTP with Valid Email");
 		
@@ -231,11 +274,9 @@ public class TC_Register_With_Email extends BaseTest{
 		
 		assertion.assertArriveHomePage();
 		test.pass("Successfully Assert Arrived at Homepage");
-		
-		return email;
 	}
 	
-	@Test(priority = 8, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
+	@Test(priority = 10, dependsOnMethods = "TC_user_click_send_otp_2nd_time")
 	public void TC_register_again_after_kill_apps()throws InterruptedException, IOException, TimeoutException{
 		System.out.println("DONE REGISTER - PROCEED TO KILL APPS");
 		
@@ -263,7 +304,7 @@ public class TC_Register_With_Email extends BaseTest{
 		test.pass("Successfully Assert Pop Up Existing Account");
 	}
 	
-	@Test(priority = 9, dependsOnMethods = "TC_register_again_after_kill_apps")
+	@Test(priority = 11, dependsOnMethods = "TC_register_again_after_kill_apps")
 	public void TC_Login_After_Forgot()throws InterruptedException, IOException, TimeoutException{
 		TC_user_redirect_to_login();
 		

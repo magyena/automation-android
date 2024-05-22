@@ -10,6 +10,7 @@ import java.awt.Point;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -24,7 +25,10 @@ import id.visionplus.v2.Action.Tap;
 import id.visionplus.v2.MainFunction.BaseTest;
 import id.visionplus.v2.TestCase.General.TC_Get_OTP;
 import id.visionplus.v2.TestCase.General.TC_Homepage;
+import id.visionplus.v2.TestCase.General.TC_Logout;
 import id.visionplus.v2.TestCase.General.TC_Menu;
+import id.visionplus.v2.TestCase.General.TC_OpenApp;
+import id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Free_User_Phone;
 import id.visionplus.v2.TestCase.Visitor.Register.TC_Integrate_Register;
 import id.visionplus.v2.TestCase.Visitor.Register.TC_Register_With_Phone_Number;
 import id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_Live_TV;
@@ -36,25 +40,31 @@ public class TC_Cluster_Euro extends BaseTest {
 	Assertion assertion = new Assertion();
 	Input input = new Input();
 	TC_Get_OTP get_otp = new TC_Get_OTP();
-	String phone_number = epoch_random();
 	BaseTest base = new BaseTest();
 	Tap tap = new Tap();
 	TC_Premium_Sport_User_Watch_Live_TV sport_linear_tc = new TC_Premium_Sport_User_Watch_Live_TV();
 
-	public String epoch_random() {
-		long epochTime = System.currentTimeMillis();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmssSSS");
-		String formattedTime = dateFormat.format(new Date(epochTime));
-		
-		String prefix = "899000";
-        int suffixLength = 13 - prefix.length();
-
-        // Extract the necessary number of digits from the formatted time
-        String result = prefix + formattedTime.substring(0, Math.max(0,suffixLength));
-		return result;
-	}
-
 	String testcaseType = "FREE";
+	
+	public void TC_Flow_Watch_Euro1(){
+		Scroll scroll = new Scroll(android);
+		By locatorEuro1 = By.xpath("//*[contains(@text,'1003')]");
+		scroll.scrollUntilElementFound(locatorEuro1);
+		System.out.println("Success Scroll and Find Euro 1 Channel");
+		
+		click.clickEuro1Channel();
+        test.pass("Successfully Click Euro 1 Channel");
+	}
+	
+	public void TC_Flow_Watch_Euro2(){
+		Scroll scroll = new Scroll(android);
+		By locatorEuro2 = By.xpath("//*[contains(@text,'1004')]");
+		scroll.scrollUntilElementFound(locatorEuro2);
+		System.out.println("Success Scroll and Find Euro 2 Channel");
+		
+		click.clickEuro2Channel();
+        test.pass("Successfully Click Euro 2 Channel");
+	}
 	
 	public void TC_Cancel_Subscription_Playstore() throws InterruptedException, IOException, TimeoutException {
 		click.pressBack();
@@ -136,8 +146,8 @@ public class TC_Cluster_Euro extends BaseTest {
 //		TC_Cancel_Subscription_Playstore();
 		
 		TC_Integrate_Register register = new TC_Integrate_Register();
-		base.ConfigureAppium();
-		Thread.sleep(5000);
+//		base.ConfigureAppium();
+//		Thread.sleep(5000);
 
 		register.TC_user_input_valid_phone_number_and_password();
 		register.TC_user_click_send_otp_2nd_time();
@@ -241,45 +251,122 @@ public class TC_Cluster_Euro extends BaseTest {
 	    click.clickLiveTv();
 	    test.pass("Successfully Clicked Menu Button");
 	    
-		click.clickFreeLinear();
-		test.pass("Successfully Clicked Free Linear Channel");
-
-		Thread.sleep(1000);
-
-		assertion.assertLiveTVPlayed();
-		test.pass("Successfully Assert Live TV is Played");
+//		click.clickFreeLinear();
+//		test.pass("Successfully Clicked Free Linear Channel");
+//
+//		Thread.sleep(1000);
+//
+//		assertion.assertLiveTVPlayed();
+//		test.pass("Successfully Assert Live TV is Played");
 		
 		sport_linear_tc.TC_Premium_Sport_User_Watch_Premium_Linear();
 	}
 	
-//	@Test(priority = 5)	
-//	public void TC_Watch_Euro_Channel_1() throws InterruptedException, IOException, TimeoutException {
-//		Scroll scroll = new Scroll(android);
-//		By locatorEuro1 = By.xpath("//*[contains(@text,'1003')]");
-//		scroll.scrollUntilElementFound(locatorEuro1);
-//		System.out.println("Success Scroll and Find Euro 1 Channel");
-//		
-//		click.clickEuro1Channel();
-//        test.pass("Successfully Click Euro 1 Channel");
-//		
+	@Test(priority = 5)	
+	public void TC_EURO_User_Watch_Euro_Channel_1() throws InterruptedException, IOException, TimeoutException {
+	    TC_Flow_Watch_Euro1();
 //		assertion.assertLiveTVPlayed();
 //		test.pass("Successfully Assert Live TV is Played");
-//		
-//		System.out.println("Success Play Euro 1 Channel");
-//	}
-//	
-//	@Test(priority = 6)	
-//	public void TC_Watch_Euro_Channel_2() throws InterruptedException, IOException, TimeoutException {
-//		Scroll scroll = new Scroll(android);
-//		By locatorEuro2 = By.xpath("//*[contains(@text,'1004')]");
-//		scroll.scrollUntilElementFound(locatorEuro2);
-//		System.out.println("Success Scroll and Find Euro 2 Channel");
-//		
-//		click.clickEuro2Channel();
-//        test.pass("Successfully Click Euro 2 Channel");
-//		
+		
+		System.out.println("Success Play Euro 1 Channel");
+	}
+	
+	@Test(priority = 6)	
+	public void TC_EURO_User_Watch_Euro_Channel_2() throws InterruptedException, IOException, TimeoutException {
+	    TC_Flow_Watch_Euro2();
 //		assertion.assertLiveTVPlayed();
 //		test.pass("Successfully Assert Live TV is Played");
-//		System.out.println("Success Play Euro 2 Channel");
-//	}
+		System.out.println("Success Play Euro 2 Channel");
+	}
+	
+	@Test(priority = 7)	
+	public void TC_Free_User_Cannot_Watch_Euro_Channel() throws InterruptedException, IOException, TimeoutException {
+		TC_Logout logout = new TC_Logout();
+		logout.TC_Access_Settings();
+		logout.TC_Access_Logout();
+		
+		TC_OpenApp open_app = new TC_OpenApp();
+		open_app.TC_Open_App_as_Free_User();
+		
+		click.clickMenuButton();
+	    test.pass("Successfully Clicked Menu Button");
+	    
+	    click.clickLiveTv();
+	    test.pass("Successfully Clicked Menu Button");
+		
+		click.clickMenuButton();
+	    test.pass("Successfully Clicked Menu Button");
+	    
+	    click.clickLiveTv();
+	    test.pass("Successfully Clicked Menu Button");
+	    
+	    TC_Flow_Watch_Euro1();
+		assertion.assertLiveTVNotPlayed();
+		test.pass("Successfully Assert Live TV is Not Played");
+
+        TC_Flow_Watch_Euro2();
+		assertion.assertLiveTVNotPlayed();
+		test.pass("Successfully Assert Live TV is Not Played");
+	}
+	
+	@Test(priority = 7)	
+	public void TC_Premium_User_Cannot_Watch_Euro_Channel() throws InterruptedException, IOException, TimeoutException {
+		TC_Logout logout = new TC_Logout();
+		logout.TC_Access_Settings();
+		logout.TC_Access_Logout();
+		
+		TC_OpenApp open_app = new TC_OpenApp();
+		open_app.TC_Open_app_as_Premium_User();
+		
+		click.clickMenuButton();
+	    test.pass("Successfully Clicked Menu Button");
+	    
+	    click.clickLiveTv();
+	    test.pass("Successfully Clicked Menu Button");
+		
+		click.clickMenuButton();
+	    test.pass("Successfully Clicked Menu Button");
+	    
+	    click.clickLiveTv();
+	    test.pass("Successfully Clicked Menu Button");
+	    
+	    TC_Flow_Watch_Euro1();
+		assertion.assertLiveTVNotPlayed();
+		test.pass("Successfully Assert Live TV is Not Played");
+
+        TC_Flow_Watch_Euro2();
+		assertion.assertLiveTVNotPlayed();
+		test.pass("Successfully Assert Live TV is Not Played");
+		
+	}
+	
+	@Test(priority = 7)	
+	public void TC_Premium_Sport_User_Cannot_Watch_Euro_Channel() throws InterruptedException, IOException, TimeoutException {
+		TC_Logout logout = new TC_Logout();
+		logout.TC_Access_Settings();
+		logout.TC_Access_Logout();
+		
+		TC_OpenApp open_app = new TC_OpenApp();
+		open_app.TC_Open_App_as_Premium_Sport_User();
+		
+		click.clickMenuButton();
+	    test.pass("Successfully Clicked Menu Button");
+	    
+	    click.clickLiveTv();
+	    test.pass("Successfully Clicked Menu Button");
+		
+		click.clickMenuButton();
+	    test.pass("Successfully Clicked Menu Button");
+	    
+	    click.clickLiveTv();
+	    test.pass("Successfully Clicked Menu Button");
+	    
+	    TC_Flow_Watch_Euro1();
+		assertion.assertLiveTVNotPlayed();
+		test.pass("Successfully Assert Live TV is Not Played");
+
+        TC_Flow_Watch_Euro2();
+		assertion.assertLiveTVNotPlayed();
+		test.pass("Successfully Assert Live TV is Not Played");
+	}
 }

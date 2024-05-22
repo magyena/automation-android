@@ -16,6 +16,7 @@ import java.util.Properties;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -195,5 +196,12 @@ public class BaseTest {
 		String message = path;
 		sendMessageToWebhook(webhookUrl, "application/json", message);
 	}
+	
+//	   @AfterClass
+//	    public void tearDown() {
+//	        if (android != null) {
+//	            android.quit();
+//	        }
+//	    }
 }
 

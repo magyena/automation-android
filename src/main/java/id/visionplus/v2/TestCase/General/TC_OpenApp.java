@@ -69,7 +69,7 @@ public class TC_OpenApp extends BaseTest{
 	}
 	
 	@Test 
-	public void TC_Open_app_as_Premium_User () throws InterruptedException, TimeoutException , IOException {
+	public void TC_Open_app_as_Premium_User() throws InterruptedException, TimeoutException , IOException {
 		Object [] []  testData = premiumUser();
 		// Assuming there is only one set of username and password in the data provider
 	    String email = (String) testData[0][0];

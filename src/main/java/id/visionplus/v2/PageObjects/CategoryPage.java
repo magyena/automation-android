@@ -39,8 +39,8 @@ public class CategoryPage extends AndroidGesture
 	 @AndroidFindBy(id="com.zte.iptvclient.android.idmnc:id/backButton") 
 	 public static WebElement btn_back_categorypage;
 	 
-	 @AndroidFindBy(xpath="//android.widget.TextView[@text='Best Korean Action']/following::android.view.View[1]") 
-	 public static WebElement content_below_cluster_Best_Korean_Action;
+	 @AndroidFindBy(xpath="//android.widget.TextView[@text='Asian Action Movies']/following::android.view.View[1]") 
+	 public static WebElement content_below_cluster_Asian_Action_Movies;
 	 
 	
 	 
