@@ -38,7 +38,7 @@ public class Scroll extends AndroidGesture {
         System.out.println("Arrive at scroll down until");
         int flag = 0;
         long startTime = System.currentTimeMillis();
-        long timeoutInMillis = 30 * 1000; // Timeout set to 30 seconds
+        long timeoutInMillis = 90 * 1000; // Timeout set to 90 seconds
         int currentHeight;
         int totalHeight = getTotalHeight();
 
@@ -77,7 +77,7 @@ public class Scroll extends AndroidGesture {
         System.out.println("Arrive at scroll Up until");
         int flag = 0;
         long startTime = System.currentTimeMillis();
-        long timeoutInMillis = 180 * 1000; // Timeout set to 180 seconds
+        long timeoutInMillis = 90 * 1000; // Timeout set to 90 seconds
 
         while (flag == 0 && System.currentTimeMillis() - startTime <= timeoutInMillis) {
             try {

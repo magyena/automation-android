@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Euro Test Suites">
+
+<listeners>
+<listener class-name="id.visionplus.v2.TestUtils.Listeners"/>
+</listeners>
+
+  <test thread-count="1" name="Test">
+    <classes>
+    	<class name="id.visionplus.v2.TestCase.Euro.TC_Cluster_Euro"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

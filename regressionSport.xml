@@ -11,10 +11,8 @@
     <classes>
 		<class name="id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Premium_Sport_User_Email"/>
 		<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_Live_TV"/>
-		<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_VOD"/>
-    	<class name="id.visionplus.v2.TestCase.General.TC_Manage_Devices"/>
+		<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_User_Watch_VOD"/> 
     	<class name="id.visionplus.v2.TestCase.PremiumSport.TC_Premium_Sport_Watch_guide"/>
- 		<class name="id.visionplus.v2.TestCase.General.TC_Transaction_History"/>   
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
