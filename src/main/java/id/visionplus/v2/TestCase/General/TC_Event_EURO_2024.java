@@ -27,9 +27,14 @@ public class TC_Event_EURO_2024 extends BaseTest {
 	@Test(priority = 1)
 	public void TC_Euro_Package_on_Buy_Package() throws InterruptedException, IOException, TimeoutException {
 		TC_Integrate_Register register = new TC_Integrate_Register();
+		register.setResult();
+		String phoneNumber_login_again = register.getResult();
+
 		register.TC_user_input_valid_phone_number_and_password();
 		register.TC_user_click_send_otp_2nd_time();
 		register.TC_user_input_correct_otp();
+
+		System.out.println("Received Result: " + phoneNumber_login_again);
 
 		click.clickMenuButton();
 		test.pass("Successfully clicked menu button");
@@ -123,19 +128,18 @@ public class TC_Event_EURO_2024 extends BaseTest {
 		click.pressBack();
 	}
 
-	@Test(priority = 7,dependsOnMethods = "TC_Euro_Package_Play_VOD")
+	@Test(priority = 7, dependsOnMethods = "TC_Euro_Package_Play_VOD")
 	public void TC_Euro_Package_Play_LiveTV_Premium() throws InterruptedException, IOException, TimeoutException {
 
 		click.clickMenuButton();
 
 		click.clickLiveTv();
-		Point start = new Point(555,1029);
-		Point end = new Point(555,2014);
+		Point start = new Point(555, 1029);
+		Point end = new Point(555, 2014);
 		Swipe swipe = new Swipe(android);
-		for (int i=0;i<20;i++)
-		{
+		for (int i = 0; i < 20; i++) {
 			swipe.swipetoLeft(start, end);
-			
+
 		}
 		click.clickPremiumLinear();
 		assertion.assertSubscribe();
@@ -145,7 +149,7 @@ public class TC_Event_EURO_2024 extends BaseTest {
 		android.closeApp();
 	}
 
-	@Test(priority = 8,dependsOnMethods = "TC_Euro_Package_Play_LiveTV_Premium")
+	@Test(priority = 8, dependsOnMethods = "TC_Euro_Package_Play_LiveTV_Premium")
 	public void TC_Free_User_Watch_Channel_Euro() throws InterruptedException, IOException, TimeoutException {
 		base.ConfigureAppium();
 		TC_OpenApp open = new TC_OpenApp();
