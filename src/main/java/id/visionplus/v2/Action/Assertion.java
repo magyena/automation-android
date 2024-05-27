@@ -1725,7 +1725,7 @@ public class Assertion extends BaseTest {
 		}
 	}
 	
-	public void assertCurrentEuroPackage() {
+	public void assertCurrentPackageEuro() {
 		buypackage = new BuyPackagePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(10));
 		WebElement current_euro_package = buypackage.current_euro_package;

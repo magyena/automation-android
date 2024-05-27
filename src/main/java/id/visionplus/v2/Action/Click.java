@@ -1721,7 +1721,7 @@ public class Click extends BaseTest {
 		info_img.click();
 	}
 	
-	public void clickEuroPackage() {
+	public void clickPackageEuro() {
 		buypackage = new BuyPackagePage(android);
 		wait = new WebDriverWait(android, Duration.ofSeconds(10));
 		WebElement euro_package = buypackage.euro_package;
