@@ -17,7 +17,7 @@ import id.visionplus.v2.TestCase.General.TC_Logout;
 import id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Free_User_Phone;
 
 public class TC_Integrate_Register extends BaseTest {
-
+	public String Result;
 	Click click = new Click();
 	Assertion assertion = new Assertion();
 	Input input = new Input();
@@ -25,6 +25,14 @@ public class TC_Integrate_Register extends BaseTest {
 	String phone_number = random_phone();
 	String prev_otp = "";
 	String new_pass = "Lupa4321";
+	
+	public void setResult() {
+	    Result = phone_number;
+	}
+
+	public String getResult() {
+	    return Result;
+	}
 
 	public String random_phone() {
 		 	String prefix = "899000";

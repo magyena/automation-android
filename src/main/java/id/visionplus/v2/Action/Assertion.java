@@ -935,14 +935,41 @@ public class Assertion extends BaseTest {
 		Assert.assertEquals(actual, expected);
 	}
 
-	public void assertSubscribetoPremiumSport() { // inno
+	public void assertSubscribetoPremiumSport() {
 		liveTvPage = new LiveTVPage(android);
-		wait = new WebDriverWait(android, Duration.ofSeconds(60));
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
 		WebElement subscribe = liveTvPage.btn_subscribe;
-		wait.until(ExpectedConditions.visibilityOfAllElements(subscribe));
 
-		Assert.assertTrue(subscribe.isDisplayed());
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(subscribe));
+			Assert.assertTrue(subscribe.isDisplayed());
+			System.out.println("Assert Success: Subscriibe Button Showing.");
+		} catch (AssertionError e) {
+			System.out.println(" Assert Failure: Subscribe  Button not Showing.");
+			throw e;
+			
+		}
+
 	}
+	
+	public void assertSubscribe() {
+		liveTvPage = new LiveTVPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement subscribe = liveTvPage.btn_subscribe;
+
+		 try {
+		        wait.until(ExpectedConditions.visibilityOf(subscribe));
+		        
+		        Assert.assertTrue(!subscribe.isDisplayed());
+		        
+		        System.out.println("Assert Passed: Subscribe Button not Showing.");
+		    } catch (TimeoutException e) {
+		        System.out.println("Assert Passed: Subscribe Button not Found.");
+		    } catch (NoSuchElementException e) {
+		        System.out.println("Assert Passed: Subscribe Button not Found.");
+		    }
+		}	
+	
 	
 	public void assertErrorConnection() {
 		liveTvPage = new LiveTVPage(android);
@@ -1667,6 +1694,67 @@ public class Assertion extends BaseTest {
 			throw e;
 		}
 	}
+	
+	public void assertEventEuroPackage() {
+		buypackage = new BuyPackagePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement euro_package = buypackage.euro_package;
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(euro_package));
+			Assert.assertTrue(euro_package.isDisplayed());
+			System.out.println("Assert Success: Euro Package Showing.");
+		} catch (AssertionError e) {
+			System.out.println(" Assert Failure: Euro Package not Showing.");
+			throw e;
+		}
+	}
+	
+	public void assertTransactionHistoryEuroPackage() {
+		transactionshistoryPage = new TransactionHistoryPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement transaction_euro_package = transactionshistoryPage.txt_euro_package;
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(transaction_euro_package));
+			Assert.assertTrue(transaction_euro_package.isDisplayed());
+			System.out.println("Assert Success: Transaction History Euro Package Showing.");
+		} catch (AssertionError e) {
+			System.out.println(" Assert Failure: Transaction History Euro Package not Showing.");
+			throw e;
+		}
+	}
+	
+	public void assertCurrentPackageEuro() {
+		buypackage = new BuyPackagePage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement current_euro_package = buypackage.current_euro_package;
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(current_euro_package));
+			Assert.assertTrue(current_euro_package.isDisplayed());
+			System.out.println("Assert Success: Current Transaction Euro Package Showing.");
+		} catch (AssertionError e) {
+			System.out.println(" Assert Failure: Current Transaction Euro Package not Showing.");
+			throw e;
+		}
+	}
+	
+	public void assertEuroChannel() {
+		liveTvPage = new LiveTVPage(android);
+		wait = new WebDriverWait(android, Duration.ofSeconds(10));
+		WebElement euro_channel = liveTvPage.img_euro_2;
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(euro_channel));
+			Assert.assertTrue(euro_channel.isDisplayed());
+			System.out.println("Assert Success: Euro Channel 2 Showing.");
+		} catch (AssertionError e) {
+			System.out.println(" Assert Failure: Euro Channel 2 not Showing.");
+			throw e;
+		}
+	}
+	
 	
 	public void assertLiveTVPlayed() {
 		liveTvPage = new LiveTVPage(android);

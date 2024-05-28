@@ -56,5 +56,9 @@ public class TransactionHistoryPage extends AndroidGesture {
 	@AndroidFindBy(xpath="//android.widget.TextView[@text=\"Payment\"]")
 	public static WebElement txt_buyAgain_payment;
 	
+	@AndroidFindBy(xpath="//android.widget.TextView[@text=\"EURO Vision+ Pack\"]")
+	public static WebElement txt_euro_package;
+	
+	
 	
 }

@@ -53,5 +53,13 @@ public class LiveTVPage extends AndroidGesture
 	@AndroidFindBy(xpath="(//android.widget.ImageView[@resource-id=\"com.zte.iptvclient.android.idmnc:id/live_tv_phone_channel_list_element_channel_info_info_button\"])[4]")
 	public static WebElement img_info_button;
 	
+	@AndroidFindBy(xpath="//*[contains(@text,'1003')]")
+	public static WebElement img_euro_1;
+	
+	@AndroidFindBy(xpath="//*[contains(@text,'1004')]")
+	public static WebElement img_euro_2;
+	
+	
+	
 }
 
