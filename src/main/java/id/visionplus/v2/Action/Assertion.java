@@ -943,7 +943,7 @@ public class Assertion extends BaseTest {
 		try {
 			wait.until(ExpectedConditions.visibilityOfAllElements(subscribe));
 			Assert.assertTrue(subscribe.isDisplayed());
-			System.out.println("Assert Success: Subscriibe Button Showing.");
+			System.out.println("Assert Success: Subscribe Button Showing.");
 		} catch (AssertionError e) {
 			System.out.println(" Assert Failure: Subscribe  Button not Showing.");
 			throw e;
@@ -1748,9 +1748,9 @@ public class Assertion extends BaseTest {
 		try {
 			wait.until(ExpectedConditions.visibilityOfAllElements(euro_channel));
 			Assert.assertTrue(euro_channel.isDisplayed());
-			System.out.println("Assert Success: Euro Channel 2 Showing.");
+			System.out.println("Assert Success: Euro Channel  Showing.");
 		} catch (AssertionError e) {
-			System.out.println(" Assert Failure: Euro Channel 2 not Showing.");
+			System.out.println(" Assert Failure: Euro Channel  not Showing.");
 			throw e;
 		}
 	}

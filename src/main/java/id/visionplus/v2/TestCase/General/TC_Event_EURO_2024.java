@@ -7,15 +7,18 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import expectj.TimeoutException;
 import id.visionplus.v2.Action.Assertion;
 import id.visionplus.v2.Action.Click;
+import id.visionplus.v2.Action.Input;
 import id.visionplus.v2.Action.Scroll;
 import id.visionplus.v2.Action.Swipe;
 import id.visionplus.v2.Action.Tap;
 import id.visionplus.v2.MainFunction.BaseTest;
+import id.visionplus.v2.TestCase.Visitor.Login.TC_Login_As_Free_User_Phone;
 import id.visionplus.v2.TestCase.Visitor.Register.TC_Integrate_Register;
 
 public class TC_Event_EURO_2024 extends BaseTest {
@@ -23,18 +26,23 @@ public class TC_Event_EURO_2024 extends BaseTest {
 	Assertion assertion = new Assertion();
 	BaseTest base = new BaseTest();
 	Tap tap = new Tap();
+	Input input = new Input();
+	TC_Integrate_Register register = new TC_Integrate_Register();
+
+	private String phoneNumber_login_again;
+
+	@BeforeClass
+	public void GetNumber() throws InterruptedException, IOException, TimeoutException {
+
+		register.setResult();
+		phoneNumber_login_again = register.getResult();
+	}
 
 	@Test(priority = 1)
 	public void TC_Euro_Package_on_Buy_Package() throws InterruptedException, IOException, TimeoutException {
-		TC_Integrate_Register register = new TC_Integrate_Register();
-		register.setResult();
-		String phoneNumber_login_again = register.getResult();
-
 		register.TC_user_input_valid_phone_number_and_password();
 		register.TC_user_click_send_otp_2nd_time();
 		register.TC_user_input_correct_otp();
-
-		System.out.println("Received Result: " + phoneNumber_login_again);
 
 		click.clickMenuButton();
 		test.pass("Successfully clicked menu button");
@@ -89,6 +97,33 @@ public class TC_Event_EURO_2024 extends BaseTest {
 
 	@Test(priority = 5, dependsOnMethods = "TC_Euro_package_entitlement")
 	public void TC_Play_Channel_Euro_1_and_Euro_2() throws InterruptedException, IOException, TimeoutException {
+		Thread.sleep(5000);
+		TC_Login_As_Free_User_Phone login = new TC_Login_As_Free_User_Phone();
+		android.closeApp();
+		base.ConfigureAppium();
+		System.out.println("Login again With "+phoneNumber_login_again);
+
+		login.TC_Access_to_Login_Page();
+
+		click.clickFieldPhoneNumber();
+		test.pass("Successfully Clicked Text Field Phone Number");
+
+		input.clearPhoneNumberField();
+
+		input.inputPhoneNumber(phoneNumber_login_again);
+		test.pass("Successfully Input Text Field with Valid Phone Number");
+
+		click.clickFieldPassword();
+		test.pass("Successfully Clicked Text Field Password");
+
+		Thread.sleep(3000);
+		input.inputPassword("4321Lupa");
+		test.pass("Successfully Input Text Field Password with Valid Password");
+
+		android.hideKeyboard();
+		click.clickRegisterLoginSubmitButton();
+		test.pass("Successfully Clicked Login Submit Button");
+
 		click.clickMenuButton();
 
 		click.clickLiveTv();
